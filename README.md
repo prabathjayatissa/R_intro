@@ -10,4 +10,7 @@ Website: [https://hannahmetzler.eu](https://hannahmetzler.eu)
 
 ## What is this course about? 
 
-This is an introduction to programming your data analyses and visualizations in R, for people who know the basics of statistics, but have never written code before. I had a lot of doubts about being able to write code myself before I started coding myself. When I started coding, I initially found it challenging, but then it was easier than I had thought, and especially a lot of fun! I want to help others jump over barriers of self-doubts and make it easy to start writing your own code!
+This course will introduce you to coding your data analyses and data visualizations with the software R. It is geared for people who know the basics of statistics, but have never written code before. We will set up R, Rstudio and Git, learn how to wrangle and clean data, how to make pretty plots, and how to do basic statists (descriptives, t-tests, ANOVAs, regressions etc.) in R.
+
+If you have had doubts if you'd be able to write code, but secretly have been wanting to for a long time, this course is for you. In my experience, it seems more challenging and less fun initially than it later turns out to be! Coming from a social science background myself, I want to help others jump over the barrier of self-doubts and make it easy for you to start writing your own code.
+
