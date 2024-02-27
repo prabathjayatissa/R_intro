@@ -32,8 +32,7 @@ If you have had doubts if you'd be able to write code, but secretly have been wa
 
 * Choose version: Windows10/11, macOS12+, Ubuntu20, Ubuntu22
 * Install
-  * for Ubuntu: make sure the file is in your Downloads folder, then execute in your Terminal: 
-   *  sudo apt-get install ~/Downloads/RSTUDIO-2023.12.1-402-AMD64.DEB
+  * for Ubuntu: make sure the file is in your Downloads folder, then execute in your Terminal: sudo apt-get install ~/Downloads/RSTUDIO-2023.12.1-402-AMD64.DEB
 * Open Rstudio to see if it worked.
 * If you have trouble installing, write to me at metzler[at]csh.ac.at before 12pm on Tuesday March 5th
 
