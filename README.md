@@ -18,7 +18,7 @@ If you have had doubts if you'd be able to write code, but secretly have been wa
 
 ### 1. Download and install R
 
-* **R** is the data analysis program): <https://cran.rstudio.com/>
+* **R** is the data analysis program we will use: <https://cran.rstudio.com/>
 
 * Click "Download R for macOS" (or Ubuntu/Windows), then: 
   * Windows: click on **base**, then [Download R-4.3.2 for Windows](https://cran.rstudio.com/bin/windows/base/R-4.3.2-win.exe), then install
@@ -33,3 +33,5 @@ If you have had doubts if you'd be able to write code, but secretly have been wa
 * Install
   * for Ubuntu: make sure the file is in your Downloads folder, then execute in your Terminal: 
    *  sudo apt-get install ~/Downloads/RSTUDIO-2023.12.1-402-AMD64.DEB
+* Open Rstudio to see if it all worked!
+* If you have trouble installing, write to me at metzler@csh.ac.at before 12pm on Tuesday March 5th
