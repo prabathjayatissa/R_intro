@@ -1,0 +1,126 @@
+---
+title: "Data analysis in R for beginners"
+subtitle: "Lesson 1"
+author: "Hannah Metzler"
+date: "March 6 2023"
+format: 
+  html:
+    toc: true
+    # number-sections: true
+    css: styles.css
+    df-print: kable
+editor: visual
+execute: 
+  warning: false
+cache: true
+
+---
+
+## Points to cover
+
+- strings
+- coding terms: objects, assignment, environment, whitespace, function syntax
+- Packages: installing & loading
+- Tidyverse
+Getting help
+- function help
+- googling
+- Vignettes
+- chatgpt
+-   Quarto basics
+
+## R and Rstudio
+
+-   R: programming software
+-   Open R once to look at it - you will never need this again
+-   Rstudio: text and code editor, file manager - program in which you actually work
+-   You could also use other environments (e.g. Jupyter Notebooks, Visual Studio Code)
+
+## RStudio interface
+
+- Left top: Source pane: Writing your scripts (with code & text)
+- Left bottom: Console: executing code directly
+- Right pane: different information about and outputs of your code
+
+```{r}
+#| echo: false
+knitr::include_graphics("figures/Rstudio_interface.png")
+```
+
+## Console commands
+
+```{r}
+1 + 1
+```
+
+- History of commands: upd/down arrows
+- Entries can have multiple lines
+
+```{r}
+# let's break it over multiple lines
+1 + 2 + 3 + 4 + 5 + 6 +
+    7 + 8 + 9 +
+    10
+```
+
+## Coding Terms
+
+### Objects
+
+- Storing results, numbers, letters for later use in an object/variable
+
+### Assignment
+
+```{r}
+## use the assignment operator '<-'
+## R stores the number in the object
+x <- 5
+```
+
+Use the object x in your next step: 
+
+```{r}
+x * 2
+```
+
+## Valid object names
+
+- Object starts with a letter or a full stop and a letter
+- Object distinguishes uppercase and lowercase letters
+
+- Valid objects: songdata, SongData, song_data, song.data, .song.data, never_gonna_give_you_up_never_gonna_let_you_down
+- Invalid objects: _song_data, 1song, .1song, song data, song-data
+
+**Exercise**
+
+Which of the following are valid object names?
+
+* `slender_man`  
+* `copy pasta`  
+* `DOGE`  
+* `(╯°□°）╯︵ ┻━┻`  
+* `ErMahGerd`  
+* `34Rule`  
+* `panik-kalm-panik`  
+* `👀`  
+* `I_am_once_again_asking_you_for_your_support`  
+* `.this.is.fine.`  
+* `_is_this_a_pigeon_`
+
+
+
+## Installing packages
+
+-   Packages of code somebody has written and shared
+
+```{r}
+install.packages("tidyverse")
+install.packages("palmerpenguins")
+```
+
+-   Load the packages you will need
+
+```{r}
+library(tidyverse)
+
+```
