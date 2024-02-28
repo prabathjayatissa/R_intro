@@ -36,14 +36,14 @@ Getting help
 
 ```{r}
 #| echo: false
-#| fig-width: 7
+#| fig-width: 10
 knitr::include_graphics("figures/Rstudio_interface.png")
 ```
 
 ::: aside
 - Left top: Source pane: Writing your scripts (with code & text)
 - Left bottom: Console: executing code directly
-- Right pane: different information about and outputs of your code
+- Right pane: different information about you code, outputs of your code, help...
 :::
 
 ## Console commands
