@@ -1,13 +1,13 @@
 ---
-title: "Data analysis in R for beginners"
-subtitle: "Lesson 1"
+title: "Lesson 1: Getting Started"
 author: "Hannah Metzler"
 date: "March 6 2023"
 format: 
-  html:
-    toc: true
-    # number-sections: true
-    css: styles.css
+  revealjs:
+  # html:
+  #   toc: true
+  #   # number-sections: true
+  #   css: styles.css
     df-print: kable
 editor: visual
 execute: 
