@@ -3,17 +3,13 @@ title: "Lesson 1: Getting Started"
 author: "Hannah Metzler"
 date: "March 6 2023"
 format: 
-  revealjs:
-  # html:
-  #   toc: true
-  #   # number-sections: true
-  #   css: styles.css
+  html:
+    toc: true # generate a table of content
+  # number-sections: true
     df-print: kable
 editor: visual
-execute: 
-  warning: false
 cache: true
-
+echo: true
 ---
 
 ## Points to cover
@@ -53,11 +49,10 @@ knitr::include_graphics("figures/Rstudio_interface.png")
 ## Console commands
 
 ```{r}
-#| echo: true
 1 + 1
 ```
 
-- History of commands: upd/down arrows
+- History of commands: up/down arrows
 - Entries can have multiple lines
 
 ```{r}
@@ -109,8 +104,6 @@ Which of the following are valid object names?
 * `I_am_once_again_asking_you_for_your_support`  
 * `.this.is.fine.`  
 * `_is_this_a_pigeon_`
-
-
 
 ## Installing packages
 
