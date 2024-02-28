@@ -81,13 +81,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#points-to-cover" id="toc-points-to-cover" class="nav-link active" data-scroll-target="#points-to-cover">Points to cover</a></li>
-  <li><a href="#r-and-rstudio" id="toc-r-and-rstudio" class="nav-link" data-scroll-target="#r-and-rstudio">R and Rstudio</a></li>
-  <li><a href="#rstudio-interface" id="toc-rstudio-interface" class="nav-link" data-scroll-target="#rstudio-interface">RStudio interface</a></li>
-  <li><a href="#console-commands" id="toc-console-commands" class="nav-link" data-scroll-target="#console-commands">Console commands</a></li>
-  <li><a href="#coding-terms" id="toc-coding-terms" class="nav-link" data-scroll-target="#coding-terms">Coding Terms</a></li>
-  <li><a href="#valid-object-names" id="toc-valid-object-names" class="nav-link" data-scroll-target="#valid-object-names">Valid object names</a></li>
-  <li><a href="#installing-packages" id="toc-installing-packages" class="nav-link" data-scroll-target="#installing-packages">Installing packages</a></li>
+  <li><a href="#r-and-rstudio" id="toc-r-and-rstudio" class="nav-link active" data-scroll-target="#r-and-rstudio"><span class="header-section-number">1</span> R and Rstudio</a></li>
+  <li><a href="#rstudio-interface" id="toc-rstudio-interface" class="nav-link" data-scroll-target="#rstudio-interface"><span class="header-section-number">2</span> RStudio interface</a></li>
+  <li><a href="#console-commands" id="toc-console-commands" class="nav-link" data-scroll-target="#console-commands"><span class="header-section-number">3</span> Console commands</a></li>
+  <li><a href="#coding-terms" id="toc-coding-terms" class="nav-link" data-scroll-target="#coding-terms"><span class="header-section-number">4</span> Coding Terms</a>
+  <ul class="collapse">
+  <li><a href="#valid-object-names" id="toc-valid-object-names" class="nav-link" data-scroll-target="#valid-object-names"><span class="header-section-number">4.1</span> Valid object names</a></li>
+  <li><a href="#the-environment" id="toc-the-environment" class="nav-link" data-scroll-target="#the-environment"><span class="header-section-number">4.2</span> The environment</a></li>
+  <li><a href="#whitespace" id="toc-whitespace" class="nav-link" data-scroll-target="#whitespace"><span class="header-section-number">4.3</span> Whitespace</a></li>
+  </ul></li>
+  <li><a href="#points-to-cover" id="toc-points-to-cover" class="nav-link" data-scroll-target="#points-to-cover"><span class="header-section-number">5</span> Points to cover</a></li>
+  <li><a href="#installing-packages" id="toc-installing-packages" class="nav-link" data-scroll-target="#installing-packages"><span class="header-section-number">6</span> Installing packages</a></li>
   </ul>
 </nav>
 </div>
@@ -124,22 +128,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="points-to-cover" class="level2">
-<h2 class="anchored" data-anchor-id="points-to-cover">Points to cover</h2>
-<ul>
-<li>strings</li>
-<li>coding terms: objects, assignment, environment, whitespace, function syntax</li>
-<li>Packages: installing &amp; loading</li>
-<li>Tidyverse Getting help</li>
-<li>function help</li>
-<li>googling</li>
-<li>Vignettes</li>
-<li>chatgpt</li>
-<li>Quarto basics</li>
-</ul>
-</section>
-<section id="r-and-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="r-and-rstudio">R and Rstudio</h2>
+<section id="r-and-rstudio" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="r-and-rstudio"><span class="header-section-number">1</span> R and Rstudio</h2>
 <ul>
 <li>R: programming software</li>
 <li>Open R once to look at it - you will never need this again</li>
@@ -147,8 +137,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>You could also use other environments (e.g.&nbsp;Jupyter Notebooks, Visual Studio Code)</li>
 </ul>
 </section>
-<section id="rstudio-interface" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="rstudio-interface">RStudio interface</h2>
+<section id="rstudio-interface" class="level2 page-columns page-full" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="rstudio-interface"><span class="header-section-number">2</span> RStudio interface</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -166,8 +156,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Right pane: different information about you code, outputs of your code, help…</li>
 </ul>
 </div></div></section>
-<section id="console-commands" class="level2">
-<h2 class="anchored" data-anchor-id="console-commands">Console commands</h2>
+<section id="console-commands" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="console-commands"><span class="header-section-number">3</span> Console commands</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -177,6 +167,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>History of commands: up/down arrows</li>
 <li>Entries can have multiple lines</li>
+<li>Lines starting with # are a <strong>comment</strong>, a note about the code
+<ul>
+<li>This is where you explain what your code is doing</li>
+</ul></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's break it over multiple lines</span></span>
@@ -188,8 +182,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="coding-terms" class="level2">
-<h2 class="anchored" data-anchor-id="coding-terms">Coding Terms</h2>
+<section id="coding-terms" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="coding-terms"><span class="header-section-number">4</span> Coding Terms</h2>
 <ul>
 <li><strong>Objects</strong> (or variables): store results, numbers, letters for later use</li>
 <li><strong>Assignment</strong>: storing something in an object</li>
@@ -206,16 +200,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 10</code></pre>
 </div>
 </div>
-</section>
-<section id="valid-object-names" class="level2">
-<h2 class="anchored" data-anchor-id="valid-object-names">Valid object names</h2>
+<section id="valid-object-names" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="valid-object-names"><span class="header-section-number">4.1</span> Valid object names</h3>
 <ul>
 <li><p>Object starts with a letter or a full stop and a letter</p></li>
 <li><p>Object distinguishes uppercase and lowercase letters</p></li>
 <li><p>Valid objects: songdata, SongData, song_data, song.data, .song.data, never_gonna_give_you_up_never_gonna_let_you_down</p></li>
 <li><p>Invalid objects: _song_data, 1song, .1song, song data, song-data</p></li>
 </ul>
-<hr>
 <p><strong>Exercise</strong></p>
 <p>Which of the following are valid object names?</p>
 <ul>
@@ -242,22 +234,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>_is_this_a_pigeon_</code></li>
 </ul>
 </section>
-<section id="installing-packages" class="level2">
-<h2 class="anchored" data-anchor-id="installing-packages">Installing packages</h2>
+<section id="the-environment" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="the-environment"><span class="header-section-number">4.2</span> The environment</h3>
+<ul>
+<li>When you assign something to an object, R creates an entry in the global environment.</li>
+<li>Saved until you close Rstudio</li>
+<li>Check the upper right pane</li>
+<li>Click the broom icon to clear all objects</li>
+<li>Useful functions:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()            <span class="co"># print the objects in the global environment</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "x"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="st">"x"</span>)         <span class="co"># remove the object named x from the global environment</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># clear out the global environment</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="whitespace" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="whitespace"><span class="header-section-number">4.3</span> Whitespace</h3>
+</section>
+</section>
+<section id="points-to-cover" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="points-to-cover"><span class="header-section-number">5</span> Points to cover</h2>
+<ul>
+<li>strings</li>
+<li>coding terms: environment, whitespace, function syntax</li>
+<li>Packages: installing &amp; loading</li>
+<li>Tidyverse Getting help</li>
+<li>function help</li>
+<li>googling</li>
+<li>Vignettes</li>
+<li>chatgpt</li>
+<li>Quarto basics</li>
+</ul>
+</section>
+<section id="installing-packages" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="installing-packages"><span class="header-section-number">6</span> Installing packages</h2>
 <ul>
 <li>Packages of code somebody has written and shared</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Installiere Paket nach '/home/hannah/R/x86_64-pc-linux-gnu-library/4.3'
-(da 'lib' nicht spezifiziert)</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Installiere Paket nach '/home/hannah/R/x86_64-pc-linux-gnu-library/4.3'
-(da 'lib' nicht spezifiziert)</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Load the packages you will need</li>

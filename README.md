@@ -53,5 +53,5 @@ There are a variety of free online classes on R, some including an introduction 
 
 ## Course materials
 
-- [Lesson 1](https://hannahmetzler.eu/R_intro/Lesson_1/index.html) 
+- [Lesson 1](https://hannahmetzler.eu/R_intro/Lesson_1/Lesson1.html) 
 

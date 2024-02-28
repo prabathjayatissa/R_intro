@@ -5,25 +5,14 @@ date: "March 6 2023"
 format: 
   html:
     toc: true # generate a table of content
-  # number-sections: true
+    number-sections: true
     df-print: kable
 editor: visual
 cache: true
+execute: 
+  warning: false
 echo: true
 ---
-
-## Points to cover
-
-- strings
-- coding terms: objects, assignment, environment, whitespace, function syntax
-- Packages: installing & loading
-- Tidyverse
-Getting help
-- function help
-- googling
-- Vignettes
-- chatgpt
--   Quarto basics
 
 ## R and Rstudio
 
@@ -54,6 +43,8 @@ knitr::include_graphics("figures/Rstudio_interface.png")
 
 - History of commands: up/down arrows
 - Entries can have multiple lines
+- Lines starting with # are a **comment**, a note about the code
+  * This is where you explain what your code is doing
 
 ```{r}
 # let's break it over multiple lines
@@ -79,15 +70,13 @@ Use the object x in your next step:
 x * 2
 ```
 
-## Valid object names
+### Valid object names
 
 - Object starts with a letter or a full stop and a letter
 - Object distinguishes uppercase and lowercase letters
 
 - Valid objects: songdata, SongData, song_data, song.data, .song.data, never_gonna_give_you_up_never_gonna_let_you_down
 - Invalid objects: _song_data, 1song, .1song, song data, song-data
-
----
 
 **Exercise**
 
@@ -104,6 +93,35 @@ Which of the following are valid object names?
 * `I_am_once_again_asking_you_for_your_support`  
 * `.this.is.fine.`  
 * `_is_this_a_pigeon_`
+
+### The environment
+
+* When you assign something to an object, R creates an entry in the global environment.
+* Saved until you close Rstudio
+* Check the upper right pane
+* Click the broom icon to clear all objects
+* Useful functions: 
+
+```{r}
+ls()            # print the objects in the global environment
+rm("x")         # remove the object named x from the global environment
+rm(list = ls()) # clear out the global environment
+```
+
+### Whitespace
+
+## Points to cover
+
+- strings
+- coding terms: environment, whitespace, function syntax
+- Packages: installing & loading
+- Tidyverse
+Getting help
+- function help
+- googling
+- Vignettes
+- chatgpt
+-   Quarto basics
 
 ## Installing packages
 
