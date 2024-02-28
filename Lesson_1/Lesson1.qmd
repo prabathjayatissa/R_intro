@@ -53,6 +53,7 @@ knitr::include_graphics("figures/Rstudio_interface.png")
 ## Console commands
 
 ```{r}
+#| echo: true
 1 + 1
 ```
 
@@ -90,6 +91,8 @@ x * 2
 
 - Valid objects: songdata, SongData, song_data, song.data, .song.data, never_gonna_give_you_up_never_gonna_let_you_down
 - Invalid objects: _song_data, 1song, .1song, song data, song-data
+
+---
 
 **Exercise**
 
