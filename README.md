@@ -1,12 +1,15 @@
 # Data analysis for beginners in R
 
-Expert Skills Training the LBG Career Center, March 2024
+Expert Skills Training the LBG Career Center
+
+March 6, 13, 20 and 27, 2024, Wednesdays 10am-12pm
 
 ## Who am I?
 
 My name is Hannah Metzler, and I am currently a PostDoc at MedUni Vienna and the Complexity Science Hub Vienna. I have a background in Psychology and Cognitive Neuroscience, and I currently do research in computational social science at the interface of Psychology and Data Science. 
 
 Email: metzler[at]csh.ac.at
+
 Website: [https://hannahmetzler.eu](https://hannahmetzler.eu)
 
 ## What is this course about? 

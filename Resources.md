@@ -2,8 +2,10 @@
  
 * R course by Lisa Debruine (Psychology): [Data Skills for Reproducible Research](https://psyteachr.github.io/reprores-v3)
     * Last updated Sep 2022
-    
-* [R Course by Page Piccinini](https://pagepiccinini.com/r-course/)
+    * if you already know statistics
+       
+* [R Course by Page Piccinini](https://pagepiccinini.com/r-course/) - if you already know statistics
+    * Last updated in 2017
     * Lesson 0: Introduction and Set-up of R, Git, and Github/Bitbucket
     * Lesson 1: R Basics
     * Lesson 2: Linear Regression
@@ -13,7 +15,8 @@
     * Lesson 6: Part 1: Linear Mixed Effects Models (LMEM)
     * Lesson 6: Part 2: Linear Mixed Effects Models (LMEM)
 
-* [Learning Stastitis with R: A tutorial for psychology students and other beginngers](https://learningstatisticswithr-bookdown.netlify.app/)
+* DJ Navarro [Learning Stastitis with R: A tutorial for psychology students and other beginngers](https://learningstatisticswithr-bookdown.netlify.app/)
+    * last updated Dec 2018
     * Get startet with R
     * Descriptive statistcs, graphs, probability theory, sampling, estimation, null-hypotheses testing
     * contingency tables, t-test, ANOVAs, regressions
