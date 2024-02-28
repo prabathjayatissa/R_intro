@@ -38,14 +38,17 @@ Getting help
 
 ## RStudio interface
 
+```{r}
+#| echo: false
+#| fig-width: 7
+knitr::include_graphics("figures/Rstudio_interface.png")
+```
+
+::: aside
 - Left top: Source pane: Writing your scripts (with code & text)
 - Left bottom: Console: executing code directly
 - Right pane: different information about and outputs of your code
-
-```{r}
-#| echo: false
-knitr::include_graphics("figures/Rstudio_interface.png")
-```
+:::
 
 ## Console commands
 
@@ -65,11 +68,8 @@ knitr::include_graphics("figures/Rstudio_interface.png")
 
 ## Coding Terms
 
-### Objects
-
-- Storing results, numbers, letters for later use in an object/variable
-
-### Assignment
+* **Objects** (or variables): store results, numbers, letters for later use
+* **Assignment**: storing something in an object
 
 ```{r}
 ## use the assignment operator '<-'
