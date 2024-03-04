@@ -47,9 +47,13 @@ If you have had doubts if you'd be able to write code, but secretly have been wa
 
 ## Acknowledgement & Resources
 
-This course is based on parts of the free online course book [Data Skills for Reproducible Research:](https://psyteachr.github.io/reprores-v3/index.html) by Lisa DeBruin & Dale Barr. The book is useful for more details on what we cover in the skills training and to continue learning afterwards.
+This course is based on a free online course book: 
 
-There are a variety of free online classes on R, some including an introduction to statistics, others assuming you know statistics. You can find a list of courses I find useful [here](https://github.com/hannahmetzler/R_intro/blob/main/Resources.md). If a course has not been updated recently, it is quite likely that some things have changed, as R and its packages are regularly updated. Most things will still work, however. 
+Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research:](https://psyteachr.github.io/reprores-v3/index.html) (3.0) Zenodo. doi:10.5281/zenodo.6527194
+
+You can use it to repeat lessons, understand something better, or catch up if you miss a class. 
+
+There are a variety of  other free online classes on R, some including an introduction to statistics. You can find a list of courses I have found useful [here](https://github.com/hannahmetzler/R_intro/blob/main/Resources.md). If a course has not been updated recently, it is quite likely that some things have changed, as R and its packages are regularly updated. Most things will still work, however. 
 
 ## Course materials
 
