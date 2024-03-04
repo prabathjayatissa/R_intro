@@ -1,5 +1,4 @@
 ---
-title: "Lesson 1: Getting Started"
 author: "Hannah Metzler"
 date: "March 6 2023"
 format: 
@@ -13,6 +12,8 @@ execute:
   warning: false
 echo: true
 ---
+
+# Lesson 1: Getting Started
 
 ## R and Rstudio
 
@@ -43,8 +44,7 @@ knitr::include_graphics("figures/Rstudio_interface.png")
 
 - History of commands: up/down arrows
 - Entries can have multiple lines
-- Lines starting with # are a **comment**, a note about the code
-  * This is where you explain what your code is doing
+- Lines starting with # are a **comment**: notes that explain what your code is doing. Comments are crucial for reproducibility, and for making the life of your later self easier.
 
 ```{r}
 # let's break it over multiple lines
@@ -52,6 +52,15 @@ knitr::include_graphics("figures/Rstudio_interface.png")
     7 + 8 + 9 +
     10
 ```
+
+* `>` at the start of a line: R is waiting for a new line
+* `+`: R waits until you finish a command from the previous line
+
+```{r}
+(3 + 2) * #enter only this part first: # R waits until next line for evaluation
+     5
+```
+
 
 ## Coding Terms
 
@@ -70,7 +79,28 @@ Use the object x in your next step:
 x * 2
 ```
 
-### Valid object names
+* Text inside quotes is called a **string**, here one assigned to an object called "string1": 
+
+```{r}
+string1 <-"I am a string"
+```
+
+You can break up text over multiple lines; R waits for a close quote. If you want to include quotes inside this string, escape it with a backslash.
+
+```{r}
+long_string <- "In the grand kingdom of Punctuation, the 
+exclamation mark and the question mark decided 
+
+to throw a party. They invited all the punctuation marks: 
+the commas, the semicolons, the colons, and even the ellipsis. 
+The period, known for being a bit of a downer, said, 
+
+\"I'll stop by.\""
+
+cat(long_string) # cat() prints the string
+```
+
+**Valid object names**
 
 - Object starts with a letter or a full stop and a letter
 - Object distinguishes uppercase and lowercase letters
@@ -82,17 +112,17 @@ x * 2
 
 Which of the following are valid object names?
 
-* `slender_man`  
-* `copy pasta`  
-* `DOGE`  
-* `(╯°□°）╯︵ ┻━┻`  
-* `ErMahGerd`  
-* `34Rule`  
-* `panik-kalm-panik`  
-* `👀`  
-* `I_am_once_again_asking_you_for_your_support`  
-* `.this.is.fine.`  
-* `_is_this_a_pigeon_`
+1. `slender_man`  
+2. `copy pasta`  
+3. `DOGE`  
+4. `(╯°□°）╯︵ ┻━┻`  
+5. `ErMahGerd`  
+6. `34Rule`  
+7. `panik-kalm-panik`  
+8. `👀`  
+9. `I_am_once_again_asking_you_for_your_support`  
+10. `.this.is.fine.`  
+11. `_is_this_a_pigeon_`
 
 ### The environment
 
@@ -110,31 +140,205 @@ rm(list = ls()) # clear out the global environment
 
 ### Whitespace
 
-## Points to cover
-
-- strings
-- coding terms: environment, whitespace, function syntax
-- Packages: installing & loading
-- Tidyverse
-Getting help
-- function help
-- googling
-- Vignettes
-- chatgpt
--   Quarto basics
-
-## Installing packages
-
--   Packages of code somebody has written and shared
+R mostly ignores them. Use them to organize your code.
 
 ```{r}
-install.packages("tidyverse")
-install.packages("palmerpenguins")
+# a and b are identical
+a <- list(ctl = "Control Condition", exp1 = "Experimental Condition 1", exp2 = "Experimental Condition 2")
+
+# but b is much easier to read
+b <- list(ctl  = "Control Condition", 
+          exp1 = "Experimental Condition 1", 
+          exp2 = "Experimental Condition 2")
 ```
 
--   Load the packages you will need
+It is often useful to break up long functions onto several lines.
 
 ```{r}
+cat("The hyphen and the dash argued about who was faster to get there.",
+    "The parentheses brought their side comments,",
+    "while the quotation marks couldn't stop", 
+    "repeating what everyone else said.",
+    sep = "  \n") #start a new line after each comma/element
+```
+
+### Function syntax
+
+* **Function**: code that can be reused
+* Example: `sd` to calculate the standard deviation
+* Functions are set up like this: 
+
+```{r, eval = FALSE}
+function_name(argument1, argument2 = "value")
+```
+
+* Arguments can be named: (argument1 = 10)
+* You can skip the names if you put the arguments in the order defined in the function. 
+* Check the order in the help pane by typing `?sd` in the console. 
+* You can skip arguments that have a default value specified (`FALSE` for `sd`)
+
+The function `rnorm()` generates random numbers from the standard normal distribution.
+
+* Check its syntax in the help page: 
+  * what is n? 
+  * what is the default mean and sd?
+* Try entering it without any arguments. There is no default for n, so you'll get an error. 
+
+If you want 10 random numbers from a normal distribution with mean of 0 and standard deviation, you can just use the defaults.
+
+```{r rnorm-10}
+rnorm(10)
+```
+
+If you want 10 numbers from a normal distribution with a mean of 100 (we do not need argument names here):
+
+```{r rnorm-10-100}
+rnorm(10, 100)
+```
+
+This would be an equivalent but less efficient way of calling the function:
+
+```{r rnorm-n-10-m-100}
+rnorm(n = 10, mean = 100)
+```
+
+We need names if we change the default for an argument coming later in the list: 
+
+```{r rnorm-10-sd-100}
+rnorm(10, sd = 100)
+```
+
+Functions with a list of options after an argument: default value is the first option. The usage entry for the `power.t.test()` function looks like this:
+
+```{r, eval = FALSE}
+power.t.test(n = NULL, delta = NULL, sd = 1, sig.level = 0.05,
+             power = NULL,
+             type = c("two.sample", "one.sample", "paired"),
+             alternative = c("two.sided", "one.sided"),
+             strict = FALSE, tol = .Machine$double.eps^0.25)
+```
+
+* What is the default value for sd?
+* What is the default value for type?
+* Which is equivalent to power.t.test(100, 0.5)?
+  * power.t.test()
+  * power.t.test(n = 100)
+  * power.t.test(delta = 0.5, n = 100)
+  * power.t.test(100, 0.5, sig.level = 1, sd = 0.05)
+
+## Add-on packages
+
+* Packages of code somebody has written and shared
+  * Examples: data visualisation, machine learning, web scraping, neuroimaging...
+* Main repository:  CRAN, the Comprehensive R Archive Network
+* Installing: Only once (like an app)
+* From the console (not a script)
+
+```{r, eval=FALSE}
+# type this in the console pane
+install.packages("beepr")
+```
+
+* Loading a package (like opening an app)
+
+```{r}
+library(beepr)
+```
+
+Now you can run the function `beepr::beep()`.
+
+```{r beepr-demo, eval = FALSE}
+beepr::beep() # default sound
+beepr::beep(sound = "mario") # change the sound argument
+```
+
+Use `package::function()` to indicate which package a function comes from. 
+
+* `readr::read_csv()` refers to 
+  * the function `read_csv()` 
+  * in the package `"readr"`
+  
+### Tidyverse
+
+`"tidyverse"`is a meta-package that loads several packages we'll be using in almost every script:
+
+- "ggplot2"` for data visualisation 
+- "readr"` for data import
+- "tibble"` for tables 
+- "tidyr"` for data tidying 
+- "dplyr"` for data manipulation
+- "purrr"` for repeating things 
+- "stringr"` for strings
+- "forcats"` for factors (categorical variables)
+
+* Install Tidyverse via your console! 
+
+### Install package from GitHub
+
+* Some packages still under development are not yet on CRAN.
+* Install the package {devtools} to be able to download packages from GitHub
+* Check if devtools is installed by trying to load it. What does the error say? 
+
+```{r, eval=FALSE}
+# Install devtools: 
+install.packages("devtools")
+```
+
+Now you can install packages from Github (here the package for our free online course): 
+
+```{r, eval=FALSE}
+devtools::install_github("psyteachr/reprores-v3")
+```
+
+* Check installed and loaded packages in the lower right pane. 
+
+```{r}
+knitr::include_graphics("figures/right_pane_packages.png")
+```
+
+## Getting help
+
+* It's normal to look things up all the time! 
+* Very useful: [Cheatsheets](https://posit.co/resources/cheatsheets/)
+  * [RStudio IDE Cheatsheet](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf)
+
+
+### Function help
+
+```{r}
+# these methods are all equivalent ways of getting help
+help("rnorm")
+?rnorm
+help("rnorm", package="stats") 
+```
+
+Package is not loaded, or you don't know which package the function belongs to: Use `??function_name`
+
+### Googling
+
+* Using jargon like "concatenate vectors in R" helps
+* You'll get more useful results with practice
+* Use R, Rstats, or the name of the package.
+
+### Vignettes
+
+* Explain how to use a package.
+* Many packages have vignettes. 
+
+```{r, eval=FALSE}
 library(tidyverse)
+# opens a list of available vignettes
+vignette(package = "ggplot2")
 
+# opens a specific vignette in the Help pane
+vignette("ggplot2-specs", package = "ggplot2")
 ```
+
+### Asking for help
+
+* ChatGPT is a really good teacher. 
+* If all else fails: 
+  * Forums like statsexchange
+  * Copy & paste code and errors
+
+### Exercises
