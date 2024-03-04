@@ -1,5 +1,5 @@
 #custom folders
-./Course_orga
+./Course_orga/*
 
 # History files
 .Rhistory
