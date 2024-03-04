@@ -11,6 +11,7 @@ editor: visual
 
 -   PostDoc at MedUni Vienna and the Complexity Science Hub
 -   Psychology, Neuroscience, Data Science
+-   Research topics: social media, misinformation, mental health, suicide prevention
 
 # Intention
 
