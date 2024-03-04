@@ -341,4 +341,9 @@ vignette("ggplot2-specs", package = "ggplot2")
   * Forums like statsexchange
   * Copy & paste code and errors
 
-### Exercises
+## Exercises
+
+## References
+
+This course uses parts of the free online text book: 
+Lisa DeBruine & Dale Barr. (2022). Data Skills for Reproducible Research: (3.0) Zenodo. doi:10.5281/zenodo.6527194
