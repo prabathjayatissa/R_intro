@@ -1,4 +1,5 @@
 ---
+title: "Lesson 1: Getting Started"
 author: "Hannah Metzler"
 date: "March 6 2023"
 format: 
@@ -13,7 +14,6 @@ execute:
 echo: true
 ---
 
-# Lesson 1: Getting Started
 
 ## R and Rstudio
 

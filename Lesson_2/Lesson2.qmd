@@ -1,0 +1,43 @@
+---
+title: "Lesson 2: Reproducible workflows with Quarto & Github"
+author: "Hannah Metzler"
+date: "March 6 2023"
+format: 
+  html:
+    toc: true # generate a table of content
+    number-sections: true
+    df-print: kable
+editor: visual
+cache: true
+execute: 
+  warning: false
+echo: true
+---
+
+# Goals
+
+-   Organized coding projects
+
+-   Reports on your results (Quarto)
+
+-   Back-up (& sharing) of your code (GitHub)
+
+-   Crucial for anyone trying to use your code (including your future self)
+
+# To cover
+
+-   R project
+
+-   folder structure
+
+-   Quarto language basics
+
+-   Including a code junk
+
+-   Install Github
+
+-   Make a git account
+
+-   Push your code
+
+# R-projects

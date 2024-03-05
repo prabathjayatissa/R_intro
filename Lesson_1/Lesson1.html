@@ -9,7 +9,7 @@
 <meta name="author" content="Hannah Metzler">
 <meta name="dcterms.date" content="2023-03-06">
 
-<title>lesson1</title>
+<title>Lesson 1: Getting Started</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -81,39 +81,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#lesson-1-getting-started" id="toc-lesson-1-getting-started" class="nav-link active" data-scroll-target="#lesson-1-getting-started"><span class="header-section-number">1</span> Lesson 1: Getting Started</a>
+  <li><a href="#r-and-rstudio" id="toc-r-and-rstudio" class="nav-link active" data-scroll-target="#r-and-rstudio"><span class="header-section-number">1</span> R and Rstudio</a></li>
+  <li><a href="#rstudio-interface" id="toc-rstudio-interface" class="nav-link" data-scroll-target="#rstudio-interface"><span class="header-section-number">2</span> RStudio interface</a></li>
+  <li><a href="#console-commands" id="toc-console-commands" class="nav-link" data-scroll-target="#console-commands"><span class="header-section-number">3</span> Console commands</a></li>
+  <li><a href="#coding-terms" id="toc-coding-terms" class="nav-link" data-scroll-target="#coding-terms"><span class="header-section-number">4</span> Coding Terms</a>
   <ul class="collapse">
-  <li><a href="#r-and-rstudio" id="toc-r-and-rstudio" class="nav-link" data-scroll-target="#r-and-rstudio"><span class="header-section-number">1.1</span> R and Rstudio</a></li>
-  <li><a href="#rstudio-interface" id="toc-rstudio-interface" class="nav-link" data-scroll-target="#rstudio-interface"><span class="header-section-number">1.2</span> RStudio interface</a></li>
-  <li><a href="#console-commands" id="toc-console-commands" class="nav-link" data-scroll-target="#console-commands"><span class="header-section-number">1.3</span> Console commands</a></li>
-  <li><a href="#coding-terms" id="toc-coding-terms" class="nav-link" data-scroll-target="#coding-terms"><span class="header-section-number">1.4</span> Coding Terms</a>
+  <li><a href="#the-environment" id="toc-the-environment" class="nav-link" data-scroll-target="#the-environment"><span class="header-section-number">4.1</span> The environment</a></li>
+  <li><a href="#whitespace" id="toc-whitespace" class="nav-link" data-scroll-target="#whitespace"><span class="header-section-number">4.2</span> Whitespace</a></li>
+  <li><a href="#function-syntax" id="toc-function-syntax" class="nav-link" data-scroll-target="#function-syntax"><span class="header-section-number">4.3</span> Function syntax</a></li>
+  </ul></li>
+  <li><a href="#add-on-packages" id="toc-add-on-packages" class="nav-link" data-scroll-target="#add-on-packages"><span class="header-section-number">5</span> Add-on packages</a>
   <ul class="collapse">
-  <li><a href="#the-environment" id="toc-the-environment" class="nav-link" data-scroll-target="#the-environment"><span class="header-section-number">1.4.1</span> The environment</a></li>
-  <li><a href="#whitespace" id="toc-whitespace" class="nav-link" data-scroll-target="#whitespace"><span class="header-section-number">1.4.2</span> Whitespace</a></li>
-  <li><a href="#function-syntax" id="toc-function-syntax" class="nav-link" data-scroll-target="#function-syntax"><span class="header-section-number">1.4.3</span> Function syntax</a></li>
+  <li><a href="#installing-and-loading" id="toc-installing-and-loading" class="nav-link" data-scroll-target="#installing-and-loading"><span class="header-section-number">5.1</span> Installing and loading</a></li>
+  <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse"><span class="header-section-number">5.2</span> Tidyverse</a></li>
+  <li><a href="#install-package-from-github" id="toc-install-package-from-github" class="nav-link" data-scroll-target="#install-package-from-github"><span class="header-section-number">5.3</span> Install package from GitHub</a></li>
   </ul></li>
-  <li><a href="#add-on-packages" id="toc-add-on-packages" class="nav-link" data-scroll-target="#add-on-packages"><span class="header-section-number">1.5</span> Add-on packages</a>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><span class="header-section-number">6</span> Getting help</a>
   <ul class="collapse">
-  <li><a href="#installing-and-loading" id="toc-installing-and-loading" class="nav-link" data-scroll-target="#installing-and-loading"><span class="header-section-number">1.5.1</span> Installing and loading</a></li>
-  <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse"><span class="header-section-number">1.5.2</span> Tidyverse</a></li>
-  <li><a href="#install-package-from-github" id="toc-install-package-from-github" class="nav-link" data-scroll-target="#install-package-from-github"><span class="header-section-number">1.5.3</span> Install package from GitHub</a></li>
+  <li><a href="#function-help" id="toc-function-help" class="nav-link" data-scroll-target="#function-help"><span class="header-section-number">6.1</span> Function help</a></li>
+  <li><a href="#googling" id="toc-googling" class="nav-link" data-scroll-target="#googling"><span class="header-section-number">6.2</span> Googling</a></li>
+  <li><a href="#vignettes" id="toc-vignettes" class="nav-link" data-scroll-target="#vignettes"><span class="header-section-number">6.3</span> Vignettes</a></li>
+  <li><a href="#asking-for-help" id="toc-asking-for-help" class="nav-link" data-scroll-target="#asking-for-help"><span class="header-section-number">6.4</span> Asking for help</a></li>
   </ul></li>
-  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><span class="header-section-number">1.6</span> Getting help</a>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">7</span> Exercises</a>
   <ul class="collapse">
-  <li><a href="#function-help" id="toc-function-help" class="nav-link" data-scroll-target="#function-help"><span class="header-section-number">1.6.1</span> Function help</a></li>
-  <li><a href="#googling" id="toc-googling" class="nav-link" data-scroll-target="#googling"><span class="header-section-number">1.6.2</span> Googling</a></li>
-  <li><a href="#vignettes" id="toc-vignettes" class="nav-link" data-scroll-target="#vignettes"><span class="header-section-number">1.6.3</span> Vignettes</a></li>
-  <li><a href="#asking-for-help" id="toc-asking-for-help" class="nav-link" data-scroll-target="#asking-for-help"><span class="header-section-number">1.6.4</span> Asking for help</a></li>
+  <li><a href="#type-commands-into-the-console" id="toc-type-commands-into-the-console" class="nav-link" data-scroll-target="#type-commands-into-the-console"><span class="header-section-number">7.1</span> Type commands into the console</a></li>
+  <li><a href="#understand-function-syntax" id="toc-understand-function-syntax" class="nav-link" data-scroll-target="#understand-function-syntax"><span class="header-section-number">7.2</span> Understand function syntax</a></li>
+  <li><a href="#install-a-package" id="toc-install-a-package" class="nav-link" data-scroll-target="#install-a-package"><span class="header-section-number">7.3</span> Install a package</a></li>
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions"><span class="header-section-number">7.4</span> Solutions</a></li>
   </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">1.7</span> Exercises</a>
-  <ul class="collapse">
-  <li><a href="#type-commands-into-the-console" id="toc-type-commands-into-the-console" class="nav-link" data-scroll-target="#type-commands-into-the-console"><span class="header-section-number">1.7.1</span> Type commands into the console</a></li>
-  <li><a href="#understand-function-syntax" id="toc-understand-function-syntax" class="nav-link" data-scroll-target="#understand-function-syntax"><span class="header-section-number">1.7.2</span> Understand function syntax</a></li>
-  <li><a href="#install-a-package" id="toc-install-a-package" class="nav-link" data-scroll-target="#install-a-package"><span class="header-section-number">1.7.3</span> Install a package</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions"><span class="header-section-number">1.7.4</span> Solutions</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">1.8</span> References</a></li>
-  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8</span> References</a></li>
   </ul>
 </nav>
 </div>
@@ -121,6 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
+<h1 class="title">Lesson 1: Getting Started</h1>
 </div>
 
 
@@ -149,10 +147,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="lesson-1-getting-started" class="level1 page-columns page-full" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Lesson 1: Getting Started</h1>
-<section id="r-and-rstudio" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="r-and-rstudio"><span class="header-section-number">1.1</span> R and Rstudio</h2>
+<section id="r-and-rstudio" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="r-and-rstudio"><span class="header-section-number">1</span> R and Rstudio</h2>
 <ul>
 <li>R: programming software</li>
 <li>Open R once to look at it - you will never need this again</li>
@@ -160,8 +156,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>You could also use other environments (e.g.&nbsp;Jupyter Notebooks, Visual Studio Code)</li>
 </ul>
 </section>
-<section id="rstudio-interface" class="level2 page-columns page-full" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="rstudio-interface"><span class="header-section-number">1.2</span> RStudio interface</h2>
+<section id="rstudio-interface" class="level2 page-columns page-full" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="rstudio-interface"><span class="header-section-number">2</span> RStudio interface</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -179,8 +175,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Right pane: different information about your code, outputs of your code, help…</li>
 </ul>
 </div></div></section>
-<section id="console-commands" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="console-commands"><span class="header-section-number">1.3</span> Console commands</h2>
+<section id="console-commands" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="console-commands"><span class="header-section-number">3</span> Console commands</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -213,8 +209,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="coding-terms" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="coding-terms"><span class="header-section-number">1.4</span> Coding Terms</h2>
+<section id="coding-terms" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="coding-terms"><span class="header-section-number">4</span> Coding Terms</h2>
 <ul>
 <li><strong>Objects</strong> (or variables): store results, numbers, letters for later use</li>
 <li><strong>Assignment</strong>: storing something in an object</li>
@@ -292,8 +288,8 @@ The period, known for being a bit of a downer, said,
 </li>
 <li><code>_is_this_a_pigeon_</code></li>
 </ol>
-<section id="the-environment" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="the-environment"><span class="header-section-number">1.4.1</span> The environment</h3>
+<section id="the-environment" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="the-environment"><span class="header-section-number">4.1</span> The environment</h3>
 <ul>
 <li>When you assign something to an object, R creates an entry in the global environment.</li>
 <li>Saved until you close Rstudio</li>
@@ -310,8 +306,8 @@ The period, known for being a bit of a downer, said,
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># clear out the global environment</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="whitespace" class="level3" data-number="1.4.2">
-<h3 data-number="1.4.2" class="anchored" data-anchor-id="whitespace"><span class="header-section-number">1.4.2</span> Whitespace</h3>
+<section id="whitespace" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="whitespace"><span class="header-section-number">4.2</span> Whitespace</h3>
 <p>R mostly ignores them. Use them to organize your code.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a and b are identical</span></span>
@@ -337,8 +333,8 @@ repeating what everyone else said.</code></pre>
 </div>
 </div>
 </section>
-<section id="function-syntax" class="level3" data-number="1.4.3">
-<h3 data-number="1.4.3" class="anchored" data-anchor-id="function-syntax"><span class="header-section-number">1.4.3</span> Function syntax</h3>
+<section id="function-syntax" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="function-syntax"><span class="header-section-number">4.3</span> Function syntax</h3>
 <ul>
 <li><strong>Function</strong>: code that can be reused</li>
 <li>Example: <code>sd</code> to calculate the standard deviation</li>
@@ -415,8 +411,8 @@ repeating what everyone else said.</code></pre>
 </ul>
 </section>
 </section>
-<section id="add-on-packages" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="add-on-packages"><span class="header-section-number">1.5</span> Add-on packages</h2>
+<section id="add-on-packages" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="add-on-packages"><span class="header-section-number">5</span> Add-on packages</h2>
 <ul>
 <li>Packages of code somebody has written and shared
 <ul>
@@ -424,8 +420,8 @@ repeating what everyone else said.</code></pre>
 </ul></li>
 <li>Main repository: CRAN, the Comprehensive R Archive Network</li>
 </ul>
-<section id="installing-and-loading" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="installing-and-loading"><span class="header-section-number">1.5.1</span> Installing and loading</h3>
+<section id="installing-and-loading" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="installing-and-loading"><span class="header-section-number">5.1</span> Installing and loading</h3>
 <ul>
 <li>Installing: Only once (like an app)</li>
 <li>From the console (not a script)</li>
@@ -454,8 +450,8 @@ repeating what everyone else said.</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="tidyverse" class="level3" data-number="1.5.2">
-<h3 data-number="1.5.2" class="anchored" data-anchor-id="tidyverse"><span class="header-section-number">1.5.2</span> Tidyverse</h3>
+<section id="tidyverse" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="tidyverse"><span class="header-section-number">5.2</span> Tidyverse</h3>
 <p><code>"tidyverse"</code>is a meta-package that loads several packages we’ll be using in almost every script:</p>
 <ul>
 <li><p>“ggplot2”` for data visualisation</p></li>
@@ -469,8 +465,8 @@ repeating what everyone else said.</code></pre>
 <li><p>Install Tidyverse via your console!</p></li>
 </ul>
 </section>
-<section id="install-package-from-github" class="level3" data-number="1.5.3">
-<h3 data-number="1.5.3" class="anchored" data-anchor-id="install-package-from-github"><span class="header-section-number">1.5.3</span> Install package from GitHub</h3>
+<section id="install-package-from-github" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="install-package-from-github"><span class="header-section-number">5.3</span> Install package from GitHub</h3>
 <ul>
 <li>Some packages still under development are not yet on CRAN.</li>
 <li>Install the package {devtools} to be able to download packages from GitHub</li>
@@ -499,8 +495,8 @@ repeating what everyone else said.</code></pre>
 </div>
 </section>
 </section>
-<section id="getting-help" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="getting-help"><span class="header-section-number">1.6</span> Getting help</h2>
+<section id="getting-help" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="getting-help"><span class="header-section-number">6</span> Getting help</h2>
 <ul>
 <li>It’s normal to look things up all the time!</li>
 <li>Very useful: <a href="https://posit.co/resources/cheatsheets/">Cheatsheets</a>
@@ -508,8 +504,8 @@ repeating what everyone else said.</code></pre>
 <li><a href="https://rstudio.github.io/cheatsheets/rstudio-ide.pdf">RStudio IDE Cheatsheet</a></li>
 </ul></li>
 </ul>
-<section id="function-help" class="level3" data-number="1.6.1">
-<h3 data-number="1.6.1" class="anchored" data-anchor-id="function-help"><span class="header-section-number">1.6.1</span> Function help</h3>
+<section id="function-help" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="function-help"><span class="header-section-number">6.1</span> Function help</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># these methods are all equivalent ways of getting help</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"rnorm"</span>)</span>
@@ -518,16 +514,16 @@ repeating what everyone else said.</code></pre>
 </div>
 <p>Package is not loaded, or you don’t know which package the function belongs to: Use <code>??function_name</code></p>
 </section>
-<section id="googling" class="level3" data-number="1.6.2">
-<h3 data-number="1.6.2" class="anchored" data-anchor-id="googling"><span class="header-section-number">1.6.2</span> Googling</h3>
+<section id="googling" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="googling"><span class="header-section-number">6.2</span> Googling</h3>
 <ul>
 <li>Using jargon like “concatenate vectors in R” helps</li>
 <li>You’ll get more useful results with practice</li>
 <li>Use R, Rstats, or the name of the package.</li>
 </ul>
 </section>
-<section id="vignettes" class="level3" data-number="1.6.3">
-<h3 data-number="1.6.3" class="anchored" data-anchor-id="vignettes"><span class="header-section-number">1.6.3</span> Vignettes</h3>
+<section id="vignettes" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="vignettes"><span class="header-section-number">6.3</span> Vignettes</h3>
 <ul>
 <li>Explain how to use a package.</li>
 <li>Many packages have vignettes.</li>
@@ -541,8 +537,8 @@ repeating what everyone else said.</code></pre>
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"ggplot2-specs"</span>, <span class="at">package =</span> <span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="asking-for-help" class="level3" data-number="1.6.4">
-<h3 data-number="1.6.4" class="anchored" data-anchor-id="asking-for-help"><span class="header-section-number">1.6.4</span> Asking for help</h3>
+<section id="asking-for-help" class="level3" data-number="6.4">
+<h3 data-number="6.4" class="anchored" data-anchor-id="asking-for-help"><span class="header-section-number">6.4</span> Asking for help</h3>
 <ul>
 <li>ChatGPT is a really good teacher.</li>
 <li>If all else fails:
@@ -553,10 +549,10 @@ repeating what everyone else said.</code></pre>
 </ul>
 </section>
 </section>
-<section id="exercises" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">1.7</span> Exercises</h2>
-<section id="type-commands-into-the-console" class="level3" data-number="1.7.1">
-<h3 data-number="1.7.1" class="anchored" data-anchor-id="type-commands-into-the-console"><span class="header-section-number">1.7.1</span> Type commands into the console</h3>
+<section id="exercises" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">7</span> Exercises</h2>
+<section id="type-commands-into-the-console" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="type-commands-into-the-console"><span class="header-section-number">7.1</span> Type commands into the console</h3>
 <p>In the console, type the following:</p>
 <pre><code>1 + 2
 a &lt;- 1
@@ -567,8 +563,8 @@ a + b</code></pre>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>how_many_objects <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="understand-function-syntax" class="level3" data-number="1.7.2">
-<h3 data-number="1.7.2" class="anchored" data-anchor-id="understand-function-syntax"><span class="header-section-number">1.7.2</span> Understand function syntax</h3>
+<section id="understand-function-syntax" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="understand-function-syntax"><span class="header-section-number">7.2</span> Understand function syntax</h3>
 <p>Use the <code>rnorm()</code> function to generate 10 random values from a normal distribution with a mean of 800 and a standard deviation of 20, and store the resulting vector in the object <code>random_vals</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>random_vals <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -588,8 +584,8 @@ a + b</code></pre>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>my_dir <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="install-a-package" class="level3" data-number="1.7.3">
-<h3 data-number="1.7.3" class="anchored" data-anchor-id="install-a-package"><span class="header-section-number">1.7.3</span> Install a package</h3>
+<section id="install-a-package" class="level3" data-number="7.3">
+<h3 data-number="7.3" class="anchored" data-anchor-id="install-a-package"><span class="header-section-number">7.3</span> Install a package</h3>
 <p>Install the CRAN package called “cowsay”. Run the code to do this and include it in the code chunk below, but comment it out. It is bad practice to write a script that installs a package without the user having the option to cancel. Also, some packages take a long time to load, so you won’t want to install them every time you run a script.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># comment out the installation code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -605,15 +601,14 @@ a + b</code></pre>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>cowsay<span class="sc">::</span><span class="fu">say</span>(<span class="at">by_colour =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="solutions" class="level3" data-number="1.7.4">
-<h3 data-number="1.7.4" class="anchored" data-anchor-id="solutions"><span class="header-section-number">1.7.4</span> Solutions</h3>
+<section id="solutions" class="level3" data-number="7.4">
+<h3 data-number="7.4" class="anchored" data-anchor-id="solutions"><span class="header-section-number">7.4</span> Solutions</h3>
 <p>Check your solutions <a href="https://psyteachr.github.io/reprores-v3/exercises/01_intro_answers.html">here</a>.</p>
 </section>
 </section>
-<section id="references" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="references"><span class="header-section-number">1.8</span> References</h2>
+<section id="references" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="references"><span class="header-section-number">8</span> References</h2>
 <p>This lesson is based on Chapter 1 Materials and Exercises of this free online text book: Lisa DeBruine &amp; Dale Barr. (2022). <a href="https://psyteachr.github.io/reprores-v3/intro.html">Data Skills for Reproducible Research</a>: (3.0) Zenodo. doi:10.5281/zenodo.6527194.</p>
-</section>
 </section>
 
 </main>

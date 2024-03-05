@@ -27,7 +27,7 @@ editor: visual
 
 -   Wednesdays 10am-12pm: March 6, 13, 20 & 27, 2024
 -   Time schedule: Break from 11h to 11h10
--   All materials: <https://hannahmetzler.eu/R_intro/> or <https://github.com/hannahmetzler/R_intro/>
+-   All materials: <https://hannahmetzler.eu/R_intro/> (\[Source\](<https://github.com/hannahmetzler/R_intro/>) on Github)
 -   Lesson 1: Getting started
 -   Later lessons: Data visualizations, data wrangling, basic statistics
 -   If time: Github & Markdown (Quarto) reports
@@ -46,7 +46,7 @@ editor: visual
 -   Write code yourself as we go along to practice.
     -   Code fields from materials can be copied by click
 
----
+------------------------------------------------------------------------
 
 ```{r}
 knitr::include_graphics("images/screen_setup.png")
