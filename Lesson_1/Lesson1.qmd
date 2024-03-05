@@ -14,7 +14,6 @@ execute:
 echo: true
 ---
 
-
 ## R and Rstudio
 
 -   R: programming software
@@ -27,7 +26,7 @@ echo: true
 ```{r}
 #| echo: false
 #| fig-width: 10
-knitr::include_graphics("figures/Rstudio_interface.png")
+knitr::include_graphics("images/Rstudio_interface.png")
 ```
 
 ::: aside
@@ -108,10 +107,7 @@ Which of the following are valid object names?
 11. `_is_this_a_pigeon_`
 :::
 
-
-### Object types
-
-#### String
+### Strings
 
 -   Text inside quotes is called a **string**, here one assigned to an object called "string1":
 
@@ -133,8 +129,6 @@ The period, known for being a bit of a downer, said,
 
 cat(long_string) # cat() prints the string
 ```
-
-#### Factors
 
 ### The environment
 
@@ -326,7 +320,7 @@ devtools::install_github("psyteachr/reprores-v3")
 -   Check installed and loaded packages in the lower right pane.
 
 ```{r, echo=FALSE}
-knitr::include_graphics("figures/right_pane_packages.png")
+knitr::include_graphics("images/right_pane_packages.png")
 ```
 
 ## Getting help
@@ -374,7 +368,33 @@ vignette("ggplot2-specs", package = "ggplot2")
     -   Forums like statsexchange
     -   Copy & paste code and errors
 
-## Exercises
+## Quick intro to Git & Github
+
+### What for?
+
+* For all files – not just code!
+* Back up for your code - never loose your work. 
+* Version control
+* Share code
+* Collaborate on coding projects
+
+### How does it work? 
+
+```{r echo=FALSE}
+knitr::include_graphics('images/how_git_works.svg')
+```
+
+:::{.aside}
+[Image by Jana Lasser](https://github.com/JanaLasser/digitalisation-in-research-module-2/blob/main/03_collaborations/03_02_collaborative_code_writing/slides/img/how_git_works.svg)
+:::
+
+### Homework
+
+- Set up Git & GitHub on your laptop. 
+- Detailed instructions [here](https://hannahmetzler.eu/R_intro/Lesson_2/Install_Git_GitHub/Git_Github.html)
+
+
+## Optional exercises
 
 ### Type commands into the console
 
@@ -450,7 +470,6 @@ cowsay::say(by = pumpkin)
 ```{r, eval=FALSE}
 cowsay::say(by_colour = "blue")
 ```
-
 
 ### Solutions
 
