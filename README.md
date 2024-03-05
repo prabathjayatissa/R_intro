@@ -58,5 +58,5 @@ There are a variety of  other free online classes on R, some including an introd
 ## Course materials
 
 - [Introduction slides](https://hannahmetzler.eu/R_intro/Course_overview/Overview.html) 
-- [Lesson 1](https://hannahmetzler.eu/R_intro/Lesson_1/Lesson1.html) 
+- [Lesson 1](https://hannahmetzler.eu/R_intro/Lesson_1/Lesson1.html) (Download [Quarto file](/Lesson_1/Lesson1.qmd)) 
 

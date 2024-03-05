@@ -19,8 +19,9 @@ editor: visual
 -   Encourage you to start writing your analyses as code
 -   Reproducibility & transparency for yourself and others
 -   Welcome to all your doubts and questions!
--   Break things down to lower the barrier.
+-   Break things down to lower the barrier
 -   Please interrupt any time and ask questions!
+-   Making mistakes is essential for learning to code.
 
 # Course overview
 
@@ -36,7 +37,7 @@ editor: visual
 -   Have all of you managed to install R & Rstudio?
 -   How do you feel about learning R in one word?
     -   Shy/excited/under-confident/brave/bored?
--   Previous experience?
+-   Previous experience in 1-2 words?
     -   none/very little/little?
 
 # To follow the course
