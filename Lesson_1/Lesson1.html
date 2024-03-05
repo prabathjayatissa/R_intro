@@ -96,7 +96,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#installing-and-loading" id="toc-installing-and-loading" class="nav-link" data-scroll-target="#installing-and-loading"><span class="header-section-number">5.1</span> Installing and loading</a></li>
   <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse"><span class="header-section-number">5.2</span> Tidyverse</a></li>
-  <li><a href="#install-package-from-github" id="toc-install-package-from-github" class="nav-link" data-scroll-target="#install-package-from-github"><span class="header-section-number">5.3</span> Install package from GitHub</a></li>
   </ul></li>
   <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><span class="header-section-number">6</span> Getting help</a>
   <ul class="collapse">
@@ -105,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#vignettes" id="toc-vignettes" class="nav-link" data-scroll-target="#vignettes"><span class="header-section-number">6.3</span> Vignettes</a></li>
   <li><a href="#asking-for-help" id="toc-asking-for-help" class="nav-link" data-scroll-target="#asking-for-help"><span class="header-section-number">6.4</span> Asking for help</a></li>
   </ul></li>
-  <li><a href="#quick-intro-to-git-github" id="toc-quick-intro-to-git-github" class="nav-link" data-scroll-target="#quick-intro-to-git-github"><span class="header-section-number">7</span> Quick intro to Git &amp; Github</a>
+  <li><a href="#quick-introduction-to-git-github" id="toc-quick-introduction-to-git-github" class="nav-link" data-scroll-target="#quick-introduction-to-git-github"><span class="header-section-number">7</span> Quick introduction to Git &amp; Github</a>
   <ul class="collapse">
   <li><a href="#what-for" id="toc-what-for" class="nav-link" data-scroll-target="#what-for"><span class="header-section-number">7.1</span> What for?</a></li>
   <li><a href="#how-does-it-work" id="toc-how-does-it-work" class="nav-link" data-scroll-target="#how-does-it-work"><span class="header-section-number">7.2</span> How does it work?</a></li>
@@ -524,26 +523,6 @@ Exercise
 <div class="callout-body-container callout-body">
 <ul>
 <li>Install Tidyverse via your console.</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="install-package-from-github" class="level3" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="install-package-from-github"><span class="header-section-number">5.3</span> Install package from GitHub</h3>
-<ul>
-<li>Some packages still under development are not yet on CRAN.</li>
-<li>Install the package {devtools} to be able to download packages from GitHub</li>
-<li>Check if devtools is installed by trying to load it. What does the error say?</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install devtools: </span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now you can install packages from Github (here the package for our free online course):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"psyteachr/reprores-v3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
 <li>Check installed and loaded packages in the lower right pane.</li>
 </ul>
 <div class="cell">
@@ -555,6 +534,20 @@ Exercise
 </div>
 </div>
 </div>
+</div>
+</div>
+<!-- ### Install package from GitHub -->
+<!-- -   Some packages still under development are not yet on CRAN. -->
+<!-- -   Install the package {devtools} to be able to download packages from GitHub -->
+<!-- -   Check if devtools is installed by trying to load it. What does the error say? -->
+<!-- ```{r, eval=FALSE} -->
+<!-- # Install devtools:  -->
+<!-- install.packages("devtools") -->
+<!-- ``` -->
+<!-- Now you can install packages from Github (here the package for our free online course): -->
+<!-- ```{r, eval=FALSE} -->
+<!-- devtools::install_github("psyteachr/reprores-v3") -->
+<!-- ``` -->
 </section>
 </section>
 <section id="getting-help" class="level2" data-number="6">
@@ -570,12 +563,12 @@ Exercise
 <section id="function-help" class="level3" data-number="6.1">
 <h3 data-number="6.1" class="anchored" data-anchor-id="function-help"><span class="header-section-number">6.1</span> Function help</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># these methods are all equivalent ways of getting help</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"rnorm"</span>)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>?rnorm</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"rnorm"</span>, <span class="at">package=</span><span class="st">"stats"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># these methods are all equivalent ways of getting help</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"rnorm"</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>?rnorm</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"rnorm"</span>, <span class="at">package=</span><span class="st">"stats"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Package is not loaded, or you don’t know which package the function belongs to: Use <code>??function_name</code></p>
+<p>Package is not loaded, or you don’t know which package the function belongs to: Use <code>??function_name</code>.</p>
 </section>
 <section id="googling" class="level3" data-number="6.2">
 <h3 data-number="6.2" class="anchored" data-anchor-id="googling"><span class="header-section-number">6.2</span> Googling</h3>
@@ -592,28 +585,27 @@ Exercise
 <li>Many packages have vignettes.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># opens a list of available vignettes</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="at">package =</span> <span class="st">"ggplot2"</span>)</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co"># opens a specific vignette in the Help pane</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"ggplot2-specs"</span>, <span class="at">package =</span> <span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># opens a list of available vignettes</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="at">package =</span> <span class="st">"ggplot2"</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># opens a specific vignette in the Help pane</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"ggplot2-specs"</span>, <span class="at">package =</span> <span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="asking-for-help" class="level3" data-number="6.4">
 <h3 data-number="6.4" class="anchored" data-anchor-id="asking-for-help"><span class="header-section-number">6.4</span> Asking for help</h3>
 <ul>
 <li>ChatGPT is a really good teacher.</li>
-<li>If all else fails:
+<li>If all else fails: Forums like Statsexchange
 <ul>
-<li>Forums like statsexchange</li>
-<li>Copy &amp; paste code and errors</li>
+<li>Copy &amp; paste your code and errors to be precise</li>
 </ul></li>
 </ul>
 </section>
 </section>
-<section id="quick-intro-to-git-github" class="level2 page-columns page-full" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="quick-intro-to-git-github"><span class="header-section-number">7</span> Quick intro to Git &amp; Github</h2>
+<section id="quick-introduction-to-git-github" class="level2 page-columns page-full" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="quick-introduction-to-git-github"><span class="header-section-number">7</span> Quick introduction to Git &amp; Github</h2>
 <section id="what-for" class="level3" data-number="7.1">
 <h3 data-number="7.1" class="anchored" data-anchor-id="what-for"><span class="header-section-number">7.1</span> What for?</h3>
 <ul>
@@ -658,45 +650,45 @@ b &lt;- 2
 a + b</code></pre>
 <p>Look at the Environment tab in the upper right pane. Set the variable <code>how_many_objects</code> below to the number of objects listed in the environment.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>how_many_objects <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>how_many_objects <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="understand-function-syntax" class="level3" data-number="8.2">
 <h3 data-number="8.2" class="anchored" data-anchor-id="understand-function-syntax"><span class="header-section-number">8.2</span> Understand function syntax</h3>
 <p>Use the <code>rnorm()</code> function to generate 10 random values from a normal distribution with a mean of 800 and a standard deviation of 20, and store the resulting vector in the object <code>random_vals</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>random_vals <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>random_vals <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Use the help function to figure out what argument you need to set to ignore <code>NA</code> values when calculating the mean of <code>the_values</code>. Change the function below to store the mean of <code>the_values</code> in the variable <code>the_mean</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>the_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">9</span>, <span class="cn">NA</span>) <span class="co"># do not alter this line</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>the_mean   <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>the_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">9</span>, <span class="cn">NA</span>) <span class="co"># do not alter this line</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>the_mean   <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Figure out what the function <code>seq()</code> does. Use the function to set <code>tens</code> to the vector <code>c(0, 10, 20, 30, 40, 50 ,60, 70 ,80 ,90, 100)</code>. Set <code>bins6</code> to the cutoffs if you wanted to divide the numbers 0 to 100 into 6 bins. For example, dividing 0 to 100 into 4 bins results in the cutoffs <code>c(0, 25, 50, 75, 100)</code>,</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>tens  <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>bins6 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>tens  <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>bins6 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Figure out how to use the <code>paste()</code> function to paste together strings with forward slashes (“/”) instead of spaces. Use <code>paste()</code> to set <code>my_dir</code> to “my/project/directory”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>my_dir <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>my_dir <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="install-a-package" class="level3" data-number="8.3">
 <h3 data-number="8.3" class="anchored" data-anchor-id="install-a-package"><span class="header-section-number">8.3</span> Install a package</h3>
 <p>Install the CRAN package called “cowsay”. Run the code to do this and include it in the code chunk below, but comment it out. It is bad practice to write a script that installs a package without the user having the option to cancel. Also, some packages take a long time to load, so you won’t want to install them every time you run a script.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># comment out the installation code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># comment out the installation code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The code below has errors. Fix the code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>cowsay<span class="sc">::</span>say<span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>cowsay<span class="sc">::</span>say<span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>cowsay<span class="sc">::</span><span class="fu">say</span>(<span class="at">by =</span> pumpkin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>cowsay<span class="sc">::</span><span class="fu">say</span>(<span class="at">by =</span> pumpkin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>cowsay<span class="sc">::</span><span class="fu">say</span>(<span class="at">by_colour =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>cowsay<span class="sc">::</span><span class="fu">say</span>(<span class="at">by_colour =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="solutions" class="level3" data-number="8.4">

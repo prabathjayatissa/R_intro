@@ -297,31 +297,31 @@ Use `package::function()` to indicate which package a function comes from.
 
 :::{.callout-caution}
 ## Exercise
--   Install Tidyverse via your console. 
-:::
 
-### Install package from GitHub
-
--   Some packages still under development are not yet on CRAN.
--   Install the package {devtools} to be able to download packages from GitHub
--   Check if devtools is installed by trying to load it. What does the error say?
-
-```{r, eval=FALSE}
-# Install devtools: 
-install.packages("devtools")
-```
-
-Now you can install packages from Github (here the package for our free online course):
-
-```{r, eval=FALSE}
-devtools::install_github("psyteachr/reprores-v3")
-```
-
+-   Install Tidyverse via your console.
 -   Check installed and loaded packages in the lower right pane.
 
 ```{r, echo=FALSE}
 knitr::include_graphics("images/right_pane_packages.png")
 ```
+:::
+
+<!-- ### Install package from GitHub -->
+
+<!-- -   Some packages still under development are not yet on CRAN. -->
+<!-- -   Install the package {devtools} to be able to download packages from GitHub -->
+<!-- -   Check if devtools is installed by trying to load it. What does the error say? -->
+
+<!-- ```{r, eval=FALSE} -->
+<!-- # Install devtools:  -->
+<!-- install.packages("devtools") -->
+<!-- ``` -->
+
+<!-- Now you can install packages from Github (here the package for our free online course): -->
+
+<!-- ```{r, eval=FALSE} -->
+<!-- devtools::install_github("psyteachr/reprores-v3") -->
+<!-- ``` -->
 
 ## Getting help
 
@@ -339,7 +339,7 @@ help("rnorm")
 help("rnorm", package="stats") 
 ```
 
-Package is not loaded, or you don't know which package the function belongs to: Use `??function_name`
+Package is not loaded, or you don't know which package the function belongs to: Use `??function_name`.
 
 ### Googling
 
@@ -364,11 +364,10 @@ vignette("ggplot2-specs", package = "ggplot2")
 ### Asking for help
 
 -   ChatGPT is a really good teacher.
--   If all else fails:
-    -   Forums like statsexchange
-    -   Copy & paste code and errors
+-   If all else fails: Forums like Statsexchange
+    -   Copy & paste your code and errors to be precise
 
-## Quick intro to Git & Github
+## Quick introduction to Git & Github
 
 ### What for?
 
