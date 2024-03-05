@@ -33,7 +33,7 @@ knitr::include_graphics("figures/Rstudio_interface.png")
 ::: aside
 -   Left top: Source pane: Writing your scripts (with code & text)
 -   Left bottom: Console: executing code directly
--   Right pane: different information about you code, outputs of your code, help...
+-   Right pane: different information about your code, outputs of your code, help...
 :::
 
 ## Console commands
