@@ -63,8 +63,11 @@ knitr::include_graphics("figures/Rstudio_interface.png")
 
 ## Coding Terms
 
--   **Objects** (or variables): store results, numbers, letters for later use
--   **Assignment**: storing something in an object
+### Objects & Assignment
+
+- Objects = variables: store results, numbers, letters for later use
+- Assigning something to an object: storing it
+
 
 ```{r}
 ## use the assignment operator '<-'
@@ -77,6 +80,38 @@ Use the object x in your next step:
 ```{r}
 x * 2
 ```
+
+**Valid object names**
+
+-   Object starts with a letter or a full stop and a letter
+
+-   Object distinguishes uppercase and lowercase letters
+
+-   Valid objects: songdata, SongData, song_data, song.data, .song.data, never_gonna_give_you_up_never_gonna_let_you_down
+
+-   Invalid objects: \_song_data, 1song, .1song, song data, song-data
+
+::: {.callout-caution}
+## Exercise
+Which of the following are valid object names?
+
+1.  `slender_man`\
+2.  `copy pasta`\
+3.  `DOGE`\
+4.  `(╯°□°）╯︵ ┻━┻`\
+5.  `ErMahGerd`\
+6.  `34Rule`\
+7.  `panik-kalm-panik`\
+8.  `👀`\
+9.  `I_am_once_again_asking_you_for_your_support`\
+10. `.this.is.fine.`\
+11. `_is_this_a_pigeon_`
+:::
+
+
+### Object types
+
+#### String
 
 -   Text inside quotes is called a **string**, here one assigned to an object called "string1":
 
@@ -99,31 +134,7 @@ The period, known for being a bit of a downer, said,
 cat(long_string) # cat() prints the string
 ```
 
-**Valid object names**
-
--   Object starts with a letter or a full stop and a letter
-
--   Object distinguishes uppercase and lowercase letters
-
--   Valid objects: songdata, SongData, song_data, song.data, .song.data, never_gonna_give_you_up_never_gonna_let_you_down
-
--   Invalid objects: \_song_data, 1song, .1song, song data, song-data
-
-**Exercise**
-
-Which of the following are valid object names?
-
-1.  `slender_man`\
-2.  `copy pasta`\
-3.  `DOGE`\
-4.  `(╯°□°）╯︵ ┻━┻`\
-5.  `ErMahGerd`\
-6.  `34Rule`\
-7.  `panik-kalm-panik`\
-8.  `👀`\
-9.  `I_am_once_again_asking_you_for_your_support`\
-10. `.this.is.fine.`\
-11. `_is_this_a_pigeon_`
+#### Factors
 
 ### The environment
 
@@ -180,10 +191,14 @@ function_name(argument1, argument2 = "value")
 
 The function `rnorm()` generates random numbers from the standard normal distribution.
 
--   Check its syntax in the help page:
+::: {.callout-caution}
+## Exercise
+
+-   Check its syntax in the help page. 
     -   what is n?
     -   what is the default mean and sd?
--   Try entering it without any arguments. There is no default for n, so you'll get an error.
+-   Try executing the function without any arguments. Why do you get an error?
+:::
 
 If you want 10 random numbers from a normal distribution with mean of 0 and standard deviation, you can just use the defaults.
 
@@ -219,13 +234,17 @@ power.t.test(n = NULL, delta = NULL, sd = 1, sig.level = 0.05,
              strict = FALSE, tol = .Machine$double.eps^0.25)
 ```
 
+::: {.callout-caution}
+## Exercise
 -   What is the default value for sd?
 -   What is the default value for type?
 -   Which is equivalent to power.t.test(100, 0.5)?
-    -   power.t.test()
-    -   power.t.test(n = 100)
-    -   power.t.test(delta = 0.5, n = 100)
-    -   power.t.test(100, 0.5, sig.level = 1, sd = 0.05)
+    1.   power.t.test()
+    2.   power.t.test(n = 100)
+    3.   power.t.test(delta = 0.5, n = 100)
+    4.   power.t.test(100, 0.5, sig.level = 1, sd = 0.05)
+:::
+
 
 ## Add-on packages
 
@@ -266,23 +285,26 @@ Use `package::function()` to indicate which package a function comes from.
 
 `"tidyverse"`is a meta-package that loads several packages we'll be using in almost every script:
 
--   "ggplot2"\` for data visualisation
+-   `ggplot2` for data visualisation
 
--   "readr"\` for data import
+-   `readr` for data import
 
--   "tibble"\` for tables
+-   `tibble` for tables
 
--   "tidyr"\` for data tidying
+-   `tidyr` for data tidying
 
--   "dplyr"\` for data manipulation
+-   `dplyr` for data manipulation
 
--   "purrr"\` for repeating things
+-   `purrr` for repeating things
 
--   "stringr"\` for strings
+-   `stringr` for strings
 
--   "forcats"\` for factors (categorical variables)
+-   `forcats` for factors (categorical variables)
 
--   Install Tidyverse via your console!
+:::{.callout-caution}
+## Exercise
+-   Install Tidyverse via your console. 
+:::
 
 ### Install package from GitHub
 
@@ -303,7 +325,7 @@ devtools::install_github("psyteachr/reprores-v3")
 
 -   Check installed and loaded packages in the lower right pane.
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("figures/right_pane_packages.png")
 ```
 
@@ -311,7 +333,8 @@ knitr::include_graphics("figures/right_pane_packages.png")
 
 -   It's normal to look things up all the time!
 -   Very useful: [Cheatsheets](https://posit.co/resources/cheatsheets/)
-    -   [RStudio IDE Cheatsheet](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf)
+    - Access via `Help` -> `Cheatsheets`
+    - For today: [RStudio IDE Cheatsheet](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf)
 
 ### Function help
 
