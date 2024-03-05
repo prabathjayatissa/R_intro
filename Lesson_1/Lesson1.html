@@ -105,7 +105,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#vignettes" id="toc-vignettes" class="nav-link" data-scroll-target="#vignettes"><span class="header-section-number">1.6.3</span> Vignettes</a></li>
   <li><a href="#asking-for-help" id="toc-asking-for-help" class="nav-link" data-scroll-target="#asking-for-help"><span class="header-section-number">1.6.4</span> Asking for help</a></li>
   </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">1.7</span> Exercises</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">1.7</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#type-commands-into-the-console" id="toc-type-commands-into-the-console" class="nav-link" data-scroll-target="#type-commands-into-the-console"><span class="header-section-number">1.7.1</span> Type commands into the console</a></li>
+  <li><a href="#understand-function-syntax" id="toc-understand-function-syntax" class="nav-link" data-scroll-target="#understand-function-syntax"><span class="header-section-number">1.7.2</span> Understand function syntax</a></li>
+  <li><a href="#install-a-package" id="toc-install-a-package" class="nav-link" data-scroll-target="#install-a-package"><span class="header-section-number">1.7.3</span> Install a package</a></li>
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions"><span class="header-section-number">1.7.4</span> Solutions</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">1.8</span> References</a></li>
   </ul></li>
   </ul>
@@ -549,10 +555,64 @@ repeating what everyone else said.</code></pre>
 </section>
 <section id="exercises" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">1.7</span> Exercises</h2>
+<section id="type-commands-into-the-console" class="level3" data-number="1.7.1">
+<h3 data-number="1.7.1" class="anchored" data-anchor-id="type-commands-into-the-console"><span class="header-section-number">1.7.1</span> Type commands into the console</h3>
+<p>In the console, type the following:</p>
+<pre><code>1 + 2
+a &lt;- 1
+b &lt;- 2
+a + b</code></pre>
+<p>Look at the Environment tab in the upper right pane. Set the variable <code>how_many_objects</code> below to the number of objects listed in the environment.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>how_many_objects <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="understand-function-syntax" class="level3" data-number="1.7.2">
+<h3 data-number="1.7.2" class="anchored" data-anchor-id="understand-function-syntax"><span class="header-section-number">1.7.2</span> Understand function syntax</h3>
+<p>Use the <code>rnorm()</code> function to generate 10 random values from a normal distribution with a mean of 800 and a standard deviation of 20, and store the resulting vector in the object <code>random_vals</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>random_vals <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Use the help function to figure out what argument you need to set to ignore <code>NA</code> values when calculating the mean of <code>the_values</code>. Change the function below to store the mean of <code>the_values</code> in the variable <code>the_mean</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>the_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">9</span>, <span class="cn">NA</span>) <span class="co"># do not alter this line</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>the_mean   <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Figure out what the function <code>seq()</code> does. Use the function to set <code>tens</code> to the vector <code>c(0, 10, 20, 30, 40, 50 ,60, 70 ,80 ,90, 100)</code>. Set <code>bins6</code> to the cutoffs if you wanted to divide the numbers 0 to 100 into 6 bins. For example, dividing 0 to 100 into 4 bins results in the cutoffs <code>c(0, 25, 50, 75, 100)</code>,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>tens  <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>bins6 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Figure out how to use the <code>paste()</code> function to paste together strings with forward slashes (“/”) instead of spaces. Use <code>paste()</code> to set <code>my_dir</code> to “my/project/directory”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>my_dir <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="install-a-package" class="level3" data-number="1.7.3">
+<h3 data-number="1.7.3" class="anchored" data-anchor-id="install-a-package"><span class="header-section-number">1.7.3</span> Install a package</h3>
+<p>Install the CRAN package called “cowsay”. Run the code to do this and include it in the code chunk below, but comment it out. It is bad practice to write a script that installs a package without the user having the option to cancel. Also, some packages take a long time to load, so you won’t want to install them every time you run a script.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># comment out the installation code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The code below has errors. Fix the code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>cowsay<span class="sc">::</span>say<span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>cowsay<span class="sc">::</span><span class="fu">say</span>(<span class="at">by =</span> pumpkin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>cowsay<span class="sc">::</span><span class="fu">say</span>(<span class="at">by_colour =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="solutions" class="level3" data-number="1.7.4">
+<h3 data-number="1.7.4" class="anchored" data-anchor-id="solutions"><span class="header-section-number">1.7.4</span> Solutions</h3>
+<p>Check your solutions <a href="https://psyteachr.github.io/reprores-v3/exercises/01_intro_answers.html">here</a>.</p>
+</section>
 </section>
 <section id="references" class="level2" data-number="1.8">
 <h2 data-number="1.8" class="anchored" data-anchor-id="references"><span class="header-section-number">1.8</span> References</h2>
-<p>This course uses parts of the free online text book: Lisa DeBruine &amp; Dale Barr. (2022). Data Skills for Reproducible Research: (3.0) Zenodo. doi:10.5281/zenodo.6527194</p>
+<p>This lesson is based on Chapter 1 Materials and Exercises of this free online text book: Lisa DeBruine &amp; Dale Barr. (2022). <a href="https://psyteachr.github.io/reprores-v3/intro.html">Data Skills for Reproducible Research</a>: (3.0) Zenodo. doi:10.5281/zenodo.6527194.</p>
 </section>
 </section>
 
