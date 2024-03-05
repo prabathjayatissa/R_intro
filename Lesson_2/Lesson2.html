@@ -9,7 +9,7 @@
 <meta name="author" content="Hannah Metzler">
 <meta name="dcterms.date" content="2023-03-06">
 
-<title>lesson2</title>
+<title>Lesson 2: Reproducible workflows with Quarto &amp; Github</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,8 +47,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#lesson-2-reproducible-workflows-quarto-github" id="toc-lesson-2-reproducible-workflows-quarto-github" class="nav-link active" data-scroll-target="#lesson-2-reproducible-workflows-quarto-github"><span class="header-section-number">1</span> Lesson 2: Reproducible workflows (Quarto &amp; Github)</a></li>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">1</span> Goals</a></li>
   <li><a href="#to-cover" id="toc-to-cover" class="nav-link" data-scroll-target="#to-cover"><span class="header-section-number">2</span> To cover</a></li>
+  <li><a href="#organizing-a-project" id="toc-organizing-a-project" class="nav-link" data-scroll-target="#organizing-a-project"><span class="header-section-number">3</span> Organizing a project</a>
+  <ul class="collapse">
+  <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps"><span class="header-section-number">3.1</span> Steps</a></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -56,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
+<h1 class="title">Lesson 2: Reproducible workflows with Quarto &amp; Github</h1>
 </div>
 
 
@@ -84,30 +89,55 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="lesson-2-reproducible-workflows-quarto-github" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Lesson 2: Reproducible workflows (Quarto &amp; Github)</h1>
+<section id="goals" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Goals</h1>
 <ul>
-<li><p>Goals:</p>
-<ul>
-<li><p>Organized coding projects</p></li>
-<li><p>Reports on your results</p></li>
-<li><p>Back-up of your code</p></li>
-<li><p>Share your code</p></li>
-</ul></li>
-<li><p>Crucial for anyone trying to use your code (including your future self)</p></li>
+<li>Organize a project (folder, files, R-project)</li>
+<li>(Reproducible) reports on your results (Quarto)</li>
+<li>Back-up (&amp; sharing) of your code (GitHub)</li>
+<li>Crucial for anyone trying to use your code (including your future self)</li>
 </ul>
 </section>
 <section id="to-cover" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> To cover</h1>
 <ul>
-<li><p>R project</p></li>
-<li><p>folder structure</p></li>
-<li><p>Quarto language basics</p></li>
-<li><p>Including a code junk</p></li>
-<li><p>Install Github</p></li>
-<li><p>Make a git account</p></li>
-<li><p>Push your code</p></li>
+<li>R project</li>
+<li>folder structure</li>
+<li>Quarto language basics</li>
+<li>Including a code junk</li>
+<li>Push your code</li>
 </ul>
+</section>
+<section id="organizing-a-project" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Organizing a project</h1>
+<ul>
+<li>R-projects group all files of one project: scripts, data files, output</li>
+<li>File system &amp; file paths</li>
+<li>File naming</li>
+</ul>
+<section id="steps" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="steps"><span class="header-section-number">3.1</span> Steps</h2>
+<ul>
+<li>Make a directory for this class: “R_introduction”</li>
+<li>In it, create a sub-folder for “Lesson 2”, with further sub-folders:
+<ul>
+<li>data</li>
+<li>scripts</li>
+<li>figures</li>
+<li>output</li>
+</ul></li>
+<li>Open a New Project in Rstudio: Choose <code>New Project...</code> under the <code>File</code> menu and choose <code>Create a git repository</code></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/new_project.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 </section>
 
 </main>

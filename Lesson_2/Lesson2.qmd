@@ -16,28 +16,35 @@ echo: true
 
 # Goals
 
--   Organized coding projects
-
--   Reports on your results (Quarto)
-
+-   Organize a project (folder, files, R-project)
+-   (Reproducible) reports on your results (Quarto)
 -   Back-up (& sharing) of your code (GitHub)
-
 -   Crucial for anyone trying to use your code (including your future self)
 
 # To cover
 
 -   R project
-
 -   folder structure
-
 -   Quarto language basics
-
 -   Including a code junk
-
--   Install Github
-
--   Make a git account
-
 -   Push your code
 
-# R-projects
+# Organizing a project
+
+-   R-projects group all files of one project: scripts, data files, output
+-   File system & file paths
+-   File naming
+
+## Steps
+
+-   Make a directory for this class: "R_introduction"
+-   In it, create a sub-folder for "Lesson 2", with further sub-folders:
+    -   data
+    -   scripts
+    -   figures
+    -   output
+-   Open a New Project in Rstudio: Choose `New Project...` under the `File` menu and choose `Create a git repository`
+
+```{r, echo=FALSE}
+knitr::include_graphics('images/new_project.png')
+```
