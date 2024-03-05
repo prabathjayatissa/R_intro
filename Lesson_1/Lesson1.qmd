@@ -183,10 +183,10 @@ function_name(argument1, argument2 = "value")
 -   Check the order in the help pane by typing `?sd` in the console.
 -   You can skip arguments that have a default value specified (`FALSE` for `sd`)
 
-The function `rnorm()` generates random numbers from the standard normal distribution.
-
 ::: {.callout-caution}
 ## Exercise
+
+The function `rnorm()` generates random numbers from the standard normal distribution.
 
 -   Check its syntax in the help page. 
     -   what is n?
@@ -372,11 +372,11 @@ vignette("ggplot2-specs", package = "ggplot2")
 
 ### What for?
 
-* For all files – not just code!
 * Back up for your code - never loose your work. 
 * Version control
 * Share code
 * Collaborate on coding projects
+* For all files – not just code!
 
 ### How does it work? 
 
@@ -388,7 +388,7 @@ knitr::include_graphics('images/how_git_works.svg')
 [Image by Jana Lasser](https://github.com/JanaLasser/digitalisation-in-research-module-2/blob/main/03_collaborations/03_02_collaborative_code_writing/slides/img/how_git_works.svg)
 :::
 
-### Homework
+### Preparations for next time
 
 - Set up Git & GitHub on your laptop. 
 - Detailed instructions [here](https://hannahmetzler.eu/R_intro/Lesson_2/Install_Git_GitHub/Git_Github.html)

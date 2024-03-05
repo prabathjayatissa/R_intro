@@ -15,17 +15,17 @@ echo: true
 
 ## Setting up Git & Github
 
-More details if you need help [here](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git) on GitHub. 
+More details if you need help [here](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git) on GitHub.
 
 ### Get a [GitHub](https://github.com/) account
 
-### First check if Git is already installed: 
+### Check if Git is already installed
 
-In the bottom left pane, Click on `Terminal` next to `Console` (or open the Terminal/Console/Shell outside of Rstudio).
+In the bottom left pane in Rstudio, Click on `Terminal` next to `Console` (or open the Terminal/Console/Shell outside of Rstudio).
 
-- type `git –-version`
-- If you get a version number, it's installed! Go to step 4. 
-- If not, go to step 3.
+-   type `git –-version`
+-   If you get a version number, it's installed! Go to step 4.
+-   If not, go to step 3.
 
 ```{r, echo=FALSE, fig.width=3}
 knitr::include_graphics('images/Git_installed.png')
@@ -33,9 +33,9 @@ knitr::include_graphics('images/Git_installed.png')
 
 ### Download and install the latest version of [Git](https://git-scm.com/downloads)
 
-### Configure Git on your computer 
+### Configure Git on your computer
 
-Type in your Terminal: 
+Type in your Terminal:
 
 ```{bash,  eval = FALSE}
 $ git config --global user.name "Your name here"
@@ -44,7 +44,8 @@ $ git config --global user.email "your_email@example.com"
 $ git config --list 
 ```
 
-It should look like this: 
+After configuration, it should look like this:
+
 ```{r, echo=FALSE}
 #| fig-width: 3
 knitr::include_graphics('images/git_config.png')
@@ -52,59 +53,66 @@ knitr::include_graphics('images/git_config.png')
 
 ### Activate Version Control with Git in Rstudio
 
-  - Under `Tools` -> `Global Options` select Git/SVN
-  - Make sure the box `Enable version control` is checked. 
-  - Is there a path in `Git executable`? Otherwise set it to where git is installed on your PC
-  
-::: {.callout-important}
-## We will keep coming back to this window. 
+-   Under `Tools` -\> `Global Options` select Git/SVN
+-   Make sure the box `Enable version control` is checked.
+-   Is there a path in `Git executable`? Otherwise set it to where git is installed on your PC
+
+::: callout-important
+## We will keep coming back to this window.
+
 ```{r, echo=FALSE}
 #| fig-width: 5
 knitr::include_graphics('images/R_version_control.png')
 ```
 :::
-  
+
 ### Connect Git on your PC with your GitHub account
 
-::: {.callout-tip}
+::: callout-tip
 ## The idea
+
 We create an SSH key (a pass phrase), and give it to Rstudio and GitHub, so they recognize each other.
 :::
 
 #### Create an SSH key
 
-- In the `Options` window (above), click `Create SSH Key...`
-- If this does not work, enter this in the Terminal:
+-   In the `Options` window (above), click `Create SSH Key...`
+-   If this does not work, enter this in the Terminal:
+
 ```{bash,  eval = FALSE}
 $ ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
-- Press enter 3 times (or optionally enter a password when prompted): 
-  - `Enter file in which to save the key (/home/hannah/.ssh/id_rsa)`: [Press enter]
-  - `Enter passphrase (empty for no passphrase):`[Press enter]
-  - `Enter same passphrase again:`[Press enter]
-- In the `Options` window, there should now be a path for SSH RSA key. (Close once and reopen otherwise)
 
-#### Get the SSH key into Github 
+-   Press enter 3 times (or optionally enter a password when prompted):
+    -   `Enter file in which to save the key (/home/hannah/.ssh/id_rsa)`: \[Press enter\]
+    -   `Enter passphrase (empty for no passphrase):`\[Press enter\]
+    -   `Enter same passphrase again:`\[Press enter\]
+-   In the `Options` window, there should now be a path for SSH RSA key. (Close once and reopen otherwise)
 
-- Click `View public key` in the `Options` window.
+#### Get the SSH key into Github
+
+-   Click `View public key` in the `Options` window.
+
 ```{r, echo=FALSE, fig.width=4}
 knitr::include_graphics('images/ssh_public_key.png')
 ```
-- Copy the key
-- Go to your [GitHub account settings](https://github.com/settings/profile)
-- Click SSH and GPG keys on the left
+
+-   Copy the key
+-   Go to your [GitHub account settings](https://github.com/settings/profile)
+-   Click SSH and GPG keys on the left
+
 ```{r, echo=FALSE}
 #| fig-width: 3
 knitr::include_graphics('images/github_ssh_key.png')
 ```
-- Click “New SSH Key” on the right.
-- Add a **Title** (like “My work laptop”), paste the public key into **Key**, click Add SSH key.
 
-More details [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) if you need more help. 
+-   Click “New SSH Key” on the right.
+-   Add a **Title** (like “My work laptop”), paste the public key into **Key**, click Add SSH key.
 
-:::{.callout-tip}
+More details [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) if you need more help.
+
+::: callout-tip
 ## Done!
+
 Git and GitHub should now be up and running for our next class!
 :::
-
-

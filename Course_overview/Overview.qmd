@@ -18,9 +18,10 @@ editor: visual
 -   For beginners
 -   Encourage you to start writing your analyses as code
 -   Reproducibility & transparency for yourself and others
--   Welcome to all your doubts and questions!
 -   Break things down to lower the barrier
--   Please interrupt any time and ask questions!
+-   A big welcome to all your doubts and questions!
+    -   Please interrupt any time
+    -   Especially if you feel your question might be stupid
 -   Making mistakes is essential for learning to code.
 
 # Course overview
@@ -30,7 +31,7 @@ editor: visual
 -   All materials: <https://hannahmetzler.eu/R_intro/> (\[Source\](<https://github.com/hannahmetzler/R_intro/>) on Github)
 -   Lesson 1: Getting started
 -   Later lessons: Data visualizations, data wrangling, basic statistics
--   If time: Github & Markdown (Quarto) reports
+-   8 hours are not much - so I focus on keeping you all on board, you can easily continue learning online.
 
 # Before we start
 
@@ -48,6 +49,6 @@ editor: visual
 
 ------------------------------------------------------------------------
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("images/screen_setup.png")
 ```
