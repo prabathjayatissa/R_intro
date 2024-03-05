@@ -43,9 +43,11 @@ editor: visual
 
 # To follow the course
 
--   Open R studio & materials in browser on the side
--   Write code yourself as we go along to practice.
-    -   Code fields from materials can be copied by click
+- Open R studio
+- Either Zoom or lesson materials on the side
+- Write code **yourself** as we go along to practice.
+    - You'll learn more if you get errors!
+- If in hurry: Code fields from materials can be copied by click
 
 ------------------------------------------------------------------------
 
