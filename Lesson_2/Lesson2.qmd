@@ -1,0 +1,50 @@
+---
+title: "Lesson 2: Reproducible workflows with Quarto & Github"
+author: "Hannah Metzler"
+date: "March 6 2023"
+format: 
+  html:
+    toc: true # generate a table of content
+    number-sections: true
+    df-print: kable
+editor: visual
+cache: true
+execute: 
+  warning: false
+echo: true
+---
+
+# Goals
+
+-   Organize a project (folder, files, R-project)
+-   (Reproducible) reports on your results (Quarto)
+-   Back-up (& sharing) of your code (GitHub)
+-   Crucial for anyone trying to use your code (including your future self)
+
+# To cover
+
+-   R project
+-   folder structure
+-   Quarto language basics
+-   Including a code junk
+-   Push your code
+
+# Organizing a project
+
+-   R-projects group all files of one project: scripts, data files, output
+-   File system & file paths
+-   File naming
+
+## Steps
+
+-   Make a directory for this class: "R_introduction"
+-   In it, create a sub-folder for "Lesson 2", with further sub-folders:
+    -   data
+    -   scripts
+    -   figures
+    -   output
+-   Open a New Project in Rstudio: Choose `New Project...` under the `File` menu and choose `Create a git repository`
+
+```{r, echo=FALSE}
+knitr::include_graphics('images/new_project.png')
+```

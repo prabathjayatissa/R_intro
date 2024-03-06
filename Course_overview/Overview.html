@@ -344,6 +344,7 @@ Hannah Metzler
 <ul>
 <li>PostDoc at MedUni Vienna and the Complexity Science Hub</li>
 <li>Psychology, Neuroscience, Data Science</li>
+<li>Research topics: social media, misinformation, mental health, suicide prevention</li>
 </ul>
 </section>
 
@@ -353,9 +354,13 @@ Hannah Metzler
 <li>For beginners</li>
 <li>Encourage you to start writing your analyses as code</li>
 <li>Reproducibility &amp; transparency for yourself and others</li>
-<li>Welcome to all your doubts and questions!</li>
-<li>Break things down to lower the barrier.</li>
-<li>Please interrupt any time and ask questions!</li>
+<li>Break things down to lower the barrier</li>
+<li>A big welcome to all your doubts and questions!
+<ul>
+<li>Please interrupt any time</li>
+<li>Especially if you feel your question might be stupid</li>
+</ul></li>
+<li>Making mistakes is essential for learning to code.</li>
 </ul>
 </section>
 
@@ -364,10 +369,10 @@ Hannah Metzler
 <ul>
 <li>Wednesdays 10am-12pm: March 6, 13, 20 &amp; 27, 2024</li>
 <li>Time schedule: Break from 11h to 11h10</li>
-<li>All materials: <a href="https://hannahmetzler.eu/R_intro/" class="uri">https://hannahmetzler.eu/R_intro/</a> or <a href="https://github.com/hannahmetzler/R_intro/" class="uri">https://github.com/hannahmetzler/R_intro/</a></li>
+<li>All materials: <a href="https://hannahmetzler.eu/R_intro/" class="uri">https://hannahmetzler.eu/R_intro/</a> (or at the <a href="https://github.com/hannahmetzler/R_intro/">Source</a> on Github)</li>
 <li>Lesson 1: Getting started</li>
 <li>Later lessons: Data visualizations, data wrangling, basic statistics</li>
-<li>If time: Github &amp; Markdown (Quarto) reports</li>
+<li>8 hours are not much - so I focus on keeping you all on board, you can easily continue learning online.</li>
 </ul>
 </section>
 
@@ -379,27 +384,33 @@ Hannah Metzler
 <ul>
 <li>Shy/excited/under-confident/brave/bored?</li>
 </ul></li>
-<li>Previous experience?
+<li>Previous experience in 1-2 words?
 <ul>
 <li>none/very little/little?</li>
 </ul></li>
 </ul>
 </section>
 
+<section>
 <section id="to-follow-the-course" class="title-slide slide level1 center">
 <h1>To follow the course</h1>
 <ul>
 <li>Open R studio</li>
-<li>Open Lesson 1 on the side</li>
-<li>Write code yourself as we go along to practice.
+<li>Either Zoom or lesson materials on the side</li>
+<li>Write code <strong>yourself</strong> as we go along to practice.
 <ul>
-<li>Code fields from materials can be copied by click</li>
+<li>You’ll learn more if you get errors!</li>
 </ul></li>
+<li>If in hurry: Code fields from materials can be copied by click</li>
 </ul>
-<div class="footer footer-default">
+</section>
+<section class="slide level2">
+
+
+<img data-src="images/screen_setup.png" class="r-stretch"><div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -611,6 +622,44 @@ Hannah Metzler
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
