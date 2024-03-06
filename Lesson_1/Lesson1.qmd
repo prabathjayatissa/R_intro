@@ -64,9 +64,8 @@ knitr::include_graphics("images/Rstudio_interface.png")
 
 ### Objects & Assignment
 
-- Objects = variables: store results, numbers, letters for later use
-- Assigning something to an object: storing it
-
+-   Objects = variables: store results, numbers, letters for later use
+-   Assigning something to an object: storing it
 
 ```{r}
 ## use the assignment operator '<-'
@@ -90,8 +89,9 @@ x * 2
 
 -   Invalid objects: \_song_data, 1song, .1song, song data, song-data
 
-::: {.callout-caution}
+::: callout-caution
 ## Exercise
+
 Which of the following are valid object names?
 
 1.  `slender_man`\
@@ -183,12 +183,12 @@ function_name(argument1, argument2 = "value")
 -   Check the order in the help pane by typing `?sd` in the console.
 -   You can skip arguments that have a default value specified (`FALSE` for `sd`)
 
-::: {.callout-caution}
+::: callout-caution
 ## Exercise
 
 The function `rnorm()` generates random numbers from the standard normal distribution.
 
--   Check its syntax in the help page. 
+-   Check its syntax in the help page.
     -   what is n?
     -   what is the default mean and sd?
 -   Try executing the function without any arguments. Why do you get an error?
@@ -228,17 +228,17 @@ power.t.test(n = NULL, delta = NULL, sd = 1, sig.level = 0.05,
              strict = FALSE, tol = .Machine$double.eps^0.25)
 ```
 
-::: {.callout-caution}
+::: callout-caution
 ## Exercise
+
 -   What is the default value for sd?
 -   What is the default value for type?
 -   Which is equivalent to power.t.test(100, 0.5)?
-    1.   power.t.test()
-    2.   power.t.test(n = 100)
-    3.   power.t.test(delta = 0.5, n = 100)
-    4.   power.t.test(100, 0.5, sig.level = 1, sd = 0.05)
+    1.  power.t.test()
+    2.  power.t.test(n = 100)
+    3.  power.t.test(delta = 0.5, n = 100)
+    4.  power.t.test(100, 0.5, sig.level = 1, sd = 0.05)
 :::
-
 
 ## Add-on packages
 
@@ -295,7 +295,7 @@ Use `package::function()` to indicate which package a function comes from.
 
 -   `forcats` for factors (categorical variables)
 
-:::{.callout-caution}
+::: callout-caution
 ## Exercise
 
 -   Install Tidyverse via your console.
@@ -309,26 +309,33 @@ knitr::include_graphics("images/right_pane_packages.png")
 <!-- ### Install package from GitHub -->
 
 <!-- -   Some packages still under development are not yet on CRAN. -->
+
 <!-- -   Install the package {devtools} to be able to download packages from GitHub -->
+
 <!-- -   Check if devtools is installed by trying to load it. What does the error say? -->
 
 <!-- ```{r, eval=FALSE} -->
+
 <!-- # Install devtools:  -->
+
 <!-- install.packages("devtools") -->
+
 <!-- ``` -->
 
 <!-- Now you can install packages from Github (here the package for our free online course): -->
 
 <!-- ```{r, eval=FALSE} -->
+
 <!-- devtools::install_github("psyteachr/reprores-v3") -->
+
 <!-- ``` -->
 
 ## Getting help
 
 -   It's normal to look things up all the time!
 -   Very useful: [Cheatsheets](https://posit.co/resources/cheatsheets/)
-    - Access via `Help` -> `Cheatsheets`
-    - For today: [RStudio IDE Cheatsheet](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf)
+    -   Access via `Help` -\> `Cheatsheets`
+    -   For today: [RStudio IDE Cheatsheet](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf)
 
 ### Function help
 
@@ -371,27 +378,26 @@ vignette("ggplot2-specs", package = "ggplot2")
 
 ### What for?
 
-* Back up for your code - never loose your work. 
-* Version control
-* Share code
-* Collaborate on coding projects
-* For all files – not just code!
+-   Back up for your code - never loose your work.
+-   Version control
+-   Share code
+-   Collaborate on coding projects
+-   For all files – not just code!
 
-### How does it work? 
+### How does it work?
 
 ```{r echo=FALSE}
 knitr::include_graphics('images/how_git_works.svg')
 ```
 
-:::{.aside}
+::: aside
 [Image by Jana Lasser](https://github.com/JanaLasser/digitalisation-in-research-module-2/blob/main/03_collaborations/03_02_collaborative_code_writing/slides/img/how_git_works.svg)
 :::
 
 ### Preparations for next time
 
-- Set up Git & GitHub on your laptop. 
-- Detailed instructions [here](https://hannahmetzler.eu/R_intro/Lesson_2/Install_Git_GitHub/Git_Github.html)
-
+-   Set up Git & GitHub on your laptop.
+-   Detailed instructions [here](https://hannahmetzler.eu/R_intro/Lesson_2/Install_Git_GitHub/Git_Github.html)
 
 ## Optional exercises
 
@@ -399,7 +405,7 @@ knitr::include_graphics('images/how_git_works.svg')
 
 In the console, type the following:
 
-```
+```         
 1 + 2
 a <- 1
 b <- 2
@@ -412,7 +418,6 @@ Look at the Environment tab in the upper right pane. Set the variable `how_many_
 how_many_objects <- NULL
 ```
 
-
 ### Understand function syntax
 
 Use the `rnorm()` function to generate 10 random values from a normal distribution with a mean of 800 and a standard deviation of 20, and store the resulting vector in the object `random_vals`.
@@ -421,14 +426,12 @@ Use the `rnorm()` function to generate 10 random values from a normal distributi
 random_vals <- NULL
 ```
 
-
 Use the help function to figure out what argument you need to set to ignore `NA` values when calculating the mean of `the_values`. Change the function below to store the mean of `the_values` in the variable `the_mean`.
 
 ```{r}
 the_values <- c(1,1,1,2,3,4,6,8,9,9, NA) # do not alter this line
 the_mean   <- NULL
 ```
-
 
 Figure out what the function `seq()` does. Use the function to set `tens` to the vector `c(0, 10, 20, 30, 40, 50 ,60, 70 ,80 ,90, 100)`. Set `bins6` to the cutoffs if you wanted to divide the numbers 0 to 100 into 6 bins. For example, dividing 0 to 100 into 4 bins results in the cutoffs `c(0, 25, 50, 75, 100)`,
 
@@ -437,13 +440,11 @@ tens  <- NULL
 bins6 <- NULL
 ```
 
-
 Figure out how to use the `paste()` function to paste together strings with forward slashes ("/") instead of spaces. Use `paste()` to set `my_dir` to "my/project/directory".
 
 ```{r}
 my_dir <- NULL
 ```
-
 
 ### Install a package
 
@@ -453,7 +454,6 @@ Install the CRAN package called "cowsay". Run the code to do this and include it
 # comment out the installation code
 
 ```
-
 
 The code below has errors. Fix the code.
 
@@ -465,15 +465,14 @@ cowsay::say)
 cowsay::say(by = pumpkin)
 ```
 
-
 ```{r, eval=FALSE}
 cowsay::say(by_colour = "blue")
 ```
 
 ### Solutions
 
-Check your solutions [here](https://psyteachr.github.io/reprores-v3/exercises/01_intro_answers.html). 
+Check your solutions [here](https://psyteachr.github.io/reprores-v3/exercises/01_intro_answers.html).
 
 ## References
 
-This lesson is based on Chapter 1 Materials and Exercises of this free online text book: Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research](https://psyteachr.github.io/reprores-v3/intro.html): (3.0) Zenodo. doi:10.5281/zenodo.6527194. 
+This lesson is based on Chapter 1 Materials and Exercises of this free online text book: Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research](https://psyteachr.github.io/reprores-v3/intro.html): (3.0) Zenodo. doi:10.5281/zenodo.6527194.
