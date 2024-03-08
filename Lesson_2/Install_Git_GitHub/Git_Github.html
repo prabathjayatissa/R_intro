@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<head>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
 
-<meta charset="utf-8" />
-<meta name="generator" content="quarto-1.4.550" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-
-<meta name="author" content="Hannah Metzler" />
+<meta name="author" content="Hannah Metzler">
 
 <title>Preparation for Lesson 2</title>
 <style>
@@ -25,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -59,7 +57,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-<!-- htmldependencies:E3FAD763 -->
+
+<script src="Git_Github_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Git_Github_files/libs/quarto-html/quarto.js"></script>
+<script src="Git_Github_files/libs/quarto-html/popper.min.js"></script>
+<script src="Git_Github_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Git_Github_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Git_Github_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Git_Github_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Git_Github_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Git_Github_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Git_Github_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -68,7 +76,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  <div id="quarto-toc-target"></div>
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#setting-up-git-github" id="toc-setting-up-git-github" class="nav-link active" data-scroll-target="#setting-up-git-github"><span class="header-section-number">1</span> Setting up Git &amp; Github</a>
+  <ul class="collapse">
+  <li><a href="#get-a-github-account" id="toc-get-a-github-account" class="nav-link" data-scroll-target="#get-a-github-account"><span class="header-section-number">1.1</span> Get a GitHub account</a></li>
+  <li><a href="#check-if-git-is-already-installed" id="toc-check-if-git-is-already-installed" class="nav-link" data-scroll-target="#check-if-git-is-already-installed"><span class="header-section-number">1.2</span> Check if Git is already installed</a></li>
+  <li><a href="#download-and-install-the-latest-version-of-git" id="toc-download-and-install-the-latest-version-of-git" class="nav-link" data-scroll-target="#download-and-install-the-latest-version-of-git"><span class="header-section-number">1.3</span> Download and install the latest version of Git</a></li>
+  <li><a href="#configure-git-on-your-computer" id="toc-configure-git-on-your-computer" class="nav-link" data-scroll-target="#configure-git-on-your-computer"><span class="header-section-number">1.4</span> Configure Git on your computer</a></li>
+  <li><a href="#activate-version-control-with-git-in-rstudio" id="toc-activate-version-control-with-git-in-rstudio" class="nav-link" data-scroll-target="#activate-version-control-with-git-in-rstudio"><span class="header-section-number">1.5</span> Activate Version Control with Git in Rstudio</a></li>
+  <li><a href="#connect-git-on-your-pc-with-your-github-account" id="toc-connect-git-on-your-pc-with-your-github-account" class="nav-link" data-scroll-target="#connect-git-on-your-pc-with-your-github-account"><span class="header-section-number">1.6</span> Connect Git on your PC with your GitHub account</a></li>
+  </ul></li>
+  </ul>
+</nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -93,73 +115,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-
 </header>
 
-<nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#setting-up-git-github" id="toc-setting-up-git-github"><span class="header-section-number">1</span> Setting up Git &amp; Github</a>
-  <ul>
-  <li><a href="#get-a-github-account" id="toc-get-a-github-account"><span class="header-section-number">1.1</span> Get a GitHub account</a></li>
-  <li><a href="#check-if-git-is-already-installed" id="toc-check-if-git-is-already-installed"><span class="header-section-number">1.2</span> Check if Git is already installed</a></li>
-  <li><a href="#download-and-install-the-latest-version-of-git" id="toc-download-and-install-the-latest-version-of-git"><span class="header-section-number">1.3</span> Download and install the latest version of Git</a></li>
-  <li><a href="#configure-git-on-your-computer" id="toc-configure-git-on-your-computer"><span class="header-section-number">1.4</span> Configure Git on your computer</a></li>
-  <li><a href="#activate-version-control-with-git-in-rstudio" id="toc-activate-version-control-with-git-in-rstudio"><span class="header-section-number">1.5</span> Activate Version Control with Git in Rstudio</a></li>
-  <li><a href="#connect-git-on-your-pc-with-your-github-account" id="toc-connect-git-on-your-pc-with-your-github-account"><span class="header-section-number">1.6</span> Connect Git on your PC with your GitHub account</a></li>
-  </ul></li>
-  </ul>
-</nav>
 <section id="setting-up-git-github" class="level2" data-number="1">
-<h2 data-number="1"><span class="header-section-number">1</span> Setting up Git &amp; Github</h2>
+<h2 data-number="1" class="anchored" data-anchor-id="setting-up-git-github"><span class="header-section-number">1</span> Setting up Git &amp; Github</h2>
 <p>More details if you need help <a href="https://docs.github.com/en/get-started/getting-started-with-git/set-up-git">here</a> on GitHub.</p>
 <section id="get-a-github-account" class="level3" data-number="1.1">
-<h3 data-number="1.1"><span class="header-section-number">1.1</span> Get a <a href="https://github.com/">GitHub</a> account</h3>
+<h3 data-number="1.1" class="anchored" data-anchor-id="get-a-github-account"><span class="header-section-number">1.1</span> Get a <a href="https://github.com/">GitHub</a> account</h3>
 </section>
 <section id="check-if-git-is-already-installed" class="level3" data-number="1.2">
-<h3 data-number="1.2"><span class="header-section-number">1.2</span> Check if Git is already installed</h3>
+<h3 data-number="1.2" class="anchored" data-anchor-id="check-if-git-is-already-installed"><span class="header-section-number">1.2</span> Check if Git is already installed</h3>
 <p>In the bottom left pane in Rstudio, Click on <code>Terminal</code> next to <code>Console</code> (or open the Terminal/Console/Shell outside of Rstudio).</p>
 <ul>
 <li>type <code>git –-version</code></li>
 <li>If you get a version number, it’s installed! Go to step 4.</li>
 <li>If not, go to step 3.</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="Git_Github_cache/html/unnamed-chunk-1_dcf2175f842d67115652bc982e3de375">
 <div class="cell-output-display">
-<div>
-<figure>
-<p><img src="images/Git_installed.png" class="img-fluid" /></p>
-</figure>
-</div>
+<p><img src="images/Git_installed.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="download-and-install-the-latest-version-of-git" class="level3" data-number="1.3">
-<h3 data-number="1.3"><span class="header-section-number">1.3</span> Download and install the latest version of <a href="https://git-scm.com/downloads">Git</a></h3>
+<h3 data-number="1.3" class="anchored" data-anchor-id="download-and-install-the-latest-version-of-git"><span class="header-section-number">1.3</span> Download and install the latest version of <a href="https://git-scm.com/downloads">Git</a></h3>
 </section>
 <section id="configure-git-on-your-computer" class="level3" data-number="1.4">
-<h3 data-number="1.4"><span class="header-section-number">1.4</span> Configure Git on your computer</h3>
+<h3 data-number="1.4" class="anchored" data-anchor-id="configure-git-on-your-computer"><span class="header-section-number">1.4</span> Configure Git on your computer</h3>
 <p>Type in your Terminal:</p>
-<div class="cell">
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash cell-code"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.name <span class="st">&quot;Your name here&quot;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.email <span class="st">&quot;your_email@example.com&quot;</span></span>
+<div class="cell" data-hash="Git_Github_cache/html/unnamed-chunk-2_a7ccf521e401c39c99f3404cfc7b03a1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.name <span class="st">"Your name here"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.email <span class="st">"your_email@example.com"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#now check your configuration: </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--list</span> </span></code></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--list</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>After configuration, it should look like this:</p>
-<div class="cell">
+<div class="cell" data-hash="Git_Github_cache/html/unnamed-chunk-3_5f8874a59616b0622ee77596e7bc68fe">
 <div class="cell-output-display">
-<div>
-<figure>
-<p><img src="images/git_config.png" class="img-fluid" /></p>
-</figure>
-</div>
+<p><img src="images/git_config.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="activate-version-control-with-git-in-rstudio" class="level3" data-number="1.5">
-<h3 data-number="1.5"><span class="header-section-number">1.5</span> Activate Version Control with Git in Rstudio</h3>
+<h3 data-number="1.5" class="anchored" data-anchor-id="activate-version-control-with-git-in-rstudio"><span class="header-section-number">1.5</span> Activate Version Control with Git in Rstudio</h3>
 <ul>
 <li>Under <code>Tools</code> -&gt; <code>Global Options</code> select Git/SVN</li>
 <li>Make sure the box <code>Enable version control</code> is checked.</li>
@@ -168,31 +166,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 We will keep coming back to this window.
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="cell">
+<div class="cell" data-hash="Git_Github_cache/html/unnamed-chunk-4_e29661215cdf4bbf081472f39b076c60">
 <div class="cell-output-display">
-<div>
-<figure>
-<p><img src="images/R_version_control.png" class="img-fluid" /></p>
-</figure>
-</div>
+<p><img src="images/R_version_control.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
 </div>
 </section>
 <section id="connect-git-on-your-pc-with-your-github-account" class="level3" data-number="1.6">
-<h3 data-number="1.6"><span class="header-section-number">1.6</span> Connect Git on your PC with your GitHub account</h3>
+<h3 data-number="1.6" class="anchored" data-anchor-id="connect-git-on-your-pc-with-your-github-account"><span class="header-section-number">1.6</span> Connect Git on your PC with your GitHub account</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 The idea
@@ -203,13 +197,13 @@ The idea
 </div>
 </div>
 <section id="create-an-ssh-key" class="level4" data-number="1.6.1">
-<h4 data-number="1.6.1"><span class="header-section-number">1.6.1</span> Create an SSH key</h4>
+<h4 data-number="1.6.1" class="anchored" data-anchor-id="create-an-ssh-key"><span class="header-section-number">1.6.1</span> Create an SSH key</h4>
 <ul>
 <li>In the <code>Options</code> window (above), click <code>Create SSH Key...</code></li>
 <li>If this does not work, enter this in the Terminal:</li>
 </ul>
-<div class="cell">
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash cell-code"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh-keygen <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">&quot;your_email@example.com&quot;</span></span></code></pre></div>
+<div class="cell" data-hash="Git_Github_cache/html/unnamed-chunk-5_5450c0222662350eb93f8e589e3d1813">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh-keygen <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"your_email@example.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Press enter 3 times (or optionally enter a password when prompted):
@@ -222,17 +216,13 @@ The idea
 </ul>
 </section>
 <section id="get-the-ssh-key-into-github" class="level4" data-number="1.6.2">
-<h4 data-number="1.6.2"><span class="header-section-number">1.6.2</span> Get the SSH key into Github</h4>
+<h4 data-number="1.6.2" class="anchored" data-anchor-id="get-the-ssh-key-into-github"><span class="header-section-number">1.6.2</span> Get the SSH key into Github</h4>
 <ul>
 <li>Click <code>View public key</code> in the <code>Options</code> window.</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="Git_Github_cache/html/unnamed-chunk-6_95fd11fe67dcf42b462692c7e06a619d">
 <div class="cell-output-display">
-<div>
-<figure>
-<p><img src="images/ssh_public_key.png" class="img-fluid" /></p>
-</figure>
-</div>
+<p><img src="images/ssh_public_key.png" class="img-fluid"></p>
 </div>
 </div>
 <ul>
@@ -240,13 +230,9 @@ The idea
 <li>Go to your <a href="https://github.com/settings/profile">GitHub account settings</a></li>
 <li>Click SSH and GPG keys on the left</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="Git_Github_cache/html/unnamed-chunk-7_432767507226ec5ffd57b6867a6ab1e7">
 <div class="cell-output-display">
-<div>
-<figure>
-<p><img src="images/github_ssh_key.png" class="img-fluid" /></p>
-</figure>
-</div>
+<p><img src="images/github_ssh_key.png" class="img-fluid"></p>
 </div>
 </div>
 <ul>
@@ -257,7 +243,7 @@ The idea
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Done!
@@ -273,7 +259,7 @@ Done!
 
 </main>
 <!-- /main column -->
-<script id = "quarto-html-after-body" type="application/javascript">
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -352,9 +338,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -364,17 +351,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -387,125 +365,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -549,7 +408,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -575,32 +433,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -662,6 +494,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 </div> <!-- /content -->
 
-</body>
 
-</html>
+
+</body></html>

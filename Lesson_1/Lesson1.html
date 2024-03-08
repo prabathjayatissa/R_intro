@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -100,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><span class="header-section-number">6</span> Getting help</a>
   <ul class="collapse">
   <li><a href="#function-help" id="toc-function-help" class="nav-link" data-scroll-target="#function-help"><span class="header-section-number">6.1</span> Function help</a></li>
-  <li><a href="#googling" id="toc-googling" class="nav-link" data-scroll-target="#googling"><span class="header-section-number">6.2</span> Googling</a></li>
+  <li><a href="#googling-chatgpt" id="toc-googling-chatgpt" class="nav-link" data-scroll-target="#googling-chatgpt"><span class="header-section-number">6.2</span> Googling &amp; ChatGPT</a></li>
   <li><a href="#vignettes" id="toc-vignettes" class="nav-link" data-scroll-target="#vignettes"><span class="header-section-number">6.3</span> Vignettes</a></li>
   <li><a href="#asking-for-help" id="toc-asking-for-help" class="nav-link" data-scroll-target="#asking-for-help"><span class="header-section-number">6.4</span> Asking for help</a></li>
   </ul></li>
@@ -150,9 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-
 </header>
-
 
 <section id="r-and-rstudio" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="r-and-rstudio"><span class="header-section-number">1</span> R and Rstudio</h2>
@@ -165,17 +163,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="rstudio-interface" class="level2 page-columns page-full" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="rstudio-interface"><span class="header-section-number">2</span> RStudio interface</h2>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-1_91abd15c3f0fba3c7b1503abad82e201">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="images/Rstudio_interface.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
+<p><img src="images/Rstudio_interface.png" class="img-fluid"></p>
 </div>
 </div>
 
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="no-row-height column-margin column-container"><div class="">
 <ul>
 <li>Left top: Source pane: Writing your scripts (with code &amp; text)</li>
 <li>Left bottom: Console: executing code directly</li>
@@ -184,7 +178,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div></div></section>
 <section id="console-commands" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="console-commands"><span class="header-section-number">3</span> Console commands</h2>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-2_d927c38cdb4e412e88fecbd1f741fb96">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
@@ -195,7 +189,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Entries can have multiple lines</li>
 <li>Lines starting with # are a <strong>comment</strong>: notes that explain what your code is doing. Comments are crucial for reproducibility, and for making the life of your later self easier.</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-3_2a4347ec9bd1de5f9c23ba788831fd4b">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's break it over multiple lines</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">6</span> <span class="sc">+</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">7</span> <span class="sc">+</span> <span class="dv">8</span> <span class="sc">+</span> <span class="dv">9</span> <span class="sc">+</span></span>
@@ -208,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>&gt;</code> at the start of a line: R is waiting for a new line</li>
 <li><code>+</code>: R waits until you finish a command from the previous line</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-4_dac819f5d80e453aad1546f1fd769fc2">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span> <span class="sc">+</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="co">#enter only this part first: # R waits until next line for evaluation</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>     <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -224,13 +218,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Objects = variables: store results, numbers, letters for later use</li>
 <li>Assigning something to an object: storing it</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-5_c3c37d0bdd5f752c58c257c8b8661f5a">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## use the assignment operator '&lt;-'</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">## R stores the number in the object</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Use the object x in your next step:</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-6_b6fd50a5d3d30372635222367a81826f">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10</code></pre>
@@ -285,11 +279,11 @@ Exercise
 <ul>
 <li>Text inside quotes is called a <strong>string</strong>, here one assigned to an object called “string1”:</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-7_2300506467f21f54a89d95216168f684">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>string1 <span class="ot">&lt;-</span><span class="st">"I am a string"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can break up text over multiple lines; R waits for a close quote. If you want to include quotes inside this string, escape it with a backslash.</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-8_6bbc033515fbf766f2e0a5c5640ca714">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>long_string <span class="ot">&lt;-</span> <span class="st">"In the grand kingdom of Punctuation, the </span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="st">exclamation mark and the question mark decided </span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -321,10 +315,10 @@ The period, known for being a bit of a downer, said,
 <li>Click the broom icon to clear all objects</li>
 <li>Useful functions:</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-9_f74be2bfa508d9c04aa5b28b0ee10dd1">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()            <span class="co"># print the objects in the global environment</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "long_string" "string1"     "x"          </code></pre>
+<pre><code>[1] "has_annotations" "long_string"     "string1"         "x"              </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="st">"x"</span>)         <span class="co"># remove the object named x from the global environment</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># clear out the global environment</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -333,7 +327,7 @@ The period, known for being a bit of a downer, said,
 <section id="whitespace" class="level3" data-number="4.4">
 <h3 data-number="4.4" class="anchored" data-anchor-id="whitespace"><span class="header-section-number">4.4</span> Whitespace</h3>
 <p>R mostly ignores them. Use them to organize your code.</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-10_14bc401e7d0e57be451a3abd16e10306">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a and b are identical</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">ctl =</span> <span class="st">"Control Condition"</span>, <span class="at">exp1 =</span> <span class="st">"Experimental Condition 1"</span>, <span class="at">exp2 =</span> <span class="st">"Experimental Condition 2"</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -343,7 +337,7 @@ The period, known for being a bit of a downer, said,
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">exp2 =</span> <span class="st">"Experimental Condition 2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It is often useful to break up long functions onto several lines.</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-11_de087a61442a7a6e27aae23a922832c2">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"The hyphen and the dash argued about who was faster to get there."</span>,</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"The parentheses brought their side comments,"</span>,</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"while the quotation marks couldn't stop"</span>, </span>
@@ -364,7 +358,7 @@ repeating what everyone else said.</code></pre>
 <li>Example: <code>sd</code> to calculate the standard deviation</li>
 <li>Functions are set up like this:</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-12_75103fc0fb702be0463ef5c59257186a">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">function_name</span>(argument1, <span class="at">argument2 =</span> <span class="st">"value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -395,39 +389,39 @@ Exercise
 </div>
 </div>
 <p>If you want 10 random numbers from a normal distribution with mean of 0 and standard deviation, you can just use the defaults.</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/rnorm-10_d33a4e002c1ecb37123333bdfdd07166">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  0.53367579 -0.71013299  0.26823467 -1.90987221 -1.73524213 -0.51134488
- [7] -0.59181736  1.63371944  0.01114093  0.52851394</code></pre>
+<pre><code> [1]  0.011831318 -0.790476960  0.602547247  1.700752158 -0.007407682
+ [6] -0.536491613 -0.051600859 -0.910014338  0.536650737 -0.263438258</code></pre>
 </div>
 </div>
 <p>If you want 10 numbers from a normal distribution with a mean of 100 (we do not need argument names here):</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/rnorm-10-100_f012f6157f3655b9ce7f3573558ec9e4">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 100.98874  98.76133 100.85112 102.81372 101.27968 100.27539  99.47076
- [8]  99.23855  99.76339 100.65251</code></pre>
+<pre><code> [1] 100.07861  99.13113 100.09459  99.89518 100.50338 100.67608  99.59982
+ [8] 100.65317  99.64152 100.82610</code></pre>
 </div>
 </div>
 <p>This would be an equivalent but less efficient way of calling the function:</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/rnorm-n-10-m-100_884671eaae7ec693b7e859bbe5568f46">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 100.91974  99.35829 101.11210  99.04150  99.91964 101.02938  99.66290
- [8]  99.73741 100.59091  99.88117</code></pre>
+<pre><code> [1]  99.99246  97.54707 100.56134 101.52132 100.74287  99.17780  99.96581
+ [8] 103.26012  99.73854  99.39650</code></pre>
 </div>
 </div>
 <p>We need names if we change the default for an argument coming later in the list:</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/rnorm-10-sd-100_821ff5708fe9db05588c6afeb59c2d8f">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]   72.90245  -52.38889  105.27802 -359.03310  -53.57951  -10.38521
- [7]  -17.28815   27.42334  -65.72040   19.24378</code></pre>
+<pre><code> [1] -139.88461   48.49562  -18.66956   38.81796   15.01891   28.51403
+ [7]  -24.39289  -21.58312  -87.15735   57.99076</code></pre>
 </div>
 </div>
 <p>Functions with a list of options after an argument: default value is the first option. The usage entry for the <code>power.t.test()</code> function looks like this:</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-13_27fb0b526d85cbd93678b9101ad04c4f">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">power.t.test</span>(<span class="at">n =</span> <span class="cn">NULL</span>, <span class="at">delta =</span> <span class="cn">NULL</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>,</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">power =</span> <span class="cn">NULL</span>,</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"two.sample"</span>, <span class="st">"one.sample"</span>, <span class="st">"paired"</span>),</span>
@@ -474,18 +468,18 @@ Exercise
 <li>Installing: Only once (like an app)</li>
 <li>From the console (not a script)</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-14_cae24179dbdb25a18b9860892cf0dba3">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type this in the console pane</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"beepr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Loading a package (like opening an app)</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-15_a1bc13671c852d6bb83409651bb7beb3">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(beepr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now you can run the function <code>beepr::beep()</code>.</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/beepr-demo_531daac953114896d0dca2da54577c1e">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>beepr<span class="sc">::</span><span class="fu">beep</span>() <span class="co"># default sound</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>beepr<span class="sc">::</span><span class="fu">beep</span>(<span class="at">sound =</span> <span class="st">"mario"</span>) <span class="co"># change the sound argument</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -525,13 +519,9 @@ Exercise
 <li>Install Tidyverse via your console.</li>
 <li>Check installed and loaded packages in the lower right pane.</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-16_6381c4eb1b445ea6279084da616c2987">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="images/right_pane_packages.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
+<p><img src="images/right_pane_packages.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
@@ -562,7 +552,7 @@ Exercise
 </ul>
 <section id="function-help" class="level3" data-number="6.1">
 <h3 data-number="6.1" class="anchored" data-anchor-id="function-help"><span class="header-section-number">6.1</span> Function help</h3>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-17_b3f8fac32eee7408e751a91e71792d94">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># these methods are all equivalent ways of getting help</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"rnorm"</span>)</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>?rnorm</span>
@@ -570,12 +560,13 @@ Exercise
 </div>
 <p>Package is not loaded, or you don’t know which package the function belongs to: Use <code>??function_name</code>.</p>
 </section>
-<section id="googling" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="googling"><span class="header-section-number">6.2</span> Googling</h3>
+<section id="googling-chatgpt" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="googling-chatgpt"><span class="header-section-number">6.2</span> Googling &amp; ChatGPT</h3>
 <ul>
 <li>Using jargon like “concatenate vectors in R” helps</li>
 <li>You’ll get more useful results with practice</li>
 <li>Use R, Rstats, or the name of the package.</li>
+<li>ChatGPT is quite a good programmer</li>
 </ul>
 </section>
 <section id="vignettes" class="level3" data-number="6.3">
@@ -584,7 +575,7 @@ Exercise
 <li>Explain how to use a package.</li>
 <li>Many packages have vignettes.</li>
 </ul>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-18_6208761af4bb3458efe986f97eff735f">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># opens a list of available vignettes</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="at">package =</span> <span class="st">"ggplot2"</span>)</span>
@@ -596,7 +587,6 @@ Exercise
 <section id="asking-for-help" class="level3" data-number="6.4">
 <h3 data-number="6.4" class="anchored" data-anchor-id="asking-for-help"><span class="header-section-number">6.4</span> Asking for help</h3>
 <ul>
-<li>ChatGPT is a really good teacher.</li>
 <li>If all else fails: Forums like Statsexchange
 <ul>
 <li>Copy &amp; paste your code and errors to be precise</li>
@@ -618,17 +608,13 @@ Exercise
 </section>
 <section id="how-does-it-work" class="level3 page-columns page-full" data-number="7.2">
 <h3 data-number="7.2" class="anchored" data-anchor-id="how-does-it-work"><span class="header-section-number">7.2</span> How does it work?</h3>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-19_83acead173ad5cf96eebaa5e2d429a7a">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="images/how_git_works.svg" class="img-fluid figure-img"></p>
-</figure>
-</div>
+<p><img src="images/how_git_works.svg" class="img-fluid"></p>
 </div>
 </div>
 
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="no-row-height column-margin column-container"><div class="">
 <p><a href="https://github.com/JanaLasser/digitalisation-in-research-module-2/blob/main/03_collaborations/03_02_collaborative_code_writing/slides/img/how_git_works.svg">Image by Jana Lasser</a></p>
 </div></div></section>
 <section id="preparations-for-next-time" class="level3" data-number="7.3">
@@ -649,45 +635,45 @@ a &lt;- 1
 b &lt;- 2
 a + b</code></pre>
 <p>Look at the Environment tab in the upper right pane. Set the variable <code>how_many_objects</code> below to the number of objects listed in the environment.</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-20_b4d60d72920e22b859ffbe8e7d8837a4">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>how_many_objects <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="understand-function-syntax" class="level3" data-number="8.2">
 <h3 data-number="8.2" class="anchored" data-anchor-id="understand-function-syntax"><span class="header-section-number">8.2</span> Understand function syntax</h3>
 <p>Use the <code>rnorm()</code> function to generate 10 random values from a normal distribution with a mean of 800 and a standard deviation of 20, and store the resulting vector in the object <code>random_vals</code>.</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-21_d92bdcffca6ec522730adcae5176f6a4">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>random_vals <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Use the help function to figure out what argument you need to set to ignore <code>NA</code> values when calculating the mean of <code>the_values</code>. Change the function below to store the mean of <code>the_values</code> in the variable <code>the_mean</code>.</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-22_827e6d7b5b69dd4b45d0e8d1121070b9">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>the_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">9</span>, <span class="cn">NA</span>) <span class="co"># do not alter this line</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>the_mean   <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Figure out what the function <code>seq()</code> does. Use the function to set <code>tens</code> to the vector <code>c(0, 10, 20, 30, 40, 50 ,60, 70 ,80 ,90, 100)</code>. Set <code>bins6</code> to the cutoffs if you wanted to divide the numbers 0 to 100 into 6 bins. For example, dividing 0 to 100 into 4 bins results in the cutoffs <code>c(0, 25, 50, 75, 100)</code>,</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-23_c98fe4921ec18886e4f80149695bb4f9">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>tens  <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>bins6 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Figure out how to use the <code>paste()</code> function to paste together strings with forward slashes (“/”) instead of spaces. Use <code>paste()</code> to set <code>my_dir</code> to “my/project/directory”.</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-24_8b7364a9ca763069fc265a9583055379">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>my_dir <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="install-a-package" class="level3" data-number="8.3">
 <h3 data-number="8.3" class="anchored" data-anchor-id="install-a-package"><span class="header-section-number">8.3</span> Install a package</h3>
 <p>Install the CRAN package called “cowsay”. Run the code to do this and include it in the code chunk below, but comment it out. It is bad practice to write a script that installs a package without the user having the option to cancel. Also, some packages take a long time to load, so you won’t want to install them every time you run a script.</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-25_6f6a22322f276f859b74ad2686e2b750">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># comment out the installation code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The code below has errors. Fix the code.</p>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-26_5af98a7638f57af334f3582043df01ff">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>cowsay<span class="sc">::</span>say<span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-27_4976d041a06d598b3f5d85466a8f7a2d">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>cowsay<span class="sc">::</span><span class="fu">say</span>(<span class="at">by =</span> pumpkin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-hash="Lesson1_cache/html/unnamed-chunk-28_e1d86df7752a50b5c028d90afcc0387f">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>cowsay<span class="sc">::</span><span class="fu">say</span>(<span class="at">by_colour =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -782,9 +768,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -794,17 +781,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -817,125 +795,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -979,7 +838,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1005,32 +863,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1091,7 +923,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 
