@@ -14,37 +14,174 @@ execute:
 echo: true
 ---
 
-# Goals
+## Quick repetition of Lesson 1
 
--   Organize a project (folder, files, R-project)
--   (Reproducible) reports on your results (Quarto)
--   Back-up (& sharing) of your code (GitHub)
--   Crucial for anyone trying to use your code (including your future self)
+- Assigning numeric values or strings to objects, then using the objects:
 
-# To cover
+```{r}
+x <- 5
+y <- "string"
+x*2
+y
+```
 
--   R project
--   folder structure
--   Quarto language basics
--   Including a code junk
--   Push your code
+- Using whitespaces to organize your code
+- Removing objects in the environment
 
-# Organizing a project
+```{r}
+rm(list = ls())
+```
 
--   R-projects group all files of one project: scripts, data files, output
--   File system & file paths
--   File naming
+- Functions & arguments
 
-## Steps
+```{r}
+rnorm(20, mean = 100, sd = 10)
+```
 
+- Function help
+
+```{r}
+?rnorm
+```
+
+- Installing & loading packages
+```{r}
+# install.packages("tidyverse")
+library(tidyverse)
+```
+
+## Goals for lesson 2
+
+- Organize a project (folder, files, R-project)
+- Commit to Git
+- Push to Bitbucket
+- Read in & manipulate data
+- Make a figure & save it to PDF
+- Create a Quarto document
+
+## Organizing a project
+
+### File system & paths
+
+- A file on your Desktop: `/Users/YourName/Desktop/datafile.csv`
+- `~` shortcut for the user directory of the currently logged in user `~/Desktop/datafile.csv`
+- I find it useful to have all my analysis projects in a common folder directly in my user folder: `~/AnalysisProjects/`
+
+### Useful folder structure:
+
+```{r, echo=FALSE}
+#| fig-width: 2
+knitr::include_graphics('images/folder_structure.png')
+```
+
+:::{.callout-caution}
+#### Exercise
+What is the file path for an imaginary `datafile.csv` in the data folder above?
+:::
+
+-   Alternative output folder names could be: 
+    - write_up
+    - tables
+    - reports
+    - or several of those
+-   Data: I recommend having a separate folder for the raw data
+-   Plus any other project specific folders
+-   The Quarto file (File.qmd) is the starting point to lead through the analyses: it calls other scripts in the order required (e.g., a cleaning script, a figures script, etc.)
+
+::: {.callout-caution}
+#### Exercise
 -   Make a directory for this class: "R_introduction"
--   In it, create a sub-folder for "Lesson 2", with further sub-folders:
+-   In it, create a sub-folder for "Lesson_2", with further sub-folders:
     -   data
-    -   scripts
+    -   code
     -   figures
     -   output
--   Open a New Project in Rstudio: Choose `New Project...` under the `File` menu and choose `Create a git repository`
+:::
+
+### Working Directory
+
+- Folder of the project you are currently working on
+- Your scripts should only reference three types of locations: 
+
+| Where | Example |
+|-------|---------|
+| on the web               | "https://hannahmetzler.eu/R_intro/Lesson_2/data/datafile.csv" |
+| in the working directory | "datafile.csv" |
+| in a subdirectory        | "data/datafile.csv" |
+
+### File names
+
+- Use names that work well for computers & people
+- No spaces
+-   be consistent with capitalisation (set a rule to make it easy to remember, like always use lowercase)
+- A full stop only before the file extension `data_file.csv`
+-   use underscores (`_`) to separate parts of the file name, and dashes (`-`) to separate words in a section `"data_questionnaire_2021-11-15.xls"`
+-   prefix a filename with an underscore to move it to the top of the list, or prefix all files with numbers to control their order
+-   use YYYY-MM-DD format for dates so they sort in chronological order
+
+#### Bad examples
+
+-   `Data (Participants) 11-15.xls`
+-   `final report2.doc`
+-   `Participants Data Nov 12.xls`
+-   `project notes.txt`
+-   `Questionnaire Data November 15.xls`
+-   `report final.doc`
+-   `report final 2.doc`
+
+#### Good examples
+
+-   `_project-notes.txt`
+-   `data_participants_2021-11-12.xls`
+-   `data_participants_2021-11-15.xls`
+-   `report_v1.doc`
+-   `report_v2.doc`
+-   `report_v3.doc`
+
+### R-projects
+
+- Useful to group all files of a project
+- Automatically sets the correct file paths
+- Allows using Git for version control
+
+::: {.callout-caution}
+#### Exercise
+-   Open a New Project in Rstudio: Choose `New Project...` under the `File` menu and check `Create a git repository`
+  - Choose `Existing Directory`
+  - Use `Browse` to find our root folder
 
 ```{r, echo=FALSE}
 knitr::include_graphics('images/new_project.png')
 ```
+:::
+
+## Git & GitHub
+
+- Backup, version control & collaboration
+- Did setup work for all of you?
+
+```{r echo=FALSE}
+knitr::include_graphics('../Lesson_1/images/how_git_works.svg')
+```
+
+
+### Create a remote git repository
+https://pagepiccinini.com/r-course/lesson-1-r-basics/
+
+### Commit to Git
+
+### Push to Git
+
+
+
+
+# To cover: 
+-   Quarto language basics
+-   Including a code junk
+-   Commit/push your code
+
+## References
+
+This lesson is based on: 
+- Chapter 2 of: Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research](https://psyteachr.github.io/reprores-v3/intro.html): (3.0) Zenodo. doi:10.5281/zenodo.6527194. 
+- Page Piccinini, R-Course, [Lesson 1: R Basics](https://pagepiccinini.com/r-course/lesson-1-r-basics/). 
