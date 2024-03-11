@@ -9,7 +9,7 @@
 <meta name="author" content="Hannah Metzler">
 <meta name="dcterms.date" content="2023-03-06">
 
-<title>Lesson 2: Reproducible workflows with Quarto &amp; Github</title>
+<title>Lesson 2: Reproducible workflows with Quarto &amp; GitHub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,12 +99,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#r-projects" id="toc-r-projects" class="nav-link" data-scroll-target="#r-projects"><span class="header-section-number">5.1</span> R-projects</a></li>
   <li><a href="#folder-structure" id="toc-folder-structure" class="nav-link" data-scroll-target="#folder-structure"><span class="header-section-number">5.2</span> Folder structure</a></li>
   <li><a href="#commit-to-git" id="toc-commit-to-git" class="nav-link" data-scroll-target="#commit-to-git"><span class="header-section-number">5.3</span> Commit to Git</a></li>
-  <li><a href="#push-to-git" id="toc-push-to-git" class="nav-link" data-scroll-target="#push-to-git"><span class="header-section-number">5.4</span> Push to Git</a></li>
+  <li><a href="#upload-to-github" id="toc-upload-to-github" class="nav-link" data-scroll-target="#upload-to-github"><span class="header-section-number">5.4</span> Upload to GitHub</a></li>
   </ul></li>
   <li><a href="#scripts-quarto-documents" id="toc-scripts-quarto-documents" class="nav-link" data-scroll-target="#scripts-quarto-documents"><span class="header-section-number">6</span> Scripts &amp; Quarto Documents</a></li>
   <li><a href="#read-in-and-manipulate-data" id="toc-read-in-and-manipulate-data" class="nav-link" data-scroll-target="#read-in-and-manipulate-data"><span class="header-section-number">7</span> Read in and manipulate data</a></li>
-  <li><a href="#to-cover" id="toc-to-cover" class="nav-link" data-scroll-target="#to-cover"><span class="header-section-number">8</span> To cover:</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9</span> References</a></li>
+  <li><a href="#make-a-figure" id="toc-make-a-figure" class="nav-link" data-scroll-target="#make-a-figure"><span class="header-section-number">8</span> Make a figure</a></li>
+  <li><a href="#to-cover" id="toc-to-cover" class="nav-link" data-scroll-target="#to-cover"><span class="header-section-number">9</span> To cover:</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">10</span> References</a></li>
   </ul>
 </nav>
 </div>
@@ -112,7 +113,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lesson 2: Reproducible workflows with Quarto &amp; Github</h1>
+<h1 class="title">Lesson 2: Reproducible workflows with Quarto &amp; GitHub</h1>
+<p class="subtitle lead">Course website: https://hannahmetzler.eu/R_intro/</p>
 </div>
 
 
@@ -509,15 +511,15 @@ To do
 <li>figures</li>
 <li>write_up</li>
 </ul>
-<p>Download this <a href="">data file</a> from the course website and</p>
+<p>Download this <a href="https://hannahmetzler.eu/R_intro/Lesson_2/data/rintro_lesson2_data.txt">text file</a> from the course website. It is our data file for Lesson 2.</p>
 </div>
 </div>
-<p>We can now back up our first project to a “remote repository” on GitHub.</p>
 </section>
 <section id="commit-to-git" class="level3" data-number="5.3">
 <h3 data-number="5.3" class="anchored" data-anchor-id="commit-to-git"><span class="header-section-number">5.3</span> Commit to Git</h3>
+<p>We can now back up the project and data to a “remote repository” on GitHub.</p>
 <ol type="1">
-<li>Click on <code>Git</code> in the upper right pane.</li>
+<li>Click on <strong>Git</strong> in the upper right pane.</li>
 <li>You see 2 files to commit:</li>
 </ol>
 <div class="cell">
@@ -531,7 +533,6 @@ To do
 </div>
 <ol start="3" type="1">
 <li>Add them to git by checking the box</li>
-<li>Click commit</li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
@@ -542,9 +543,9 @@ To do
 </div>
 </div>
 </div>
-<ol start="5" type="1">
+<ol start="4" type="1">
+<li>Click commit</li>
 <li>Write a commit message (describe what the commit contains)</li>
-<li>Click Commit again, then click Close.</li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
@@ -555,12 +556,15 @@ To do
 </div>
 </div>
 </div>
+<ol start="6" type="1">
+<li>Click Commit again, then Close.</li>
+</ol>
 </section>
-<section id="push-to-git" class="level3" data-number="5.4">
-<h3 data-number="5.4" class="anchored" data-anchor-id="push-to-git"><span class="header-section-number">5.4</span> Push to Git</h3>
+<section id="upload-to-github" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="upload-to-github"><span class="header-section-number">5.4</span> Upload to GitHub</h3>
 <ul>
-<li>Now we are ready to upload our first file to GitHub. Click <code>Push</code>.</li>
-<li>Go to your remote repository on GitHub. Do you see the new file R_introduction.Rproj?</li>
+<li>Click <strong>Push</strong>.</li>
+<li>Go to your remote repository on GitHub. Do you see the folder and files you added?</li>
 </ul>
 </section>
 </section>
@@ -568,13 +572,7 @@ To do
 <h2 data-number="6" class="anchored" data-anchor-id="scripts-quarto-documents"><span class="header-section-number">6</span> Scripts &amp; Quarto Documents</h2>
 <p>Different file types you can create:</p>
 <div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="images/script_types.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/script_types.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>R script: only code (comments in lines starting with #)</li>
@@ -603,240 +601,82 @@ Tip
 <h2 data-number="7" class="anchored" data-anchor-id="read-in-and-manipulate-data"><span class="header-section-number">7</span> Read in and manipulate data</h2>
 <p>We will finally start coding!</p>
 <ul>
-<li>Open an R-script.</li>
+<li>Open an R-script.<br>
+</li>
 <li>At the top of each script: load required packages.</li>
 <li>Lines with # are comments, so R does not read them as code.</li>
 <li>Lines ending with #### are code blocks, that can be opened and closed. Use them to organize your script!</li>
 </ul>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 400   3</code></pre>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## LOAD PACKAGES ####</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co">#for data manipulation</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co">#for figures</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">group</th>
-<th style="text-align: left;">type</th>
-<th style="text-align: right;">rt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">monolingual</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">910.7722</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">monolingual</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">887.0629</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">monolingual</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">886.0760</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">monolingual</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">906.1512</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">monolingual</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">897.7662</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">monolingual</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">896.8191</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li>Now, read in the text file from the data folder.</li>
+<li><code>header = TRUE</code> tells R that there is a first line with column names.</li>
+<li><code>sep = "\t"</code> indicates that cells in the file are separated with a tab (this could also be <code>,</code> or <code>;</code>).</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## READ IN DATA AND ORGANIZE ####</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in data</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">read.table</span>(<span class="st">"data/rintro_lesson2_data.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">group</th>
-<th style="text-align: left;">type</th>
-<th style="text-align: right;">rt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">395</td>
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">low</td>
-<td style="text-align: right;">1072.872</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">396</td>
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">low</td>
-<td style="text-align: right;">1097.724</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">397</td>
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">low</td>
-<td style="text-align: right;">1096.975</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">398</td>
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">low</td>
-<td style="text-align: right;">1106.936</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">399</td>
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">low</td>
-<td style="text-align: right;">1103.277</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">400</td>
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">low</td>
-<td style="text-align: right;">1105.462</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>group
-  bilingual monolingual 
-        200         200 </code></pre>
-</div>
+<p>Now, lets’ look at the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at data</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(data) <span class="co"># dimensions</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data) <span class="co"># first rows</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(data) <span class="co"># last rows</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span>group, data) <span class="co"># how many entries per group?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 200   3</code></pre>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset out bilinguals</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>data_bl <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>          <span class="fu">filter</span>(group <span class="sc">==</span> <span class="st">"bilingual"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">group</th>
-<th style="text-align: left;">type</th>
-<th style="text-align: right;">rt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">high</td>
-<td style="text-align: right;">931.8969</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">high</td>
-<td style="text-align: right;">953.4020</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">high</td>
-<td style="text-align: right;">934.2860</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">high</td>
-<td style="text-align: right;">961.9091</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">high</td>
-<td style="text-align: right;">960.9247</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">high</td>
-<td style="text-align: right;">950.0086</td>
-</tr>
-</tbody>
-</table>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at bilingual data</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(data_bl)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_bl)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(data_bl)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span>group, data_bl)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span>type, data_bl) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">group</th>
-<th style="text-align: left;">type</th>
-<th style="text-align: right;">rt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">195</td>
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">low</td>
-<td style="text-align: right;">1072.872</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">196</td>
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">low</td>
-<td style="text-align: right;">1097.724</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">197</td>
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">low</td>
-<td style="text-align: right;">1096.975</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">198</td>
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">low</td>
-<td style="text-align: right;">1106.936</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">199</td>
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">low</td>
-<td style="text-align: right;">1103.277</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">200</td>
-<td style="text-align: left;">bilingual</td>
-<td style="text-align: left;">low</td>
-<td style="text-align: right;">1105.462</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>group
-bilingual 
-      200 </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>type
-high  low 
- 100  100 </code></pre>
-</div>
-</div>
-</section>
-<section id="to-cover" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="to-cover"><span class="header-section-number">8</span> To cover:</h2>
 <ul>
-<li>Including a code junk</li>
-<li>Quarto basics</li>
+<li>Save your script in the code folder: <code>rintro_lesson2</code></li>
 </ul>
 </section>
-<section id="references" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="references"><span class="header-section-number">9</span> References</h2>
+<section id="make-a-figure" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="make-a-figure"><span class="header-section-number">8</span> Make a figure</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## MAKE FIGURES ####</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># By group</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>data.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> rt)) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">geom_boxplot</span>()</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>data.plot </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lesson2_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="to-cover" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="to-cover"><span class="header-section-number">9</span> To cover:</h2>
+<ul>
+<li><p>Including a code junk</p></li>
+<li><p>Quarto basics</p></li>
+<li><p>Commit it to Git: Click <strong>Git</strong>, then Commit</p></li>
+<li><p>Choose all files (use Shift to check all at once)</p></li>
+<li><p>In the Commit message window, write “read data, made figure”, click Commit.</p></li>
+<li><p>Close, and Push.</p></li>
+</ul>
+</section>
+<section id="references" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="references"><span class="header-section-number">10</span> References</h2>
 <p>This lesson is based on: - Page Piccinini, R-Course, <a href="https://pagepiccinini.com/r-course/lesson-1-r-basics/">Lesson 1: R Basics</a>. - Chapter 2 of: Lisa DeBruine &amp; Dale Barr. (2022). <a href="https://psyteachr.github.io/reprores-v3/intro.html">Data Skills for Reproducible Research</a>: (3.0) Zenodo. doi:10.5281/zenodo.6527194.</p>
 </section>
 

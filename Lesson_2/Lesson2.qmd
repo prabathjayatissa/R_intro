@@ -1,5 +1,6 @@
 ---
-title: "Lesson 2: Reproducible workflows with Quarto & Github"
+title: "Lesson 2: Reproducible workflows with Quarto & GitHub"
+subtitle: "Course website: https://hannahmetzler.eu/R_intro/"
 author: "Hannah Metzler"
 date: "March 6 2023"
 format: 
@@ -240,15 +241,14 @@ Create these subfolders:
   -   figures
   -   write_up
   
-Download this [data file]() from the course website and 
+Download this [text file](https://hannahmetzler.eu/R_intro/Lesson_2/data/rintro_lesson2_data.txt) from the course website. It is our data file for Lesson 2.  
 :::
-
-We can now back up our first project to a "remote repository" on GitHub. 
-
 
 ### Commit to Git
 
-1. Click on `Git` in the upper right pane. 
+We can now back up the project and data to a "remote repository" on GitHub. 
+
+1. Click on **Git** in the upper right pane. 
 2. You see 2 files to commit: 
 
 ```{r echo=FALSE}
@@ -256,30 +256,29 @@ knitr::include_graphics('images/files_for_commit.png')
 ```
 
 3. Add them to git by checking the box
-4. Click commit
 
 ```{r echo=FALSE}
 knitr::include_graphics('images/add_commit_files.png')
 ```
 
+4. Click commit
 5. Write a commit message (describe what the commit contains)
-6. Click Commit again, then click Close. 
 
 ```{r echo=FALSE}
 knitr::include_graphics('images/commit_message.png')
 ```
 
-### Push to Git
+6. Click Commit again, then Close.
 
-- Now we are ready to upload our first file to GitHub. Click `Push`. 
-- Go to your remote repository on GitHub. Do you see the new file R_introduction.Rproj?
+### Upload to GitHub
 
-
+- Click **Push**. 
+- Go to your remote repository on GitHub. Do you see the folder and files you added?
 
 ## Scripts & Quarto Documents
 
 Different file types you can create: 
-```{r,echo=FALSE}
+```{r,results=FALSE}
 knitr::include_graphics('images/script_types.png')
 ```
 
@@ -299,41 +298,45 @@ Use Quarto Documents to lead through the analyses. From it, you can call other s
 
 We will finally start coding! 
 
-- Open an R-script. 
+- Open an R-script.  
 - At the top of each script: load required packages. 
 - Lines with # are comments, so R does not read them as code. 
 - Lines ending with #### are code blocks, that can be opened and closed. Use them to organize your script! 
 
-
-```{r, echo=FALSE}
+```{r, results = FALSE}
 ## LOAD PACKAGES ####
 library(dplyr) #for data manipulation
 library(ggplot2) #for figures
 ```
 
+- Now, read in the text file from the data folder.
+- `header = TRUE` tells R that there is a first line with column names. 
+- `sep = "\t"` indicates that cells in the file are separated with a tab (this could also be `,` or `;`). 
 
-```{r, echo=FALSE}
+```{r, results=FALSE}
 ## READ IN DATA AND ORGANIZE ####
 # Read in data
-data = read.table("data/rcourse_lesson1_data.txt", header = T, sep = "\t")
+data = read.table("data/rintro_lesson2_data.txt", header = TRUE, sep = "\t")
 ```
 
-```{r, echo=FALSE}
+Now, lets' look at the data. 
+
+```{r, results=FALSE}
 # Look at data
-dim(data)
-head(data)
-tail(data)
-xtabs(~group, data) 
+dim(data) # dimensions
+head(data) # first rows
+tail(data) # last rows
+xtabs(~group, data) # how many entries per group?
 ```
 
-```{r, echo=FALSE}
+```{r, results=FALSE}
 # Subset out bilinguals
 data_bl = data %>%
           filter(group == "bilingual") 
 ```
 
 
-```{r, echo=FALSE}
+```{r, results=FALSE}
 # Look at bilingual data
 dim(data_bl)
 head(data_bl)
@@ -342,10 +345,29 @@ xtabs(~group, data_bl)
 xtabs(~type, data_bl) 
 ```
 
+- Save your script in the code folder: `rintro_lesson2`
+
+## Make a figure
+
+```{r}
+## MAKE FIGURES ####
+# By group
+data.plot = ggplot(data, aes(x = group, y = rt)) +
+            geom_boxplot()
+data.plot 
+```
+
+
 
 ## To cover: 
 -   Including a code junk
 -   Quarto basics
+
+- Commit it to Git: Click **Git**, then Commit
+- Choose all files (use Shift to check all at once)
+- In the Commit message window, write "read data, made figure", click Commit.
+- Close, and Push. 
+
 
 ## References
 
