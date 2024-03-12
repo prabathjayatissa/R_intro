@@ -153,7 +153,7 @@ What is the file path for an imaginary `file.csv` in your Documents folder?
 -   Move back to your user directory using the shortcut
 :::
 
-## Git & GitHub
+## Setup Git & Github repository for your project
 
 -   Backup, version control & collaboration
 -   Did setup work for all of you?
@@ -242,12 +242,12 @@ knitr::include_graphics('images/folder_structure.png')
 ```
 
 -   Alternative/additional folder names could be:
--   tables
--   reports
--   output (tables, reports, ...)
--   raw_data: I recommend having a separate folder for the raw data
--   code = scripts
--   Plus any other project specific folders
+  -   tables
+  -   reports
+  -   output (tables, reports, ...)
+  -   raw_data: I recommend having a separate folder for the raw data
+  -   code = scripts
+  -   Plus any other project specific folders
 
 ::: callout-caution
 #### To do
@@ -257,10 +257,12 @@ Create these subfolders:
 -   data
 -   code
 -   figures
--   write_up
+- write_up
 
 Download this [data file](www.hannahmetzler.eu/R_intro/Lesson_2/data/pets.csv) from the course website and put it into the data folder.
 :::
+
+## Backup your project on GitHub
 
 ### Commit to Git
 
@@ -293,40 +295,23 @@ knitr::include_graphics('images/commit_message.png')
 -   Click **Push**.
 -   Go to your remote repository on GitHub. Do you see the folder and files you added?
 
-## Scripts & Quarto Documents
-
-Different file types you can create:
-
-```{r,results=FALSE}
-knitr::include_graphics('images/script_types.png')
-```
-
--   R script: only code (comments in lines starting with #)
--   Quarto Document allows to:
--   Combine text and code
--   Print out results of the code (figures etc) to pdf, html, doc, slides...
--   Useful to have automated reports about your results
-
-:::{.callout-tip}
-Use Quarto Documents to lead through the analyses. From it, you can call other scripts in the `code` folder, in the order required for the analysis (e.g., a cleaning script, a figures script, etc.).
-:::
-
 ## Read in and manipulate data
 
 We will finally start coding!
 
 :::{.callout-caution}
 #### To do
--   Open an R-script.\
--   Save it in the code folder: `rintro_lesson2`
+-   Open an R-script by clicking on the green plus below `File` (top left)
+-   Save it in the code folder, e.g. with the name `rintro_lesson2`
 :::
 
+- At the top of the script, we load all required packages.
 -   Lines with \# are comments, so R does not read them as code.
-- Keyboard shortcut to (un)comment a line or selection: `Ctrl+Shift+C` `Cmd+Shift+C`
+    - Keyboard shortcut to (un)comment a line or selection: `Ctrl+Shift+C` `Cmd+Shift+C`
 -   Lines ending with \#### are code blocks, that can be opened and closed. Use them to organize your script!
-- At the top of the script, we load all required packages. 
 - To run a line in a script, press `Ctrl + Enter`
 - To run an entire R-script: `Ctrl + Shift + Enter`
+
 
 Write and run the code below:
 
@@ -335,7 +320,7 @@ Write and run the code below:
 library(tidyverse)
 ```
 
-- To read in the data, we use `read.csv()`.
+- To read in the data, we use `read_csv()`.
 - The working directory is in the root folder, so we need to first go into the data folder: `"data/pets.csv"`
 - The last part `col_types = "cffiid"` defines the type of variable - we will get to this below.  
 
@@ -347,11 +332,6 @@ data = read_csv("data/pets.csv",  col_types = "cffiid")
 
 ### Look at the data
 
--   `data` is our data frame (the whole data table with variables as columns and observations as rows)
--   `id, pet, score, age, weight` are variables
--   `dog` and `ferret` are levels of the variable `pet`
-- `UK` and `NL` are levels of the variable `country`
-
 The first and last rows of the data frame: 
 
 ```{r, echo = FALSE}
@@ -359,15 +339,19 @@ head(data) # first rows
 tail(data) # last rows
 ```
 
+-   `data` is our data frame (the whole data table with variables as columns and observations as rows)
+-   `id, pet, score, age, weight` are variables
+-   `dog` and `ferret` are levels of the variable `pet`
+- `UK` and `NL` are levels of the variable `country`
 
-Now, have a look at the data using the following functions (from basic R):
+Now, have a look at the data using these functions (from basic R):
 
 -   dim(): number of rows and columns
 -   head(): print the first 6 rows
 -   tail(): print the last 6 rows
 -   xtabs(): how many data points exist for each level of a variable
 
-Write and run the code below:
+Write and then run the code below. After each written line, use `Ctrl + Enter` to run it. 
 
 ```{r, results=FALSE}
 # Look at data
@@ -377,10 +361,10 @@ tail(data)
 xtabs(~pet, data) 
 ```
 
-All of this is base R. Using `glimpse()` from dplyr gives you an overview of the data:
+All of this is basic R. In addition, we can use functions from packages. Using `glimpse()` from dplyr gives you an overview of the data:
 
 ```{r}
-glimpse(data)
+dplyr::glimpse(data)
 ```
 
 Here, you can see that the data frame contains different types of variables: 
@@ -390,58 +374,67 @@ Here, you can see that the data frame contains different types of variables:
 - `int` (integer): numeric, stores whole numbers
 - `dbl` (double): numeric, numbers with decimals
 
-### Subset out a part of the data
+### Select a part of the data
 
-**There are always lots of ways to do the same thing in R:**
+**There are always lots of ways to do the same thing in R.**
 
-Let's say we want to create a new data frame that contains only cats. Here are some ways to do that, which all produce exactly the same result. (Just examples, no need to understand this yet):
+Let's say we want to create a new data frame that contains only cats data. Here are some ways to do that, which all produce exactly the same result. (Just examples, no need to understand this yet):
 
-```{r, echo=FALSE, results=FALSE}
-data_cats = data[data$pet == 'cat',] #base R to extract specific rows from a dataframe
-data_cats = subset(data, pet == 'cat') #the function subset
-data_cats = data %>% # using the function filter from the package dplyr
+```{r, eval=FALSE, results=FALSE}
+# basic R to extract specific rows from a dataframe
+data_cats = data[data$pet == 'cat',] 
+
+# the function subset
+data_cats = subset(data, pet == 'cat') 
+
+# using the function filter from the package dplyr
+data_cats = data %>% 
   dplyr::filter(pet == 'cat')
 ```
 
-We'll use dplyr to filter out the rows with cats with step by step explanations:
+We'll use dplyr (the third way): 
 
 ```{r}
-# Subset out cats
+# Select only cats
 data_cats <- data %>%
   dplyr::filter(pet == "cat")
-head(data_cats) #first rows of the new data frame
 ```
+
+Here is a step by step explanation:
 
 -   `data_cats`: new data frame
 -   `<-` (or `=`) is used to assign
--   Keyboard shortcut: \`Alt + - \` or \`Option + -\`
 -   `data`: original data frame
 -   `%>% (or \|\>)\`: a "pipe" in dplyr - let's R know you are not done writing code, it waits until it gets a line not ending with `%>%` before executing the code.
--   Keyboard shortcut: `Shift + Ctrl + M` or
 -   `filter( )`: verb
 -   `pet`: variable
 -   `cat`: level of the variable
 -   `==` is a marker of relationship (like \<, \>)
 
-:::{.callout-caution}
-#### Exercise
-Look at the new data frame `data_cats` like you did for `data`.
-:::
+Write down and run this code. You can use these keyboard shortcuts:
 
-I have added another xtabs() call to show that we have cat data from two countries.
+  -   `<-` for assigning: `Alt + - ` or `Option + -`
+  - Keyboard shortcut:`%>%` pipe: `Shift + Ctrl + M` or
 
-```{r, results=FALSE}
-# Look at cats data
-dim(data_cats) 
-head(data_cats) 
-tail(data_cats) 
-xtabs(~pet, data_cats) 
-xtabs(~country, data_cats)
+Let's look at the top rows: 
+
+```{r}
+head(data_cats)
 ```
 
-## Make a figure with ggplot
+There are only rows with cats left. 
 
-We'll make a box plot showing the weight of the different pets. `Ggplot2` is the package from the Tidyverse that is very flexible for making pretty pictures. Start again with a section header (####). 
+
+:::{.callout-caution}
+#### Exercise
+Look at the new data frame `data_cats` with all the functions you used above for `data`.
+:::
+
+## Make a figure with ggplot2
+
+We'll make a box plot showing the weight of the different pets. `ggplot2` is a package from the Tidyverse that is very flexible for making pretty plots.
+
+Start again with a section header (####). 
 
 ```{r}
 ## MAKE FIGURES ####
@@ -461,7 +454,7 @@ Step by step explanations:
 - We store the plot in the variable `data.plot`.
 - We print out `data.plot` to see the plot. 
 
-It is very easy to make this plot pretty (more on this in the next lessons). Below: 
+It is very easy to make this plot pretty. Below: 
 
 - We fill each box with a colour by including `fill = pet` in the aesthetics. 
 - We change the design of the entire plot using one of the default themes: `theme_bw()`
@@ -477,7 +470,7 @@ ggplot(data, aes(x = pet, y = weight, fill = pet)) +
 
 To save the plot to a file to use in your paper, use `ggsave` to save it in our subfolder for figures:  
 
-```{r, results=FALSE, eval=FALSE}
+```{r, eval=FALSE}
 # save the plot
 ggsave('figures/boxplot_pets_weight.png', plot = data.plot, width = 6, height = 4, dpi = 300)
 ```
@@ -487,11 +480,12 @@ ggsave('figures/boxplot_pets_weight.png', plot = data.plot, width = 6, height = 
   2. plot you want to save
   3. width
   4. height
-  5. resolution. 
+  5. resolution (300 dpi is often required for papers) 
 - Instead of .png, you could use other formats: .pdf, .jpg, .tiff and more. 
+- Check the figure in your `figures/` folder. 
 
 
-## Commit your work of today to GitHub
+## Commit today's work to Git
 
 - Go back to the **Git** menu at the top right and choose `Commit `
 - Once again check all of the boxes of changed files (Select all files at once using Shift)
@@ -500,10 +494,102 @@ ggsave('figures/boxplot_pets_weight.png', plot = data.plot, width = 6, height = 
 - To upload to GitHub, click `Push`.
 - To confirm that it worked, go to your remote repository on github.com and refresh the page. Do you see the new files?
 
-## Create a Quarto Document: Reporting your results
+## Create a report using Quarto
 
--   Quarto basics
+### What is Quarto?
+
+- Quarto enables you to create reproducible reports, presentations, publications & websites
+- Output in various formats: HTML (websites & slides), PDF, Word
+- From a variety of coding lanugages: R, Python, Julia, Observable Java Script
+  - Quarto builds on R Markdown, which did the same but only for R. 
+- R script: only code (comments in lines starting with #)
+- Quarto Document allows to combine text and code
+- Useful to have automated reports about your results
+- You could write entire papers (see [Data Skills for Reproducible Research](https://psyteachr.github.io/reprores-v3/intro.html))
+
+### Let's make a Quarto Report of our results!
+
+- Save the objects in your **Environment** to the `write_up` folder, naming them `lesson2_environment`. 
+```{r,echo=FALSE}
+knitr::include_graphics('images/save_environment.png')
+```
+- Open a Quarto Document
+```{r,echo=FALSE}
+knitr::include_graphics('images/script_types.png')
+```
+- Enter your name
+- Choose HTML as output
+- Click `Create`
+
+```{r,echo=FALSE}
+knitr::include_graphics('images/open_quarto.png')
+```
+
+- Save the Quarto document in your write_up folder `Lesson2_Report`
+
+- You can see that your R-script ends with .R, the Quarto file with .qmd
+
+```{r,echo=FALSE}
+knitr::include_graphics('images/quarto_source_visual.png')
+```
+- By clicking on `Source`, you will see the content written in "Markdown" language.
+
+- **Markdown** is 
+  (1) a plain text formatting syntax, and 
+  (2) a software tool that converts text to HTML. 
+
+Let's start writing in our Quarto Document: 
+
+- Delete the example text after the heading **Quarto** (including the heading, but not everything above)
+-  Use `Ctrl+Alt+I` to insert a code chunk. ```{r} lets R know that the following is code. 
+- In this code chunk, we load the data we have saved before.
+  - Quarto files directly run in the folder where they are saved, so here directly in the write_up folder. 
+
+```{r, eval=F}
+load("lesson2_environment.RData")
+```
+
+- Start writing normal text (as below) in your document. Using # turns text into a title in Markdown.  
+
+```{Markdown, eval = F}
+# Data
+
+Here is a look at our two data frames. First is the one we read in, the second is our subset with just the cat's data. 
+
+
+# Figure
+
+
+Here's a figure of the weight of different pets in the dataset.
+```
+
+
+- Now, we will fill in code chunks to present our data and figure. Use `Ctrl+Alt+I` to insert them in the right places. 
+  - Use `head(data)` and `head(data_cats)` to present your data sets under # Data.  
+  - Use the object in which you stored the plot for the figure (`data.plot`) under # Figure.
+- This is how it should look like: 
+
+```{r, echo=F}
+knitr::include_graphics('images/quarto_report.png')
+```
+
+- If you click on **Render** at the top, you will get a HTML file with your report. Open it from the folder. 
+```{r, echo=F}
+knitr::include_graphics('images/render.png')
+```
+
+- You can simply switch the format to `format: docx` at the top, then render again as a Word document. 
+- format: pdf would also work, but takes a bit longer the first time because of installations. 
+
+:::{.callout-tip}
+You can write a lot of your code directly in Quarto Documents, allowing to combine your results (tables, figures) with interpretations directly in the same document. Lead through your entire analyses step by step. If a step needs a lot of code, move that code to a script in the code folder, and call the script from your Quarto document using the function `source()`. For example, you could first call a script that cleans the data, then make figures and run statistical tests directly in the Quarto Document.
+:::
+
 
 ## References
 
-This lesson is based on: - Page Piccinini, R-Course, [Lesson 1: R Basics](https://pagepiccinini.com/r-course/lesson-1-r-basics/). - Chapter 2 of: Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research](https://psyteachr.github.io/reprores-v3/intro.html): (3.0) Zenodo. doi:10.5281/zenodo.6527194.
+This lesson is based on: 
+
+- Page Piccinini, R-Course, [Lesson 1: R Basics](https://pagepiccinini.com/r-course/lesson-1-r-basics/).
+
+- Chapter 2 of: Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research](https://psyteachr.github.io/reprores-v3/intro.html): (3.0) Zenodo. doi:10.5281/zenodo.6527194.

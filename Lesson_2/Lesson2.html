@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Hannah Metzler">
-<meta name="dcterms.date" content="2023-03-06">
+<meta name="dcterms.date" content="2023-03-12">
 
 <title>Lesson 2: Reproducible workflows with Quarto &amp; GitHub</title>
 <style>
@@ -90,7 +90,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#file-system-paths" id="toc-file-system-paths" class="nav-link" data-scroll-target="#file-system-paths"><span class="header-section-number">4.2</span> File system &amp; paths</a></li>
   <li><a href="#working-directory" id="toc-working-directory" class="nav-link" data-scroll-target="#working-directory"><span class="header-section-number">4.3</span> Working Directory</a></li>
   </ul></li>
-  <li><a href="#git-github" id="toc-git-github" class="nav-link" data-scroll-target="#git-github"><span class="header-section-number">5</span> Git &amp; GitHub</a>
+  <li><a href="#setup-git-github-repository-for-your-project" id="toc-setup-git-github-repository-for-your-project" class="nav-link" data-scroll-target="#setup-git-github-repository-for-your-project"><span class="header-section-number">5</span> Setup Git &amp; Github repository for your project</a>
   <ul class="collapse">
   <li><a href="#create-a-remote-git-repository" id="toc-create-a-remote-git-repository" class="nav-link" data-scroll-target="#create-a-remote-git-repository"><span class="header-section-number">5.1</span> Create a remote git repository</a></li>
   <li><a href="#clone-the-remote-git-repository-to-your-laptop" id="toc-clone-the-remote-git-repository-to-your-laptop" class="nav-link" data-scroll-target="#clone-the-remote-git-repository-to-your-laptop"><span class="header-section-number">5.2</span> Clone the remote Git Repository to your laptop</a></li>
@@ -99,18 +99,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#r-projects" id="toc-r-projects" class="nav-link" data-scroll-target="#r-projects"><span class="header-section-number">6.1</span> R-projects</a></li>
   <li><a href="#folder-structure" id="toc-folder-structure" class="nav-link" data-scroll-target="#folder-structure"><span class="header-section-number">6.2</span> Folder structure</a></li>
-  <li><a href="#commit-to-git" id="toc-commit-to-git" class="nav-link" data-scroll-target="#commit-to-git"><span class="header-section-number">6.3</span> Commit to Git</a></li>
-  <li><a href="#upload-to-github" id="toc-upload-to-github" class="nav-link" data-scroll-target="#upload-to-github"><span class="header-section-number">6.4</span> Upload to GitHub</a></li>
   </ul></li>
-  <li><a href="#scripts-quarto-documents" id="toc-scripts-quarto-documents" class="nav-link" data-scroll-target="#scripts-quarto-documents"><span class="header-section-number">7</span> Scripts &amp; Quarto Documents</a></li>
+  <li><a href="#backup-your-project-on-github" id="toc-backup-your-project-on-github" class="nav-link" data-scroll-target="#backup-your-project-on-github"><span class="header-section-number">7</span> Backup your project on GitHub</a>
+  <ul class="collapse">
+  <li><a href="#commit-to-git" id="toc-commit-to-git" class="nav-link" data-scroll-target="#commit-to-git"><span class="header-section-number">7.1</span> Commit to Git</a></li>
+  <li><a href="#upload-to-github" id="toc-upload-to-github" class="nav-link" data-scroll-target="#upload-to-github"><span class="header-section-number">7.2</span> Upload to GitHub</a></li>
+  </ul></li>
   <li><a href="#read-in-and-manipulate-data" id="toc-read-in-and-manipulate-data" class="nav-link" data-scroll-target="#read-in-and-manipulate-data"><span class="header-section-number">8</span> Read in and manipulate data</a>
   <ul class="collapse">
   <li><a href="#look-at-the-data" id="toc-look-at-the-data" class="nav-link" data-scroll-target="#look-at-the-data"><span class="header-section-number">8.1</span> Look at the data</a></li>
-  <li><a href="#subset-out-a-part-of-the-data" id="toc-subset-out-a-part-of-the-data" class="nav-link" data-scroll-target="#subset-out-a-part-of-the-data"><span class="header-section-number">8.2</span> Subset out a part of the data</a></li>
+  <li><a href="#select-a-part-of-the-data" id="toc-select-a-part-of-the-data" class="nav-link" data-scroll-target="#select-a-part-of-the-data"><span class="header-section-number">8.2</span> Select a part of the data</a></li>
   </ul></li>
-  <li><a href="#make-a-figure-with-ggplot" id="toc-make-a-figure-with-ggplot" class="nav-link" data-scroll-target="#make-a-figure-with-ggplot"><span class="header-section-number">9</span> Make a figure with ggplot</a></li>
-  <li><a href="#commit-your-work-of-today-to-github" id="toc-commit-your-work-of-today-to-github" class="nav-link" data-scroll-target="#commit-your-work-of-today-to-github"><span class="header-section-number">10</span> Commit your work of today to GitHub</a></li>
-  <li><a href="#create-a-quarto-document-reporting-your-results" id="toc-create-a-quarto-document-reporting-your-results" class="nav-link" data-scroll-target="#create-a-quarto-document-reporting-your-results"><span class="header-section-number">11</span> Create a Quarto Document: Reporting your results</a></li>
+  <li><a href="#make-a-figure-with-ggplot2" id="toc-make-a-figure-with-ggplot2" class="nav-link" data-scroll-target="#make-a-figure-with-ggplot2"><span class="header-section-number">9</span> Make a figure with ggplot2</a></li>
+  <li><a href="#commit-todays-work-to-git" id="toc-commit-todays-work-to-git" class="nav-link" data-scroll-target="#commit-todays-work-to-git"><span class="header-section-number">10</span> Commit today’s work to Git</a></li>
+  <li><a href="#create-a-report-using-quarto" id="toc-create-a-report-using-quarto" class="nav-link" data-scroll-target="#create-a-report-using-quarto"><span class="header-section-number">11</span> Create a report using Quarto</a>
+  <ul class="collapse">
+  <li><a href="#what-is-quarto" id="toc-what-is-quarto" class="nav-link" data-scroll-target="#what-is-quarto"><span class="header-section-number">11.1</span> What is Quarto?</a></li>
+  <li><a href="#lets-make-a-quarto-report-of-our-results" id="toc-lets-make-a-quarto-report-of-our-results" class="nav-link" data-scroll-target="#lets-make-a-quarto-report-of-our-results"><span class="header-section-number">11.2</span> Let’s make a Quarto Report of our results!</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">12</span> References</a></li>
   </ul>
 </nav>
@@ -137,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 6, 2023</p>
+      <p class="date">March 12, 2023</p>
     </div>
   </div>
   
@@ -356,8 +362,8 @@ Exercise
 </div>
 </section>
 </section>
-<section id="git-github" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="git-github"><span class="header-section-number">5</span> Git &amp; GitHub</h2>
+<section id="setup-git-github-repository-for-your-project" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="setup-git-github-repository-for-your-project"><span class="header-section-number">5</span> Setup Git &amp; Github repository for your project</h2>
 <ul>
 <li>Backup, version control &amp; collaboration</li>
 <li>Did setup work for all of you?</li>
@@ -522,12 +528,15 @@ To do
 <li>figures</li>
 <li>write_up</li>
 </ul>
-<p>Download this <a href="www.hannahmetzler.eu/R_intro_course/Lesson_2/data/pets.csv">data file</a> from the course website and put it into the data folder.</p>
+<p>Download this <a href="www.hannahmetzler.eu/R_intro/Lesson_2/data/pets.csv">data file</a> from the course website and put it into the data folder.</p>
 </div>
 </div>
 </section>
-<section id="commit-to-git" class="level3" data-number="6.3">
-<h3 data-number="6.3" class="anchored" data-anchor-id="commit-to-git"><span class="header-section-number">6.3</span> Commit to Git</h3>
+</section>
+<section id="backup-your-project-on-github" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="backup-your-project-on-github"><span class="header-section-number">7</span> Backup your project on GitHub</h2>
+<section id="commit-to-git" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="commit-to-git"><span class="header-section-number">7.1</span> Commit to Git</h3>
 <p>We can now back up the project and data to a “remote repository” on GitHub.</p>
 <ol type="1">
 <li>Click on <strong>Git</strong> in the upper right pane.</li>
@@ -571,40 +580,13 @@ To do
 <li>Click Commit again, then Close.</li>
 </ol>
 </section>
-<section id="upload-to-github" class="level3" data-number="6.4">
-<h3 data-number="6.4" class="anchored" data-anchor-id="upload-to-github"><span class="header-section-number">6.4</span> Upload to GitHub</h3>
+<section id="upload-to-github" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="upload-to-github"><span class="header-section-number">7.2</span> Upload to GitHub</h3>
 <ul>
 <li>Click <strong>Push</strong>.</li>
 <li>Go to your remote repository on GitHub. Do you see the folder and files you added?</li>
 </ul>
 </section>
-</section>
-<section id="scripts-quarto-documents" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="scripts-quarto-documents"><span class="header-section-number">7</span> Scripts &amp; Quarto Documents</h2>
-<p>Different file types you can create:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/script_types.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>R script: only code (comments in lines starting with #)</li>
-<li>Quarto Document allows to:</li>
-<li>Combine text and code</li>
-<li>Print out results of the code (figures etc) to pdf, html, doc, slides…</li>
-<li>Useful to have automated reports about your results</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Use Quarto Documents to lead through the analyses. From it, you can call other scripts in the <code>code</code> folder, in the order required for the analysis (e.g., a cleaning script, a figures script, etc.).</p>
-</div>
-</div>
 </section>
 <section id="read-in-and-manipulate-data" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="read-in-and-manipulate-data"><span class="header-section-number">8</span> Read in and manipulate data</h2>
@@ -620,43 +602,38 @@ To do
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Open an R-script.<br>
-</li>
-<li>Save it in the code folder: <code>rintro_lesson2</code></li>
+<li>Open an R-script by clicking on the green plus below <code>File</code> (top left)</li>
+<li>Save it in the code folder, e.g.&nbsp;with the name <code>rintro_lesson2</code></li>
 </ul>
 </div>
 </div>
 <ul>
-<li>Lines with # are comments, so R does not read them as code.</li>
-<li>Keyboard shortcut to (un)comment a line or selection: <code>Ctrl+Shift+C</code> <code>Cmd+Shift+C</code></li>
-<li>Lines ending with #### are code blocks, that can be opened and closed. Use them to organize your script!</li>
 <li>At the top of the script, we load all required packages.</li>
+<li>Lines with # are comments, so R does not read them as code.
+<ul>
+<li>Keyboard shortcut to (un)comment a line or selection: <code>Ctrl+Shift+C</code> <code>Cmd+Shift+C</code></li>
+</ul></li>
+<li>Lines ending with #### are code blocks, that can be opened and closed. Use them to organize your script!</li>
 <li>To run a line in a script, press <code>Ctrl + Enter</code></li>
 <li>To run an entire R-script: <code>Ctrl + Shift + Enter</code></li>
 </ul>
 <p>Write and run the code below:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## LOAD PACKAGES ####</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## LOAD PACKAGES ####</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>To read in the data, we use <code>read.csv()</code>.</li>
+<li>To read in the data, we use <code>read_csv()</code>.</li>
 <li>The working directory is in the root folder, so we need to first go into the data folder: <code>"data/pets.csv"</code></li>
 <li>The last part <code>col_types = "cffiid"</code> defines the type of variable - we will get to this below.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## READ IN DATA AND ORGANIZE ####</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in data</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/pets.csv"</span>,  <span class="at">col_types =</span> <span class="st">"cffiid"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## READ IN DATA AND ORGANIZE ####</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in data</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/pets.csv"</span>,  <span class="at">col_types =</span> <span class="st">"cffiid"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="look-at-the-data" class="level3" data-number="8.1">
 <h3 data-number="8.1" class="anchored" data-anchor-id="look-at-the-data"><span class="header-section-number">8.1</span> Look at the data</h3>
-<ul>
-<li><code>data</code> is our data frame (the whole data table with variables as columns and observations as rows)</li>
-<li><code>id, pet, score, age, weight</code> are variables</li>
-<li><code>dog</code> and <code>ferret</code> are levels of the variable <code>pet</code></li>
-<li><code>UK</code> and <code>NL</code> are levels of the variable <code>country</code></li>
-</ul>
 <p>The first and last rows of the data frame:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -730,7 +707,6 @@ To do
 <table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
 <th style="text-align: left;">id</th>
 <th style="text-align: left;">pet</th>
 <th style="text-align: left;">country</th>
@@ -741,7 +717,6 @@ To do
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">795</td>
 <td style="text-align: left;">S795</td>
 <td style="text-align: left;">ferret</td>
 <td style="text-align: left;">NL</td>
@@ -750,7 +725,6 @@ To do
 <td style="text-align: right;">3.0276944</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">796</td>
 <td style="text-align: left;">S796</td>
 <td style="text-align: left;">ferret</td>
 <td style="text-align: left;">NL</td>
@@ -759,7 +733,6 @@ To do
 <td style="text-align: right;">3.2127433</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">797</td>
 <td style="text-align: left;">S797</td>
 <td style="text-align: left;">ferret</td>
 <td style="text-align: left;">NL</td>
@@ -768,7 +741,6 @@ To do
 <td style="text-align: right;">0.7909462</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">798</td>
 <td style="text-align: left;">S798</td>
 <td style="text-align: left;">ferret</td>
 <td style="text-align: left;">NL</td>
@@ -777,7 +749,6 @@ To do
 <td style="text-align: right;">3.9612231</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">799</td>
 <td style="text-align: left;">S799</td>
 <td style="text-align: left;">ferret</td>
 <td style="text-align: left;">NL</td>
@@ -786,7 +757,6 @@ To do
 <td style="text-align: right;">6.9195795</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">800</td>
 <td style="text-align: left;">S800</td>
 <td style="text-align: left;">ferret</td>
 <td style="text-align: left;">NL</td>
@@ -799,30 +769,36 @@ To do
 </div>
 </div>
 </div>
-<p>Now, have a look at the data using the following functions (from basic R):</p>
+<ul>
+<li><code>data</code> is our data frame (the whole data table with variables as columns and observations as rows)</li>
+<li><code>id, pet, score, age, weight</code> are variables</li>
+<li><code>dog</code> and <code>ferret</code> are levels of the variable <code>pet</code></li>
+<li><code>UK</code> and <code>NL</code> are levels of the variable <code>country</code></li>
+</ul>
+<p>Now, have a look at the data using these functions (from basic R):</p>
 <ul>
 <li>dim(): number of rows and columns</li>
 <li>head(): print the first 6 rows</li>
 <li>tail(): print the last 6 rows</li>
 <li>xtabs(): how many data points exist for each level of a variable</li>
 </ul>
-<p>Write and run the code below:</p>
+<p>Write and then run the code below. After each written line, use <code>Ctrl + Enter</code> to run it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at data</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(data) </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data) </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(data) </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span>pet, data) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at data</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(data) </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data) </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(data) </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span>pet, data) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>All of this is base R. Using <code>glimpse()</code> from dplyr gives you an overview of the data:</p>
+<p>All of this is basic R. In addition, we can use functions from packages. Using <code>glimpse()</code> from dplyr gives you an overview of the data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 800
 Columns: 6
 $ id      &lt;chr&gt; "S001", "S002", "S003", "S004", "S005", "S006", "S007", "S008"…
-$ pet     &lt;chr&gt; "dog", "dog", "dog", "dog", "dog", "dog", "dog", "dog", "dog",…
-$ country &lt;chr&gt; "UK", "UK", "UK", "UK", "UK", "UK", "UK", "UK", "UK", "UK", "U…
+$ pet     &lt;fct&gt; dog, dog, dog, dog, dog, dog, dog, dog, dog, dog, dog, dog, do…
+$ country &lt;fct&gt; UK, UK, UK, UK, UK, UK, UK, UK, UK, UK, UK, UK, UK, UK, UK, UK…
 $ score   &lt;int&gt; 90, 107, 94, 120, 111, 110, 100, 107, 106, 109, 85, 110, 102, …
 $ age     &lt;int&gt; 6, 8, 2, 10, 4, 8, 9, 8, 6, 11, 5, 9, 1, 10, 7, 8, 1, 8, 5, 13…
 $ weight  &lt;dbl&gt; 19.78932, 20.01422, 19.14863, 19.56953, 21.39259, 21.31880, 19…</code></pre>
@@ -836,16 +812,46 @@ $ weight  &lt;dbl&gt; 19.78932, 20.01422, 19.14863, 19.56953, 21.39259, 21.31880
 <li><code>dbl</code> (double): numeric, numbers with decimals</li>
 </ul>
 </section>
-<section id="subset-out-a-part-of-the-data" class="level3" data-number="8.2">
-<h3 data-number="8.2" class="anchored" data-anchor-id="subset-out-a-part-of-the-data"><span class="header-section-number">8.2</span> Subset out a part of the data</h3>
-<p><strong>There are always lots of ways to do the same thing in R:</strong></p>
-<p>Let’s say we want to create a new data frame that contains only cats. Here are some ways to do that, which all produce exactly the same result. (Just examples, no need to understand this yet):</p>
-<p>We’ll use dplyr to filter out the rows with cats with step by step explanations:</p>
+<section id="select-a-part-of-the-data" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="select-a-part-of-the-data"><span class="header-section-number">8.2</span> Select a part of the data</h3>
+<p><strong>There are always lots of ways to do the same thing in R.</strong></p>
+<p>Let’s say we want to create a new data frame that contains only cats data. Here are some ways to do that, which all produce exactly the same result. (Just examples, no need to understand this yet):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset out cats</span></span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># basic R to extract specific rows from a dataframe</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>data_cats <span class="ot">=</span> data[data<span class="sc">$</span>pet <span class="sc">==</span> <span class="st">'cat'</span>,] </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the function subset</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>data_cats <span class="ot">=</span> <span class="fu">subset</span>(data, pet <span class="sc">==</span> <span class="st">'cat'</span>) </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># using the function filter from the package dplyr</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>data_cats <span class="ot">=</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(pet <span class="sc">==</span> <span class="st">'cat'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We’ll use dplyr (the third way):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select only cats</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>data_cats <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(pet <span class="sc">==</span> <span class="st">"cat"</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_cats) <span class="co">#first rows of the new data frame</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(pet <span class="sc">==</span> <span class="st">"cat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here is a step by step explanation:</p>
+<ul>
+<li><code>data_cats</code>: new data frame</li>
+<li><code>&lt;-</code> (or <code>=</code>) is used to assign</li>
+<li><code>data</code>: original data frame</li>
+<li><code>%&gt;% (or \|\&gt;)\</code>: a “pipe” in dplyr - let’s R know you are not done writing code, it waits until it gets a line not ending with <code>%&gt;%</code> before executing the code.</li>
+<li><code>filter( )</code>: verb</li>
+<li><code>pet</code>: variable</li>
+<li><code>cat</code>: level of the variable</li>
+<li><code>==</code> is a marker of relationship (like &lt;, &gt;)</li>
+</ul>
+<p>Write down and run this code. You can use these keyboard shortcuts:</p>
+<ul>
+<li><code>&lt;-</code> for assigning: <code>Alt + -</code> or <code>Option + -</code></li>
+<li>Keyboard shortcut:<code>%&gt;%</code> pipe: <code>Shift + Ctrl + M</code> or</li>
+</ul>
+<p>Let’s look at the top rows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_cats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
@@ -913,18 +919,7 @@ $ weight  &lt;dbl&gt; 19.78932, 20.01422, 19.14863, 19.56953, 21.39259, 21.31880
 </div>
 </div>
 </div>
-<ul>
-<li><code>data_cats</code>: new data frame</li>
-<li><code>&lt;-</code> (or <code>=</code>) is used to assign</li>
-<li>Keyboard shortcut: `Alt + - ` or `Option + -`</li>
-<li><code>data</code>: original data frame</li>
-<li><code>%&gt;% (or \|\&gt;)\</code>: a “pipe” in dplyr - let’s R know you are not done writing code, it waits until it gets a line not ending with <code>%&gt;%</code> before executing the code.</li>
-<li>Keyboard shortcut: <code>Shift + Ctrl + M</code> or</li>
-<li><code>filter( )</code>: verb</li>
-<li><code>pet</code>: variable</li>
-<li><code>cat</code>: level of the variable</li>
-<li><code>==</code> is a marker of relationship (like &lt;, &gt;)</li>
-</ul>
+<p>There are only rows with cats left.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -935,23 +930,15 @@ Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Look at the new data frame <code>data_cats</code> like you did for <code>data</code>.</p>
+<p>Look at the new data frame <code>data_cats</code> with all the functions you used above for <code>data</code>.</p>
 </div>
-</div>
-<p>I have added another xtabs() call to show that we have cat data from two countries.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at cats data</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(data_cats) </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_cats) </span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(data_cats) </span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span>pet, data_cats) </span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span>country, data_cats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="make-a-figure-with-ggplot" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="make-a-figure-with-ggplot"><span class="header-section-number">9</span> Make a figure with ggplot</h2>
-<p>We’ll make a box plot showing the weight of the different pets. <code>Ggplot2</code> is the package from the Tidyverse that is very flexible for making pretty pictures. Start again with a section header (####).</p>
+<section id="make-a-figure-with-ggplot2" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="make-a-figure-with-ggplot2"><span class="header-section-number">9</span> Make a figure with ggplot2</h2>
+<p>We’ll make a box plot showing the weight of the different pets. <code>ggplot2</code> is a package from the Tidyverse that is very flexible for making pretty plots.</p>
+<p>Start again with a section header (####).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## MAKE FIGURES ####</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Weight by pet</span></span>
@@ -961,7 +948,7 @@ Exercise
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lesson2_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Lesson2_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -976,7 +963,7 @@ Exercise
 <li>We store the plot in the variable <code>data.plot</code>.</li>
 <li>We print out <code>data.plot</code> to see the plot.</li>
 </ul>
-<p>It is very easy to make this plot pretty (more on this in the next lessons). Below:</p>
+<p>It is very easy to make this plot pretty. Below:</p>
 <ul>
 <li>We fill each box with a colour by including <code>fill = pet</code> in the aesthetics.</li>
 <li>We change the design of the entire plot using one of the default themes: <code>theme_bw()</code></li>
@@ -991,7 +978,7 @@ Exercise
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lesson2_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Lesson2_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1008,13 +995,14 @@ Exercise
 <li>plot you want to save</li>
 <li>width</li>
 <li>height</li>
-<li>resolution.</li>
+<li>resolution (300 dpi is often required for papers)</li>
 </ol></li>
 <li>Instead of .png, you could use other formats: .pdf, .jpg, .tiff and more.</li>
+<li>Check the figure in your <code>figures/</code> folder.</li>
 </ul>
 </section>
-<section id="commit-your-work-of-today-to-github" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="commit-your-work-of-today-to-github"><span class="header-section-number">10</span> Commit your work of today to GitHub</h2>
+<section id="commit-todays-work-to-git" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="commit-todays-work-to-git"><span class="header-section-number">10</span> Commit today’s work to Git</h2>
 <ul>
 <li>Go back to the <strong>Git</strong> menu at the top right and choose <code>Commit</code></li>
 <li>Once again check all of the boxes of changed files (Select all files at once using Shift)
@@ -1026,15 +1014,166 @@ Exercise
 <li>To confirm that it worked, go to your remote repository on github.com and refresh the page. Do you see the new files?</li>
 </ul>
 </section>
-<section id="create-a-quarto-document-reporting-your-results" class="level2" data-number="11">
-<h2 data-number="11" class="anchored" data-anchor-id="create-a-quarto-document-reporting-your-results"><span class="header-section-number">11</span> Create a Quarto Document: Reporting your results</h2>
+<section id="create-a-report-using-quarto" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="create-a-report-using-quarto"><span class="header-section-number">11</span> Create a report using Quarto</h2>
+<section id="what-is-quarto" class="level3" data-number="11.1">
+<h3 data-number="11.1" class="anchored" data-anchor-id="what-is-quarto"><span class="header-section-number">11.1</span> What is Quarto?</h3>
 <ul>
-<li>Quarto basics</li>
+<li>Quarto enables you to create reproducible reports, presentations, publications &amp; websites</li>
+<li>Output in various formats: HTML (websites &amp; slides), PDF, Word</li>
+<li>From a variety of coding lanugages: R, Python, Julia, Observable Java Script
+<ul>
+<li>Quarto builds on R Markdown, which did the same but only for R.</li>
+</ul></li>
+<li>R script: only code (comments in lines starting with #)</li>
+<li>Quarto Document allows to combine text and code</li>
+<li>Useful to have automated reports about your results</li>
+<li>You could write entire papers (see <a href="https://psyteachr.github.io/reprores-v3/intro.html">Data Skills for Reproducible Research</a>)</li>
 </ul>
+</section>
+<section id="lets-make-a-quarto-report-of-our-results" class="level3" data-number="11.2">
+<h3 data-number="11.2" class="anchored" data-anchor-id="lets-make-a-quarto-report-of-our-results"><span class="header-section-number">11.2</span> Let’s make a Quarto Report of our results!</h3>
+<ul>
+<li>Save the objects in your <strong>Environment</strong> to the <code>write_up</code> folder, naming them <code>lesson2_environment</code>.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/save_environment.png" class="img-fluid figure-img" width="193"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Open a Quarto Document</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/script_types.png" class="img-fluid figure-img" width="96"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Enter your name</li>
+<li>Choose HTML as output</li>
+<li>Click <code>Create</code></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/open_quarto.png" class="img-fluid figure-img" width="266"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Save the Quarto document in your write_up folder <code>Lesson2_Report</code></p></li>
+<li><p>You can see that your R-script ends with .R, the Quarto file with .qmd</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/quarto_source_visual.png" class="img-fluid figure-img" width="180"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>By clicking on <code>Source</code>, you will see the content written in “Markdown” language.</p></li>
+<li><p><strong>Markdown</strong> is</p>
+<ol type="1">
+<li>a plain text formatting syntax, and</li>
+<li>a software tool that converts text to HTML.</li>
+</ol></li>
+</ul>
+<p>Let’s start writing in our Quarto Document:</p>
+<ul>
+<li>Delete the example text after the heading <strong>Quarto</strong> (including the heading, but not everything above)</li>
+<li>Use <code>Ctrl+Alt+I</code> to insert a code chunk. ```{r} lets R know that the following is code.</li>
+<li>In this code chunk, we load the data we have saved before.
+<ul>
+<li>Quarto files directly run in the folder where they are saved, so here directly in the write_up folder.</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"lesson2_environment.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Start writing normal text (as below) in your document. Using # turns text into a title in Markdown.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>Here is a look at our two data frames. First is the one we read in, the second is our subset with just the cat's data. </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Figure</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>Here's a figure of the weight of different pets in the dataset.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Now, we will fill in code chunks to present our data and figure. Use <code>Ctrl+Alt+I</code> to insert them in the right places.
+<ul>
+<li>Use <code>head(data)</code> and <code>head(data_cats)</code> to present your data sets under # Data.<br>
+</li>
+<li>Use the object in which you stored the plot for the figure (<code>data.plot</code>) under # Figure.</li>
+</ul></li>
+<li>This is how it should look like:</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/quarto_report.png" class="img-fluid figure-img" width="442"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>If you click on <strong>Render</strong> at the top, you will get a HTML file with your report. Open it from the folder.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/render.png" class="img-fluid figure-img" width="315"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>You can simply switch the format to <code>format: docx</code> at the top, then render again as a Word document.</li>
+<li>format: pdf would also work, but takes a bit longer the first time because of installations.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can write a lot of your code directly in Quarto Documents, allowing to combine your results (tables, figures) with interpretations directly in the same document. Lead through your entire analyses step by step. If a step needs a lot of code, move that code to a script in the code folder, and call the script from your Quarto document using the function <code>source()</code>. For example, you could first call a script that cleans the data, then make figures and run statistical tests directly in the Quarto Document.</p>
+</div>
+</div>
+</section>
 </section>
 <section id="references" class="level2" data-number="12">
 <h2 data-number="12" class="anchored" data-anchor-id="references"><span class="header-section-number">12</span> References</h2>
-<p>This lesson is based on: - Page Piccinini, R-Course, <a href="https://pagepiccinini.com/r-course/lesson-1-r-basics/">Lesson 1: R Basics</a>. - Chapter 2 of: Lisa DeBruine &amp; Dale Barr. (2022). <a href="https://psyteachr.github.io/reprores-v3/intro.html">Data Skills for Reproducible Research</a>: (3.0) Zenodo. doi:10.5281/zenodo.6527194.</p>
+<p>This lesson is based on:</p>
+<ul>
+<li><p>Page Piccinini, R-Course, <a href="https://pagepiccinini.com/r-course/lesson-1-r-basics/">Lesson 1: R Basics</a>.</p></li>
+<li><p>Chapter 2 of: Lisa DeBruine &amp; Dale Barr. (2022). <a href="https://psyteachr.github.io/reprores-v3/intro.html">Data Skills for Reproducible Research</a>: (3.0) Zenodo. doi:10.5281/zenodo.6527194.</p></li>
+</ul>
 </section>
 
 </main>
