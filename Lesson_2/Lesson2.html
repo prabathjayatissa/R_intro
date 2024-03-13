@@ -83,12 +83,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#quick-repetition-of-lesson-1" id="toc-quick-repetition-of-lesson-1" class="nav-link active" data-scroll-target="#quick-repetition-of-lesson-1"><span class="header-section-number">1</span> Quick repetition of lesson 1</a></li>
   <li><a href="#goals-for-lesson-2" id="toc-goals-for-lesson-2" class="nav-link" data-scroll-target="#goals-for-lesson-2"><span class="header-section-number">2</span> Goals for lesson 2</a></li>
-  <li><a href="#file-system-and-names" id="toc-file-system-and-names" class="nav-link" data-scroll-target="#file-system-and-names"><span class="header-section-number">3</span> File system and names</a>
+  <li><a href="#file-names-and-system" id="toc-file-names-and-system" class="nav-link" data-scroll-target="#file-names-and-system"><span class="header-section-number">3</span> File names and system</a>
   <ul class="collapse">
   <li><a href="#naming-things" id="toc-naming-things" class="nav-link" data-scroll-target="#naming-things"><span class="header-section-number">3.1</span> Naming things</a></li>
-  <li><a href="#file-system-paths" id="toc-file-system-paths" class="nav-link" data-scroll-target="#file-system-paths"><span class="header-section-number">3.2</span> File system &amp; paths</a></li>
-  <li><a href="#navigate-the-file-system-using-bash-commands" id="toc-navigate-the-file-system-using-bash-commands" class="nav-link" data-scroll-target="#navigate-the-file-system-using-bash-commands"><span class="header-section-number">3.3</span> Navigate the file system using <code>bash</code> commands</a></li>
-  <li><a href="#working-directory" id="toc-working-directory" class="nav-link" data-scroll-target="#working-directory"><span class="header-section-number">3.4</span> Working Directory</a></li>
+  <li><a href="#navigating-the-file-system-terminal-bash" id="toc-navigating-the-file-system-terminal-bash" class="nav-link" data-scroll-target="#navigating-the-file-system-terminal-bash"><span class="header-section-number">3.2</span> Navigating the file system: Terminal &amp; bash</a></li>
+  <li><a href="#working-directory" id="toc-working-directory" class="nav-link" data-scroll-target="#working-directory"><span class="header-section-number">3.3</span> Working Directory</a></li>
   </ul></li>
   <li><a href="#setup-git-github-repository-for-your-project" id="toc-setup-git-github-repository-for-your-project" class="nav-link" data-scroll-target="#setup-git-github-repository-for-your-project"><span class="header-section-number">4</span> Setup Git &amp; Github repository for your project</a>
   <ul class="collapse">
@@ -215,8 +214,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Create a Quarto document</li>
 </ul>
 </section>
-<section id="file-system-and-names" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="file-system-and-names"><span class="header-section-number">3</span> File system and names</h2>
+<section id="file-names-and-system" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="file-names-and-system"><span class="header-section-number">3</span> File names and system</h2>
 <p>Before we create our first R-project, we need to talk about how to name files and folders, and how the file system and file paths on your PC work, and how you navigate your way through it.</p>
 <section id="naming-things" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="naming-things"><span class="header-section-number">3.1</span> Naming things</h3>
@@ -253,10 +252,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="file-system-paths" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="file-system-paths"><span class="header-section-number">3.2</span> File system &amp; paths</h3>
+<section id="navigating-the-file-system-terminal-bash" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="navigating-the-file-system-terminal-bash"><span class="header-section-number">3.2</span> Navigating the file system: Terminal &amp; bash</h3>
 <ul>
-<li><code>/</code> or <code>\</code> to divide sub folders: <code>directory/subdirectory/</code> on Linux and Mac</li>
+<li>File paths: forward or backward slash to divide sub folders: <code>directory/subdirectory/</code>
+<ul>
+<li>/ on Linux and Mac</li>
+<li>&nbsp;on Windows</li>
+</ul></li>
 <li>Your user accounts’ main directory: <code>/Users/UserName/</code>, or on Windows: <code>C:\Users\Username\</code></li>
 <li>A file on your Desktop: <code>/Users/UserName/Desktop/datafile.csv</code></li>
 <li>You can navigate your file system via the <strong>Terminal</strong>.
@@ -267,7 +270,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li>You can access the Terminal from within R-studio (next to the Console at the bottom left in Rstudio).
 <ul>
-<li>On Windows, make sure you use the right Terminal:</li>
+<li>On Windows, make sure you use the right Terminal in the Global Options:</li>
+<li>Choose Git Bash or PowerShell here.</li>
+<li>The default Terminal of some older Windows systems is <code>Command Prompt</code> - it won’t work in the same way.</li>
 </ul></li>
 </ul>
 <div class="cell">
@@ -279,13 +284,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<ul>
-<li>Choose Git Bash or PowerShell here.</li>
-<li>The default Terminal of some older Windows systems is <code>Command Prompt</code> - it won’t work in the same way.</li>
-</ul>
-</section>
-<section id="navigate-the-file-system-using-bash-commands" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="navigate-the-file-system-using-bash-commands"><span class="header-section-number">3.3</span> Navigate the file system using <code>bash</code> commands</h3>
 <ul>
 <li>In the Terminal, we will use the coding language <code>bash</code>.</li>
 <li>Unlike in R, white spaces have a meaning in <code>bash</code>, so make sure you get them all right!</li>
@@ -320,8 +318,8 @@ Tip
 </div>
 </div>
 </section>
-<section id="working-directory" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="working-directory"><span class="header-section-number">3.4</span> Working Directory</h3>
+<section id="working-directory" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="working-directory"><span class="header-section-number">3.3</span> Working Directory</h3>
 <ul>
 <li>Folder of the project you are currently working on</li>
 <li>Never change working directory in a script</li>

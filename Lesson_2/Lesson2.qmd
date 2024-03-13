@@ -62,7 +62,7 @@ library(tidyverse)
 -   Make a figure & save it to PDF
 -   Create a Quarto document
 
-## File system and names
+## File names and system
 
 Before we create our first R-project, we need to talk about how to name files and folders, and how the file system and file paths on your PC work, and how you navigate your way through it.
 
@@ -95,9 +95,11 @@ Before we create our first R-project, we need to talk about how to name files an
 -   `report_v2.doc`
 -   `report_v3.doc`
 
-### File system & paths
+### Navigating the file system: Terminal & bash
 
--   `/` or `\` to divide sub folders: `directory/subdirectory/` on Linux and Mac
+-   File paths: forward or backward slash to divide sub folders: `directory/subdirectory/`
+    - / on Linux and Mac
+    - \ on Windows
 -   Your user accounts' main directory: `/Users/UserName/`, or on Windows: `C:\Users\Username\`
 -   A file on your Desktop: `/Users/UserName/Desktop/datafile.csv`
 -   You can navigate your file system via the **Terminal**.
@@ -105,16 +107,13 @@ Before we create our first R-project, we need to talk about how to name files an
     - On Windows, the software we need is called: PowerShell or Git Bash.
     - Try to find the program in the same way you would find any other program, then close it again.
 - You can access the Terminal from within R-studio (next to the Console at the bottom left in Rstudio).
-  - On Windows, make sure you use the right Terminal: 
+  - On Windows, make sure you use the right Terminal in the Global Options: 
+  - Choose Git Bash or PowerShell here.
+  - The default Terminal of some older Windows systems is `Command Prompt` - it won't work in the same way. 
   
 ```{r, echo = F}
 knitr::include_graphics('images/change_default_terminal.png')
 ```
-
-- Choose Git Bash or PowerShell here.
-- The default Terminal of some older Windows systems is `Command Prompt` - it won't work in the same way. 
-
-### Navigate the file system using `bash` commands
 
 - In the Terminal, we will use the coding language `bash`. 
 - Unlike in R, white spaces have a meaning in `bash`, so make sure you get them all right!
