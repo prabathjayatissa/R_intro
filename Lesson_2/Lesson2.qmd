@@ -517,7 +517,7 @@ knitr::include_graphics('images/save_environment.png')
 ```{r,echo=FALSE}
 knitr::include_graphics('images/script_types.png')
 ```
-- Enter your name
+- Enter a title and your name
 - Choose HTML as output
 - Click `Create`
 
