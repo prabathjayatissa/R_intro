@@ -259,7 +259,7 @@ Create these subfolders:
 -   figures
 - write_up
 
-Download this [data file](www.hannahmetzler.eu/R_intro/Lesson_2/data/pets.csv) from the course website and put it into the data folder. We'll be writing a script to analyse it during today's session. If needed, you can also download it [here](https://github.com/hannahmetzler/R_intro_lesson2/blob/main/code/rintro_lesson2.R). 
+Download this [data file](https://github.com/hannahmetzler/R_intro/Lesson_2/data/pets.csv) from the course website and put it into the data folder. We'll be writing a script to analyse it during today's session. If needed, you can also download it [here](https://github.com/hannahmetzler/R_intro_lesson2/blob/main/code/rintro_lesson2.R). 
 :::
 
 ## Backup your project on GitHub
@@ -414,7 +414,7 @@ Here is a step by step explanation:
 Write down and run this code. You can use these keyboard shortcuts:
 
   -   `<-` for assigning: `Alt + - ` or `Option + -`
-  - Keyboard shortcut:`%>%` pipe: `Shift + Ctrl + M` or
+  - Keyboard shortcut:`%>%` pipe: `Shift + Ctrl + M` or `Cmd + Shift + M`
 
 Let's look at the top rows: 
 
