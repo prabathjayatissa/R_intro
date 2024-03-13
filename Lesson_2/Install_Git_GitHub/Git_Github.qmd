@@ -35,13 +35,13 @@ knitr::include_graphics('images/Git_installed.png')
 
 ### Configure Git on your computer
 
-Type in your Terminal:
+Type this in your Terminal, and make sure to leave white spaces after git and config. Bash (the coding language of the Terminal) **does** interpret white spaces. (R does not.).
 
 ```{bash,  eval = FALSE}
-$ git config --global user.name "Your name here"
-$ git config --global user.email "your_email@example.com"
+git config --global user.name "Your name here"
+git config --global user.email "your_email@example.com"
 #now check your configuration: 
-$ git config --list 
+git config --list 
 ```
 
 After configuration, it should look like this:
