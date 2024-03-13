@@ -32,10 +32,11 @@ This work is licensed under Creative Commons Attribution-ShareAlike 4.0 Internat
 
 ## Acknowledgement & Resources
 
-This course is based on a free online course book:
+This course is based on a free online course book and a free online course:
 
-Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research:](https://psyteachr.github.io/reprores-v3/index.html) (3.0) Zenodo. <doi:10.5281/zenodo.6527194>
+- Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research:](https://psyteachr.github.io/reprores-v3/index.html) (3.0) Zenodo. <www.doi:10.5281/zenodo.6527194/>
+- Page Piccinini. (2018). R-Course, [https://pagepiccinini.com/r-course/](https://pagepiccinini.com/r-course/).
 
-You can use it to repeat lessons, understand something better, or catch up if you miss a class.
+You can use these resources to repeat lessons, to understand something better, and to continue learning about R. 
 
 There are a variety of other free online classes on R, some including an introduction to statistics. You can find a list of courses I have found useful [here](https://github.com/hannahmetzler/R_intro/blob/main/Resources.md). If a course has not been updated recently, it is quite likely that some things have changed, as R and its packages are regularly updated. Most things will still work, however.
