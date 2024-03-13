@@ -1,0 +1,18 @@
+---
+title: "Lesson 3: "
+subtitle: "Course website: https://hannahmetzler.eu/R_intro/"
+author: "Hannah Metzler"
+date: "March 19 2024"
+format: 
+  html:
+    toc: true # generate a table of content
+    number-sections: true
+    df-print: kable
+editor: visual
+cache: true
+execute: 
+  warning: false
+echo: true
+---
+
+## Goals
