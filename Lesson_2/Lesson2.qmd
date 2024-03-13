@@ -250,7 +250,7 @@ knitr::include_graphics('images/folder_structure.png')
   -   Plus any other project specific folders
 
 ::: callout-caution
-#### To do
+#### To Do
 
 Create these subfolders:
 
