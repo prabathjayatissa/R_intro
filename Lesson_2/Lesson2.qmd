@@ -1,5 +1,5 @@
 ---
-title: "Lesson 2: Reproducible workflowa with Quarto & GitHub"
+title: "Lesson 2: Reproducible workflows with Quarto & GitHub"
 subtitle: "Course website: https://hannahmetzler.eu/R_intro/"
 author: "Hannah Metzler"
 date: "March 12 2024"
@@ -62,12 +62,6 @@ library(tidyverse)
 -   Make a figure & save it to PDF
 -   Create a Quarto document
 
-**We'll try not to hurry, and see how far we get.**
-
-- Please ask questions when something is unclear.
-- If we do not finish, please try to finish the lesson at home. We'll repeat it at the start of the next class. 
-- Sometimes, I'll ask you to just "accept" a bit of code for now , without explaining in detail, in order to avoid total confusion. Please be patient and bear with me :)
-
 ## File system and names
 
 Before we create our first R-project, we need to talk about how to name files and folders, and how the file system and file paths on your PC work, and how you navigate your way through it.
@@ -103,25 +97,39 @@ Before we create our first R-project, we need to talk about how to name files an
 
 ### File system & paths
 
--   Your user accounts' main directory: `/Users/UserName/`
-    -   `~` shortcut for it
+-   `/` or `\` to divide sub folders: `directory/subdirectory/` on Linux and Mac
+-   Your user accounts' main directory: `/Users/UserName/`, or on Windows: `C:\Users\Username\`
 -   A file on your Desktop: `/Users/UserName/Desktop/datafile.csv`
--   Using the shortcut `~/Desktop/datafile.csv`
--   I find it useful to have all my analysis projects in a common folder directly in my user folder: `~/AnalysisProjects/`
--   You can navigate to directory's via the Terminal (Shell, Console) using commands like:
--   `cd` change directory
--   `..` move one directory upwards
--   `/` to divide subfolders: `directory/subdirectory/`
--   You can access the Terminal from within R-studio (next to the Console).
+-   You can navigate your file system via the **Terminal**.
+    - On Mac & Linux (Unix-based systems) this software is called Terminal or Console outside of Rstudio 
+    - On Windows, the software we need is called: PowerShell or Git Bash.
+    - Try to find the program in the same way you would find any other program, then close it again.
+- You can access the Terminal from within R-studio (next to the Console at the bottom left in Rstudio).
+  - On Windows, make sure you use the right Terminal: 
+  
+```{r, echo = F}
+knitr::include_graphics('images/change_default_terminal.png')
+```
+
+- Choose Git Bash or PowerShell here.
+- The default Terminal of some older Windows systems is `Command Prompt` - it won't work in the same way. 
+
+### Navigate the file system using `bash` commands
+
+- In the Terminal, we will use the coding language `bash`. 
+- Unlike in R, white spaces have a meaning in `bash`, so make sure you get them all right!
+- In `bash`, you can use these commands to navigate between folders: 
+  -   `cd` change directory, e.g., to move to my user directory: `cd /Users/Hannah/`
+  -  `~` shortcut for the user account directory ``/Users/UserName/`, e.g., to move to the user directory: `cd ~`
+  -   `..` move one directory upwards: `cd ..`
+  - Note how there is always a white space after the function `cd `. In R, we would have `()` instead: `function()`
 
 ```{r, echo = FALSE}
 knitr::include_graphics('images/Terminal_in_Rstudio.png')
 ```
 
-::: callout-caution
-#### Exercise
-
-What is the file path for an imaginary `file.csv` in your Documents folder?
+:::{.callout-tip}
+I find it useful to have all my analysis projects in a common folder directly in my user directory: `~/AnalysisProjects/`. In it, you could then have a folder `R_introduction` for this course. 
 :::
 
 ### Working Directory
