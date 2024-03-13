@@ -1,7 +1,7 @@
 ---
 title: "Lesson 1: Getting Started"
 author: "Hannah Metzler"
-date: "March 6 2023"
+date: "March 6 2024"
 format: 
   html:
     toc: true # generate a table of content

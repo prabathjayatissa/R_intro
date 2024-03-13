@@ -1,8 +1,8 @@
 ---
-title: "Lesson 2: Reproducible workflows with Quarto & GitHub"
+title: "Lesson 2: Reproducible workflowa with Quarto & GitHub"
 subtitle: "Course website: https://hannahmetzler.eu/R_intro/"
 author: "Hannah Metzler"
-date: "March 12 2023"
+date: "March 12 2024"
 format: 
   html:
     toc: true # generate a table of content
@@ -15,11 +15,6 @@ execute:
 echo: true
 ---
 
-
-## Before we start 
-
-- How many of you know basics statistics?
-- Who of you would benefit from me explaining terms like mean, standard deviation, distribution like in the last session?
 
 ## Quick repetition of lesson 1
 
@@ -213,7 +208,7 @@ There is now a folder with the name of the remote repository in the directory yo
 -   Allows using Git for version control
 -   R-project automatically sets working directory to the R-project folder
 -   In the top right corner in Rstudio, you can see that we are not currently in any project.
--   Let's create a project for today's lesson:
+-   Let's create a project for this lesson:
 
 ::: callout-caution
 #### Exercise
@@ -250,7 +245,7 @@ knitr::include_graphics('images/folder_structure.png')
   -   Plus any other project specific folders
 
 ::: callout-caution
-#### To Do
+#### To do
 
 Create these subfolders:
 
@@ -259,7 +254,7 @@ Create these subfolders:
 -   figures
 - write_up
 
-Download this [data file](https://github.com/hannahmetzler/R_intro/Lesson_2/data/pets.csv) from the course website and put it into the data folder. We'll be writing a script to analyse it during today's session. If needed, you can also download it [here](https://github.com/hannahmetzler/R_intro_lesson2/blob/main/code/rintro_lesson2.R). 
+Download this [data file](https://github.com/hannahmetzler/R_intro/Lesson_2/data/pets.csv) from the course website and put it into the data folder. We'll be writing a script to analyse it during this session. If needed, you can also download it [here](https://github.com/hannahmetzler/R_intro_lesson2/blob/main/code/rintro_lesson2.R). 
 :::
 
 ## Backup your project on GitHub
@@ -485,7 +480,7 @@ ggsave('figures/boxplot_pets_weight.png', plot = data.plot, width = 6, height = 
 - Check the figure in your `figures/` folder. 
 
 
-## Commit today's work to Git
+## Commit your work to Git
 
 - Go back to the **Git** menu at the top right and choose `Commit `
 - Once again check all of the boxes of changed files (Select all files at once using Shift)
