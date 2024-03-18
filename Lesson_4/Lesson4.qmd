@@ -1,0 +1,95 @@
+---
+title: "Lesson 4: Potential topics"
+subtitle: "Course website: https://hannahmetzler.eu/R_intro/"
+author: "Hannah Metzler"
+date: "March 27 2024"
+format: 
+  html:
+    toc: true # generate a table of content
+    number-sections: true
+    df-print: kable
+editor: visual
+cache: true
+execute: 
+  warning: false
+echo: true
+---
+
+## Goals
+
+Repeat the math behind linear regression
+
+## Set up your work space
+
+1.  Make a remote git repository on GitHub (e.g. “rintro_lesson3”)
+
+2.  Copy the SSH Link
+
+3.  In the Terminal, `git clone Link` into the folder for this R course.
+
+4.  In the folder, create with sub folders (e.g. “data”, “figures”, “code”, “write_up”).
+
+5.  Put the data file for this lesson in your “data” folder.
+
+6.  Make a new R Project based in your main directory folder (e.g. “rintro_lesson3”).
+
+7.  Commit & Push to Git.
+
+```{r, echo=F}
+library(tidyverse)
+# library(babynames)
+```
+
+```{r, read data}
+# data(package = "babynames")
+pets = readr::read_csv('data/pets.csv', col_types = "cffiid")
+
+View(pets)
+```
+
+## Statistics
+
+### T-tests with pets dataset
+
+```{r}
+
+# analysis
+cat_weight <- filter(pets, pet == "cat") %>% pull(weight)
+ferret_weight <- filter(pets, pet == "ferret") %>% pull(weight)
+weight_test <- t.test(cat_weight, ferret_weight)
+
+# round individual values you want to report
+t <- weight_test$statistic %>% round(2)
+df <- weight_test$parameter %>% round(1)
+p <- weight_test$p.value %>% round(3)
+```
+
+Table with pets dataset
+
+```{r}
+summary_table <- pets %>%
+  group_by(pet) %>%
+  summarise(
+    n = n(),
+    mean_weight = mean(weight),
+    mean_score = mean(score)
+  )
+
+# print
+summary_table
+```
+
+plot with pets dataset
+
+```{r pet-plot, fig.cap="Figure 1. Scores by pet type and country."}
+ggplot(pets, aes(pet, score, fill = country)) +
+  geom_violin(alpha = 0.5) +
+  geom_boxplot(width = 0.25, 
+               position = position_dodge(width = 0.9),
+               show.legend = FALSE) +
+  scale_fill_manual(values = c("orange", "dodgerblue")) +
+  labs(x = "", y = "Score") +
+  theme(text = element_text(size = 20, family = "Times"))
+
+
+```

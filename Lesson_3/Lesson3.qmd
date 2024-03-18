@@ -15,9 +15,14 @@ execute:
 echo: true
 ---
 
+
 ## Goals
 
-Repeat the math behind linear regression
+* Repeat setting up your work space with R-Projects, Git & GitHub
+* Repeat the math behind linear regression
+* Make a linear regression data
+* Run a linear regression
+* Summarise results in a Quarto Document
 
 ## Set up your work space
 
@@ -27,19 +32,164 @@ Repeat the math behind linear regression
 
 3.  In the Terminal, `git clone Link` into the folder for this R course.
 
-4.  In the folder, create with sub folders (e.g. “data”, “figures”, “code”, “write_up”).
+4.  In the now local folder of the repository, create sub folders (e.g. “data”, “figures”, “code”, “write_up”).
 
-5.  Put the data file for this lesson in your “data” folder.
+5.  Put the [data file](https://github.com/hannahmetzler/R_intro_lesson3/blob/main/data/rcourse_lesson2_data.txt) for this lesson in your “data” folder.
 
 6.  Make a new R Project based in your main directory folder (e.g. “rintro_lesson3”).
 
-7.  Commit & Push to Git.
+7.  Commit & Push to GitHub.
 
-```{r, echo=F}
-library(tidyverse)
-library(babynames)
+
+## Math of linear regression
+
+```{r, read data, echo = F}
+#ChickWeight dataset
+data(package = "datasets", ChickWeight)
+data = ChickWeight
 ```
+
+* Link to [Slides](https://pagepiccinini.files.wordpress.com/2016/02/rcourse_lesson2.pdf)
+
+## Project for Lesson 3
+
+Data from the USA Social Security Administration on baby names
+
+**2 Questions:**
+
+1. Continuous Predictor: Does the name "Page" get more or less popular between the years of 1901 and 2000?
+2. Categorical Predictor: Is the name "Page" more or less popular with females or males?
+
+## Organizing your scripts
+
+- Separate scripts for each step can be useful, we will use this structure today: 
+  - cleaning
+  - figures
+  - statistics
+- Alternatively, these can be sections in a Quarto Document.
+
+:::{.callout-caution}
+#### To do
+Create a script and save it in the `code` folder as `01_cleaning.R`. 
+:::
+
+## Cleaning script
+
+- Start again with a header (# TITLE ####) for loading packages. 
+- We only need the package `dplyr` for now. 
+- Shortcut to run a line of code from a script: `Ctrl/Strg/Cmd + Enter`
 
 ```{r}
-data(package = "babynames")
+## LOAD PACKAGES ####
+library(dplyr)
 ```
+
+- Next, we read in data, with the same function as last time but for .txt files. 
+- The argument col_types defines what kind of variables.
+
+```{r}
+data = readr::read_tsv("data/lesson2_data_babynames.txt")
+```
+
+- To check if the file was read correctly you can use `head(data)` once in the Console. 
+
+```{r}
+head(data)
+```
+
+
+- Check if your own name exists in the dataset using the function `filter()`:
+  - Check the function in the help: `?dplyr::filter` (Description, Usage & Examples). 
+    - The first argument is for the dataframe. 
+    - The second argument (`...`) is for the expression that defines our condition for rows we want to keep.
+    - The Examples section shows you how to use the function.
+    
+- I'll be using the name "Page" - in honor of the colleague who taught me R with exactly this same dataset. 
+
+
+```{r}
+data_clean = dplyr::filter(data, name == "Page")
+```
+
+Check if it worked, for example using `head() on the new dataframe`
+
+```{r}
+head(data_clean)
+```
+
+If this is empty, your name does not exist in the US names dataset. Simply stay with the name "Page". 
+
+```{r, results = F}
+dplyr::filter(data, name == "Lav")
+```
+
+```{r, echo=FALSE, fig.width=10}
+knitr::include_graphics('images/empty_tibble.png')
+```
+
+
+- Now, we'll use the same code to assign only rows with your name to the dataframe `data_clean`.
+- We want to be able to run more functions to clean the data. We can do this using the **Pipe (%>%)** after data. `filter()` will then be run on `data` before assigning to `data_clean`. 
+  - Shortcut: `Shift + Ctrl/Cmd + M`
+- Copy and run the code below. 
+- I check if it works with `xtabs()` this time (just for a change).
+
+```{r}
+## CLEAN DATA ####
+data_clean = data %>%
+             filter(name == "Page")
+xtabs(~name, data_clean)
+```
+
+We only want to look at the 20th century, so we filter out the years between 1900 and 2000 using the filter function:
+
+- The first new filter call selects all years after 1900, the second all before 2000. 
+
+```{r, results = FALSE}
+data_clean = data %>%
+             filter(name == "Page") %>%
+             filter(year > 1900) %>%
+             filter(year <= 2000)
+```
+
+To confirm this worked, we can check the minimum and maximum year in the new dataframe. For the name "Page", this shows the first year in which it was given to a baby was 1909. 
+
+```{r}
+min(data_clean$year)
+max(data_clean$year)
+```
+
+:::{.callout-caution}
+#### To do
+- Save the cleaning script.
+- Commit the changes to Git. The commit message could be "Made cleaning script".
+- Open a new script `02_figures.R`
+::::
+
+## Figures Script
+
+- `source()` call tells R to run another script (without opening that other script)
+- We can use it to run the cleaning script from our figures script, to read in our clean data. 
+  - Enter the exact path and name of your script.
+  - To be sure it works, first delete all objects from the **Environment** using the broom symbol or `rm(list = ls)`
+
+```{r, eval = F, results = F}
+## READ IN DATA ####
+source("code/01_cleaning.R")
+```
+
+All variables should now reappear in your Environment: 
+```{r, echo=F}
+knitr::include_graphics('images/source_environment.png')
+```
+
+
+## Homework: watch Linear Regression video by Page
+
+## References & Resources
+
+- Completed code for the lesson can be found [here](https://github.com/hannahmetzler/R_intro_lesson3).
+
+This lesson is based on:
+
+Page Piccinini (2018). "R for Publication", [Lesson 2: Linear Regression](https://pagepiccinini.com/r-course/lesson-2-linear-regression/). 
