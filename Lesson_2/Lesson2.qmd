@@ -15,7 +15,6 @@ execute:
 echo: true
 ---
 
-
 ## Quick repetition of lesson 1
 
 -   Assigning numeric values or strings to objects, then using the objects:
@@ -98,37 +97,37 @@ Before we create our first R-project, we need to talk about how to name files an
 ### Navigating the file system: Terminal & bash
 
 -   File paths: forward or backward slash to divide sub folders: `directory/subdirectory/`
-    - / on Linux and Mac
-    - \ on Windows
+    -   / on Linux and Mac
+    -    on Windows
 -   Your user accounts' main directory: `/Users/UserName/`, or on Windows: `C:\Users\Username\`
 -   A file on your Desktop: `/Users/UserName/Desktop/datafile.csv`
 -   You can navigate your file system via the **Terminal**.
-    - On Mac & Linux (Unix-based systems) this software is called Terminal or Console outside of Rstudio 
-    - On Windows, the software we need is called: PowerShell or Git Bash.
-    - Try to find the program in the same way you would find any other program, then close it again.
-- You can access the Terminal from within R-studio (next to the Console at the bottom left in Rstudio).
-  - On Windows, make sure you use the right Terminal in the Global Options: 
-  - Choose Git Bash or PowerShell here.
-  - The default Terminal of some older Windows systems is `Command Prompt` - it won't work in the same way. 
-  
+    -   On Mac & Linux (Unix-based systems) this software is called Terminal or Console outside of Rstudio
+    -   On Windows, the software we need is called: PowerShell or Git Bash.
+    -   Try to find the program in the same way you would find any other program, then close it again.
+-   You can access the Terminal from within R-studio (next to the Console at the bottom left in Rstudio).
+    -   On Windows, make sure you use the right Terminal in the Global Options:
+    -   Choose Git Bash or PowerShell here.
+    -   The default Terminal of some older Windows systems is `Command Prompt` - it won't work in the same way.
+
 ```{r, echo = F}
 knitr::include_graphics('images/change_default_terminal.png')
 ```
 
-- In the Terminal, we will use the coding language `bash`. 
-- Unlike in R, white spaces have a meaning in `bash`, so make sure you get them all right!
-- In `bash`, you can use these commands to navigate between folders: 
-  -   `cd` change directory, e.g., to move to my user directory: `cd /Users/Hannah/`
-  -  `~` shortcut for the user account directory ``/Users/UserName/`, e.g., to move to the user directory: `cd ~`
-  -   `..` move one directory upwards: `cd ..`
-  - Note how there is always a white space after the function `cd `. In R, we would have `()` instead: `function()`
+-   In the Terminal, we will use the coding language `bash`.
+-   Unlike in R, white spaces have a meaning in `bash`, so make sure you get them all right!
+-   In `bash`, you can use these commands to navigate between folders:
+    -   `cd` change directory, e.g., to move to my user directory: `cd /Users/Hannah/`
+    -   `~` shortcut for the user account directory \``/Users/UserName/`, e.g., to move to the user directory: `cd ~`
+    -   `..` move one directory upwards: `cd ..`
+    -   Note how there is always a white space after the function `cd`. In R, we would have `()` instead: `function()`
 
 ```{r, echo = FALSE}
 knitr::include_graphics('images/Terminal_in_Rstudio.png')
 ```
 
-:::{.callout-tip}
-I find it useful to have all my analysis projects in a common folder directly in my user directory: `~/AnalysisProjects/`. In it, you could then have a folder `R_introduction` for this course. 
+::: callout-tip
+I find it useful to have all my analysis projects in a common folder directly in my user directory: `~/AnalysisProjects/`. In it, you could then have a folder `R_introduction` for this course.
 :::
 
 ### Working Directory
@@ -244,12 +243,12 @@ knitr::include_graphics('images/folder_structure.png')
 ```
 
 -   Alternative/additional folder names could be:
-  -   tables
-  -   reports
-  -   output (tables, reports, ...)
-  -   raw_data: I recommend having a separate folder for the raw data
-  -   code = scripts
-  -   Plus any other project specific folders
+    -   tables
+    -   reports
+    -   output (tables, reports, ...)
+    -   raw_data: I recommend having a separate folder for the raw data
+    -   code = scripts
+-   Plus any other project specific folders
 
 ::: callout-caution
 #### To do
@@ -259,9 +258,9 @@ Create these subfolders:
 -   data
 -   code
 -   figures
-- write_up
+-   write_up
 
-Download this [data file](https://github.com/hannahmetzler/R_intro/Lesson_2/data/pets.csv) from the course website and put it into the data folder. We'll be writing a script to analyse it during this session. If needed, you can also download it [here](https://github.com/hannahmetzler/R_intro_lesson2/blob/main/code/rintro_lesson2.R). 
+Download this [data file](https://github.com/hannahmetzler/R_intro/Lesson_2/data/pets.csv) from the course website and put it into the data folder. We'll be writing a script to analyse it during this session. If needed, you can also download it [here](https://github.com/hannahmetzler/R_intro_lesson2/blob/main/code/rintro_lesson2.R).
 :::
 
 ## Backup your project on GitHub
@@ -301,19 +300,19 @@ knitr::include_graphics('images/commit_message.png')
 
 We will finally start coding!
 
-:::{.callout-caution}
+::: callout-caution
 #### To do
+
 -   Open an R-script by clicking on the green plus below `File` (top left)
 -   Save it in the code folder, e.g. with the name `rintro_lesson2`
 :::
 
-- At the top of the script, we load all required packages.
+-   At the top of the script, we load all required packages.
 -   Lines with \# are comments, so R does not read them as code.
-    - Keyboard shortcut to (un)comment a line or selection: `Ctrl+Shift+C` `Cmd+Shift+C`
+    -   Keyboard shortcut to (un)comment a line or selection: `Ctrl+Shift+C` `Cmd+Shift+C`
 -   Lines ending with \#### are code blocks, that can be opened and closed. Use them to organize your script!
-- To run a line in a script, press `Ctrl + Enter`
-- To run an entire R-script: `Ctrl + Shift + Enter`
-
+-   To run a line in a script, press `Ctrl + Enter`
+-   To run an entire R-script: `Ctrl + Shift + Enter`
 
 Write and run the code below:
 
@@ -322,9 +321,9 @@ Write and run the code below:
 library(tidyverse)
 ```
 
-- To read in the data, we use `read_csv()` from the package readr. 
-- The working directory is in the root folder, so we need to first go into the data folder: `"data/pets.csv"`
-- The last part `col_types = "cffiid"` defines the type of variable - we will get to this below.  
+-   To read in the data, we use `read_csv()` from the package readr.
+-   The working directory is in the root folder, so we need to first go into the data folder: `"data/pets.csv"`
+-   The last part `col_types = "cffiid"` defines the type of variable - we will get to this below.
 
 ```{r, results=FALSE}
 ## READ IN DATA AND ORGANIZE ####
@@ -334,7 +333,7 @@ data = readr::read_csv("data/pets.csv",  col_types = "cffiid")
 
 ### Look at the data
 
-The first and last rows of the data frame: 
+The first and last rows of the data frame:
 
 ```{r, echo = FALSE}
 head(data) # first rows
@@ -344,7 +343,7 @@ tail(data) # last rows
 -   `data` is our data frame (the whole data table with variables as columns and observations as rows)
 -   `id, pet, score, age, weight` are variables
 -   `dog` and `ferret` are levels of the variable `pet`
-- `UK` and `NL` are levels of the variable `country`
+-   `UK` and `NL` are levels of the variable `country`
 
 Now, have a look at the data using these functions (from basic R):
 
@@ -353,7 +352,7 @@ Now, have a look at the data using these functions (from basic R):
 -   tail(): print the last 6 rows
 -   xtabs(): how many data points exist for each level of a variable
 
-Write and then run the code below. After each written line, use `Ctrl + Enter` to run it. 
+Write and then run the code below. After each written line, use `Ctrl + Enter` to run it.
 
 ```{r, results=FALSE}
 # Look at data
@@ -369,12 +368,12 @@ All of this is basic R. In addition, we can use functions from packages. Using `
 dplyr::glimpse(data)
 ```
 
-Here, you can see that the data frame contains different types of variables: 
+Here, you can see that the data frame contains different types of variables:
 
-- `chr` (character): for variables with text (can contain any character: letter, numbers, symbols, spaces)
-- `fct`(factor): for categorical variables
-- `int` (integer): numeric, stores whole numbers
-- `dbl` (double): numeric, numbers with decimals
+-   `chr` (character): for variables with text (can contain any character: letter, numbers, symbols, spaces)
+-   `fct`(factor): for categorical variables
+-   `int` (integer): numeric, stores whole numbers
+-   `dbl` (double): numeric, numbers with decimals
 
 ### Select a part of the data
 
@@ -394,7 +393,7 @@ data_cats = data %>%
   dplyr::filter(pet == 'cat')
 ```
 
-We'll use dplyr (the third way): 
+We'll use dplyr (the third way):
 
 ```{r}
 # Select only cats
@@ -415,20 +414,20 @@ Here is a step by step explanation:
 
 Write down and run this code. You can use these keyboard shortcuts:
 
-  -   `<-` for assigning: `Alt + - ` or `Option + -`
-  - Keyboard shortcut:`%>%` pipe: `Shift + Ctrl + M` or `Cmd + Shift + M`
+-   `<-` for assigning: `Alt + -` or `Option + -`
+-   Keyboard shortcut:`%>%` pipe: `Shift + Ctrl + M` or `Cmd + Shift + M`
 
-Let's look at the top rows: 
+Let's look at the top rows:
 
 ```{r}
 head(data_cats)
 ```
 
-There are only rows with cats left. 
+There are only rows with cats left.
 
-
-:::{.callout-caution}
+::: callout-caution
 #### Exercise
+
 Look at the new data frame `data_cats` with all the functions you used above for `data`.
 :::
 
@@ -436,7 +435,7 @@ Look at the new data frame `data_cats` with all the functions you used above for
 
 We'll make a box plot showing the weight of the different pets. `ggplot2` is a package from the Tidyverse that is very flexible for making pretty plots.
 
-Start again with a section header (####). 
+Start again with a section header (####).
 
 ```{r}
 ## MAKE FIGURES ####
@@ -446,21 +445,21 @@ data.plot <- ggplot(data, aes(x = pet, y = weight)) +
 data.plot
 ```
 
-Step by step explanations: 
+Step by step explanations:
 
-- Every plot in ggplot2 is initiated with the call `ggplot()`
-- Next comes the data frame (here `data`)
-- Then we set the aesthetics (`aes()`), here only the variable to put on the x- and y-axis.
-- For ggplot2, we use `+` to connect lines (like `%>%` above for dplyr)
-- In line 2 comes the type of plot (boxplot). Most plots in ggplot2 with `geom_` plus the type of plot, so here `geom_boxplot`.
-- We store the plot in the variable `data.plot`.
-- We print out `data.plot` to see the plot. 
+-   Every plot in ggplot2 is initiated with the call `ggplot()`
+-   Next comes the data frame (here `data`)
+-   Then we set the aesthetics (`aes()`), here only the variable to put on the x- and y-axis.
+-   For ggplot2, we use `+` to connect lines (like `%>%` above for dplyr)
+-   In line 2 comes the type of plot (boxplot). Most plots in ggplot2 with `geom_` plus the type of plot, so here `geom_boxplot`.
+-   We store the plot in the variable `data.plot`.
+-   We print out `data.plot` to see the plot.
 
-It is very easy to make this plot pretty. Below: 
+It is very easy to make this plot pretty. Below:
 
-- We fill each box with a colour by including `fill = pet` in the aesthetics. 
-- We change the design of the entire plot using one of the default themes: `theme_bw()`
-- We add a title using `ggtitle()`
+-   We fill each box with a colour by including `fill = pet` in the aesthetics.
+-   We change the design of the entire plot using one of the default themes: `theme_bw()`
+-   We add a title using `ggtitle()`
 
 ```{r}
 # Pretty plot
@@ -470,88 +469,93 @@ ggplot(data, aes(x = pet, y = weight, fill = pet)) +
   ggtitle("Weight by pet")
 ```
 
-To save the plot to a file to use in your paper, use `ggsave` to save it in our subfolder for figures:  
+To save the plot to a file to use in your paper, use `ggsave` to save it in our subfolder for figures:
 
 ```{r, eval=FALSE}
 # save the plot
 ggsave('figures/boxplot_pets_weight.png', plot = data.plot, width = 6, height = 4, dpi = 300)
 ```
 
-- Arguments in order: 
-  1. file name including the paths to the file
-  2. plot you want to save
-  3. width
-  4. height
-  5. resolution (300 dpi is often required for papers) 
-- Instead of .png, you could use other formats: .pdf, .jpg, .tiff and more. 
-- Check the figure in your `figures/` folder. 
-
+-   Arguments in order:
+    1.  file name including the paths to the file
+    2.  plot you want to save
+    3.  width
+    4.  height
+    5.  resolution (300 dpi is often required for papers)
+-   Instead of .png, you could use other formats: .pdf, .jpg, .tiff and more.
+-   Check the figure in your `figures/` folder.
 
 ## Commit your work to Git
 
-- Go back to the **Git** menu at the top right and choose `Commit `
-- Once again check all of the boxes of changed files (Select all files at once using Shift)
-  - Write a message (e.g., "Looked at data, made boxplot").
-- Click `Commit` to store a new version of your project, then `Close`. 
-- To upload to GitHub, click `Push`.
-- To confirm that it worked, go to your remote repository on github.com and refresh the page. Do you see the new files?
+-   Go back to the **Git** menu at the top right and choose `Commit`
+-   Once again check all of the boxes of changed files (Select all files at once using Shift)
+    -   Write a message (e.g., "Looked at data, made boxplot").
+-   Click `Commit` to store a new version of your project, then `Close`.
+-   To upload to GitHub, click `Push`.
+-   To confirm that it worked, go to your remote repository on github.com and refresh the page. Do you see the new files?
 
 ## Create a report using Quarto
 
 ### What is Quarto?
 
-- Quarto enables you to create reproducible reports, presentations, publications & websites
-- Output in various formats: HTML (websites & slides), PDF, Word
-- From a variety of coding lanugages: R, Python, Julia, Observable Java Script
-  - Quarto builds on R Markdown, which did the same but only for R. 
-- R script: only code (comments in lines starting with #)
-- Quarto Document allows to combine text and code
-- Useful to have automated reports about your results
-- You could write entire papers (see [Data Skills for Reproducible Research](https://psyteachr.github.io/reprores-v3/intro.html))
+-   Quarto enables you to create reproducible reports, presentations, publications & websites
+-   Output in various formats: HTML (websites & slides), PDF, Word
+-   From a variety of coding lanugages: R, Python, Julia, Observable Java Script
+    -   Quarto builds on R Markdown, which did the same but only for R.
+-   R script: only code (comments in lines starting with #)
+-   Quarto Document allows to combine text and code
+-   Useful to have automated reports about your results
+-   You could write entire papers (see [Data Skills for Reproducible Research](https://psyteachr.github.io/reprores-v3/intro.html))
 
 ### Let's make a Quarto Report of our results!
 
-- Save the objects in your **Environment** to the `write_up` folder, naming them `lesson2_environment`. 
+-   Save the objects in your **Environment** to the `write_up` folder, naming them `lesson2_environment`.
+
 ```{r,echo=FALSE}
 knitr::include_graphics('images/save_environment.png')
 ```
-- Open a Quarto Document
+
+-   Open a Quarto Document
+
 ```{r,echo=FALSE}
 knitr::include_graphics('images/script_types.png')
 ```
-- Enter a title and your name
-- Choose HTML as output
-- Click `Create`
+
+-   Enter a title and your name
+-   Choose HTML as output
+-   Click `Create`
 
 ```{r,echo=FALSE}
 knitr::include_graphics('images/open_quarto.png')
 ```
 
-- Save the Quarto document in your write_up folder `Lesson2_Report`
+-   Save the Quarto document in your write_up folder `Lesson2_Report`
 
-- You can see that your R-script ends with .R, the Quarto file with .qmd
+-   You can see that your R-script ends with .R, the Quarto file with .qmd
 
 ```{r,echo=FALSE}
 knitr::include_graphics('images/quarto_source_visual.png')
 ```
-- By clicking on `Source`, you will see the content written in "Markdown" language.
 
-- **Markdown** is 
-  (1) a plain text formatting syntax, and 
-  (2) a software tool that converts text to HTML. 
+-   By clicking on `Source`, you will see the content written in "Markdown" language.
 
-Let's start writing in our Quarto Document: 
+-   **Markdown** is
 
-- Delete the example text after the heading **Quarto** (including the heading, but not everything above)
--  Use `Ctrl+Alt+I` to insert a code chunk. ```{r} lets R know that the following is code. 
-- In this code chunk, we load the data we have saved before.
-  - Quarto files directly run in the folder where they are saved, so here directly in the write_up folder. 
+    (1) a plain text formatting syntax, and
+    (2) a software tool that converts text to HTML.
+
+Let's start writing in our Quarto Document:
+
+-   Delete the example text after the heading **Quarto** (including the heading, but not everything above)
+-   Use `Ctrl+Alt+I` to insert a code chunk. \`\`\`{r} lets R know that the following is code.
+-   In this code chunk, we load the data we have saved before.
+    -   Quarto files directly run in the folder where they are saved, so here directly in the write_up folder.
 
 ```{r, eval=F}
 load("lesson2_environment.RData")
 ```
 
-- Start writing normal text (as below) in your document. Using # turns text into a title in Markdown.  
+-   Start writing normal text (as below) in your document. Using \# turns text into a title in Markdown.
 
 ```{Markdown, eval = F}
 # Data
@@ -565,33 +569,32 @@ Here is a look at our two data frames. First is the one we read in, the second i
 Here's a figure of the weight of different pets in the dataset.
 ```
 
-
-- Now, we will fill in code chunks to present our data and figure. Use `Ctrl+Alt+I` to insert them in the right places. 
-  - Use `head(data)` and `head(data_cats)` to present your data sets under # Data.  
-  - Use the object in which you stored the plot for the figure (`data.plot`) under # Figure.
-- This is how it should look like: 
+-   Now, we will fill in code chunks to present our data and figure. Use `Ctrl+Alt+I` to insert them in the right places.
+    -   Use `head(data)` and `head(data_cats)` to present your data sets under \# Data.\
+    -   Use the object in which you stored the plot for the figure (`data.plot`) under \# Figure.
+-   This is how it should look like:
 
 ```{r, echo=F}
 knitr::include_graphics('images/quarto_report.png')
 ```
 
-- If you click on **Render** at the top, you will get a HTML file with your report. Open it from the folder. 
+-   If you click on **Render** at the top, you will get a HTML file with your report. Open it from the folder.
+
 ```{r, echo=F}
 knitr::include_graphics('images/render.png')
 ```
 
-- You can simply switch the format to `format: docx` at the top, then render again as a Word document. 
-- format: pdf would also work, but takes a bit longer the first time because of installations. 
+-   You can simply switch the format to `format: docx` at the top, then render again as a Word document.
+-   format: pdf would also work, but takes a bit longer the first time because of installations.
 
-:::{.callout-tip}
+::: callout-tip
 You can write a lot of your code directly in Quarto Documents, allowing to combine your results (tables, figures) with interpretations directly in the same document. Lead through your entire analyses step by step. If a step needs a lot of code, move that code to a script in the code folder, and call the script from your Quarto document using the function `source()`. For example, you could first call a script that cleans the data, then make figures and run statistical tests directly in the Quarto Document.
 :::
 
-
 ## References
 
-This lesson is based on: 
+This lesson is based on:
 
-- Page Piccinini, R-Course, [Lesson 1: R Basics](https://pagepiccinini.com/r-course/lesson-1-r-basics/).
+-   Page Piccinini, R-Course, [Lesson 1: R Basics](https://pagepiccinini.com/r-course/lesson-1-r-basics/).
 
-- Chapter 2 of: Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research](https://psyteachr.github.io/reprores-v3/intro.html): (3.0) Zenodo. doi:10.5281/zenodo.6527194.
+-   Chapter 2 of: Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research](https://psyteachr.github.io/reprores-v3/intro.html): (3.0) Zenodo. doi:10.5281/zenodo.6527194.
