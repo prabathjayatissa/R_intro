@@ -41,15 +41,15 @@ echo: true
 7.  Commit & Push to GitHub.
 
 
-## Math of linear regression
+<!-- ## Math of linear regression -->
 
-```{r, read data, echo = F}
-#ChickWeight dataset
-data(package = "datasets", ChickWeight)
-data = ChickWeight
-```
+<!-- ```{r, read data, echo = F} -->
+<!-- #ChickWeight dataset -->
+<!-- data(package = "datasets", ChickWeight) -->
+<!-- data = ChickWeight -->
+<!-- ``` -->
 
-* Link to [Slides](https://pagepiccinini.files.wordpress.com/2016/02/rcourse_lesson2.pdf)
+<!-- * Link to [Slides](https://pagepiccinini.files.wordpress.com/2016/02/rcourse_lesson2.pdf) -->
 
 ## Project for Lesson 3
 
@@ -184,7 +184,10 @@ knitr::include_graphics('images/source_environment.png')
 ```
 
 
-## Homework: watch Linear Regression video by Page
+## To Prepare
+
+- Include math slides into this lesson or: 
+- Homework: watch Linear Regression video by Page
 
 ## References & Resources
 
