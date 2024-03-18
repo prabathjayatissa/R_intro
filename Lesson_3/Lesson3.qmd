@@ -186,7 +186,7 @@ knitr::include_graphics('images/source_environment.png')
 ```
 
 
-## To Prepare
+## Still to Prepare
 
 - Include math slides into this lesson or: 
 - Homework: watch Linear Regression video by Page
