@@ -2,7 +2,7 @@
 title: "Lesson 2: Reproducible workflows with Quarto & GitHub"
 subtitle: "Course website: https://hannahmetzler.eu/R_intro/"
 author: "Hannah Metzler"
-date: "March 12 2024"
+date: "March 13 2024"
 format: 
   html:
     toc: true # generate a table of content
@@ -322,14 +322,14 @@ Write and run the code below:
 library(tidyverse)
 ```
 
-- To read in the data, we use `read_csv()`.
+- To read in the data, we use `read_csv()` from the package readr. 
 - The working directory is in the root folder, so we need to first go into the data folder: `"data/pets.csv"`
 - The last part `col_types = "cffiid"` defines the type of variable - we will get to this below.  
 
 ```{r, results=FALSE}
 ## READ IN DATA AND ORGANIZE ####
 # Read in data
-data = read_csv("data/pets.csv",  col_types = "cffiid")
+data = readr::read_csv("data/pets.csv",  col_types = "cffiid")
 ```
 
 ### Look at the data

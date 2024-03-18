@@ -2,7 +2,7 @@
 title: "Lesson 3: "
 subtitle: "Course website: https://hannahmetzler.eu/R_intro/"
 author: "Hannah Metzler"
-date: "March 19 2024"
+date: "March 20 2024"
 format: 
   html:
     toc: true # generate a table of content
@@ -16,3 +16,30 @@ echo: true
 ---
 
 ## Goals
+
+Repeat the math behind linear regression
+
+## Set up your work space
+
+1.  Make a remote git repository on GitHub (e.g. “rintro_lesson3”)
+
+2.  Copy the SSH Link
+
+3.  In the Terminal, `git clone Link` into the folder for this R course.
+
+4.  In the folder, create with sub folders (e.g. “data”, “figures”, “code”, “write_up”).
+
+5.  Put the data file for this lesson in your “data” folder.
+
+6.  Make a new R Project based in your main directory folder (e.g. “rintro_lesson3”).
+
+7.  Commit & Push to Git.
+
+```{r, echo=F}
+library(tidyverse)
+library(babynames)
+```
+
+```{r}
+data(package = "babynames")
+```

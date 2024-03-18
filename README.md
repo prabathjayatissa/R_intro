@@ -34,8 +34,8 @@ This work is licensed under Creative Commons Attribution-ShareAlike 4.0 Internat
 
 This course is based on a free online course book and a free online course:
 
-- Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research:](https://psyteachr.github.io/reprores-v3/index.html) (3.0) Zenodo. <www.doi:10.5281/zenodo.6527194/>
-- Page Piccinini. (2018). R-Course, [https://pagepiccinini.com/r-course/](https://pagepiccinini.com/r-course/).
+- Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research:](https://psyteachr.github.io/reprores-v3/index.html) (3.0) Zenodo. <www.doi.org/10.5281/zenodo.6527194>.
+- Page Piccinini. (2018). R Course "R for Publication", [https://pagepiccinini.com/r-course/](https://pagepiccinini.com/r-course/).
 
 You can use these resources to repeat lessons, to understand something better, and to continue learning about R. 
 
