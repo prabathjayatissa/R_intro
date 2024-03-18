@@ -83,13 +83,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">1</span> Goals</a></li>
   <li><a href="#set-up-your-work-space" id="toc-set-up-your-work-space" class="nav-link" data-scroll-target="#set-up-your-work-space"><span class="header-section-number">2</span> Set up your work space</a></li>
-  <li><a href="#math-of-linear-regression" id="toc-math-of-linear-regression" class="nav-link" data-scroll-target="#math-of-linear-regression"><span class="header-section-number">3</span> Math of linear regression</a></li>
-  <li><a href="#project-for-lesson-3" id="toc-project-for-lesson-3" class="nav-link" data-scroll-target="#project-for-lesson-3"><span class="header-section-number">4</span> Project for Lesson 3</a></li>
-  <li><a href="#organizing-your-scripts" id="toc-organizing-your-scripts" class="nav-link" data-scroll-target="#organizing-your-scripts"><span class="header-section-number">5</span> Organizing your scripts</a></li>
-  <li><a href="#cleaning-script" id="toc-cleaning-script" class="nav-link" data-scroll-target="#cleaning-script"><span class="header-section-number">6</span> Cleaning script</a></li>
-  <li><a href="#figures-script" id="toc-figures-script" class="nav-link" data-scroll-target="#figures-script"><span class="header-section-number">7</span> Figures Script</a></li>
-  <li><a href="#homework-watch-linear-regression-video-by-page" id="toc-homework-watch-linear-regression-video-by-page" class="nav-link" data-scroll-target="#homework-watch-linear-regression-video-by-page"><span class="header-section-number">8</span> Homework: watch Linear Regression video by Page</a></li>
-  <li><a href="#references-resources" id="toc-references-resources" class="nav-link" data-scroll-target="#references-resources"><span class="header-section-number">9</span> References &amp; Resources</a></li>
+  <li><a href="#project-for-lesson-3" id="toc-project-for-lesson-3" class="nav-link" data-scroll-target="#project-for-lesson-3"><span class="header-section-number">3</span> Project for Lesson 3</a></li>
+  <li><a href="#organizing-your-scripts" id="toc-organizing-your-scripts" class="nav-link" data-scroll-target="#organizing-your-scripts"><span class="header-section-number">4</span> Organizing your scripts</a></li>
+  <li><a href="#cleaning-script" id="toc-cleaning-script" class="nav-link" data-scroll-target="#cleaning-script"><span class="header-section-number">5</span> Cleaning script</a></li>
+  <li><a href="#figures-script" id="toc-figures-script" class="nav-link" data-scroll-target="#figures-script"><span class="header-section-number">6</span> Figures Script</a></li>
+  <li><a href="#to-prepare" id="toc-to-prepare" class="nav-link" data-scroll-target="#to-prepare"><span class="header-section-number">7</span> To Prepare</a></li>
+  <li><a href="#references-resources" id="toc-references-resources" class="nav-link" data-scroll-target="#references-resources"><span class="header-section-number">8</span> References &amp; Resources</a></li>
   </ul>
 </nav>
 </div>
@@ -142,21 +141,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><p>Make a remote git repository on GitHub (e.g.&nbsp;“rintro_lesson3”)</p></li>
 <li><p>Copy the SSH Link</p></li>
-<li><p>In the Terminal, <code>git clone Link</code> into the folder for this R course.</p></li>
+<li><p>In the Terminal, navigate to your folder for this R course using <code>cd</code>.</p></li>
+<li><p>Type <code>git clone</code> and paste your SSH link.</p></li>
 <li><p>In the now local folder of the repository, create sub folders (e.g.&nbsp;“data”, “figures”, “code”, “write_up”).</p></li>
 <li><p>Put the <a href="https://github.com/hannahmetzler/R_intro_lesson3/blob/main/data/rcourse_lesson2_data.txt">data file</a> for this lesson in your “data” folder.</p></li>
 <li><p>Make a new R Project based in your main directory folder (e.g.&nbsp;“rintro_lesson3”).</p></li>
 <li><p>Commit &amp; Push to GitHub.</p></li>
 </ol>
+<!-- ## Math of linear regression -->
+<!-- ```{r, read data, echo = F} -->
+<!-- #ChickWeight dataset -->
+<!-- data(package = "datasets", ChickWeight) -->
+<!-- data = ChickWeight -->
+<!-- ``` -->
+<!-- * Link to [Slides](https://pagepiccinini.files.wordpress.com/2016/02/rcourse_lesson2.pdf) -->
 </section>
-<section id="math-of-linear-regression" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="math-of-linear-regression"><span class="header-section-number">3</span> Math of linear regression</h2>
-<ul>
-<li>Link to <a href="https://pagepiccinini.files.wordpress.com/2016/02/rcourse_lesson2.pdf">Slides</a></li>
-</ul>
-</section>
-<section id="project-for-lesson-3" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="project-for-lesson-3"><span class="header-section-number">4</span> Project for Lesson 3</h2>
+<section id="project-for-lesson-3" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="project-for-lesson-3"><span class="header-section-number">3</span> Project for Lesson 3</h2>
 <p>Data from the USA Social Security Administration on baby names</p>
 <p><strong>2 Questions:</strong></p>
 <ol type="1">
@@ -164,8 +165,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Categorical Predictor: Is the name “Page” more or less popular with females or males?</li>
 </ol>
 </section>
-<section id="organizing-your-scripts" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="organizing-your-scripts"><span class="header-section-number">5</span> Organizing your scripts</h2>
+<section id="organizing-your-scripts" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="organizing-your-scripts"><span class="header-section-number">4</span> Organizing your scripts</h2>
 <ul>
 <li>Separate scripts for each step can be useful, we will use this structure today:
 <ul>
@@ -189,8 +190,8 @@ To do
 </div>
 </div>
 </section>
-<section id="cleaning-script" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="cleaning-script"><span class="header-section-number">6</span> Cleaning script</h2>
+<section id="cleaning-script" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="cleaning-script"><span class="header-section-number">5</span> Cleaning script</h2>
 <ul>
 <li>Start again with a header (# TITLE ####) for loading packages.</li>
 <li>We only need the package <code>dplyr</code> for now.</li>
@@ -422,8 +423,8 @@ To do
 </div>
 </div>
 </section>
-<section id="figures-script" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="figures-script"><span class="header-section-number">7</span> Figures Script</h2>
+<section id="figures-script" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="figures-script"><span class="header-section-number">6</span> Figures Script</h2>
 <ul>
 <li><code>source()</code> call tells R to run another script (without opening that other script)</li>
 <li>We can use it to run the cleaning script from our figures script, to read in our clean data.
@@ -447,11 +448,15 @@ To do
 </div>
 </div>
 </section>
-<section id="homework-watch-linear-regression-video-by-page" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="homework-watch-linear-regression-video-by-page"><span class="header-section-number">8</span> Homework: watch Linear Regression video by Page</h2>
+<section id="to-prepare" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="to-prepare"><span class="header-section-number">7</span> To Prepare</h2>
+<ul>
+<li>Include math slides into this lesson or:</li>
+<li>Homework: watch Linear Regression video by Page</li>
+</ul>
 </section>
-<section id="references-resources" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="references-resources"><span class="header-section-number">9</span> References &amp; Resources</h2>
+<section id="references-resources" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="references-resources"><span class="header-section-number">8</span> References &amp; Resources</h2>
 <ul>
 <li>Completed code for the lesson can be found <a href="https://github.com/hannahmetzler/R_intro_lesson3">here</a>.</li>
 </ul>

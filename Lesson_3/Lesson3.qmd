@@ -30,15 +30,17 @@ echo: true
 
 2.  Copy the SSH Link
 
-3.  In the Terminal, `git clone Link` into the folder for this R course.
+3.  In the Terminal, navigate to your folder for this R course using `cd`. 
 
-4.  In the now local folder of the repository, create sub folders (e.g. “data”, “figures”, “code”, “write_up”).
+4. Type `git clone` and paste your SSH link.
 
-5.  Put the [data file](https://github.com/hannahmetzler/R_intro_lesson3/blob/main/data/rcourse_lesson2_data.txt) for this lesson in your “data” folder.
+5.  In the now local folder of the repository, create sub folders (e.g. “data”, “figures”, “code”, “write_up”).
 
-6.  Make a new R Project based in your main directory folder (e.g. “rintro_lesson3”).
+6.  Put the [data file](https://github.com/hannahmetzler/R_intro_lesson3/blob/main/data/rcourse_lesson2_data.txt) for this lesson in your “data” folder.
 
-7.  Commit & Push to GitHub.
+7.  Make a new R Project based in your main directory folder (e.g. “rintro_lesson3”).
+
+8.  Commit & Push to GitHub.
 
 
 <!-- ## Math of linear regression -->
@@ -91,7 +93,7 @@ library(dplyr)
 data = readr::read_tsv("data/lesson2_data_babynames.txt")
 ```
 
-- To check if the file was read correctly you can use `head(data)` once in the Console. 
+To check if the file was read correctly you can use `head(data)` in the Console. 
 
 ```{r}
 head(data)
@@ -111,7 +113,7 @@ head(data)
 data_clean = dplyr::filter(data, name == "Page")
 ```
 
-Check if it worked, for example using `head() on the new dataframe`
+Check if it worked, for example using `head()` on the new dataframe
 
 ```{r}
 head(data_clean)
