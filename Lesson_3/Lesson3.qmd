@@ -483,6 +483,9 @@ ggplot(data, aes(y = weight, x =  Diet, fill = Diet))+
 We can look at this as a collection of points: 
 
 ```{r, echo = F, fig.width=4, fig.asp = 1}
+data = ChickWeight %>% 
+  filter(Diet %in% c(1,2)) %>% 
+  mutate(Diet = factor(Diet, levels = c(1,2), labels = c("Diet 1", "Diet 2")))
 ggplot(data, aes(y = weight, x =  Diet))+
   geom_point()+
   theme_bw()+
