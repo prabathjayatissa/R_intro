@@ -531,13 +531,13 @@ ggplot(data, aes(y = weight, x =  Diet))+
 knitr::include_graphics('images/scatterplot_categorical_intercept.svg')
 ```
 
-The slope is the change in the mean of Diet 1 to Diet 2: 
+The slope is the change in the mean from Diet 1 to Diet 2: 
 
 ```{r, echo = F, fig.height=7}
 knitr::include_graphics('images/scatterplot_categorical_slope.svg')
 ```
 
-The residual is the difference between the model prediction and the actual data point. 
+And as before, the residual is the difference between the model prediction and the actual data point. 
 
 ```{r, echo = F, fig.height=7}
 knitr::include_graphics('images/scatterplot_categorical_residual.svg')
