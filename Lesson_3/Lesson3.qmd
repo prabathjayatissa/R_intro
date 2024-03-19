@@ -208,7 +208,7 @@ data_figs = data_clean
 
 ### Checking for normal distribution: Histogram
 
-To run a linear regression, our dependent variable needs to be normally distributed. A perfect normal distribution is symmetrical, for example, here 2 distributions with n = 1 million observations: 
+To run a linear regression, our dependent variable needs to be normally distributed. A perfect normal distribution is symmetrical, for example, here 2 distributions with n = 1 million observations:
 
 ```{r, echo=F, fig.height=3.5}
 data_normal = data.frame(narrow = rnorm(1000000), broad = rnorm(1000000, mean = 0, sd = 3))
@@ -226,7 +226,7 @@ p2 = ggplot(data_normal, aes(x = broad)) +
 plot_grid(p1, p2)
 ```
 
-- With less observations, the shape will be less perfect, but still roughly symmetrical (n = 100) with most values around the mean: 
+-   With less observations, the shape will be less perfect, but still roughly symmetrical (n = 100) with most values around the mean:
 
 ```{r, echo=F, fig.height=3.5}
 data_normal = data.frame(narrow = rnorm(100), broad = rnorm(100, mean = 0, sd = 3))
@@ -369,36 +369,139 @@ sex.plot
 
 ```
 
--   To make the figure prettier, you could use:
+-   To make the figure prettier, there are various elements you can change. Have a look at this at home.
 
-    ```{r, fig.asp=0.9, fig.width=4.5}
-    # Proportion of 'Page's by sex (categorical predictor)
-    sex.plot = ggplot(data_figs, aes(x = sex, y = prop_log10, fill=sex))+
-      geom_boxplot()+
-      # choose a design
-      theme_classic()+
-      # Add a title
-      ggtitle("Popularity of the name 'Page' by sex")+
-      # Customize the y-axis (with a line break)
-      ylab("Proportion of People\nlog base 10 transformed")+
-      # Customize the x-axis
-      xlab("Sex") +
-      # Custom colours for the fill variable (sex)
-      scale_fill_manual(values = c("orange", "blue"))+
-      # Additional paramaters for displaying plot
-      theme(text=element_text(size=10), # text size
-            title=element_text(size=12), # text size for title
-            legend.position="none") # no legend
+```{r, fig.asp=1, fig.width=3.5}
+# Proportion of 'Page's by sex (categorical predictor)
+sex.plot = ggplot(data_figs, aes(x = sex, y = prop_log10, fill=sex))+
+  geom_boxplot()+
+  # choose a design
+  theme_classic()+
+  # Add a title
+  ggtitle("Popularity of the name 'Page' by sex")+
+  # Customize the y-axis (with a line break)
+  ylab("Proportion of People\nlog base 10 transformed")+
+  # Customize the x-axis
+  xlab("Sex") +
+  # Custom colours for the fill variable (sex)
+  scale_fill_manual(values = c("orange", "blue"))+
+  # Additional paramaters for displaying plot
+  theme(text=element_text(size=10), # text size
+        title=element_text(size=10), # text size for title
+        legend.position="none") # no legend
 
-    sex.plot
+sex.plot
 
-    # to save the plot: 
-    # ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)
-    ```
+# to save the plot: 
+# ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)
+```
 
--   The figure script is done. Save it, commit to Git, and push to GitHub!
+The figure script is done. Save it, commit to Git, and push to GitHub!
 
-## Statistics script
+## Statistics script: Linear regression
+
+As always, start with a section to read in data, then one to load packages.
+
+```{r, eval=F}
+## READ IN DATA ####
+source("code/01_cleaning.R")
+
+## LOAD PACKAGES #####
+# [none currently needed]
+```
+
+As before, we make a new data frame for statistics data:
+
+```{r}
+## ORGANIZE DATA ####
+data_stats = data_clean
+```
+
+### Continuous predictor: Year
+
+```{r}
+## BUILD MODEL - PROPORTION OF 'PAGE'S BY YEAR (CONTINUOUS PREDICTOR) ####
+year.lm = lm(prop_log10 ~ year, data = data_stats)
+```
+
+-   Store the model in an object: `year.lm`
+
+-   Using names like "sex.plot", "name.plot", "year.lm" is a useful convention to know what objects are.
+
+-   prop_log10 \~ year - check video again
+
+-   Now use the `summary()` call to look at the results of the model:
+
+```{r}
+year.lm_sum <- summary(year.lm)
+year.lm_sum
+```
+-   Exact numbers of intercept and slope are not very informative, because the are log transformed values.
+-   Effect of year not significant: t-value `r round(year.lm_sum$coefficients[2,3], 2)`, p-value `r round(year.lm_sum$coefficients[2,4], 3)`
+-   We can look at the residuals with the call `resid()`. Here, I store them and the look at the fist values: 
+
+```{r}
+year.lm_resid <- resid(year.lm_sum)
+head(year.lm_resid)
+```
+
+### Categorical predictor: Sex
+
+- Copy the code above, and change the predictor `year` to `sex`. 
+
+```{r}
+## BUILD MODEL - PROPORTION OF 'PAGE'S BY SEX (CATEGORICAL PREDICTOR) ####
+sex.lm = lm(prop_log10 ~ sex, data = data_stats)
+
+sex.lm_sum = summary(sex.lm)
+sex.lm_sum
+```
+
+- We get a significant effect of sex: t = `r round(sex.lm_sum$coefficients[2,3], 2)`, p = `round(sex.lm_sum$coefficients[2,4], 3)`. 
+- In which direction? Is Page more popular for men or women?
+  - R by default codes variables alphabetically, so our default level is 
+  "F" for female.
+  - Coefficient: change from default level to second level (here: from F to M)
+  - You can also see this because R adds "M" to the variable name: "sexM" - this line shows the effect for men compared to women. 
+  - The Estimate coefficient `r round(sex.lm_sum$coefficients[2,1], 2)` is negative: Less men (a lower proportion of the population) are called "Page" than women. 
+  
+:::{.callout-caution}
+#### To do
+Save the script, commit to Git (message: "Made statistics script"), and push to GitHub. 
+:::
+
+## Write up: Quarto Report
+
+Steps: 
+
+- Save your current working environment to your write-up folder as `lesson3_environment` (see Lesson 2 for more explanation). 
+- Open a Quarto Document. 
+- Delete everything below the chunk at the top that starts and ends with `---`.
+- After this, insert a code chunk (Shortcut: `Ctrl/Cmd + Alt + I`) and enter the code below to load your environment. 
+<pre><code class="r">
+&#96;&#96;&#96;{r, echo=F}
+load('write_up/lesson3_environment.RData')
+&#96;&#96;&#96;
+</code></pre>
+
+- Add `echo = FALSE` in the curly brackets after r: ````{r, echo = FALSE}`. This let's R know you do not want to print out (echo) the code in the report, but only its results. 
+- Now add sections to your report, for example: 
+
+1) Introduction
+2) Results
+    1) Prevalence by Year
+    2) Prevalence by Sex
+3) Conclusions
+
+- Now you can write something in each section. For example: 
+
+```{Markdown, eval = F}
+# Introduction
+
+We analysed how common the name "Page" was in the United States in between 1900 and 2000. We used data from the USA Social Security Administration on baby names. We used linear regression to analyse the change of the name over time, and the difference of the name's popularity between men and women. 
+```
+
+- In the Results sections, 
 
 ## Still to Prepare
 

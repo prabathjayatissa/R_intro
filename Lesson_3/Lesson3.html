@@ -92,9 +92,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#continuous-predictor-scatter-plot" id="toc-continuous-predictor-scatter-plot" class="nav-link" data-scroll-target="#continuous-predictor-scatter-plot"><span class="header-section-number">6.2</span> Continuous predictor: Scatter plot</a></li>
   <li><a href="#categorical-predictor-boxplot" id="toc-categorical-predictor-boxplot" class="nav-link" data-scroll-target="#categorical-predictor-boxplot"><span class="header-section-number">6.3</span> Categorical predictor: Boxplot</a></li>
   </ul></li>
-  <li><a href="#statistics-script" id="toc-statistics-script" class="nav-link" data-scroll-target="#statistics-script"><span class="header-section-number">7</span> Statistics script</a></li>
-  <li><a href="#still-to-prepare" id="toc-still-to-prepare" class="nav-link" data-scroll-target="#still-to-prepare"><span class="header-section-number">8</span> Still to Prepare</a></li>
-  <li><a href="#references-resources" id="toc-references-resources" class="nav-link" data-scroll-target="#references-resources"><span class="header-section-number">9</span> References &amp; Resources</a></li>
+  <li><a href="#statistics-script-linear-regression" id="toc-statistics-script-linear-regression" class="nav-link" data-scroll-target="#statistics-script-linear-regression"><span class="header-section-number">7</span> Statistics script: Linear regression</a>
+  <ul class="collapse">
+  <li><a href="#continuous-predictor-year" id="toc-continuous-predictor-year" class="nav-link" data-scroll-target="#continuous-predictor-year"><span class="header-section-number">7.1</span> Continuous predictor: Year</a></li>
+  <li><a href="#categorical-predictor-sex" id="toc-categorical-predictor-sex" class="nav-link" data-scroll-target="#categorical-predictor-sex"><span class="header-section-number">7.2</span> Categorical predictor: Sex</a></li>
+  </ul></li>
+  <li><a href="#write-up-quarto-report" id="toc-write-up-quarto-report" class="nav-link" data-scroll-target="#write-up-quarto-report"><span class="header-section-number">8</span> Write up: Quarto Report</a></li>
+  <li><a href="#still-to-prepare" id="toc-still-to-prepare" class="nav-link" data-scroll-target="#still-to-prepare"><span class="header-section-number">9</span> Still to Prepare</a></li>
+  <li><a href="#references-resources" id="toc-references-resources" class="nav-link" data-scroll-target="#references-resources"><span class="header-section-number">10</span> References &amp; Resources</a></li>
   </ul>
 </nav>
 </div>
@@ -388,7 +393,7 @@ Page
  206 </code></pre>
 </div>
 </div>
-<p>We only want to look at the 20th century, so we filter out the years between 1900 and 2000 using the filter function:</p>
+<p>We only want to look at the 20th century, so we filter out the years between 1900 and 2000 using the <code>filter()</code> function:</p>
 <ul>
 <li>The first new filter call selects all years after 1900, the second all years up to and including 2000.</li>
 </ul>
@@ -463,7 +468,7 @@ To do
 </div>
 <section id="checking-for-normal-distribution-histogram" class="level3" data-number="6.1">
 <h3 data-number="6.1" class="anchored" data-anchor-id="checking-for-normal-distribution-histogram"><span class="header-section-number">6.1</span> Checking for normal distribution: Histogram</h3>
-<p>To run a linear regression, our dependent variable needs to be normally distributed. A perfect normal distribution is symmetrical, for example:</p>
+<p>To run a linear regression, our dependent variable needs to be normally distributed. A perfect normal distribution is symmetrical, for example, here 2 distributions with n = 1 million observations:</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -473,7 +478,19 @@ To do
 </div>
 </div>
 </div>
-<p>Let’s check this with a histogram:</p>
+<ul>
+<li>With less observations, the shape will be less perfect, but still roughly symmetrical (n = 100) with most values around the mean:</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s check the distribution of our dependent variable with a histogram:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## MAKE FIGURES ####</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram of dependent variable (proportion of 'Page's)</span></span>
@@ -483,7 +500,7 @@ To do
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lesson3_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="288"></p>
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="288"></p>
 </figure>
 </div>
 </div>
@@ -500,7 +517,7 @@ To do
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lesson3_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="288"></p>
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="288"></p>
 </figure>
 </div>
 </div>
@@ -529,7 +546,7 @@ To do
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lesson3_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="336"></p>
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="336"></p>
 </figure>
 </div>
 </div>
@@ -555,7 +572,7 @@ To do
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lesson3_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="336"></p>
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="336"></p>
 </figure>
 </div>
 </div>
@@ -585,7 +602,7 @@ To do
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lesson3_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="336"></p>
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="336"></p>
 </figure>
 </div>
 </div>
@@ -635,7 +652,7 @@ To do
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lesson3_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="336"></p>
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="336"></p>
 </figure>
 </div>
 </div>
@@ -643,7 +660,8 @@ To do
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><p>To make the figure prettier, you could use:</p>
+<li>To make the figure prettier, there are various elements you can change. Have a look at this at home.</li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10, <span class="at">fill=</span>sex))<span class="sc">+</span></span>
@@ -660,36 +678,191 @@ To do
 <span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"blue"</span>))<span class="sc">+</span></span>
 <span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Additional paramaters for displaying plot</span></span>
 <span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), <span class="co"># text size</span></span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>), <span class="co"># text size for title</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), <span class="co"># text size for title</span></span>
 <span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position=</span><span class="st">"none"</span>) <span class="co"># no legend</span></span>
 <span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lesson3_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="432"></p>
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="336"></p>
 </figure>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to save the plot: </span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></li>
-<li><p>The figure script is done. Save it, commit to Git, and push to GitHub!</p></li>
+</div>
+<p>The figure script is done. Save it, commit to Git, and push to GitHub!</p>
+</section>
+</section>
+<section id="statistics-script-linear-regression" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="statistics-script-linear-regression"><span class="header-section-number">7</span> Statistics script: Linear regression</h2>
+<p>As always, start with a section to read in data, then one to load packages.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="do">## READ IN DATA ####</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"code/01_cleaning.R"</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="do">## LOAD PACKAGES #####</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># [none currently needed]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As before, we make a new data frame for statistics data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ORGANIZE DATA ####</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>data_stats <span class="ot">=</span> data_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="continuous-predictor-year" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="continuous-predictor-year"><span class="header-section-number">7.1</span> Continuous predictor: Year</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="do">## BUILD MODEL - PROPORTION OF 'PAGE'S BY YEAR (CONTINUOUS PREDICTOR) ####</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>year.lm <span class="ot">=</span> <span class="fu">lm</span>(prop_log10 <span class="sc">~</span> year, <span class="at">data =</span> data_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Store the model in an object: <code>year.lm</code></p></li>
+<li><p>Using names like “sex.plot”, “name.plot”, “year.lm” is a useful convention to know what objects are.</p></li>
+<li><p>prop_log10 ~ year - check video again</p></li>
+<li><p>Now use the <code>summary()</code> call to look at the results of the model:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>year.lm_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(year.lm)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>year.lm_sum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = prop_log10 ~ year, data = data_stats)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.61168 -0.21669 -0.01011  0.21070  0.63950 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -7.2755739  1.6258109  -4.475 1.39e-05 ***
+year         0.0012298  0.0008314   1.479    0.141    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2855 on 172 degrees of freedom
+Multiple R-squared:  0.01256,   Adjusted R-squared:  0.006821 
+F-statistic: 2.188 on 1 and 172 DF,  p-value: 0.1409</code></pre>
+</div>
+</div>
+<ul>
+<li>Exact numbers of intercept and slope are not very informative, because the are log transformed values.</li>
+<li>Effect of year not significant: t-value 1.48, p-value 0.141</li>
+<li>We can look at the residuals with the call <code>resid()</code>. Here, I store them and the look at the fist values:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>year.lm_resid <span class="ot">&lt;-</span> <span class="fu">resid</span>(year.lm_sum)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(year.lm_resid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          1           2           3           4           5           6 
+0.458328911 0.002919516 0.306492439 0.320914578 0.155653238 0.223908801 </code></pre>
+</div>
+</div>
+</section>
+<section id="categorical-predictor-sex" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="categorical-predictor-sex"><span class="header-section-number">7.2</span> Categorical predictor: Sex</h3>
+<ul>
+<li>Copy the code above, and change the predictor <code>year</code> to <code>sex</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="do">## BUILD MODEL - PROPORTION OF 'PAGE'S BY SEX (CATEGORICAL PREDICTOR) ####</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>sex.lm <span class="ot">=</span> <span class="fu">lm</span>(prop_log10 <span class="sc">~</span> sex, <span class="at">data =</span> data_stats)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>sex.lm_sum <span class="ot">=</span> <span class="fu">summary</span>(sex.lm)</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>sex.lm_sum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = prop_log10 ~ sex, data = data_stats)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.65876 -0.19694 -0.01178  0.18304  0.56589 
+
+Coefficients:
+            Estimate Std. Error  t value Pr(&gt;|t|)    
+(Intercept) -4.75465    0.02860 -166.244  &lt; 2e-16 ***
+sexM        -0.22706    0.03999   -5.678  5.7e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2637 on 172 degrees of freedom
+Multiple R-squared:  0.1578,    Adjusted R-squared:  0.1529 
+F-statistic: 32.24 on 1 and 172 DF,  p-value: 5.698e-08</code></pre>
+</div>
+</div>
+<ul>
+<li>We get a significant effect of sex: t = -5.68, p = <code>round(sex.lm_sum$coefficients[2,4], 3)</code>.</li>
+<li>In which direction? Is Page more popular for men or women?
+<ul>
+<li>R by default codes variables alphabetically, so our default level is “F” for female.</li>
+<li>Coefficient: change from default level to second level (here: from F to M)</li>
+<li>You can also see this because R adds “M” to the variable name: “sexM” - this line shows the effect for men compared to women.</li>
+<li>The Estimate coefficient -0.23 is negative: Less men (a lower proportion of the population) are called “Page” than women.</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+To do
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Save the script, commit to Git (message: “Made statistics script”), and push to GitHub.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="write-up-quarto-report" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="write-up-quarto-report"><span class="header-section-number">8</span> Write up: Quarto Report</h2>
+<p>Steps:</p>
+<ul>
+<li>Save your current working environment to your write-up folder as <code>lesson3_environment</code> (see Lesson 2 for more explanation).</li>
+<li>Open a Quarto Document.</li>
+<li>Delete everything below the chunk at the top that starts and ends with <code>---</code>.</li>
+<li>After this, insert a code chunk (Shortcut: <code>Ctrl/Cmd + Alt + I</code>) and enter the code below to load your environment.
+<pre><code class="r">
+```{r, echo=F}
+load('write_up/lesson3_environment.RData')
+```
+</code></pre></li>
+<li>Add <code>echo = FALSE</code> in the curly brackets after r: ```<code>{r, echo = FALSE}</code>. This let’s R know you do not want to print out (echo) the code in the report, but only its results.</li>
+<li>Now add sections to your report, for example:</li>
+</ul>
+<ol type="1">
+<li>Introduction</li>
+<li>Results
+<ol type="1">
+<li>Prevalence by Year</li>
+<li>Prevalence by Sex</li>
+</ol></li>
+<li>Conclusions</li>
+</ol>
+<ul>
+<li>Now you can write something in each section. For example:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>We analysed how common the name "Page" was in the United States in between 1900 and 2000. We used data from the USA Social Security Administration on baby names. We used linear regression to analyse the change of the name over time, and the difference of the name's popularity between men and women. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>In the Results sections,</li>
 </ul>
 </section>
-</section>
-<section id="statistics-script" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="statistics-script"><span class="header-section-number">7</span> Statistics script</h2>
-</section>
-<section id="still-to-prepare" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="still-to-prepare"><span class="header-section-number">8</span> Still to Prepare</h2>
+<section id="still-to-prepare" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="still-to-prepare"><span class="header-section-number">9</span> Still to Prepare</h2>
 <ul>
 <li>Include math slides into this lesson or:</li>
 <li>Homework: watch Linear Regression video by Page</li>
 </ul>
 </section>
-<section id="references-resources" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="references-resources"><span class="header-section-number">9</span> References &amp; Resources</h2>
+<section id="references-resources" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="references-resources"><span class="header-section-number">10</span> References &amp; Resources</h2>
 <ul>
 <li>Completed code for the lesson can be found <a href="https://github.com/hannahmetzler/R_intro_lesson3">here</a>.</li>
 </ul>
