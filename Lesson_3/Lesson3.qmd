@@ -17,53 +17,35 @@ echo: true
 
 ```{r, load packages, echo=F}
 library(cowplot)
+library(ggplot2)
+library(dplyr)
 ```
 
 ## Goals
 
 -   Repeat setting up your work space with R-Projects, Git & GitHub
+-   Clean data using dplyr (`filter` and `mutate`)
+-   Make a histogram, scatter plot, and box plot
 -   Repeat the math behind linear regression
--   Make a linear regression data
 -   Run a linear regression
 -   Summarise results in a Quarto Document
 
 ## Set up your work space
 
 1.  Make a remote git repository on GitHub (e.g. “rintro_lesson3”)
-
 2.  Copy the SSH Link
-
 3.  In the Terminal, navigate to your folder for this R course using `cd`.
-
 4.  Type `git clone` and paste your SSH link.
-
 5.  In the now local folder of the repository, create sub folders (e.g. “data”, “figures”, “code”, “write_up”).
-
 6.  Put the [data file](https://github.com/hannahmetzler/R_intro_lesson3/blob/main/data/rcourse_lesson2_data.txt) for this lesson in your “data” folder.
-
 7.  Make a new R Project based in your main directory folder (e.g. “rintro_lesson3”).
-
 8.  Commit & Push to GitHub.
 
-<!-- ## Math of linear regression -->
-
-<!-- ```{r, read data, echo = F} -->
-
-<!-- #ChickWeight dataset -->
-
-<!-- data(package = "datasets", ChickWeight) -->
-
-<!-- data = ChickWeight -->
-
-<!-- ``` -->
-
-<!-- * Link to [Slides](https://pagepiccinini.files.wordpress.com/2016/02/rcourse_lesson2.pdf) -->
-
-## Project for Lesson 3
+## Analysis project for Lesson 3
 
 Data from the USA Social Security Administration on baby names
 
-**2 Questions:**
+**2 research questions:**
 
 1.  Continuous Predictor: Does the name "Page" get more or less popular between the years of 1901 and 2000?
 2.  Categorical Predictor: Is the name "Page" more or less popular with females or males?
@@ -280,7 +262,7 @@ data_figs = data_clean
 ```
 
 -   Run this code block, or save the script and rerun `source()` in the figures script.
--   Rerun the line to make the "data_figs" data frame.
+-   Back in the figures script, rerun the line to make the "data_figs" data frame.
 -   Now let's have a look at the distribution again:
 
 ```{r, fig.asp=1, fig.width=3.5}
@@ -294,13 +276,16 @@ This distribution is more or less normal. We can go ahead and focus on figures f
 
 ### Continuous predictor: Scatter plot
 
-1.  question: How did the popularity of the name, “Page” change over time?
+Our first research question was: How did the popularity of the name, “Page” change over time?
 
--   Which 2 variables do we need to plot?
+::: {.callout-caution}
+#### Exercise
 
--   To make a scatter plot: `geom_point()`
+-   Which 2 variables do we need to plot to look at this?
+:::
 
--   To add a regression line: `geom_smooth()` with the method set to `lm`.
+-   To make a scatter plot we use `geom_point()`.
+-   To add a regression line we use `geom_smooth()` with the method set to `lm`.
 
 ```{r, fig.asp=1, fig.width=3.5}
 # Proportion of 'Page's by year (continuous predictor)
@@ -310,7 +295,11 @@ year.plot = ggplot(data_figs, aes(x = year, y = prop_log10)) +
 year.plot
 ```
 
+::: {.callout-caution}
+#### Exercise
+
 -   Is there an effect of year on time?
+:::
 
 -   To save the figure to a file, you can use `ggsave()` like in Lesson 2.
 
@@ -321,9 +310,8 @@ year.plot
 
 ### Categorical predictor: Boxplot
 
--   Now let's make a figure for the 2. question: Is there a sex difference in popularity of the name?
-
-    -   We will use a boxplot for this. Which variable should be on the x and y axis?
+-   Now let's make a figure for the second question: Is there a sex difference in popularity of the name?
+    -   We will use a box plot for this. Which variable should be on the x and y axis?
 
 ```{r, fig.asp=1, fig.width=3.5}
 # Proportion of 'Page's by sex (categorical predictor)
@@ -353,7 +341,9 @@ my_character_vector
 ```{r}
 ## ORGANIZE DATA ####
 data_figs = data_clean %>% 
-      mutate(sex = factor(sex, levels=c("F", "M"), labels=c("female", "male")))
+      mutate(sex = factor(sex, 
+                          levels=c("F", "M"), 
+                          labels=c("female", "male")))
 ```
 
 -   If you run the figure code again, you will get this figure:
@@ -363,10 +353,12 @@ data_figs = data_clean %>%
 sex.plot = ggplot(data_figs, aes(x = sex, y = prop_log10)) +
 geom_boxplot()
 sex.plot
+```
 
-# To save the plot, uncomment and run: 
+-   To save the plot, uncomment (shortcut: `Ctrl+Shift+C`) and run:
+
+```{r, fig.asp=1, fig.width=3.5}
 # ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)
-
 ```
 
 -   To make the figure prettier, there are various elements you can change. Have a look at this at home.
@@ -396,11 +388,133 @@ sex.plot
 # ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)
 ```
 
+::: callout-caution
 The figure script is done. Save it, commit to Git, and push to GitHub!
+:::
+
+## Math of linear regression
+
+The basic equation of linear regression is:
+
+**y~i~ = a + b~i~x + e~i~**
+
+-   y~i~ = a specific y value (dependent variable)
+-   a = intercept (where the regression line crosses the y-axis when x = 0)
+-   b = slope (change in y for one change in x)
+-   x~i~ = specific x value (independent variable, predictor)
+-   e~i~ = random variance, residual, noise
+
+### Continuous predictor
+
+Let's see an example for a continuous predictor: How does the weight of chicks change over time? 
+As more time passes, the weight increases.
+
+```{r, read data, echo = F, fig.width = 4, fig.asp = 1}
+#ChickWeight dataset
+data(package = "datasets", ChickWeight)
+
+ggplot(ChickWeight, aes(y = weight, x =  Time))+
+  geom_point()+
+  theme_bw()+
+  theme(text = element_text(size = 12))+
+  ggtitle("Chick Weight over Time")
+```
+
+We can add a line to show the increase: 
+
+```{r, echo = F, fig.width = 4, fig.asp = 1}
+ggplot(ChickWeight, aes(y = weight, x =  Time))+
+  geom_point()+
+  geom_smooth(method = 'lm')+
+  theme_bw()+
+  theme(text = element_text(size = 12))+
+  ggtitle("Chick Weight over Time")
+# ggsave('images/scatterplot.pdf', width = 4, height = 4)
+```
+
+- Let's pick a specific data point. These are the y and x values for a data point: 
+
+```{r, echo = F, fig.height=7}
+knitr::include_graphics('images/scatterplot_y_x.svg')
+```
+
+- Here, you see a, the intercept: The weight when x = 0 (when chicks are zero days old).
+
+```{r, echo = F}
+knitr::include_graphics('images/scatterplot_intercept.svg')
+```
+
+- Here, you see b, the slope: How much weight does a baby chick gain on average on a day? (Change in y, when x changes by 1, here from day 5 to 6)
+
+```{r, echo = F}
+knitr::include_graphics('images/scatterplot_slope.svg')
+```
+
+- Here you see the residual for the data point: The difference between model prediction and the actual data: 
+
+```{r, echo = F}
+knitr::include_graphics('images/scatterplot_residual.svg')
+```
+
+### Categorical predictor
+
+What if x is categorical? 
+
+**a = bx**
+
+| -- | Continuous Predictor | Categorical Predictor | 
+| -- |---------|:-----|
+| x | a set of continuous data points| a set of binary/categorical data points   | 
+| a | the value of y when x is 0     | the value of y when x is the default level  |  
+| b | the change in y for one change in x       | the change in y when x is the non-default level    | 
+
+As an example, let's say chicks get 2 different diets: 
+
+```{r, echo = F, fig.width=4, fig.asp = 1}
+data = ChickWeight %>% 
+  filter(Diet %in% c(1,2))
+ggplot(data, aes(y = weight, x =  Diet, fill = Diet))+
+  geom_boxplot()+
+  theme_bw()+
+  theme(text = element_text(size = 12), legend.position = "none")+
+  ggtitle("Chick Weight by Diet")
+```
+We can look at this as a collection of points: 
+
+```{r, echo = F, fig.width=4, fig.asp = 1}
+ggplot(data, aes(y = weight, x =  Diet))+
+  geom_point()+
+  theme_bw()+
+  theme(text = element_text(size = 12), legend.position = "none")+
+  ggtitle("Chick Weight by Diet")
+# ggsave('images/scatterplot_categorical.pdf', width = 4, height = 4)
+```
+
+And add a line from one mean to the second: 
+
+```{r, echo = F, fig.width=4, fig.asp = 1}
+ggplot(data, aes(y = weight, x =  Diet))+
+  geom_point()+
+  stat_summary(fun.y=mean, geom="line", aes(group = 1))+
+  theme_bw()+
+  theme(text = element_text(size = 12), legend.position = "none")+
+  ggtitle("Chick Weight by Diet")
+# ggsave('images/scatterplot_categorical_intercept.pdf', width = 4, height = 4)
+```
+
+X and y for a specific data point: 
+
+```{r, echo = F, fig.height=7}
+knitr::include_graphics('images/scatterplot_categorical_y_x.svg')
+```
+
+Still missing: Categorical predictor intercept, slope, residual. 
 
 ## Statistics script: Linear regression
 
 As always, start with a section to read in data, then one to load packages.
+
+-   We don't need any package at the moment, but you usually want to add some later while doing the analysis.
 
 ```{r, eval=F}
 ## READ IN DATA ####
@@ -419,26 +533,28 @@ data_stats = data_clean
 
 ### Continuous predictor: Year
 
+- The notation for a linear regression in R is: `lm (y \~ x)`
+- In the chick weight example above, this would be: `lm(weight \~ Time)`
+- To see the output of the model, we use `summary(model)`. 
+
 ```{r}
 ## BUILD MODEL - PROPORTION OF 'PAGE'S BY YEAR (CONTINUOUS PREDICTOR) ####
 year.lm = lm(prop_log10 ~ year, data = data_stats)
 ```
 
 -   Store the model in an object: `year.lm`
-
 -   Using names like "sex.plot", "name.plot", "year.lm" is a useful convention to know what objects are.
-
--   prop_log10 \~ year - check video again
-
--   Now use the `summary()` call to look at the results of the model:
+-   The model itself is lm(prop_log10 \~ year), with prop_log10 as the dependent variable and year as the predictor.
+-   To look at the output, we call `summary()`:
 
 ```{r}
 year.lm_sum <- summary(year.lm)
 year.lm_sum
 ```
--   Exact numbers of intercept and slope are not very informative, because the are log transformed values.
--   Effect of year not significant: t-value `r round(year.lm_sum$coefficients[2,3], 2)`, p-value `r round(year.lm_sum$coefficients[2,4], 3)`
--   We can look at the residuals with the call `resid()`. Here, I store them and the look at the fist values: 
+
+-   Exact numbers of intercept and slope are not very informative, because they are log transformed values.
+-   Effect of year not significant: t =`r round(year.lm_sum$coefficients[2,3], 2)`, p = `r round(year.lm_sum$coefficients[2,4], 3)`
+-   We can look at the residuals with the call `resid()`. Here, I store them and then look at the fist values:
 
 ```{r}
 year.lm_resid <- resid(year.lm_sum)
@@ -447,7 +563,7 @@ head(year.lm_resid)
 
 ### Categorical predictor: Sex
 
-- Copy the code above, and change the predictor `year` to `sex`. 
+-   Copy your code just above from the regression with `year`, then change the predictor `year` to `sex`.
 
 ```{r}
 ## BUILD MODEL - PROPORTION OF 'PAGE'S BY SEX (CATEGORICAL PREDICTOR) ####
@@ -457,45 +573,51 @@ sex.lm_sum = summary(sex.lm)
 sex.lm_sum
 ```
 
-- We get a significant effect of sex: t = `r round(sex.lm_sum$coefficients[2,3], 2)`, p = `r `round(sex.lm_sum$coefficients[2,4], 3)`. 
-- In which direction? Is Page more popular for men or women?
-  - R by default codes variables alphabetically, so our default level is 
-  "F" for female.
-  - Coefficient: change from default level to second level (here: from F to M)
-  - You can also see this because R adds "M" to the variable name: "sexM" - this line shows the effect for men compared to women. 
-  - The Estimate coefficient `r round(sex.lm_sum$coefficients[2,1], 2)` is negative: Less men (a lower proportion of the population) are called "Page" than women. 
-  
-:::{.callout-caution}
+-   The line "sexM" shows the effect for sex.
+    -   It is significant: t = `r round(sex.lm_sum$coefficients[2,3], 2)`, p = `r round(sex.lm_sum$coefficients[2,4], 3)`.
+-   How do you know in which direction the effect is?
+    -   R by default codes variables alphabetically, so our default level is "F" for female.
+    -   Coefficients indicate the change from the default to the second level (here: from F to M)
+    -   You can also see this because R adds "M" to the variable name: "sexM", so it's the effect for men (compared to women).
+    -   The **Estimate** ($\beta$) `r round(sex.lm_sum$coefficients[2,1], 2)` is negative: Less men (a lower proportion of the population) are called "Page" than women.
+
+::: callout-caution
 #### To do
-Save the script, commit to Git (message: "Made statistics script"), and push to GitHub. 
+
+Save the script, commit to Git (message: "Made statistics script"), and push to GitHub.
 :::
 
 ## Write up: Quarto Report
 
-We repeat the steps from the last lesson: 
+We repeat the steps from the last lesson (see Lesson 2 for more explanation):
 
-- Save your current working environment to your write-up folder as `lesson3_environment` (see Lesson 2 for more explanation). 
-- Open a Quarto Document. 
-- Delete everything below the chunk at the top that starts and ends with `---`.
-- Save the Quarto document in your write_up folder as `Lesson3_Report`.
-- After this, insert a code chunk (Shortcut: `Ctrl/Cmd + Alt + I`) and enter the code below to load your environment.
+-   Save your current working environment to your write-up folder as `lesson3_environment`.
+-   Open a Quarto Document.
+-   Delete everything below the chunk at the top that starts and ends with `---`.
+-   Save the Quarto document in your write_up folder as `Lesson3_Report`.
+-   After this, insert a code chunk (Shortcut: `Ctrl/Cmd + Alt + I`) and enter the code below to load your environment.
 
+```{=html}
 <pre><code class="r">
 &#96;&#96;&#96;{r, echo=F}
 load('lesson3_environment.RData')
 &#96;&#96;&#96;
 </code></pre>
+```
+-   Add `echo = FALSE` (or only the F) in the curly brackets after r: \`\`\``{r, echo = FALSE}`. This let's R know you do not want to print out (echo) the code in the report, but only its results.
 
-- Add `echo = FALSE` (or only the F) in the curly brackets after r: ````{r, echo = FALSE}`. This let's R know you do not want to print out (echo) the code in the report, but only its results. 
-- Now add sections to your report, for example: 
+-   Now add sections to your report, for example: <br><br>
 
-- Introduction
-- Results
-    - Prevalence by Year
-    - Prevalence by Sex
-- Conclusions
+-   Introduction
 
-- Now you can write something in each section. For example: 
+-   Results
+
+    -   Prevalence by Year
+    -   Prevalence by Sex
+
+-   Conclusions
+
+-   Now you can write something in each section. For example:
 
 ```{Markdown, eval = F}
 # Introduction
@@ -506,7 +628,7 @@ We used linear regression to analyse the change of the name over time, and the
 difference of the name's popularity between men and women. 
 ```
 
-- In the Results sections, you can include the figures and model results by calling the objects within a code chunk: 
+-   In the Results sections, you can include the figures and model results by calling the objects within a code chunk:
 
 ```{Markdown, eval = F}
 # Results
@@ -520,39 +642,37 @@ There was no significant change in the popularity of the name over time. The
 positive coefficients indicates a slightly increasing slope over time. 
 ```
 
+```{=html}
 <pre><code class="r">
 &#96;&#96;&#96;{r, echo=F}
 year.plot
 year.lm_sum
 &#96;&#96;&#96;
 </code></pre>
-
+```
 ```{Markdown, eval = F}
 ## Prevalence by Sex
 
 The name is more popular among women then men. 
 ```
 
+```{=html}
 <pre><code class="r">
 &#96;&#96;&#96;{r, echo=F}
 sex.plot
 sex.lm_sum
 &#96;&#96;&#96;
 </code></pre>
-
-- You can continue describing your results and the conclusion at home. 
-- To compile the Quarto report, click `Render` at the top. 
-- You can change the format from html, to docx, or pdf. 
-
-## Still to Prepare
-
--   Include math slides into this lesson or:
--   Homework: watch Linear Regression video by Page
+```
+-   You can continue describing your results and the conclusion at home.
+-   To compile the Quarto report, click `Render` at the top of the Quarto document.
+-   You can change the format from html, to docx, or pdf.
 
 ## References & Resources
 
--   Completed code for the lesson can be found [here](https://github.com/hannahmetzler/R_intro_lesson3).
+This lesson closely follows: Page Piccinini (2018). "R for Publication", [Lesson 2: Linear Regression](https://pagepiccinini.com/r-course/lesson-2-linear-regression/).
 
-This lesson is based on:
-
-Page Piccinini (2018). "R for Publication", [Lesson 2: Linear Regression](https://pagepiccinini.com/r-course/lesson-2-linear-regression/).
+-   The completed code for the lesson can be found [here](https://github.com/hannahmetzler/R_intro_lesson3).
+-   Use git clone to download it into a folder on your computer, or download just the file you need.
+-   For Quarto tips and tricks, check the online documentation: [https://quarto.org/](https://quarto.org/docs/visual-editor/options.html)
+    -   Shortcuts and options: <https://quarto.org/docs/visual-editor/options.html>
