@@ -89,10 +89,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#figures-script" id="toc-figures-script" class="nav-link" data-scroll-target="#figures-script"><span class="header-section-number">6</span> Figures Script</a>
   <ul class="collapse">
   <li><a href="#checking-for-normal-distribution-histogram" id="toc-checking-for-normal-distribution-histogram" class="nav-link" data-scroll-target="#checking-for-normal-distribution-histogram"><span class="header-section-number">6.1</span> Checking for normal distribution: Histogram</a></li>
-  <li><a href="#scatterplots-for-correlation" id="toc-scatterplots-for-correlation" class="nav-link" data-scroll-target="#scatterplots-for-correlation"><span class="header-section-number">6.2</span> Scatterplots for correlation</a></li>
+  <li><a href="#continuous-predictor-scatter-plot" id="toc-continuous-predictor-scatter-plot" class="nav-link" data-scroll-target="#continuous-predictor-scatter-plot"><span class="header-section-number">6.2</span> Continuous predictor: Scatter plot</a></li>
+  <li><a href="#categorical-predictor-boxplot" id="toc-categorical-predictor-boxplot" class="nav-link" data-scroll-target="#categorical-predictor-boxplot"><span class="header-section-number">6.3</span> Categorical predictor: Boxplot</a></li>
   </ul></li>
-  <li><a href="#still-to-prepare" id="toc-still-to-prepare" class="nav-link" data-scroll-target="#still-to-prepare"><span class="header-section-number">7</span> Still to Prepare</a></li>
-  <li><a href="#references-resources" id="toc-references-resources" class="nav-link" data-scroll-target="#references-resources"><span class="header-section-number">8</span> References &amp; Resources</a></li>
+  <li><a href="#statistics-script" id="toc-statistics-script" class="nav-link" data-scroll-target="#statistics-script"><span class="header-section-number">7</span> Statistics script</a></li>
+  <li><a href="#still-to-prepare" id="toc-still-to-prepare" class="nav-link" data-scroll-target="#still-to-prepare"><span class="header-section-number">8</span> Still to Prepare</a></li>
+  <li><a href="#references-resources" id="toc-references-resources" class="nav-link" data-scroll-target="#references-resources"><span class="header-section-number">9</span> References &amp; Resources</a></li>
   </ul>
 </nav>
 </div>
@@ -361,7 +363,7 @@ To do
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="images/empty_tibble.png" class="img-fluid figure-img" width="218"></p>
+<p><img src="images/empty_tibble.jpg" class="img-fluid figure-img" width="306"></p>
 </figure>
 </div>
 </div>
@@ -534,8 +536,8 @@ To do
 </div>
 <p>This distribution is more or less normal. We can go ahead and focus on figures for the regression.</p>
 </section>
-<section id="scatterplots-for-correlation" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="scatterplots-for-correlation"><span class="header-section-number">6.2</span> Scatterplots for correlation</h3>
+<section id="continuous-predictor-scatter-plot" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="continuous-predictor-scatter-plot"><span class="header-section-number">6.2</span> Continuous predictor: Scatter plot</h3>
 <ol type="1">
 <li>question: How did the popularity of the name, “Page” change over time?</li>
 </ol>
@@ -560,20 +562,30 @@ To do
 </div>
 <ul>
 <li><p>Is there an effect of year on time?</p></li>
+<li><p>To save the figure to a file, you can use <code>ggsave()</code> like in Lesson 2.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">'figures/scatterplot_proportion_year.pdf'</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ul>
+</section>
+<section id="categorical-predictor-boxplot" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="categorical-predictor-boxplot"><span class="header-section-number">6.3</span> Categorical predictor: Boxplot</h3>
+<ul>
 <li><p>Now let’s make a figure for the 2. question: Is there a sex difference in popularity of the name?</p>
 <ul>
 <li>We will use a boxplot for this. Which variable should be on the x and y axis?</li>
 </ul></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10)) <span class="sc">+</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10)) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lesson3_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="336"></p>
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="336"></p>
 </figure>
 </div>
 </div>
@@ -593,13 +605,13 @@ To do
 </ul></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">7</span>,<span class="dv">5</span>,<span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>my_character_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"string1"</span>, <span class="st">"string2"</span>, <span class="st">"string3"</span>)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>my_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">7</span>,<span class="dv">5</span>,<span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>my_character_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"string1"</span>, <span class="st">"string2"</span>, <span class="st">"string3"</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>my_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 7 5 3 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>my_character_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>my_character_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "string1" "string2" "string3"</code></pre>
 </div>
@@ -608,65 +620,76 @@ To do
 <li>We use vectors for levels and labels within <code>factor()</code> below.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ORGANIZE DATA ####</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>data_figs <span class="ot">=</span> data_clean <span class="sc">%&gt;%</span> </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">factor</span>(sex, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"female"</span>, <span class="st">"male"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ORGANIZE DATA ####</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>data_figs <span class="ot">=</span> data_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">factor</span>(sex, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"female"</span>, <span class="st">"male"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>If you run the figure code again, you will get this figure:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10)) <span class="sc">+</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10)) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lesson3_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="336"></p>
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="336"></p>
 </figure>
 </div>
 </div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To save the plot, uncomment and run: </span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>To make the figure prettier, you could use:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10, <span class="at">fill=</span>sex))<span class="sc">+</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose a design</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a title</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Popularity of the name 'Page' by sex"</span>)<span class="sc">+</span></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Customize the y-axis (with a line break)</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Proportion of People</span><span class="sc">\n</span><span class="st">log base 10 transformed"</span>)<span class="sc">+</span></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Customize the x-axis</span></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Sex"</span>) <span class="sc">+</span></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Additional paramaters for displaying plot</span></span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>), <span class="co"># text size</span></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>), <span class="co"># text size for title</span></span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position=</span><span class="st">"none"</span>)</span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10, <span class="at">fill=</span>sex))<span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose a design</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a title</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Popularity of the name 'Page' by sex"</span>)<span class="sc">+</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Customize the y-axis (with a line break)</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Proportion of People</span><span class="sc">\n</span><span class="st">log base 10 transformed"</span>)<span class="sc">+</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Customize the x-axis</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Sex"</span>) <span class="sc">+</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Custom colours for the fill variable (sex)</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"blue"</span>))<span class="sc">+</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Additional paramaters for displaying plot</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), <span class="co"># text size</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>), <span class="co"># text size for title</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position=</span><span class="st">"none"</span>) <span class="co"># no legend</span></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lesson3_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="432"></p>
 </figure>
 </div>
 </div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to save the plot: </span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
+<li><p>The figure script is done. Save it, commit to Git, and push to GitHub!</p></li>
 </ul>
 </section>
 </section>
-<section id="still-to-prepare" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="still-to-prepare"><span class="header-section-number">7</span> Still to Prepare</h2>
+<section id="statistics-script" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="statistics-script"><span class="header-section-number">7</span> Statistics script</h2>
+</section>
+<section id="still-to-prepare" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="still-to-prepare"><span class="header-section-number">8</span> Still to Prepare</h2>
 <ul>
 <li>Include math slides into this lesson or:</li>
 <li>Homework: watch Linear Regression video by Page</li>
 </ul>
 </section>
-<section id="references-resources" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="references-resources"><span class="header-section-number">8</span> References &amp; Resources</h2>
+<section id="references-resources" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="references-resources"><span class="header-section-number">9</span> References &amp; Resources</h2>
 <ul>
 <li>Completed code for the lesson can be found <a href="https://github.com/hannahmetzler/R_intro_lesson3">here</a>.</li>
 </ul>

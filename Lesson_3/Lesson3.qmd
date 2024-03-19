@@ -129,8 +129,8 @@ If this is empty, your name does not exist in the US names data set. Simply stay
 dplyr::filter(data, name == "Lav")
 ```
 
-```{r, echo=FALSE, fig.width=10}
-knitr::include_graphics('images/empty_tibble.png')
+```{r, echo=FALSE, fig.width=20}
+knitr::include_graphics('images/empty_tibble.jpg')
 ```
 
 -   Now, we'll use the same code to assign only rows with your name to the data frame `data_clean`.
@@ -146,7 +146,7 @@ data_clean = data %>%
 xtabs(~name, data_clean)
 ```
 
-We only want to look at the 20th century, so we filter out the years between 1900 and 2000 using the filter function:
+We only want to look at the 20th century, so we filter out the years between 1900 and 2000 using the `filter()` function:
 
 -   The first new filter call selects all years after 1900, the second all years up to and including 2000.
 
@@ -208,16 +208,15 @@ data_figs = data_clean
 
 ### Checking for normal distribution: Histogram
 
-To run a linear regression, our dependent variable needs to be normally distributed. A perfect normal distribution is symmetrical, for example:
+To run a linear regression, our dependent variable needs to be normally distributed. A perfect normal distribution is symmetrical, for example, here 2 distributions with n = 1 million observations: 
 
-```{r, echo=F, fig.height=3}
+```{r, echo=F, fig.height=3.5}
 data_normal = data.frame(narrow = rnorm(1000000), broad = rnorm(1000000, mean = 0, sd = 3))
 p1 = ggplot(data_normal, aes(x = narrow)) +
             geom_histogram(aes(y=..density..))+
   geom_density(colour = "blue")+
   geom_vline(aes(xintercept=0), colour="blue", linetype="dashed")+
   xlim(c(-10, 10))
-
 
 p2 = ggplot(data_normal, aes(x = broad)) +
             geom_histogram(aes(y=..density..))+
@@ -227,7 +226,25 @@ p2 = ggplot(data_normal, aes(x = broad)) +
 plot_grid(p1, p2)
 ```
 
-Let's check this with a histogram:
+- With less observations, the shape will be less perfect, but still roughly symmetrical (n = 100) with most values around the mean: 
+
+```{r, echo=F, fig.height=3.5}
+data_normal = data.frame(narrow = rnorm(100), broad = rnorm(100, mean = 0, sd = 3))
+p1 = ggplot(data_normal, aes(x = narrow)) +
+            geom_histogram(aes(y=..density..))+
+  geom_density(colour = "blue")+
+  geom_vline(aes(xintercept=0), colour="blue", linetype="dashed")+
+  xlim(c(-10, 10))
+
+p2 = ggplot(data_normal, aes(x = broad)) +
+            geom_histogram(aes(y=..density..))+
+  geom_density(colour = "blue")+
+  geom_vline(aes(xintercept=0), colour="blue", linetype="dashed")+
+  xlim(c(-10, 10))
+plot_grid(p1, p2)
+```
+
+Let's check the distribution of our dependent variable with a histogram:
 
 ```{r, fig.asp=1, fig.width=3}
 ## MAKE FIGURES ####
