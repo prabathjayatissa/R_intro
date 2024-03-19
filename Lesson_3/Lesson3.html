@@ -86,8 +86,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#project-for-lesson-3" id="toc-project-for-lesson-3" class="nav-link" data-scroll-target="#project-for-lesson-3"><span class="header-section-number">3</span> Project for Lesson 3</a></li>
   <li><a href="#organizing-your-scripts" id="toc-organizing-your-scripts" class="nav-link" data-scroll-target="#organizing-your-scripts"><span class="header-section-number">4</span> Organizing your scripts</a></li>
   <li><a href="#cleaning-script" id="toc-cleaning-script" class="nav-link" data-scroll-target="#cleaning-script"><span class="header-section-number">5</span> Cleaning script</a></li>
-  <li><a href="#figures-script" id="toc-figures-script" class="nav-link" data-scroll-target="#figures-script"><span class="header-section-number">6</span> Figures Script</a></li>
-  <li><a href="#to-prepare" id="toc-to-prepare" class="nav-link" data-scroll-target="#to-prepare"><span class="header-section-number">7</span> To Prepare</a></li>
+  <li><a href="#figures-script" id="toc-figures-script" class="nav-link" data-scroll-target="#figures-script"><span class="header-section-number">6</span> Figures Script</a>
+  <ul class="collapse">
+  <li><a href="#checking-for-normal-distribution-histogram" id="toc-checking-for-normal-distribution-histogram" class="nav-link" data-scroll-target="#checking-for-normal-distribution-histogram"><span class="header-section-number">6.1</span> Checking for normal distribution: Histogram</a></li>
+  <li><a href="#scatterplots-for-correlation" id="toc-scatterplots-for-correlation" class="nav-link" data-scroll-target="#scatterplots-for-correlation"><span class="header-section-number">6.2</span> Scatterplots for correlation</a></li>
+  </ul></li>
+  <li><a href="#still-to-prepare" id="toc-still-to-prepare" class="nav-link" data-scroll-target="#still-to-prepare"><span class="header-section-number">7</span> Still to Prepare</a></li>
   <li><a href="#references-resources" id="toc-references-resources" class="nav-link" data-scroll-target="#references-resources"><span class="header-section-number">8</span> References &amp; Resources</a></li>
   </ul>
 </nav>
@@ -208,9 +212,7 @@ To do
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> readr<span class="sc">::</span><span class="fu">read_tsv</span>(<span class="st">"data/lesson2_data_babynames.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ul>
-<li>To check if the file was read correctly you can use <code>head(data)</code> once in the Console.</li>
-</ul>
+<p>To check if the file was read correctly you can use <code>head(data)</code> in the Console.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -283,12 +285,12 @@ To do
 <li>The Examples section shows you how to use the function.</li>
 </ul></li>
 </ul></li>
-<li>I’ll be using the name “Page” - in honor of the colleague who taught me R with exactly this same dataset.</li>
+<li>I’ll be using the name “Page” - in honor of the colleague who taught me R with exactly this same data set.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">=</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(data, name <span class="sc">==</span> <span class="st">"Page"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Check if it worked, for example using <code>head() on the new dataframe</code></p>
+<p>Check if it worked, for example using <code>head()</code> on the new data frame</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -351,7 +353,7 @@ To do
 </div>
 </div>
 </div>
-<p>If this is empty, your name does not exist in the US names dataset. Simply stay with the name “Page”.</p>
+<p>If this is empty, your name does not exist in the US names data set. Simply stay with the name “Page”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(data, name <span class="sc">==</span> <span class="st">"Lav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -365,13 +367,13 @@ To do
 </div>
 </div>
 <ul>
-<li>Now, we’ll use the same code to assign only rows with your name to the dataframe <code>data_clean</code>.</li>
+<li>Now, we’ll use the same code to assign only rows with your name to the data frame <code>data_clean</code>.</li>
 <li>We want to be able to run more functions to clean the data. We can do this using the <strong>Pipe (%&gt;%)</strong> after data. <code>filter()</code> will then be run on <code>data</code> before assigning to <code>data_clean</code>.
 <ul>
 <li>Shortcut: <code>Shift + Ctrl/Cmd + M</code></li>
 </ul></li>
 <li>Copy and run the code below.</li>
-<li>I check if it works with <code>xtabs()</code> this time (just for a change).</li>
+<li>To use something different, I check if it worked with <code>xtabs()</code> this time.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## CLEAN DATA ####</span></span>
@@ -386,7 +388,7 @@ Page
 </div>
 <p>We only want to look at the 20th century, so we filter out the years between 1900 and 2000 using the filter function:</p>
 <ul>
-<li>The first new filter call selects all years after 1900, the second all before 2000.</li>
+<li>The first new filter call selects all years after 1900, the second all years up to and including 2000.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
@@ -394,7 +396,7 @@ Page
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">filter</span>(year <span class="sc">&gt;</span> <span class="dv">1900</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>             <span class="fu">filter</span>(year <span class="sc">&lt;=</span> <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>To confirm this worked, we can check the minimum and maximum year in the new dataframe. For the name “Page”, this shows the first year in which it was given to a baby was 1909.</p>
+<p>To confirm this worked, we can check the minimum and maximum year in the new data frame. For the name “Page”, this shows the first year in which it was given to a baby was 1909.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(data_clean<span class="sc">$</span>year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -425,18 +427,18 @@ To do
 </section>
 <section id="figures-script" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="figures-script"><span class="header-section-number">6</span> Figures Script</h2>
+<p>We’ll learn a new function now: <code>source()</code> tells R to run another script.</p>
 <ul>
-<li><code>source()</code> call tells R to run another script (without opening that other script)</li>
-<li>We can use it to run the cleaning script from our figures script, to read in our clean data.
-<ul>
-<li>Enter the exact path and name of your script.</li>
-<li>To be sure it works, first delete all objects from the <strong>Environment</strong> using the broom symbol or <code>rm(list = ls)</code></li>
-</ul></li>
+<li>We can use it to run the cleaning script from our figures script, to read in our clean data.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## READ IN DATA ####</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"code/01_cleaning.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ul>
+<li>Enter the exact path and name of your script.</li>
+<li>To be sure it works, first delete all objects from the <strong>Environment</strong> (broom symbol or <code>rm(list = ls)</code>)</li>
+</ul>
 <p>All variables should now reappear in your Environment:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -447,9 +449,217 @@ To do
 </div>
 </div>
 </div>
+<p>Now load all packages not yet loaded in the cleaning script. We need ggplot2 to make a figure.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## LOAD PACKAGES ####</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We may want to change names or levels of variables a bit for our figures. It’s good to create an extra data set for this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ORGANIZE DATA ####</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>data_figs <span class="ot">=</span> data_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="checking-for-normal-distribution-histogram" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="checking-for-normal-distribution-histogram"><span class="header-section-number">6.1</span> Checking for normal distribution: Histogram</h3>
+<p>To run a linear regression, our dependent variable needs to be normally distributed. A perfect normal distribution is symmetrical, for example:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s check this with a histogram:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## MAKE FIGURES ####</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram of dependent variable (proportion of 'Page's)</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>name.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> prop)) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">geom_histogram</span>()</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>name.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Proportion of babies with the name “Page” is clearly not normally distributed.</li>
+<li>Note that aes() only needs an x-variable for histograms, because we plot only one variable.</li>
+<li>Information message about bins: R picks one by default, but notifies you that you can enter a better one, as the binwidth can really change the shape of a distribution.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram with specific binwidth</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> prop)) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.0000005</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>One usual way of making data normal is a log transformation. In R, you can take the logarithm with base 10 with <code>log10()</code>.</li>
+<li>Go back to the cleaning script to do the log transform. To make any transformation to a variable, we can use <code>mutate()</code> from dplyr. <code>mutate()</code> is used to make a new column or change an existing one.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Page"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;</span> <span class="dv">1900</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&lt;=</span> <span class="dv">2000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop_log10 =</span> <span class="fu">log10</span>(prop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Run this code block, or save the script and rerun <code>source()</code> in the figures script.</li>
+<li>Rerun the line to make the “data_figs” data frame.</li>
+<li>Now let’s have a look at the distribution again:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram of log transformed dependent variable (proportion of 'Page's)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>name_log10.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> prop_log10)) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">geom_histogram</span>()</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>name_log10.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="336"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This distribution is more or less normal. We can go ahead and focus on figures for the regression.</p>
 </section>
-<section id="to-prepare" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="to-prepare"><span class="header-section-number">7</span> To Prepare</h2>
+<section id="scatterplots-for-correlation" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="scatterplots-for-correlation"><span class="header-section-number">6.2</span> Scatterplots for correlation</h3>
+<ol type="1">
+<li>question: How did the popularity of the name, “Page” change over time?</li>
+</ol>
+<ul>
+<li><p>Which 2 variables do we need to plot?</p></li>
+<li><p>To make a scatter plot: <code>geom_point()</code></p></li>
+<li><p>To add a regression line: <code>geom_smooth()</code> with the method set to <code>lm</code>.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by year (continuous predictor)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>year.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> prop_log10)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>year.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="336"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Is there an effect of year on time?</p></li>
+<li><p>Now let’s make a figure for the 2. question: Is there a sex difference in popularity of the name?</p>
+<ul>
+<li>We will use a boxplot for this. Which variable should be on the x and y axis?</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="336"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>You might want more explicit labels for “F” and “M” in a figure. We can update the code to create data_figs data frame at the top of our script.</li>
+<li>We’ll use <code>mutate()</code> to change the names of the variable levels of the variable sex.</li>
+<li>We’ll use <code>factor()</code>, a function to make categorical variables with labels. The arguments we need are:
+<ul>
+<li>levels: “an optional vector of the unique values (as character strings) that x might have taken” (from Help)</li>
+<li>labels: “an optional character vector of labels for the levels”</li>
+</ul></li>
+<li>What is a vector? A list of items of the same type (e.g., numbers or characters).
+<ul>
+<li>If you want to assign numbers to a variable, you use a vector in R.</li>
+<li>Notation in R: <code>c()</code></li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">7</span>,<span class="dv">5</span>,<span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>my_character_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"string1"</span>, <span class="st">"string2"</span>, <span class="st">"string3"</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>my_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 7 5 3 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>my_character_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "string1" "string2" "string3"</code></pre>
+</div>
+</div>
+<ul>
+<li>We use vectors for levels and labels within <code>factor()</code> below.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ORGANIZE DATA ####</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>data_figs <span class="ot">=</span> data_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">factor</span>(sex, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"female"</span>, <span class="st">"male"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>If you run the figure code again, you will get this figure:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10)) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="336"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>To make the figure prettier, you could use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10, <span class="at">fill=</span>sex))<span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose a design</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a title</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Popularity of the name 'Page' by sex"</span>)<span class="sc">+</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Customize the y-axis (with a line break)</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Proportion of People</span><span class="sc">\n</span><span class="st">log base 10 transformed"</span>)<span class="sc">+</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Customize the x-axis</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Sex"</span>) <span class="sc">+</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Additional paramaters for displaying plot</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>), <span class="co"># text size</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>), <span class="co"># text size for title</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position=</span><span class="st">"none"</span>)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+</section>
+<section id="still-to-prepare" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="still-to-prepare"><span class="header-section-number">7</span> Still to Prepare</h2>
 <ul>
 <li>Include math slides into this lesson or:</li>
 <li>Homework: watch Linear Regression video by Page</li>
