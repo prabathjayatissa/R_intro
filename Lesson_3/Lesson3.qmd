@@ -472,7 +472,8 @@ As an example, let's say chicks get 2 different diets:
 
 ```{r, echo = F, fig.width=4, fig.asp = 1}
 data = ChickWeight %>% 
-  filter(Diet %in% c(1,2))
+  filter(Diet %in% c(1,2)) %>% 
+  mutate(Diet = factor(Diet, levels = c(1,2), labels = c("Diet 1", "Diet 2")))
 ggplot(data, aes(y = weight, x =  Diet, fill = Diet))+
   geom_boxplot()+
   theme_bw()+
@@ -490,9 +491,30 @@ ggplot(data, aes(y = weight, x =  Diet))+
 # ggsave('images/scatterplot_categorical.pdf', width = 4, height = 4)
 ```
 
-And add a line from one mean to the second: 
+
+We need to change the labels of diets to values: 0 for the default, and 1 for the next level. 
 
 ```{r, echo = F, fig.width=4, fig.asp = 1}
+data = ChickWeight %>% 
+  filter(Diet %in% c(1,2)) %>% 
+  mutate(Diet = factor(Diet, levels = c(1,2), labels = c("0", "1")))
+ggplot(data, aes(y = weight, x =  Diet))+
+  geom_point()+
+  theme_bw()+
+  theme(text = element_text(size = 12), legend.position = "none")+
+  ggtitle("Chick Weight by Diet")
+# ggsave('images/scatterplot_categorical.pdf', width = 4, height = 4)
+```
+
+X and y for a specific data point: 
+
+```{r, echo = F, fig.height=7}
+knitr::include_graphics('images/scatterplot_categorical_y_x.svg')
+```
+
+Now we add a line from one mean to the second. The intercept is the value of y when x is the default level (Diet 1). Here slightly above 100. 
+
+```{r, echo = F, fig.width=4, fig.asp = 1, results = F, eval = F}
 ggplot(data, aes(y = weight, x =  Diet))+
   geom_point()+
   stat_summary(fun.y=mean, geom="line", aes(group = 1))+
@@ -502,13 +524,21 @@ ggplot(data, aes(y = weight, x =  Diet))+
 # ggsave('images/scatterplot_categorical_intercept.pdf', width = 4, height = 4)
 ```
 
-X and y for a specific data point: 
-
 ```{r, echo = F, fig.height=7}
-knitr::include_graphics('images/scatterplot_categorical_y_x.svg')
+knitr::include_graphics('images/scatterplot_categorical_intercept.svg')
 ```
 
-Still missing: Categorical predictor intercept, slope, residual. 
+The slope is the change in the mean of Diet 1 to Diet 2: 
+
+```{r, echo = F, fig.height=7}
+knitr::include_graphics('images/scatterplot_categorical_slope.svg')
+```
+
+The residual is the difference between the model prediction and the actual data point. 
+
+```{r, echo = F, fig.height=7}
+knitr::include_graphics('images/scatterplot_categorical_residual.svg')
+```
 
 ## Statistics script: Linear regression
 

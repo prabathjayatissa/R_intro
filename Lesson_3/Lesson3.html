@@ -903,7 +903,7 @@ Caution
 </div>
 </div>
 </div>
-<p>And add a line from one mean to the second:</p>
+<p>We need to change the labels of diets to values: 0 for the default, and 1 for the next level.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -923,7 +923,36 @@ Caution
 </div>
 </div>
 </div>
-<p>Still missing: Categorical predictor intercept, slope, residual.</p>
+<p>Now we add a line from one mean to the second. The intercept is the value of y when x is the default level (Diet 1). Here slightly above 100.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/scatterplot_categorical_intercept.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The slope is the change in the mean of Diet 1 to Diet 2:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/scatterplot_categorical_slope.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The residual is the difference between the model prediction and the actual data point.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/scatterplot_categorical_residual.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="statistics-script-linear-regression" class="level2" data-number="8">
