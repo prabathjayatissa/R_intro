@@ -425,7 +425,7 @@ head(data_cats)
 
 There are only rows with cats left.
 
-::: callout-caution
+:::{.callout-caution}
 #### Exercise
 
 Look at the new data frame `data_cats` with all the functions you used above for `data`.
