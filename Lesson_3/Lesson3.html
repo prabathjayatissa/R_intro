@@ -671,7 +671,7 @@ To do
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a title</span></span>
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Popularity of the name 'Page' by sex"</span>)<span class="sc">+</span></span>
 <span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Customize the y-axis (with a line break)</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Proportion of People</span><span class="sc">\n</span><span class="st">log base 10 transformed"</span>)<span class="sc">+</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Proportion of People</span><span class="sc">\n</span><span class="st">(log base 10 transformed)"</span>)<span class="sc">+</span></span>
 <span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Customize the x-axis</span></span>
 <span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Sex"</span>) <span class="sc">+</span></span>
 <span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Custom colours for the fill variable (sex)</span></span>
@@ -793,7 +793,7 @@ F-statistic: 32.24 on 1 and 172 DF,  p-value: 5.698e-08</code></pre>
 </div>
 </div>
 <ul>
-<li>We get a significant effect of sex: t = -5.68, p = <code>round(sex.lm_sum$coefficients[2,4], 3)</code>.</li>
+<li>We get a significant effect of sex: t = -5.68, p = <code>r</code>round(sex.lm_sum$coefficients[2,4], 3)`.</li>
 <li>In which direction? Is Page more popular for men or women?
 <ul>
 <li>R by default codes variables alphabetically, so our default level is “F” for female.</li>
@@ -819,39 +819,74 @@ To do
 </section>
 <section id="write-up-quarto-report" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="write-up-quarto-report"><span class="header-section-number">8</span> Write up: Quarto Report</h2>
-<p>Steps:</p>
+<p>We repeat the steps from the last lesson:</p>
 <ul>
 <li>Save your current working environment to your write-up folder as <code>lesson3_environment</code> (see Lesson 2 for more explanation).</li>
 <li>Open a Quarto Document.</li>
 <li>Delete everything below the chunk at the top that starts and ends with <code>---</code>.</li>
-<li>After this, insert a code chunk (Shortcut: <code>Ctrl/Cmd + Alt + I</code>) and enter the code below to load your environment.
+<li>Save the Quarto document in your write_up folder as <code>Lesson3_Report</code>.</li>
+<li>After this, insert a code chunk (Shortcut: <code>Ctrl/Cmd + Alt + I</code>) and enter the code below to load your environment.</li>
+</ul>
 <pre><code class="r">
 ```{r, echo=F}
-load('write_up/lesson3_environment.RData')
+load('lesson3_environment.RData')
 ```
-</code></pre></li>
-<li>Add <code>echo = FALSE</code> in the curly brackets after r: ```<code>{r, echo = FALSE}</code>. This let’s R know you do not want to print out (echo) the code in the report, but only its results.</li>
-<li>Now add sections to your report, for example:</li>
-</ul>
-<ol type="1">
-<li>Introduction</li>
-<li>Results
-<ol type="1">
+</code></pre>
+<ul>
+<li><p>Add <code>echo = FALSE</code> (or only the F) in the curly brackets after r: ```<code>{r, echo = FALSE}</code>. This let’s R know you do not want to print out (echo) the code in the report, but only its results.</p></li>
+<li><p>Now add sections to your report, for example:</p></li>
+<li><p>Introduction</p></li>
+<li><p>Results</p>
+<ul>
 <li>Prevalence by Year</li>
 <li>Prevalence by Sex</li>
-</ol></li>
-<li>Conclusions</li>
-</ol>
-<ul>
-<li>Now you can write something in each section. For example:</li>
+</ul></li>
+<li><p>Conclusions</p></li>
+<li><p>Now you can write something in each section. For example:</p></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>We analysed how common the name "Page" was in the United States in between 1900 and 2000. We used data from the USA Social Security Administration on baby names. We used linear regression to analyse the change of the name over time, and the difference of the name's popularity between men and women. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>We analysed how common the name "Page" was in the United States in between 1900 and</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="ss">2000. </span>We used data from the USA Social Security Administration on baby names. </span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>We used linear regression to analyse the change of the name over time, and the </span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>difference of the name's popularity between men and women. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>In the Results sections,</li>
+<li>In the Results sections, you can include the figures and model results by calling the objects within a code chunk:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Results</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prevalence by Year</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>We built a linear model to test the effect of year on the proportion of people </span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>with the name "Page". Proportion was log base 10 transformed, because it was </span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>not normally distributed. </span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>There was no significant change in the popularity of the name over time. The</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>positive coefficients indicates a slightly increasing slope over time. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code class="r">
+```{r, echo=F}
+year.plot
+year.lm_sum
+```
+</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prevalence by Sex</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>The name is more popular among women then men. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code class="r">
+```{r, echo=F}
+sex.plot
+sex.lm_sum
+```
+</code></pre>
+<ul>
+<li>You can continue describing your results and the conclusion at home.</li>
+<li>To compile the Quarto report, click <code>Render</code> at the top.</li>
+<li>You can change the format from html, to docx, or pdf.</li>
 </ul>
 </section>
 <section id="still-to-prepare" class="level2" data-number="9">
