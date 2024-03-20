@@ -137,7 +137,7 @@ I find it useful to have all my analysis projects in a common folder directly in
 -   Your scripts should only reference three types of locations:
 
 | Where                    | Example                                                       |
-|--------------------------|---------------------------------------------------------------|
+|----------------------|--------------------------------------------------|
 | on the web               | "https://hannahmetzler.eu/R_intro/Lesson_2/data/datafile.csv" |
 | in the working directory | "datafile.csv"                                                |
 | in a subdirectory        | "data/datafile.csv"                                           |
@@ -463,10 +463,11 @@ It is very easy to make this plot pretty. Below:
 
 ```{r}
 # Pretty plot
-ggplot(data, aes(x = pet, y = weight, fill = pet)) +
+data.plot <- ggplot(data, aes(x = pet, y = weight, fill = pet)) +
   geom_boxplot()+
   theme_bw()+
   ggtitle("Weight by pet")
+data.plot
 ```
 
 To save the plot to a file to use in your paper, use `ggsave` to save it in our subfolder for figures:
