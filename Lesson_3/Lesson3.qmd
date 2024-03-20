@@ -19,6 +19,7 @@ echo: true
 library(cowplot)
 library(ggplot2)
 library(dplyr)
+library(svglite)
 ```
 
 ## Goals
@@ -67,12 +68,13 @@ Create a script and save it in the `code` folder as `01_cleaning.R`.
 ## Cleaning script
 
 -   Start again with a header (# TITLE ####) for loading packages.
--   We only need the package `dplyr` for now.
+-   We only need the packages `dplyr` and `readr` for now (or the meta-package tidyverse)
 -   Shortcut to run a line of code from a script: `Ctrl/Strg/Cmd + Enter`
 
 ```{r, eval = F}
 ## LOAD PACKAGES ####
 library(dplyr)
+library(readr)
 ```
 
 -   Next, we read in data, with the same function as last time but for .txt files.
@@ -90,7 +92,7 @@ head(data)
 
 -   Check if your own name exists in the dataset using the function `filter()`:
     -   Check the function in the help: `?dplyr::filter` (Description, Usage & Examples).
-        -   The first argument is for the dataframe.
+        -   The first argument is for the data frame.
         -   The second argument (`...`) is for the expression that defines our condition for rows we want to keep.
         -   The Examples section shows you how to use the function.
 -   I'll be using the name "Page" - in honor of the colleague who taught me R with exactly this same data set.
@@ -192,7 +194,7 @@ data_figs = data_clean
 
 To run a linear regression, our dependent variable needs to be normally distributed. A perfect normal distribution is symmetrical, for example, here 2 distributions with n = 1 million observations:
 
-```{r, echo=F, fig.height=3.5, warning=F}
+```{r, histogram nv,  echo=F, fig.height=3.5, warning=F}
 data_normal = data.frame(narrow = rnorm(1000000, sd = 1.5), broad = rnorm(1000000, mean = 0, sd = 3.5))
 p1 = ggplot(data_normal, aes(x = narrow)) +
             geom_histogram(aes(y=..density..), bins = 40)+
@@ -212,7 +214,7 @@ plot_grid(p1, p2)
 
 -   With less observations, the shape will be less perfect, but still roughly symmetrical (n = 100) with most values around the mean:
 
-```{r, echo=F, fig.height=3.5}
+```{r, histogram less observations, echo=F, fig.height=3.5}
 data_normal = data.frame(narrow = rnorm(100, sd = 1.5), broad = rnorm(100, mean = 0, sd = 3.5))
 p1 = ggplot(data_normal, aes(x = narrow)) +
             geom_histogram(aes(y=..density..), bins = 40)+
@@ -232,7 +234,7 @@ plot_grid(p1, p2)
 
 Let's check the distribution of our dependent variable with a histogram:
 
-```{r, fig.asp=1, fig.width=3}
+```{r, histogram names, fig.asp=1, fig.width=3}
 ## MAKE FIGURES ####
 # Histogram of dependent variable (proportion of 'Page's)
 name.plot = ggplot(data_figs, aes(x = prop)) +
@@ -244,7 +246,7 @@ name.plot
 -   Note that aes() only needs an x-variable for histograms, because we plot only one variable.
 -   Information message about bins: R picks one by default, but notifies you that you can enter a better one, as the binwidth can really change the shape of a distribution.
 
-```{r, fig.asp=1, fig.width=3}
+```{r, histogram binwidth, fig.asp=1, fig.width=3}
 # Histogram with specific binwidth
 ggplot(data_figs, aes(x = prop)) +
             geom_histogram(binwidth = 0.0000005)
@@ -269,7 +271,7 @@ data_figs = data_clean
 -   Back in the figures script, rerun the line to make the "data_figs" data frame.
 -   Now let's have a look at the distribution again:
 
-```{r, fig.asp=1, fig.width=3.5}
+```{r, histogram names log, fig.asp=1, fig.width=3.5}
 # Histogram of log transformed dependent variable (proportion of 'Page's)
 name_log10.plot = ggplot(data_figs, aes(x = prop_log10)) +
             geom_histogram()
@@ -291,7 +293,7 @@ Our first research question was: How did the popularity of the name, “Page” 
 -   To make a scatter plot we use `geom_point()`.
 -   To add a regression line we use `geom_smooth()` with the method set to `lm`.
 
-```{r, fig.asp=1, fig.width=3.5}
+```{r, prop per year scatterplot, fig.asp=1, fig.width=3.5}
 # Proportion of 'Page's by year (continuous predictor)
 year.plot = ggplot(data_figs, aes(x = year, y = prop_log10)) +
             geom_point() +
@@ -317,7 +319,7 @@ year.plot
 -   Now let's make a figure for the second question: Is there a sex difference in popularity of the name?
     -   We will use a box plot for this. Which variable should be on the x and y axis?
 
-```{r, fig.asp=1, fig.width=3.5}
+```{r, prop per sex boxplot, fig.asp=1, fig.width=3.5}
 # Proportion of 'Page's by sex (categorical predictor)
 sex.plot = ggplot(data_figs, aes(x = sex, y = prop_log10)) +
 geom_boxplot()
@@ -352,7 +354,7 @@ data_figs = data_clean %>%
 
 -   If you run the figure code again, you will get this figure:
 
-```{r, fig.asp=1, fig.width=3.5}
+```{r, prop per sex boxplot better labels, fig.asp=1, fig.width=3.5}
 # Proportion of 'Page's by sex (categorical predictor)
 sex.plot = ggplot(data_figs, aes(x = sex, y = prop_log10)) +
 geom_boxplot()
@@ -361,13 +363,13 @@ sex.plot
 
 -   To save the plot, uncomment (short cut: `Ctrl+Shift+C`) and run:
 
-```{r, fig.asp=1, fig.width=3.5}
+```{r}
 # ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)
 ```
 
 -   To make the figure prettier, there are various elements you can change. Have a look at this at home.
 
-```{r, fig.asp=1, fig.width=3.5}
+```{r, prop per sex boxplot pretty, fig.asp=1, fig.width=3.5}
 # Proportion of 'Page's by sex (categorical predictor)
 sex.plot = ggplot(data_figs, aes(x = sex, y = prop_log10, fill=sex))+
   geom_boxplot()+
@@ -414,7 +416,7 @@ The basic equation of linear regression is:
 Let's see an example for a continuous predictor: How does the weight of chicks change over time? 
 As more time passes, the weight increases.
 
-```{r, read data, echo = F, fig.width = 4, fig.asp = 1}
+```{r, chickweight scatterplot, echo = F, fig.width = 4, fig.asp = 1}
 #ChickWeight dataset
 data(package = "datasets", ChickWeight)
 
@@ -427,7 +429,7 @@ ggplot(ChickWeight, aes(y = weight, x =  Time))+
 
 We can add a line to show the increase: 
 
-```{r, echo = F, fig.width = 4, fig.asp = 1}
+```{r, chickweight scatterplot line, echo = F, fig.width = 4, fig.asp = 1}
 ggplot(ChickWeight, aes(y = weight, x =  Time))+
   geom_point()+
   geom_smooth(method = 'lm')+
@@ -477,7 +479,7 @@ What if x is categorical?
 
 As an example, let's say chicks get 2 different diets: 
 
-```{r, echo = F, fig.width=4, fig.asp = 1}
+```{r, chickweight boxplot diet, echo = F, fig.width=4, fig.asp = 1}
 data = ChickWeight %>% 
   filter(Diet %in% c(1,2)) %>% 
   mutate(Diet = factor(Diet, levels = c(1,2), labels = c("Diet 1", "Diet 2")))
@@ -492,8 +494,8 @@ ggplot(data, aes(y = weight, x =  Diet, fill = Diet))+
 - I have also added a line like before, from the mean of Diet 1, to the mean of Diet 2.
 - Finally, we need to change the labels of diets to values for our statistical analysis: 0 for the default, and 1 for the next level. 
 
-```{r, echo = F, fig.width=4, fig.asp = 1}
-library(svglite)
+```{r, chickweight scatterplot diet, echo = F, fig.width=4, fig.asp = 1}
+
 data = ChickWeight %>% 
   filter(Diet %in% c(1,2)) %>% 
   mutate(Diet = factor(Diet, levels = c(1,2), labels = c("0", "1")))
