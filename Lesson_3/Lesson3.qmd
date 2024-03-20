@@ -37,7 +37,7 @@ library(dplyr)
 3.  In the Terminal, navigate to your folder for this R course using `cd`.
 4.  Type `git clone` and paste your SSH link.
 5.  In the now local folder of the repository, create sub folders (e.g. “data”, “figures”, “code”, “write_up”).
-6.  Put the [data file](https://github.com/hannahmetzler/R_intro_lesson3/blob/main/data/rcourse_lesson2_data.txt) for this lesson in your “data” folder.
+6.  Put the [data file](https://github.com/hannahmetzler/R_intro_lesson3/blob/main/data/lesson2_data_babynames.txt) for this lesson in your “data” folder.
 7.  Make a new R Project based in your main directory folder (e.g. “rintro_lesson3”).
 8.  Commit & Push to GitHub.
 
@@ -47,8 +47,8 @@ Data from the USA Social Security Administration on baby names
 
 **2 research questions:**
 
-1.  Continuous Predictor: Does the name "Page" get more or less popular between the years of 1901 and 2000?
-2.  Categorical Predictor: Is the name "Page" more or less popular with females or males?
+1.  Continuous Predictor: Does your name get more or less popular between the years of 1901 and 2000?
+2.  Categorical Predictor: Is your name more or less popular with females or males?
 
 ## Organizing your scripts
 
@@ -70,7 +70,7 @@ Create a script and save it in the `code` folder as `01_cleaning.R`.
 -   We only need the package `dplyr` for now.
 -   Shortcut to run a line of code from a script: `Ctrl/Strg/Cmd + Enter`
 
-```{r}
+```{r, eval = F}
 ## LOAD PACKAGES ####
 library(dplyr)
 ```
@@ -509,7 +509,7 @@ ggplot(data, aes(y = weight, x =  Diet))+
 # ggsave('images/scatterplot_categorical.pdf', width = 4, height = 4)
 ```
 
-X and y for a specific data point: 
+x and y for a specific data point: 
 
 ```{r, echo = F, fig.height=7}
 knitr::include_graphics('images/scatterplot_categorical_y_x.svg')
@@ -543,7 +543,22 @@ And as before, the residual is the difference between the model prediction and t
 knitr::include_graphics('images/scatterplot_categorical_residual.svg')
 ```
 
-## Statistics script: Linear regression
+### Running linear regression in R
+
+- The notation for a linear regression in R is: `lm (y \~ x)`
+- In the chick weight example above, this would be: `lm(weight \~ Time)`
+- To see the output of the model, we use `summary(model)`. 
+
+```{r}
+chicks.lm = lm(weight ~ Time, data = ChickWeight)
+summary(chicks.lm)
+```
+- The intercept is at 27g: where the line crosses the y-axis
+- The slope is 8.8g: chicks grow by 8g on average per day. 
+
+
+
+## Statistics script
 
 As always, start with a section to read in data, then one to load packages.
 
@@ -565,10 +580,6 @@ data_stats = data_clean
 ```
 
 ### Continuous predictor: Year
-
-- The notation for a linear regression in R is: `lm (y \~ x)`
-- In the chick weight example above, this would be: `lm(weight \~ Time)`
-- To see the output of the model, we use `summary(model)`. 
 
 ```{r}
 ## BUILD MODEL - PROPORTION OF 'PAGE'S BY YEAR (CONTINUOUS PREDICTOR) ####

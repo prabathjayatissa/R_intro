@@ -137,7 +137,7 @@ I find it useful to have all my analysis projects in a common folder directly in
 -   Your scripts should only reference three types of locations:
 
 | Where                    | Example                                                       |
-|--------------------------------|----------------------------------------|
+|--------------------------|---------------------------------------------------------------|
 | on the web               | "https://hannahmetzler.eu/R_intro/Lesson_2/data/datafile.csv" |
 | in the working directory | "datafile.csv"                                                |
 | in a subdirectory        | "data/datafile.csv"                                           |
@@ -425,7 +425,7 @@ head(data_cats)
 
 There are only rows with cats left.
 
-:::{.callout-caution}
+::: callout-caution
 #### Exercise
 
 Look at the new data frame `data_cats` with all the functions you used above for `data`.
