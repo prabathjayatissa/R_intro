@@ -192,37 +192,41 @@ data_figs = data_clean
 
 To run a linear regression, our dependent variable needs to be normally distributed. A perfect normal distribution is symmetrical, for example, here 2 distributions with n = 1 million observations:
 
-```{r, echo=F, fig.height=3.5}
-data_normal = data.frame(narrow = rnorm(1000000), broad = rnorm(1000000, mean = 0, sd = 3))
+```{r, echo=F, fig.height=3.5, warning=F}
+data_normal = data.frame(narrow = rnorm(1000000, sd = 1.5), broad = rnorm(1000000, mean = 0, sd = 3.5))
 p1 = ggplot(data_normal, aes(x = narrow)) +
-            geom_histogram(aes(y=..density..))+
+            geom_histogram(aes(y=..density..), bins = 40)+
   geom_density(colour = "blue")+
   geom_vline(aes(xintercept=0), colour="blue", linetype="dashed")+
-  xlim(c(-10, 10))
+  xlim(c(-10, 10))+
+  ylim(c(0, 0.3))
 
 p2 = ggplot(data_normal, aes(x = broad)) +
-            geom_histogram(aes(y=..density..))+
+            geom_histogram(aes(y=..density..), bins = 40)+
   geom_density(colour = "blue")+
   geom_vline(aes(xintercept=0), colour="blue", linetype="dashed")+
-  xlim(c(-10, 10))
+  xlim(c(-10, 10))+
+  ylim(c(0, 0.3))
 plot_grid(p1, p2)
 ```
 
 -   With less observations, the shape will be less perfect, but still roughly symmetrical (n = 100) with most values around the mean:
 
 ```{r, echo=F, fig.height=3.5}
-data_normal = data.frame(narrow = rnorm(100), broad = rnorm(100, mean = 0, sd = 3))
+data_normal = data.frame(narrow = rnorm(100, sd = 1.5), broad = rnorm(100, mean = 0, sd = 3.5))
 p1 = ggplot(data_normal, aes(x = narrow)) +
-            geom_histogram(aes(y=..density..))+
+            geom_histogram(aes(y=..density..), bins = 40)+
   geom_density(colour = "blue")+
   geom_vline(aes(xintercept=0), colour="blue", linetype="dashed")+
-  xlim(c(-10, 10))
+   xlim(c(-10, 10))+
+  ylim(c(0, 0.3))
 
 p2 = ggplot(data_normal, aes(x = broad)) +
-            geom_histogram(aes(y=..density..))+
+            geom_histogram(aes(y=..density..), bins = 40)+
   geom_density(colour = "blue")+
   geom_vline(aes(xintercept=0), colour="blue", linetype="dashed")+
-  xlim(c(-10, 10))
+   xlim(c(-10, 10))+
+  ylim(c(0, 0.3))
 plot_grid(p1, p2)
 ```
 
@@ -355,7 +359,7 @@ geom_boxplot()
 sex.plot
 ```
 
--   To save the plot, uncomment (shortcut: `Ctrl+Shift+C`) and run:
+-   To save the plot, uncomment (short cut: `Ctrl+Shift+C`) and run:
 
 ```{r, fig.asp=1, fig.width=3.5}
 # ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)
@@ -388,7 +392,8 @@ sex.plot
 # ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)
 ```
 
-::: callout-caution
+:::{.callout-caution}
+#### To do
 The figure script is done. Save it, commit to Git, and push to GitHub!
 :::
 
@@ -399,7 +404,7 @@ The basic equation of linear regression is:
 **y~i~ = a + b~i~x + e~i~**
 
 -   y~i~ = a specific y value (dependent variable)
--   a = intercept (where the regression line crosses the y-axis when x = 0)
+-   a = intercept (where the regression line crosses the y-axis, y when x = 0)
 -   b = slope (change in y for one change in x)
 -   x~i~ = specific x value (independent variable, predictor)
 -   e~i~ = random variance, residual, noise
@@ -432,29 +437,31 @@ ggplot(ChickWeight, aes(y = weight, x =  Time))+
 # ggsave('images/scatterplot.pdf', width = 4, height = 4)
 ```
 
-- Let's pick a specific data point. These are the y and x values for a data point: 
+Let's pick a specific data point (red square in the Figure below).
+
+- In red, you see the x and y values for the data point (y=200g, x = 12 days). 
+- In yellow, you see the intercept a: the weight (y) when days (x) are 0. 
+- In purple, you see the slope b, telling you how much weight a chick gains on average on 1 day (here from day 5 to 6)
+- In green, you see the residual for the data point: The difference between model prediction and the actual data. 
+
 
 ```{r, echo = F, fig.height=7}
-knitr::include_graphics('images/scatterplot_y_x.svg')
+knitr::include_graphics('images/scatterplot_labels.svg')
 ```
 
-- Here, you see a, the intercept: The weight when x = 0 (when chicks are zero days old).
+### Running linear regression in R
 
-```{r, echo = F}
-knitr::include_graphics('images/scatterplot_intercept.svg')
+- The notation for a linear regression in R is: `lm (y \~ x)`
+- In the chick weight example above, this would be: `lm(weight \~ Time)`
+- To see the output of the model, we use `summary(model)`. 
+
+```{r}
+chicks.lm = lm(weight ~ Time, data = ChickWeight)
+summary(chicks.lm)
 ```
 
-- Here, you see b, the slope: How much weight does a baby chick gain on average on a day? (Change in y, when x changes by 1, here from day 5 to 6)
-
-```{r, echo = F}
-knitr::include_graphics('images/scatterplot_slope.svg')
-```
-
-- Here you see the residual for the data point: The difference between model prediction and the actual data: 
-
-```{r, echo = F}
-knitr::include_graphics('images/scatterplot_residual.svg')
-```
+- The intercept a is at 27 gram: where the blue line crosses the y-axis in the Figure above. 
+- The slope b for the predictor Time is 8.8 gram: chicks grow by 8.8 g on average per day (the vertical part of the purple triangle).
 
 ### Categorical predictor
 
@@ -480,83 +487,51 @@ ggplot(data, aes(y = weight, x =  Diet, fill = Diet))+
   theme(text = element_text(size = 12), legend.position = "none")+
   ggtitle("Chick Weight by Diet")
 ```
-We can look at this as a collection of points: 
+
+- We can look at this as a collection of points. 
+- I have also added a line like before, from the mean of Diet 1, to the mean of Diet 2.
+- Finally, we need to change the labels of diets to values for our statistical analysis: 0 for the default, and 1 for the next level. 
 
 ```{r, echo = F, fig.width=4, fig.asp = 1}
-data = ChickWeight %>% 
-  filter(Diet %in% c(1,2)) %>% 
-  mutate(Diet = factor(Diet, levels = c(1,2), labels = c("Diet 1", "Diet 2")))
-ggplot(data, aes(y = weight, x =  Diet))+
-  geom_point()+
-  theme_bw()+
-  theme(text = element_text(size = 12), legend.position = "none")+
-  ggtitle("Chick Weight by Diet")
-# ggsave('images/scatterplot_categorical.pdf', width = 4, height = 4)
-```
-
-
-We need to change the labels of diets to values: 0 for the default, and 1 for the next level. 
-
-```{r, echo = F, fig.width=4, fig.asp = 1}
+library(svglite)
 data = ChickWeight %>% 
   filter(Diet %in% c(1,2)) %>% 
   mutate(Diet = factor(Diet, levels = c(1,2), labels = c("0", "1")))
-ggplot(data, aes(y = weight, x =  Diet))+
-  geom_point()+
-  theme_bw()+
-  theme(text = element_text(size = 12), legend.position = "none")+
-  ggtitle("Chick Weight by Diet")
-# ggsave('images/scatterplot_categorical.pdf', width = 4, height = 4)
-```
-
-x and y for a specific data point: 
-
-```{r, echo = F, fig.height=7}
-knitr::include_graphics('images/scatterplot_categorical_y_x.svg')
-```
-
-Now we add a line from one mean to the second. The intercept is the value of y when x is the default level (Diet 1). Here slightly above 100. 
-
-```{r, echo = F, fig.width=4, fig.asp = 1, results = F, eval = F}
 ggplot(data, aes(y = weight, x =  Diet))+
   geom_point()+
   stat_summary(fun.y=mean, geom="line", aes(group = 1))+
   theme_bw()+
   theme(text = element_text(size = 12), legend.position = "none")+
   ggtitle("Chick Weight by Diet")
-# ggsave('images/scatterplot_categorical_intercept.pdf', width = 4, height = 4)
+# ggsave('images/scatterplot_categorical.svg', width = 4, height = 4)
 ```
+
+Below, you see 
+
+- x and y for a specific data point in red
+- the intercept a in yellow: the value of y (just above 100) when x is the default level (= 0, or Diet 1)
 
 ```{r, echo = F, fig.height=7}
-knitr::include_graphics('images/scatterplot_categorical_intercept.svg')
+knitr::include_graphics('images/scatterplot_categorical_intercept_yx.svg')
 ```
 
-The slope is the change in the mean from Diet 1 to Diet 2: 
+- The slope b in purple: the average change in weight from Diet 1 (default level 0) to Diet 2 (level 1). 
+- The residual e of the specific data point in green. 
 
 ```{r, echo = F, fig.height=7}
-knitr::include_graphics('images/scatterplot_categorical_slope.svg')
+knitr::include_graphics('images/scatterplot_categorical_slope_residual.svg')
 ```
 
-And as before, the residual is the difference between the model prediction and the actual data point. 
+#### Running this regression in R
 
-```{r, echo = F, fig.height=7}
-knitr::include_graphics('images/scatterplot_categorical_residual.svg')
-```
-
-### Running linear regression in R
-
-- The notation for a linear regression in R is: `lm (y \~ x)`
-- In the chick weight example above, this would be: `lm(weight \~ Time)`
-- To see the output of the model, we use `summary(model)`. 
 
 ```{r}
-chicks.lm = lm(weight ~ Time, data = ChickWeight)
-summary(chicks.lm)
+diet.lm = lm(weight ~ Diet, data)
+summary(diet.lm)
 ```
-- The intercept is at 27g: where the line crosses the y-axis
-- The slope is 8.8g: chicks grow by 8g on average per day. 
 
-
+- The intercept a is 102 g: the mean weight of chicks eating Diet 1. 
+- The slope b is 19.97 g: the mean weight difference between the Diets, Diet 2 chicks are this much heavier. 
 
 ## Statistics script
 

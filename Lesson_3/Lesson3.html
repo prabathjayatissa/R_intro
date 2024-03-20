@@ -97,8 +97,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#math-of-linear-regression" id="toc-math-of-linear-regression" class="nav-link" data-scroll-target="#math-of-linear-regression"><span class="header-section-number">7</span> Math of linear regression</a>
   <ul class="collapse">
   <li><a href="#continuous-predictor" id="toc-continuous-predictor" class="nav-link" data-scroll-target="#continuous-predictor"><span class="header-section-number">7.1</span> Continuous predictor</a></li>
-  <li><a href="#categorical-predictor" id="toc-categorical-predictor" class="nav-link" data-scroll-target="#categorical-predictor"><span class="header-section-number">7.2</span> Categorical predictor</a></li>
-  <li><a href="#running-linear-regression-in-r" id="toc-running-linear-regression-in-r" class="nav-link" data-scroll-target="#running-linear-regression-in-r"><span class="header-section-number">7.3</span> Running linear regression in R</a></li>
+  <li><a href="#running-linear-regression-in-r" id="toc-running-linear-regression-in-r" class="nav-link" data-scroll-target="#running-linear-regression-in-r"><span class="header-section-number">7.2</span> Running linear regression in R</a></li>
+  <li><a href="#categorical-predictor" id="toc-categorical-predictor" class="nav-link" data-scroll-target="#categorical-predictor"><span class="header-section-number">7.3</span> Categorical predictor</a></li>
   </ul></li>
   <li><a href="#statistics-script" id="toc-statistics-script" class="nav-link" data-scroll-target="#statistics-script"><span class="header-section-number">8</span> Statistics script</a>
   <ul class="collapse">
@@ -161,7 +161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>In the Terminal, navigate to your folder for this R course using <code>cd</code>.</li>
 <li>Type <code>git clone</code> and paste your SSH link.</li>
 <li>In the now local folder of the repository, create sub folders (e.g.&nbsp;“data”, “figures”, “code”, “write_up”).</li>
-<li>Put the <a href="https://github.com/hannahmetzler/R_intro_lesson3/blob/main/data/rcourse_lesson2_data.txt">data file</a> for this lesson in your “data” folder.</li>
+<li>Put the <a href="https://github.com/hannahmetzler/R_intro_lesson3/blob/main/data/lesson2_data_babynames.txt">data file</a> for this lesson in your “data” folder.</li>
 <li>Make a new R Project based in your main directory folder (e.g.&nbsp;“rintro_lesson3”).</li>
 <li>Commit &amp; Push to GitHub.</li>
 </ol>
@@ -460,7 +460,7 @@ To do
 <section id="checking-for-normal-distribution-histogram" class="level3" data-number="6.1">
 <h3 data-number="6.1" class="anchored" data-anchor-id="checking-for-normal-distribution-histogram"><span class="header-section-number">6.1</span> Checking for normal distribution: Histogram</h3>
 <p>To run a linear regression, our dependent variable needs to be normally distributed. A perfect normal distribution is symmetrical, for example, here 2 distributions with n = 1 million observations:</p>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-15_1bd18d28972d02b1c1a695c28c70d143">
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-15_cf56c0b845317fbcfe396e3267b08c61">
 <div class="cell-output-display">
 <p><img src="Lesson3_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -468,7 +468,7 @@ To do
 <ul>
 <li>With less observations, the shape will be less perfect, but still roughly symmetrical (n = 100) with most values around the mean:</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-16_06412e0eb844c0f5e9fe9394d6ff3bc0">
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-16_1403532559a6b56c810d561af6627433">
 <div class="cell-output-display">
 <p><img src="Lesson3_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -645,7 +645,7 @@ Exercise
 </div>
 </div>
 <ul>
-<li>To save the plot, uncomment (shortcut: <code>Ctrl+Shift+C</code>) and run:</li>
+<li>To save the plot, uncomment (short cut: <code>Ctrl+Shift+C</code>) and run:</li>
 </ul>
 <div class="cell" data-fig.asp="1" data-hash="Lesson3_cache/html/unnamed-chunk-28_102b7e450d537bc8a6cae833142c043a">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -685,7 +685,7 @@ Exercise
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Caution
+To do
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -700,7 +700,7 @@ Caution
 <p><strong>y<sub>i</sub> = a + b<sub>i</sub>x + e<sub>i</sub></strong></p>
 <ul>
 <li>y<sub>i</sub> = a specific y value (dependent variable)</li>
-<li>a = intercept (where the regression line crosses the y-axis when x = 0)</li>
+<li>a = intercept (where the regression line crosses the y-axis, y when x = 0)</li>
 <li>b = slope (change in y for one change in x)</li>
 <li>x<sub>i</sub> = specific x value (independent variable, predictor)</li>
 <li>e<sub>i</sub> = random variance, residual, noise</li>
@@ -719,41 +719,57 @@ Caution
 <p><img src="Lesson3_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="384"></p>
 </div>
 </div>
+<p>Let’s pick a specific data point (red square in the Figure below).</p>
 <ul>
-<li>Let’s pick a specific data point. These are the y and x values for a data point:</li>
+<li>In red, you see the x and y values for the data point (y=200g, x = 12 days).</li>
+<li>In yellow, you see the intercept a: the weight (y) when days (x) are 0.</li>
+<li>In purple, you see the slope b, telling you how much weight a chick gains on average on 1 day (here from day 5 to 6)</li>
+<li>In green, you see the residual for the data point: The difference between model prediction and the actual data.</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-31_26d62006758775d6538191b948cf5cfa">
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-31_f79e49b28dc42727302b9e6dd69e7184">
 <div class="cell-output-display">
-<p><img src="images/scatterplot_y_x.svg" class="img-fluid"></p>
-</div>
-</div>
-<ul>
-<li>Here, you see a, the intercept: The weight when x = 0 (when chicks are zero days old).</li>
-</ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-32_9653cfc868bda7c033f3a9c04b7aacea">
-<div class="cell-output-display">
-<p><img src="images/scatterplot_intercept.svg" class="img-fluid"></p>
-</div>
-</div>
-<ul>
-<li>Here, you see b, the slope: How much weight does a baby chick gain on average on a day? (Change in y, when x changes by 1, here from day 5 to 6)</li>
-</ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-33_71659956b63b46cf8eaa6eadfaf0f78a">
-<div class="cell-output-display">
-<p><img src="images/scatterplot_slope.svg" class="img-fluid"></p>
-</div>
-</div>
-<ul>
-<li>Here you see the residual for the data point: The difference between model prediction and the actual data:</li>
-</ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-34_95863dc889fc71a73bd3c1001fcd67ca">
-<div class="cell-output-display">
-<p><img src="images/scatterplot_residual.svg" class="img-fluid"></p>
+<p><img src="images/scatterplot_labels.svg" class="img-fluid"></p>
 </div>
 </div>
 </section>
-<section id="categorical-predictor" class="level3" data-number="7.2">
-<h3 data-number="7.2" class="anchored" data-anchor-id="categorical-predictor"><span class="header-section-number">7.2</span> Categorical predictor</h3>
+<section id="running-linear-regression-in-r" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="running-linear-regression-in-r"><span class="header-section-number">7.2</span> Running linear regression in R</h3>
+<ul>
+<li>The notation for a linear regression in R is: <code>lm (y \~ x)</code></li>
+<li>In the chick weight example above, this would be: <code>lm(weight \~ Time)</code></li>
+<li>To see the output of the model, we use <code>summary(model)</code>.</li>
+</ul>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-32_1f7f0d10e5f5d306ff97ae1b7e446e5a">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>chicks.lm <span class="ot">=</span> <span class="fu">lm</span>(weight <span class="sc">~</span> Time, <span class="at">data =</span> ChickWeight)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(chicks.lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = weight ~ Time, data = ChickWeight)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-138.331  -14.536    0.926   13.533  160.669 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  27.4674     3.0365   9.046   &lt;2e-16 ***
+Time          8.8030     0.2397  36.725   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 38.91 on 576 degrees of freedom
+Multiple R-squared:  0.7007,    Adjusted R-squared:  0.7002 
+F-statistic:  1349 on 1 and 576 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<ul>
+<li>The intercept a is at 27 gram: where the blue line crosses the y-axis in the Figure above.</li>
+<li>The slope b for the predictor Time is 8.8 gram: chicks grow by 8.8 g on average per day (the vertical part of the purple triangle).</li>
+</ul>
+</section>
+<section id="categorical-predictor" class="level3" data-number="7.3">
+<h3 data-number="7.3" class="anchored" data-anchor-id="categorical-predictor"><span class="header-section-number">7.3</span> Categorical predictor</h3>
 <p>What if x is categorical?</p>
 <p><strong>a = bx</strong></p>
 <table class="table">
@@ -788,79 +804,71 @@ Caution
 </tbody>
 </table>
 <p>As an example, let’s say chicks get 2 different diets:</p>
-<div class="cell" data-fig.asp="1" data-hash="Lesson3_cache/html/unnamed-chunk-35_3b8b1f72bdf394e83aa5e3825023f906">
+<div class="cell" data-fig.asp="1" data-hash="Lesson3_cache/html/unnamed-chunk-33_1fab9fe2d50ddfe6c270be56e70de9bd">
 <div class="cell-output-display">
-<p><img src="Lesson3_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="384"></p>
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="384"></p>
 </div>
 </div>
-<p>We can look at this as a collection of points:</p>
-<div class="cell" data-fig.asp="1" data-hash="Lesson3_cache/html/unnamed-chunk-36_afcfafa9f3f7f647f73e5949272e1015">
-<div class="cell-output-display">
-<p><img src="Lesson3_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="384"></p>
-</div>
-</div>
-<p>We need to change the labels of diets to values: 0 for the default, and 1 for the next level.</p>
-<div class="cell" data-fig.asp="1" data-hash="Lesson3_cache/html/unnamed-chunk-37_bdc9f71820f47b85ce268541037669f4">
-<div class="cell-output-display">
-<p><img src="Lesson3_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="384"></p>
-</div>
-</div>
-<p>x and y for a specific data point:</p>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-38_71d659343ce663539b40b6a0b68d72b4">
-<div class="cell-output-display">
-<p><img src="images/scatterplot_categorical_y_x.svg" class="img-fluid"></p>
-</div>
-</div>
-<p>Now we add a line from one mean to the second. The intercept is the value of y when x is the default level (Diet 1). Here slightly above 100.</p>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-40_7c0a8f1da910695ce9e0876af6a8abb5">
-<div class="cell-output-display">
-<p><img src="images/scatterplot_categorical_intercept.svg" class="img-fluid"></p>
-</div>
-</div>
-<p>The slope is the change in the mean from Diet 1 to Diet 2:</p>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-41_29106bef3ba01f28ad8b9782fbc21583">
-<div class="cell-output-display">
-<p><img src="images/scatterplot_categorical_slope.svg" class="img-fluid"></p>
-</div>
-</div>
-<p>And as before, the residual is the difference between the model prediction and the actual data point.</p>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-42_3cc304486c5250ec4e95b58d431a419f">
-<div class="cell-output-display">
-<p><img src="images/scatterplot_categorical_residual.svg" class="img-fluid"></p>
-</div>
-</div>
-</section>
-<section id="running-linear-regression-in-r" class="level3" data-number="7.3">
-<h3 data-number="7.3" class="anchored" data-anchor-id="running-linear-regression-in-r"><span class="header-section-number">7.3</span> Running linear regression in R</h3>
 <ul>
-<li>The notation for a linear regression in R is: <code>lm (y \~ x)</code></li>
-<li>In the chick weight example above, this would be: <code>lm(weight \~ Time)</code></li>
-<li>To see the output of the model, we use <code>summary(model)</code>.</li>
+<li>We can look at this as a collection of points.</li>
+<li>I have also added a line like before, from the mean of Diet 1, to the mean of Diet 2.</li>
+<li>Finally, we need to change the labels of diets to values for our statistical analysis: 0 for the default, and 1 for the next level.</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-43_ddacbf0e8fe66a8f8f1c69a8b8129487">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>chicks.lm <span class="ot">=</span> <span class="fu">lm</span>(weight <span class="sc">~</span> Time, <span class="at">data =</span> ChickWeight)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(chicks.lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-fig.asp="1" data-hash="Lesson3_cache/html/unnamed-chunk-34_9ff42083a36abc3bc161f752acaec068">
+<div class="cell-output-display">
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="384"></p>
+</div>
+</div>
+<p>Below, you see</p>
+<ul>
+<li>x and y for a specific data point in red</li>
+<li>the intercept a in yellow: the value of y (just above 100) when x is the default level (= 0, or Diet 1)</li>
+</ul>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-35_5d72f80ad5e7e623082e87274da997d1">
+<div class="cell-output-display">
+<p><img src="images/scatterplot_categorical_intercept_yx.svg" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>The slope b in purple: the average change in weight from Diet 1 (default level 0) to Diet 2 (level 1).</li>
+<li>The residual e of the specific data point in green.</li>
+</ul>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-36_b9be367fc688f9a935788376db536850">
+<div class="cell-output-display">
+<p><img src="images/scatterplot_categorical_slope_residual.svg" class="img-fluid"></p>
+</div>
+</div>
+<section id="running-this-regression-in-r" class="level4" data-number="7.3.1">
+<h4 data-number="7.3.1" class="anchored" data-anchor-id="running-this-regression-in-r"><span class="header-section-number">7.3.1</span> Running this regression in R</h4>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-37_6d97a9071314d00589e12140b3535140">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>diet.lm <span class="ot">=</span> <span class="fu">lm</span>(weight <span class="sc">~</span> Diet, data)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(diet.lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = weight ~ Time, data = ChickWeight)
+lm(formula = weight ~ Diet, data = data)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--138.331  -14.536    0.926   13.533  160.669 
+   Min     1Q Median     3Q    Max 
+-83.62 -49.62 -15.14  35.60 208.38 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  27.4674     3.0365   9.046   &lt;2e-16 ***
-Time          8.8030     0.2397  36.725   &lt;2e-16 ***
+(Intercept)  102.645      4.202  24.426  &lt; 2e-16 ***
+Diet1         19.971      7.074   2.823  0.00503 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 38.91 on 576 degrees of freedom
-Multiple R-squared:  0.7007,    Adjusted R-squared:  0.7002 
-F-statistic:  1349 on 1 and 576 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 62.33 on 338 degrees of freedom
+Multiple R-squared:  0.02304,   Adjusted R-squared:  0.02015 
+F-statistic: 7.971 on 1 and 338 DF,  p-value: 0.005034</code></pre>
 </div>
 </div>
+<ul>
+<li>The intercept a is 102 g: the mean weight of chicks eating Diet 1.</li>
+<li>The slope b is 19.97 g: the mean weight difference between the Diets, Diet 2 chicks are this much heavier.</li>
+</ul>
+</section>
 </section>
 </section>
 <section id="statistics-script" class="level2" data-number="8">
@@ -869,23 +877,23 @@ F-statistic:  1349 on 1 and 576 DF,  p-value: &lt; 2.2e-16</code></pre>
 <ul>
 <li>We don’t need any package at the moment, but you usually want to add some later while doing the analysis.</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-44_fbbad6c74f7695eeaf06ca9702bf9582">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="do">## READ IN DATA ####</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"code/01_cleaning.R"</span>)</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="do">## LOAD PACKAGES #####</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co"># [none currently needed]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-38_675cea6cf8d8f1fdc36fbdea6a860d3c">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="do">## READ IN DATA ####</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"code/01_cleaning.R"</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="do">## LOAD PACKAGES #####</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># [none currently needed]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As before, we make a new data frame for statistics data:</p>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-45_88454e3d68275000c4ae23eda8af16f1">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ORGANIZE DATA ####</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>data_stats <span class="ot">=</span> data_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-39_0ba6364e7bc14d412b686466761ed125">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ORGANIZE DATA ####</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>data_stats <span class="ot">=</span> data_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="continuous-predictor-year" class="level3" data-number="8.1">
 <h3 data-number="8.1" class="anchored" data-anchor-id="continuous-predictor-year"><span class="header-section-number">8.1</span> Continuous predictor: Year</h3>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-46_31aefab5149337550593da0de03a22b8">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="do">## BUILD MODEL - PROPORTION OF 'PAGE'S BY YEAR (CONTINUOUS PREDICTOR) ####</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>year.lm <span class="ot">=</span> <span class="fu">lm</span>(prop_log10 <span class="sc">~</span> year, <span class="at">data =</span> data_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-40_639e74238692060cea9211a2c6d2e58a">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="do">## BUILD MODEL - PROPORTION OF 'PAGE'S BY YEAR (CONTINUOUS PREDICTOR) ####</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>year.lm <span class="ot">=</span> <span class="fu">lm</span>(prop_log10 <span class="sc">~</span> year, <span class="at">data =</span> data_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Store the model in an object: <code>year.lm</code></li>
@@ -893,9 +901,9 @@ F-statistic:  1349 on 1 and 576 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>The model itself is lm(prop_log10 ~ year), with prop_log10 as the dependent variable and year as the predictor.</li>
 <li>To look at the output, we call <code>summary()</code>:</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-47_8ce0be9e270e31222434cb983bce1b0f">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>year.lm_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(year.lm)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>year.lm_sum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-41_d2a8f16e24a82b69c37095430d5755a2">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>year.lm_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(year.lm)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>year.lm_sum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -922,9 +930,9 @@ F-statistic: 2.188 on 1 and 172 DF,  p-value: 0.1409</code></pre>
 <li>Effect of year not significant: t =1.48, p = 0.141</li>
 <li>We can look at the residuals with the call <code>resid()</code>. Here, I store them and then look at the fist values:</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-48_1b6da340d88a039cb411a7950559aae3">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>year.lm_resid <span class="ot">&lt;-</span> <span class="fu">resid</span>(year.lm_sum)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(year.lm_resid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-42_7d77a2cb502cfb6cbf3bf2262867d804">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>year.lm_resid <span class="ot">&lt;-</span> <span class="fu">resid</span>(year.lm_sum)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(year.lm_resid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          1           2           3           4           5           6 
 0.458328911 0.002919516 0.306492439 0.320914578 0.155653238 0.223908801 </code></pre>
@@ -936,12 +944,12 @@ F-statistic: 2.188 on 1 and 172 DF,  p-value: 0.1409</code></pre>
 <ul>
 <li>Copy your code just above from the regression with <code>year</code>, then change the predictor <code>year</code> to <code>sex</code>.</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-49_698be4f49a8e07b194c0189f39755af6">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="do">## BUILD MODEL - PROPORTION OF 'PAGE'S BY SEX (CATEGORICAL PREDICTOR) ####</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>sex.lm <span class="ot">=</span> <span class="fu">lm</span>(prop_log10 <span class="sc">~</span> sex, <span class="at">data =</span> data_stats)</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>sex.lm_sum <span class="ot">=</span> <span class="fu">summary</span>(sex.lm)</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>sex.lm_sum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-43_d3ce2b2be684dd6c9ff02adcc36e86f2">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="do">## BUILD MODEL - PROPORTION OF 'PAGE'S BY SEX (CATEGORICAL PREDICTOR) ####</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>sex.lm <span class="ot">=</span> <span class="fu">lm</span>(prop_log10 <span class="sc">~</span> sex, <span class="at">data =</span> data_stats)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>sex.lm_sum <span class="ot">=</span> <span class="fu">summary</span>(sex.lm)</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>sex.lm_sum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1018,27 +1026,27 @@ load('lesson3_environment.RData')
 <li><p>Conclusions</p></li>
 <li><p>Now you can write something in each section. For example:</p></li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-50_0f40d14ad4f852e1b69a42c339d899e4">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>We analysed how common the name "Page" was in the United States in between 1900 and</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="ss">2000. </span>We used data from the USA Social Security Administration on baby names. </span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>We used linear regression to analyse the change of the name over time, and the </span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>difference of the name's popularity between men and women. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-44_4b68ccf3cafc9b277cacc63f21af5c38">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>We analysed how common the name "Page" was in the United States in between 1900 and</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="ss">2000. </span>We used data from the USA Social Security Administration on baby names. </span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>We used linear regression to analyse the change of the name over time, and the </span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>difference of the name's popularity between men and women. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>In the Results sections, you can include the figures and model results by calling the objects within a code chunk:</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-51_dabe2a85155b009f1c320c5b0ec401be">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Results</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prevalence by Year</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>We built a linear model to test the effect of year on the proportion of people </span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>with the name "Page". Proportion was log base 10 transformed, because it was </span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>not normally distributed. </span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>There was no significant change in the popularity of the name over time. The</span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>positive coefficients indicates a slightly increasing slope over time. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-45_4e1ee37aaef1a975a3c5b19a6f0e2618">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Results</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prevalence by Year</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>We built a linear model to test the effect of year on the proportion of people </span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>with the name "Page". Proportion was log base 10 transformed, because it was </span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>not normally distributed. </span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>There was no significant change in the popularity of the name over time. The</span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>positive coefficients indicates a slightly increasing slope over time. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <pre><code class="r">
 ```{r, echo=F}
@@ -1046,10 +1054,10 @@ year.plot
 year.lm_sum
 ```
 </code></pre>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-52_f7af589fe639d3d42b117a03bcbbe30f">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prevalence by Sex</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>The name is more popular among women then men. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-46_7afe0be8e6e49992b4ffe40ceb2b6043">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prevalence by Sex</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>The name is more popular among women then men. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <pre><code class="r">
 ```{r, echo=F}
