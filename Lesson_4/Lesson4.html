@@ -85,18 +85,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#reading-in-and-looking-at-data" id="toc-reading-in-and-looking-at-data" class="nav-link" data-scroll-target="#reading-in-and-looking-at-data"><span class="header-section-number">2</span> Reading in and looking at data</a>
   <ul class="collapse">
   <li><a href="#data-from-austria" id="toc-data-from-austria" class="nav-link" data-scroll-target="#data-from-austria"><span class="header-section-number">2.1</span> Data from Austria</a></li>
-  <li><a href="#get-an-overview-of-the-dataset" id="toc-get-an-overview-of-the-dataset" class="nav-link" data-scroll-target="#get-an-overview-of-the-dataset"><span class="header-section-number">2.2</span> Get an overview of the dataset</a></li>
-  <li><a href="#reading-in-data-from-the-us" id="toc-reading-in-data-from-the-us" class="nav-link" data-scroll-target="#reading-in-data-from-the-us"><span class="header-section-number">2.3</span> Reading in data from the US</a></li>
+  <li><a href="#data-from-the-us" id="toc-data-from-the-us" class="nav-link" data-scroll-target="#data-from-the-us"><span class="header-section-number">2.2</span> Data from the US</a></li>
   </ul></li>
-  <li><a href="#cleaning-the-data" id="toc-cleaning-the-data" class="nav-link" data-scroll-target="#cleaning-the-data"><span class="header-section-number">3</span> Cleaning the data</a>
+  <li><a href="#get-an-overview-of-the-dataset" id="toc-get-an-overview-of-the-dataset" class="nav-link" data-scroll-target="#get-an-overview-of-the-dataset"><span class="header-section-number">3</span> Get an overview of the dataset</a></li>
+  <li><a href="#cleaning-and-organizing-the-data" id="toc-cleaning-and-organizing-the-data" class="nav-link" data-scroll-target="#cleaning-and-organizing-the-data"><span class="header-section-number">4</span> Cleaning and organizing the data</a>
   <ul class="collapse">
-  <li><a href="#renaming-columns" id="toc-renaming-columns" class="nav-link" data-scroll-target="#renaming-columns"><span class="header-section-number">3.1</span> Renaming columns</a></li>
-  <li><a href="#selecting-rows" id="toc-selecting-rows" class="nav-link" data-scroll-target="#selecting-rows"><span class="header-section-number">3.2</span> Selecting rows</a></li>
+  <li><a href="#renaming-columns" id="toc-renaming-columns" class="nav-link" data-scroll-target="#renaming-columns"><span class="header-section-number">4.1</span> Renaming columns</a></li>
+  <li><a href="#selecting-rows" id="toc-selecting-rows" class="nav-link" data-scroll-target="#selecting-rows"><span class="header-section-number">4.2</span> Selecting rows</a></li>
+  <li><a href="#changing-the-format-of-columns" id="toc-changing-the-format-of-columns" class="nav-link" data-scroll-target="#changing-the-format-of-columns"><span class="header-section-number">4.3</span> Changing the format of columns</a></li>
+  <li><a href="#create-a-new-variable" id="toc-create-a-new-variable" class="nav-link" data-scroll-target="#create-a-new-variable"><span class="header-section-number">4.4</span> Create a new variable</a></li>
+  <li><a href="#grouping-data-and-summarising-statistics" id="toc-grouping-data-and-summarising-statistics" class="nav-link" data-scroll-target="#grouping-data-and-summarising-statistics"><span class="header-section-number">4.5</span> Grouping data and summarising statistics</a></li>
+  <li><a href="#filter-out-your-name" id="toc-filter-out-your-name" class="nav-link" data-scroll-target="#filter-out-your-name"><span class="header-section-number">4.6</span> Filter out your name</a></li>
   </ul></li>
-  <li><a href="#statistics" id="toc-statistics" class="nav-link" data-scroll-target="#statistics"><span class="header-section-number">4</span> Statistics</a>
+  <li><a href="#combine-two-data-frames" id="toc-combine-two-data-frames" class="nav-link" data-scroll-target="#combine-two-data-frames"><span class="header-section-number">5</span> Combine two data frames</a></li>
+  <li><a href="#figures-script" id="toc-figures-script" class="nav-link" data-scroll-target="#figures-script"><span class="header-section-number">6</span> Figures script</a></li>
+  <li><a href="#statistics-script" id="toc-statistics-script" class="nav-link" data-scroll-target="#statistics-script"><span class="header-section-number">7</span> Statistics script</a>
   <ul class="collapse">
-  <li><a href="#t-test" id="toc-t-test" class="nav-link" data-scroll-target="#t-test"><span class="header-section-number">4.1</span> T-test</a></li>
-  <li><a href="#anova-of-sex-by-country" id="toc-anova-of-sex-by-country" class="nav-link" data-scroll-target="#anova-of-sex-by-country"><span class="header-section-number">4.2</span> Anova of sex by country</a></li>
+  <li><a href="#t-test-by-country" id="toc-t-test-by-country" class="nav-link" data-scroll-target="#t-test-by-country"><span class="header-section-number">7.1</span> T-test by country</a></li>
+  <li><a href="#multifactorial-anova-difference-in-name-popularity-by-sex-and-country" id="toc-multifactorial-anova-difference-in-name-popularity-by-sex-and-country" class="nav-link" data-scroll-target="#multifactorial-anova-difference-in-name-popularity-by-sex-and-country"><span class="header-section-number">7.2</span> Multifactorial ANOVA: Difference in name popularity by sex and country</a></li>
+  <li><a href="#make-a-table-with-statistics-and-export" id="toc-make-a-table-with-statistics-and-export" class="nav-link" data-scroll-target="#make-a-table-with-statistics-and-export"><span class="header-section-number">7.3</span> Make a table with statistics and export:</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -270,14 +277,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="get-an-overview-of-the-dataset" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="get-an-overview-of-the-dataset"><span class="header-section-number">2.2</span> Get an overview of the dataset</h3>
+<section id="data-from-the-us" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="data-from-the-us"><span class="header-section-number">2.2</span> Data from the US</h3>
+<p>Here, I load again the baby names data set from lesson 3, and assign it to <code>data_usa</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data_usa <span class="ot">=</span> readr<span class="sc">::</span><span class="fu">read_tsv</span>(<span class="st">"data/lesson2_data_babynames.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="get-an-overview-of-the-dataset" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="get-an-overview-of-the-dataset"><span class="header-section-number">3</span> Get an overview of the dataset</h2>
 <p>To get an overview of this new data set, you could use any of the following functions:</p>
 <ul>
 <li>You know <code>glimpse()</code> from lesson 3.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(data_aut)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(data_aut)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,265,460
 Columns: 5
@@ -295,7 +310,7 @@ $ `F-ANZAHL_LGEB`          &lt;dbl&gt; 4, 1, 2, 2, 1, 3, 2, 1, 3, 1, 1, 1, 1, 1,
 </ul></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_aut)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_aut)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    C-JAHR-0    C-WOHNBEZIRK-0 C-GESCHLECHT-0  F-VORNAME_NORMALISIERT
  Min.   :1984   Min.   :101    Min.   :1.000   Length:1265460        
@@ -317,13 +332,13 @@ $ `F-ANZAHL_LGEB`          &lt;dbl&gt; 4, 1, 2, 2, 1, 3, 2, 1, 3, 1, 1, 1, 1, 1,
 <li>The function <code>View()</code> opens the data in an extra window.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(data_aut)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(data_aut)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>The function <code>str()</code> shows you the structure of the data set.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_aut) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_aut) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>spc_tbl_ [1,265,460 × 5] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ C-JAHR-0              : num [1:1265460] 1984 1984 1984 1984 1984 ...
@@ -343,41 +358,29 @@ $ `F-ANZAHL_LGEB`          &lt;dbl&gt; 4, 1, 2, 2, 1, 3, 2, 1, 3, 1, 1, 1, 1, 1,
 </div>
 </div>
 </section>
-<section id="reading-in-data-from-the-us" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="reading-in-data-from-the-us"><span class="header-section-number">2.3</span> Reading in data from the US</h3>
-<p>Here, I load again the baby names data set from lesson 3.</p>
-<ul>
-<li>As in lesson 3, I filter out my own name.</li>
-<li>I also filter out all years before 1984, because the Austrian data also does not have these years.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> readr<span class="sc">::</span><span class="fu">read_tsv</span>(<span class="st">"data/lesson2_data_babynames.txt"</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data_usa_clean <span class="ot">=</span> babynames <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Hannah"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#keep only years from 1984 on</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;</span> <span class="dv">1983</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="cleaning-and-organizing-the-data" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="cleaning-and-organizing-the-data"><span class="header-section-number">4</span> Cleaning and organizing the data</h2>
+<section id="renaming-columns" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="renaming-columns"><span class="header-section-number">4.1</span> Renaming columns</h3>
 <p>Let’s use more useful column names for coding, and choose the same names as in the US baby names data. Check the names of the US data with <code>names()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data_usa_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data_usa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "year" "sex"  "name" "n"    "prop"</code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="cleaning-the-data" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="cleaning-the-data"><span class="header-section-number">3</span> Cleaning the data</h2>
-<section id="renaming-columns" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="renaming-columns"><span class="header-section-number">3.1</span> Renaming columns</h3>
-<p>We can use the <code>dplyr::rename()</code>function to change column names. Add the following in your # CLEAN DATA #### section:</p>
+<p>We can use the <code>dplyr::rename()</code>function to change column names.</p>
+<ul>
+<li>You simply assign each old variable name (in quotation marks) to the new variable name.</li>
+<li>Add the following in your # CLEAN DATA #### section:</li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data_aut_clean <span class="ot">&lt;-</span> data_aut <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">year =</span> <span class="st">'C-JAHR-0'</span>, </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">sex =</span> <span class="st">'C-GESCHLECHT-0'</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">living_district =</span> <span class="st">'C-WOHNBEZIRK-0'</span>,</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">name =</span> <span class="st">'F-VORNAME_NORMALISIERT'</span>,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">n =</span> <span class="st">'F-ANZAHL_LGEB'</span>) </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">year =</span> <span class="st">'C-JAHR-0'</span>, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">sex =</span> <span class="st">'C-GESCHLECHT-0'</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">living_district =</span> <span class="st">'C-WOHNBEZIRK-0'</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">name =</span> <span class="st">'F-VORNAME_NORMALISIERT'</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">n =</span> <span class="st">'F-ANZAHL_LGEB'</span>) </span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_aut_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
@@ -392,83 +395,112 @@ $ `F-ANZAHL_LGEB`          &lt;dbl&gt; 4, 1, 2, 2, 1, 3, 2, 1, 3, 1, 1, 1, 1, 1,
 </div>
 </div>
 </section>
-<section id="selecting-rows" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="selecting-rows"><span class="header-section-number">3.2</span> Selecting rows</h3>
-<p>Once this is done, you can again filter out your own name (or the name “Hannah”) by adding another filter() call:</p>
+<section id="selecting-rows" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="selecting-rows"><span class="header-section-number">4.2</span> Selecting rows</h3>
+<p>If we compare the US and the Austrian data set, we can see that they cover different time spans.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>data_aut_clean <span class="ot">&lt;-</span> data_aut <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">year =</span> <span class="st">'C-JAHR-0'</span>, </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">sex =</span> <span class="st">'C-GESCHLECHT-0'</span>,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">living_district =</span> <span class="st">'C-WOHNBEZIRK-0'</span>,</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">name =</span> <span class="st">'F-VORNAME_NORMALISIERT'</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">n =</span> <span class="st">'F-ANZAHL_LGEB'</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#filter out your name</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Hannah"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>If we compare the US and the Austrian data set,</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_usa_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_usa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      year          sex                name                 n        
- Min.   :1984   Length:67          Length:67          Min.   :    5  
- 1st Qu.:1992   Class :character   Class :character   1st Qu.:   18  
- Median :2000   Mode  :character   Mode  :character   Median : 2266  
- Mean   :2000                                         Mean   : 5883  
- 3rd Qu.:2008                                         3rd Qu.:10521  
- Max.   :2017                                         Max.   :23080  
+<pre><code>      year          sex                name                 n          
+ Min.   :1880   Length:2370        Length:2370        Min.   :    5.0  
+ 1st Qu.:1931   Class :character   Class :character   1st Qu.:   17.0  
+ Median :1965   Mode  :character   Mode  :character   Median :  102.0  
+ Mean   :1960                                         Mean   :  975.2  
+ 3rd Qu.:1990                                         3rd Qu.:  418.8  
+ Max.   :2017                                         Max.   :54851.0  
       prop          
- Min.   :2.450e-06  
- 1st Qu.:8.920e-06  
- Median :1.257e-03  
- Mean   :2.981e-03  
- 3rd Qu.:5.149e-03  
- Max.   :1.157e-02  </code></pre>
+ Min.   :2.310e-06  
+ 1st Qu.:1.247e-05  
+ Median :8.686e-05  
+ Mean   :5.916e-04  
+ 3rd Qu.:4.013e-04  
+ Max.   :2.927e-02  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_aut_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_aut_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      year      living_district      sex        name                 n         
- Min.   :1984   Min.   :101.0   Min.   :2   Length:3347        Min.   : 1.000  
- 1st Qu.:1999   1st Qu.:314.0   1st Qu.:2   Class :character   1st Qu.: 2.000  
- Median :2007   Median :418.0   Median :2   Mode  :character   Median : 3.000  
- Mean   :2006   Mean   :523.9   Mean   :2                      Mean   : 3.827  
- 3rd Qu.:2015   3rd Qu.:708.0   3rd Qu.:2                      3rd Qu.: 5.000  
- Max.   :2022   Max.   :923.0   Max.   :2                      Max.   :21.000  </code></pre>
+<pre><code>      year      living_district      sex            name          
+ Min.   :1984   Min.   :101     Min.   :1.000   Length:1265460    
+ 1st Qu.:1996   1st Qu.:319     1st Qu.:1.000   Class :character  
+ Median :2007   Median :506     Median :2.000   Mode  :character  
+ Mean   :2005   Mean   :563     Mean   :1.535                     
+ 3rd Qu.:2015   3rd Qu.:804     3rd Qu.:2.000                     
+ Max.   :2022   Max.   :923     Max.   :2.000                     
+       n        
+ Min.   : 1.00  
+ 1st Qu.: 1.00  
+ Median : 1.00  
+ Mean   : 2.36  
+ 3rd Qu.: 2.00  
+ Max.   :76.00  </code></pre>
+</div>
+</div>
+<p>Let’s keep only years we have in both datasets. First, filtering the Austrian dataset:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>data_aut_clean <span class="ot">&lt;-</span> data_aut <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">year =</span> <span class="st">'C-JAHR-0'</span>, </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">sex =</span> <span class="st">'C-GESCHLECHT-0'</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">living_district =</span> <span class="st">'C-WOHNBEZIRK-0'</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">name =</span> <span class="st">'F-VORNAME_NORMALISIERT'</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">n =</span> <span class="st">'F-ANZAHL_LGEB'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#keep only years up to 2017</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&lt;=</span> <span class="dv">2017</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the new data frame</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_aut_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      year      living_district      sex            name          
+ Min.   :1984   Min.   :101     Min.   :1.000   Length:1047654    
+ 1st Qu.:1994   1st Qu.:319     1st Qu.:1.000   Class :character  
+ Median :2004   Median :506     Median :2.000   Mode  :character  
+ Mean   :2002   Mean   :560     Mean   :1.541                     
+ 3rd Qu.:2011   3rd Qu.:804     3rd Qu.:2.000                     
+ Max.   :2017   Max.   :923     Max.   :2.000                     
+       n         
+ Min.   : 1.000  
+ 1st Qu.: 1.000  
+ Median : 1.000  
+ Mean   : 2.458  
+ 3rd Qu.: 2.000  
+ Max.   :76.000  </code></pre>
 </div>
 </div>
 <ul>
-<li>The summary function shows we only have US data up to 17. Therefore, filter out years after 2017 from the Austrian data:</li>
+<li>Next, filter out all years before 1984 from the USA data set:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_usa_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data_usa_clean <span class="ot">=</span> data_usa <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#keep only years from 1984 on</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;</span> <span class="dv">1983</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_usa_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      year          sex                name                 n        
- Min.   :1984   Length:67          Length:67          Min.   :    5  
- 1st Qu.:1992   Class :character   Class :character   1st Qu.:   18  
- Median :2000   Mode  :character   Mode  :character   Median : 2266  
- Mean   :2000                                         Mean   : 5883  
- 3rd Qu.:2008                                         3rd Qu.:10521  
- Max.   :2017                                         Max.   :23080  
+<pre><code>      year          sex                name                 n          
+ Min.   :1984   Length:766         Length:766         Min.   :    5.0  
+ 1st Qu.:1991   Class :character   Class :character   1st Qu.:   20.0  
+ Median :1999   Mode  :character   Mode  :character   Median :  159.5  
+ Mean   :2000                                         Mean   : 1931.1  
+ 3rd Qu.:2008                                         3rd Qu.:  638.5  
+ Max.   :2017                                         Max.   :54851.0  
       prop          
- Min.   :2.450e-06  
- 1st Qu.:8.920e-06  
- Median :1.257e-03  
- Mean   :2.981e-03  
- 3rd Qu.:5.149e-03  
- Max.   :1.157e-02  </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>data_aut_clean <span class="ot">&lt;-</span> data_aut <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#keep only years up to 2017</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">"C-JAHR-0"</span> <span class="sc">&lt;</span> <span class="dv">1984</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(data_aut_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 0 × 5
-# ℹ 5 variables: C-JAHR-0 &lt;dbl&gt;, C-WOHNBEZIRK-0 &lt;dbl&gt;, C-GESCHLECHT-0 &lt;dbl&gt;,
-#   F-VORNAME_NORMALISIERT &lt;chr&gt;, F-ANZAHL_LGEB &lt;dbl&gt;</code></pre>
+ Min.   :2.320e-06  
+ 1st Qu.:9.810e-06  
+ Median :8.263e-05  
+ Mean   :9.865e-04  
+ 3rd Qu.:3.199e-04  
+ Max.   :2.927e-02  </code></pre>
 </div>
 </div>
-<p>Before joining the US and Austria data into one data frame, we also need columns to be of the same format. The US data had the following formats (see second column):</p>
+</section>
+<section id="changing-the-format-of-columns" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="changing-the-format-of-columns"><span class="header-section-number">4.3</span> Changing the format of columns</h3>
+<p>To run tests comparing both countries, we need to join both data frames into one. There are several steps to prepare our data sets for this.</p>
+<ul>
+<li>First, columns in both data frames need the same format.</li>
+<li>The US data had the following formats (see second column):</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(data_usa_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(data_usa_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 67
 Columns: 5
@@ -479,266 +511,472 @@ $ n    &lt;int&gt; 2266, 14, 2448, 8, 3385, 12, 4592, 26, 5559, 22, 7830, 46, 10
 $ prop &lt;dbl&gt; 0.00125687, 0.00000746, 0.00132618, 0.00000416, 0.00183464, 0.000…</code></pre>
 </div>
 </div>
-<p>Here, we need sex to be a character vector with levels “M” and “F” instead of “1” and “2”. To do this, we will use the <code>ifelse()</code> function, within a <code>mutate()</code> call to transform the variable <code>sex</code>. If you check the help for <code>?ifelse</code>, the Usage section shows you how to use it: <code>ifelse(test, yes, no)</code></p>
-<p>Now, add this as a last line to where you created <code>data_aut_clean</code>:</p>
+<p>So, in the Austrian data, we need sex to be a character vector with levels “M” and “F” instead of “1” and “2”.</p>
+<ul>
+<li>We will use the <code>ifelse()</code> function, within a <code>mutate()</code> call to transform the variable <code>sex</code>.</li>
+<li>If you check the help for <code>?ifelse</code>, the Usage section shows you how to use it: <code>ifelse(test, yes, no)</code>.</li>
+<li>The arguments for the <code>ifelse()</code> function start with a condition (rows where the column sex is equal to “1”), then specifies what happens if the condition is met (use the label “M”), and then lists what should happen otherwise/else (use the label “F”).</li>
+<li>Now, add this as a last line to where you created <code>data_aut_clean</code>:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data_aut_clean <span class="ot">&lt;-</span> data_aut <span class="sc">%&gt;%</span> </span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">year =</span> <span class="st">'C-JAHR-0'</span>, </span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">sex =</span> <span class="st">'C-GESCHLECHT-0'</span>,</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">living_district =</span> <span class="st">'C-WOHNBEZIRK-0'</span>,</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">name =</span> <span class="st">'F-VORNAME_NORMALISIERT'</span>,</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">n =</span> <span class="st">'F-ANZAHL_LGEB'</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Hannah"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Recode the levels of sex from 1 and 2, to M and F</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">ifelse</span>(sex <span class="sc">==</span> <span class="st">"1"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">rep</span>(<span class="st">"Austria"</span>, <span class="at">n=</span><span class="fu">nrow</span>(data_aut))) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># transform country into a factor with 2 levels: </span></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">factor</span>(country, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Austria"</span>, <span class="st">"USA"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Austria"</span>, <span class="st">"USA"</span>)))</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_aut_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>data_aut_clean <span class="ot">&lt;-</span> data_aut <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">year =</span> <span class="st">'C-JAHR-0'</span>, </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">sex =</span> <span class="st">'C-GESCHLECHT-0'</span>,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">living_district =</span> <span class="st">'C-WOHNBEZIRK-0'</span>,</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">name =</span> <span class="st">'F-VORNAME_NORMALISIERT'</span>,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">n =</span> <span class="st">'F-ANZAHL_LGEB'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#keep only years up to 2017</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&lt;=</span> <span class="dv">2017</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Recode the levels of sex from 1 and 2, to M and F</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">ifelse</span>(sex <span class="sc">==</span> <span class="st">"1"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>))</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co"># check if there is now F instead of 1, and M instead of M: </span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_aut_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 3,347
-Columns: 6
+<pre><code>Rows: 1,047,654
+Columns: 5
 $ year            &lt;dbl&gt; 1984, 1984, 1984, 1984, 1984, 1984, 1984, 1984, 1984, …
-$ living_district &lt;dbl&gt; 317, 401, 407, 501, 503, 601, 622, 804, 902, 905, 922,…
-$ sex             &lt;chr&gt; "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F",…
-$ name            &lt;chr&gt; "Hannah", "Hannah", "Hannah", "Hannah", "Hannah", "Han…
-$ n               &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, …
-$ country         &lt;fct&gt; Austria, Austria, Austria, Austria, Austria, Austria, …</code></pre>
+$ living_district &lt;dbl&gt; 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101,…
+$ sex             &lt;chr&gt; "M", "M", "M", "M", "M", "M", "M", "M", "M", "M", "M",…
+$ name            &lt;chr&gt; "Andreas", "Bernd", "Christian", "Christoph", "Clemens…
+$ n               &lt;dbl&gt; 4, 1, 2, 2, 1, 3, 2, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, …</code></pre>
 </div>
 </div>
-<p>Now, let’s repeat these last steps for the USA data set:</p>
+</section>
+<section id="create-a-new-variable" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="create-a-new-variable"><span class="header-section-number">4.4</span> Create a new variable</h3>
+<p>Next, we need to tell statistics from Austria and the US apart, once they are in a joint data frame. Therefore, let’s add a variable that identifies the country.</p>
+<ul>
+<li>We use <code>rep()</code> to repeat “Austria” n times, and set <code>nrow()</code> to the number of rows of the Austrian data.</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> readr<span class="sc">::</span><span class="fu">read_tsv</span>(<span class="st">"data/lesson2_data_babynames.txt"</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>data_usa_clean <span class="ot">=</span> babynames <span class="sc">%&gt;%</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Hannah"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;</span> <span class="dv">1984</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Create a country variable to recognize names from the US after joining the datasets</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">rep</span>(<span class="st">"USA"</span>, <span class="at">n=</span><span class="fu">nrow</span>(babynames))) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># transform country into a factor with 2 levels: </span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">factor</span>(country, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Austria"</span>, <span class="st">"USA"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Austria"</span>, <span class="st">"USA"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>data_aut_clean <span class="ot">&lt;-</span> data_aut <span class="sc">%&gt;%</span> </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">year =</span> <span class="st">'C-JAHR-0'</span>, </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">sex =</span> <span class="st">'C-GESCHLECHT-0'</span>,</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">living_district =</span> <span class="st">'C-WOHNBEZIRK-0'</span>,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">name =</span> <span class="st">'F-VORNAME_NORMALISIERT'</span>,</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">n =</span> <span class="st">'F-ANZAHL_LGEB'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#keep only years up to 2017</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&lt;=</span> <span class="dv">2017</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Recode the levels of sex from 1 and 2, to M and F</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">ifelse</span>(sex <span class="sc">==</span> <span class="st">"1"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#create a country variable for Austria</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">rep</span>(<span class="st">"Austria"</span>, <span class="at">n=</span><span class="fu">nrow</span>(data_aut)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The arguments for the <code>ifelse()</code> function start with a condition (rows where the column sex is equal to “1”), then specifies what happens if the condition is met (use the label “M”), and then lists what should happen otherwise/else (use the label “F”).</p>
-<p>The US data did not separate names per living district. To make our Austrian data similar, let’s group names across districts, so that we get the total number per name, year and sex.</p>
+<p>Now, let’s repeat this step for the USA data. Just add a line to where you started to clean the US data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data_usa_clean <span class="ot">=</span> data_usa <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#keep only years from 1984 on</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;</span> <span class="dv">1983</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Create a country variable for the US</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">rep</span>(<span class="st">"USA"</span>, <span class="at">n=</span><span class="fu">nrow</span>(babynames)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="grouping-data-and-summarising-statistics" class="level3" data-number="4.5">
+<h3 data-number="4.5" class="anchored" data-anchor-id="grouping-data-and-summarising-statistics"><span class="header-section-number">4.5</span> Grouping data and summarising statistics</h3>
+<p>The US data did not separate names per living district.</p>
+<ul>
+<li>To make our Austrian data similar, let’s group names across districts, so that we get the total number of names per year and sex.</li>
+<li>Using <code>group_by()</code> first group the data by year, sex and name, because we want the total n for each of these combined categories.
+<ul>
+<li>We also add the column country, because we want to keep it, although it does not create any additional grouping.</li>
+</ul></li>
+<li>We then <code>summarise()</code> the data by calculating the <code>sum()</code> of the number of names (n).
+<ul>
+<li><code>summarise()</code> is similar to <code>mutate()</code>, but creates one line of output per group. Here, it collapses across districts, reducing the row number for each name.</li>
+<li><code>mutate()</code> creates as many lines of output as input.</li>
+</ul></li>
+<li>Finally, we <code>ungroup()</code> the data again.</li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>data_aut_clean <span class="ot">&lt;-</span> data_aut <span class="sc">%&gt;%</span> </span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">year =</span> <span class="st">'C-JAHR-0'</span>, </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">year =</span> <span class="st">'C-JAHR-0'</span>, </span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">sex =</span> <span class="st">'C-GESCHLECHT-0'</span>,</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">living_district =</span> <span class="st">'C-WOHNBEZIRK-0'</span>,</span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">name =</span> <span class="st">'F-VORNAME_NORMALISIERT'</span>,</span>
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">n =</span> <span class="st">'F-ANZAHL_LGEB'</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Hannah"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Recode the levels of sex from 1 and 2, to M and F</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">ifelse</span>(sex <span class="sc">==</span> <span class="st">"1"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">rep</span>(<span class="st">"Austria"</span>, <span class="at">n=</span><span class="fu">nrow</span>(data_aut))) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># transform country into a factor with 2 levels: </span></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">factor</span>(country, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Austria"</span>, <span class="st">"USA"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Austria"</span>, <span class="st">"USA"</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group by year, sex and name and calculate the new sum for each category</span></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, sex, name, country) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span>  <span class="co"># see lesson 3 page for documentation</span></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">#calculate total number of birth per year, and then proportion for each name out of this total</span></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, country) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n_births =</span> <span class="fu">sum</span>(n), </span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">prop =</span> n<span class="sc">/</span>n_births) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#keep only years up to 2017</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&lt;=</span> <span class="dv">2017</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Recode the levels of sex from 1 and 2, to M and F</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">ifelse</span>(sex <span class="sc">==</span> <span class="st">"1"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">#create a country variable for Austria</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">rep</span>(<span class="st">"Austria"</span>, <span class="at">n=</span><span class="fu">nrow</span>(data_aut))) <span class="sc">%&gt;%</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group by year, sex and name and calculate the new sum for each category</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, sex, name, country) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Finally, we also want to calculate the proportion variable that exists in the US data set (propotion of babies getting each name).</p>
 <ul>
-<li>inner_join - connect with another data set
+<li>N, the total number of babies, is obviously different because the US is larger.</li>
+<li>Using the proportion allows us to meaningfully compare the popularity of names between countries.</li>
+<li>We first want to calculate the sum of all babies born in each year (<code>n_total</code>), and then divide n of each name by the years’ total.</li>
+<li>To calculate the sum per year, we again use <code>group_by()</code>, grouping only by year.
 <ul>
-<li>two-table verb: 2 data frames</li>
+<li>We again add country, also this does not create a group, to keep country variable.</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>data_aut_clean <span class="ot">&lt;-</span> data_aut <span class="sc">%&gt;%</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">year =</span> <span class="st">'C-JAHR-0'</span>, </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">sex =</span> <span class="st">'C-GESCHLECHT-0'</span>,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">living_district =</span> <span class="st">'C-WOHNBEZIRK-0'</span>,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">name =</span> <span class="st">'F-VORNAME_NORMALISIERT'</span>,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">n =</span> <span class="st">'F-ANZAHL_LGEB'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#keep only years up to 2017</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&lt;=</span> <span class="dv">2017</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Recode the levels of sex from 1 and 2, to M and F</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">ifelse</span>(sex <span class="sc">==</span> <span class="st">"1"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">#create a country variable for Austria</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">rep</span>(<span class="st">"Austria"</span>, <span class="at">n=</span><span class="fu">nrow</span>(data_aut))) <span class="sc">%&gt;%</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group by year, sex and name and calculate the new sum for each category</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, sex, name, country) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span>  <span class="co"># see lesson 3 page for documentation</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">#calculate total number of birth per year, and then proportion for each name out of this total</span></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, country) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n_total =</span> <span class="fu">sum</span>(n), </span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">prop =</span> n<span class="sc">/</span>n_total) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_aut_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+   year sex   name     country     n n_total      prop
+  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+1  1984 F     Abigail  Austria     1   83856 0.0000119
+2  1984 F     Adele    Austria     2   83856 0.0000239
+3  1984 F     Adelheid Austria    23   83856 0.000274 
+4  1984 F     Adina    Austria     2   83856 0.0000239
+5  1984 F     Adriane  Austria     1   83856 0.0000119
+6  1984 F     Agata    Austria     1   83856 0.0000119</code></pre>
+</div>
+</div>
+</section>
+<section id="filter-out-your-name" class="level3" data-number="4.6">
+<h3 data-number="4.6" class="anchored" data-anchor-id="filter-out-your-name"><span class="header-section-number">4.6</span> Filter out your name</h3>
+<p>Once this is done, you can again filter out your own name (or the name “Hannah”) by adding another filter() call to each of the data sets. After this, the cleaning and data organizing is finished~</p>
+<p>Austrian data set complete data cleaning and organizing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>data_aut_clean <span class="ot">&lt;-</span> data_aut <span class="sc">%&gt;%</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">year =</span> <span class="st">'C-JAHR-0'</span>, </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">sex =</span> <span class="st">'C-GESCHLECHT-0'</span>,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">living_district =</span> <span class="st">'C-WOHNBEZIRK-0'</span>,</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">name =</span> <span class="st">'F-VORNAME_NORMALISIERT'</span>,</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">n =</span> <span class="st">'F-ANZAHL_LGEB'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#keep only years up to 2017</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&lt;=</span> <span class="dv">2017</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Re-code the levels of sex from 1 and 2, to M and F</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">ifelse</span>(sex <span class="sc">==</span> <span class="st">"1"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">#create a country variable for Austria</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">rep</span>(<span class="st">"Austria"</span>, <span class="at">n=</span><span class="fu">nrow</span>(data_aut))) <span class="sc">%&gt;%</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group by year, sex and name and calculate the new sum for each category</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, sex, name, country) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span>  <span class="co"># see lesson 3 page for documentation</span></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">#calculate total number of birth per year, and then proportion for each name out of this total</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, country) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n_total =</span> <span class="fu">sum</span>(n), </span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">prop =</span> n<span class="sc">/</span>n_total) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>  <span class="co">#filter out your name</span></span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Hannah"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>USA data set complete data cleaning and organizing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>data_usa_clean <span class="ot">=</span> data_usa <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#keep only years from 1984 on</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;</span> <span class="dv">1983</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Create a country variable for the US</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">rep</span>(<span class="st">"USA"</span>, <span class="at">n=</span><span class="fu">nrow</span>(data_usa))) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#filter out your name</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Hannah"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Have a look at both organized data sets:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_usa_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+   year sex   name       n       prop country
+  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;  
+1  1984 F     Hannah  2266 0.00126    USA    
+2  1984 M     Hannah    14 0.00000746 USA    
+3  1985 F     Hannah  2448 0.00133    USA    
+4  1985 M     Hannah     8 0.00000416 USA    
+5  1986 F     Hannah  3385 0.00183    USA    
+6  1986 M     Hannah    12 0.00000625 USA    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_aut_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+   year sex   name   country     n n_total     prop
+  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+1  1984 F     Hannah Austria    11   83856 0.000131
+2  1985 F     Hannah Austria    16   82379 0.000194
+3  1986 F     Hannah Austria    19   82056 0.000232
+4  1987 F     Hannah Austria    43   81351 0.000529
+5  1988 F     Hannah Austria    50   82545 0.000606
+6  1989 F     Hannah Austria    64   82492 0.000776</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="combine-two-data-frames" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="combine-two-data-frames"><span class="header-section-number">5</span> Combine two data frames</h2>
+<p>Now we can combine the 2 data frames. We’ll learn about dplyr verbs that work on two data frames. Until now, all verbs (filter, mutate, summarise, rename, recode) manipulated only one data frame.</p>
+<ul>
+<li>We will use the function <code>full_join</code>: it
+<ul>
 <li>R looks for column they have in common</li>
 <li>then looks for rows that have the same matching values</li>
 <li>combines them into a new data frame, including all the other columns from both data frames</li>
 </ul></li>
+<li><code>full_join()</code> is one of 4 Mutating joins. It keeps all observations from both data frames.</li>
+<li>Check out inner_join, right_join, and left_join with the Examples provided in the help on <code>?full_join</code> when you have a moment. It takes a bit of time to understand them.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_usa_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 6
-   year sex   name       n       prop country
-  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;      &lt;dbl&gt; &lt;fct&gt;  
-1  1985 F     Hannah  2448 0.00133    USA    
-2  1985 M     Hannah     8 0.00000416 USA    
-3  1986 F     Hannah  3385 0.00183    USA    
-4  1986 M     Hannah    12 0.00000625 USA    
-5  1987 F     Hannah  4592 0.00245    USA    
-6  1987 M     Hannah    26 0.0000133  USA    </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_aut_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>data_combined <span class="ot">&lt;-</span> data_usa_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(data_aut_clean) </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 7
-   year sex   name   country     n n_births  prop
-  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;fct&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
-1  1984 F     Hannah Austria    11       11     1
-2  1985 F     Hannah Austria    16       16     1
-3  1986 F     Hannah Austria    19       19     1
-4  1987 F     Hannah Austria    43       43     1
-5  1988 F     Hannah Austria    50       50     1
-6  1989 F     Hannah Austria    64       64     1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>data_combined <span class="ot">&lt;-</span> data_usa_clean <span class="sc">%&gt;%</span> </span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(data_aut_clean) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(year)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>data_combined</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 104 × 7
-    year sex   name       n       prop country n_births
-   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;      &lt;dbl&gt; &lt;fct&gt;      &lt;dbl&gt;
- 1  1984 F     Hannah    11 1          Austria       11
- 2  1985 F     Hannah  2448 0.00133    USA           NA
- 3  1985 M     Hannah     8 0.00000416 USA           NA
- 4  1985 F     Hannah    16 1          Austria       16
- 5  1986 F     Hannah  3385 0.00183    USA           NA
- 6  1986 M     Hannah    12 0.00000625 USA           NA
- 7  1986 F     Hannah    19 1          Austria       19
- 8  1987 F     Hannah  4592 0.00245    USA           NA
- 9  1987 M     Hannah    26 0.0000133  USA           NA
-10  1987 F     Hannah    43 1          Austria       43
-# ℹ 94 more rows</code></pre>
+   year sex   name       n       prop country n_total
+  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+1  1984 F     Hannah  2266 0.00126    USA          NA
+2  1984 M     Hannah    14 0.00000746 USA          NA
+3  1985 F     Hannah  2448 0.00133    USA          NA
+4  1985 M     Hannah     8 0.00000416 USA          NA
+5  1986 F     Hannah  3385 0.00183    USA          NA
+6  1986 M     Hannah    12 0.00000625 USA          NA</code></pre>
 </div>
 </div>
+<ul>
+<li>To see data points from both countries, you could sort values by year using <code>arrange()</code>.</li>
+<li>In addition, lets transform the columns sex and country into categorical variables (factors).</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(data_combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>data_combined <span class="ot">&lt;-</span> data_usa_clean <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># join the two data frames</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(data_aut_clean) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sort by year</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(year)<span class="sc">%&gt;%</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># transform sex into a factor</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">factor</span>(sex)) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># transform country into a factor with 2 levels:</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">factor</span>(country))</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 7
-   year sex   name       n  prop country n_births
-  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;      &lt;dbl&gt;
-1  2017 F     Hannah   484     1 Austria      484
-2  2018 F     Hannah   434     1 Austria      434
-3  2019 F     Hannah   491     1 Austria      491
-4  2020 F     Hannah   501     1 Austria      501
-5  2021 F     Hannah   541     1 Austria      541
-6  2022 F     Hannah   467     1 Austria      467</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 7
-   year sex   name       n       prop country n_births
-  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;      &lt;dbl&gt; &lt;fct&gt;      &lt;dbl&gt;
-1  1984 F     Hannah    11 1          Austria       11
-2  1985 F     Hannah  2448 0.00133    USA           NA
-3  1985 M     Hannah     8 0.00000416 USA           NA
-4  1985 F     Hannah    16 1          Austria       16
-5  1986 F     Hannah  3385 0.00183    USA           NA
-6  1986 M     Hannah    12 0.00000625 USA           NA</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 104
-Columns: 7
-$ year     &lt;dbl&gt; 1984, 1985, 1985, 1985, 1986, 1986, 1986, 1987, 1987, 1987, 1…
-$ sex      &lt;chr&gt; "F", "F", "M", "F", "F", "M", "F", "F", "M", "F", "F", "M", "…
-$ name     &lt;chr&gt; "Hannah", "Hannah", "Hannah", "Hannah", "Hannah", "Hannah", "…
-$ n        &lt;dbl&gt; 11, 2448, 8, 16, 3385, 12, 19, 4592, 26, 43, 5559, 22, 50, 78…
-$ prop     &lt;dbl&gt; 1.00000000, 0.00132618, 0.00000416, 1.00000000, 0.00183464, 0…
-$ country  &lt;fct&gt; Austria, USA, USA, Austria, USA, USA, Austria, USA, USA, Aust…
-$ n_births &lt;dbl&gt; 11, NA, NA, 16, NA, NA, 19, NA, NA, 43, NA, NA, 50, NA, NA, 6…</code></pre>
+   year sex   name       n       prop country n_total
+  &lt;dbl&gt; &lt;fct&gt; &lt;chr&gt;  &lt;dbl&gt;      &lt;dbl&gt; &lt;fct&gt;     &lt;dbl&gt;
+1  1984 F     Hannah  2266 0.00126    USA          NA
+2  1984 M     Hannah    14 0.00000746 USA          NA
+3  1984 F     Hannah    11 0.000131   Austria   83856
+4  1985 F     Hannah  2448 0.00133    USA          NA
+5  1985 M     Hannah     8 0.00000416 USA          NA
+6  1985 F     Hannah    16 0.000194   Austria   82379</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      year          sex                name                 n           
- Min.   :1984   Length:104         Length:104         Min.   :    5.00  
- 1st Qu.:1993   Class :character   Class :character   1st Qu.:   22.75  
- Median :2002   Mode  :character   Mode  :character   Median :  435.00  
- Mean   :2002                                         Mean   : 3891.19  
- 3rd Qu.:2010                                         3rd Qu.: 6446.00  
- Max.   :2022                                         Max.   :23080.00  
-                                                                        
-      prop              country      n_births    
- Min.   :0.0000024   Austria:39   Min.   : 11.0  
- 1st Qu.:0.0000124   USA    :65   1st Qu.:120.0  
- Median :0.0066527                Median :434.0  
- Mean   :0.3769085                Mean   :328.4  
- 3rd Qu.:1.0000000                3rd Qu.:465.0  
- Max.   :1.0000000                Max.   :541.0  
-                                  NA's   :65     </code></pre>
+<pre><code>      year      sex        name                 n              prop          
+ Min.   :1984   F:68   Length:101         Min.   :    5   Min.   :2.450e-06  
+ 1st Qu.:1992   M:33   Class :character   1st Qu.:   22   1st Qu.:1.143e-05  
+ Median :2000          Mode  :character   Median :  429   Median :3.112e-03  
+ Mean   :2000                             Mean   : 4005   Mean   :3.396e-03  
+ 3rd Qu.:2009                             3rd Qu.: 6566   3rd Qu.:6.067e-03  
+ Max.   :2017                             Max.   :23080   Max.   :1.157e-02  
+                                                                             
+    country      n_total     
+ Austria:34   Min.   :64431  
+ USA    :67   1st Qu.:67446  
+              Median :77189  
+              Mean   :75747  
+              3rd Qu.:82372  
+              Max.   :85333  
+              NA's   :67     </code></pre>
 </div>
 </div>
+<p>Finally, you might want to drop the column n_total, which only has values for Austria. You can do this with <code>select()</code>:</p>
+<ul>
+<li>It selects the columns you list.</li>
+<li>if you add a minus, it deletes the columns you list</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>data_combined <span class="ot">&lt;-</span> data_usa_clean <span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># join the two data frames</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(data_aut_clean) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sort by year</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(year)<span class="sc">%&gt;%</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># transform sex into a factor</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">factor</span>(sex)) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># transform country into a factor with 2 levels:</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">factor</span>(country)) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>n_total) <span class="co"># to delete multiple columns: -c("column_1", "column_2")</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>data_combined</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      year          sex                name                 n           
- Min.   :1984   Length:104         Length:104         Min.   :    5.00  
- 1st Qu.:1993   Class :character   Class :character   1st Qu.:   22.75  
- Median :2002   Mode  :character   Mode  :character   Median :  435.00  
- Mean   :2002                                         Mean   : 3891.19  
- 3rd Qu.:2010                                         3rd Qu.: 6446.00  
- Max.   :2022                                         Max.   :23080.00  
-                                                                        
-      prop              country      n_births    
- Min.   :0.0000024   Austria:39   Min.   : 11.0  
- 1st Qu.:0.0000124   USA    :65   1st Qu.:120.0  
- Median :0.0066527                Median :434.0  
- Mean   :0.3769085                Mean   :328.4  
- 3rd Qu.:1.0000000                3rd Qu.:465.0  
- Max.   :1.0000000                Max.   :541.0  
-                                  NA's   :65     </code></pre>
+<pre><code># A tibble: 101 × 6
+    year sex   name       n       prop country
+   &lt;dbl&gt; &lt;fct&gt; &lt;chr&gt;  &lt;dbl&gt;      &lt;dbl&gt; &lt;fct&gt;  
+ 1  1984 F     Hannah  2266 0.00126    USA    
+ 2  1984 M     Hannah    14 0.00000746 USA    
+ 3  1984 F     Hannah    11 0.000131   Austria
+ 4  1985 F     Hannah  2448 0.00133    USA    
+ 5  1985 M     Hannah     8 0.00000416 USA    
+ 6  1985 F     Hannah    16 0.000194   Austria
+ 7  1986 F     Hannah  3385 0.00183    USA    
+ 8  1986 M     Hannah    12 0.00000625 USA    
+ 9  1986 F     Hannah    19 0.000232   Austria
+10  1987 F     Hannah  4592 0.00245    USA    
+# ℹ 91 more rows</code></pre>
 </div>
 </div>
-<p>Next, we want to again only keep lines with your name (or the name “Page) using a <code>filter()</code> call exactly as we did before.</p>
 </section>
-</section>
-<section id="statistics" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="statistics"><span class="header-section-number">4</span> Statistics</h2>
-<section id="t-test" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="t-test"><span class="header-section-number">4.1</span> T-test</h3>
-<p>Is your name more popular in Austria or the USA?</p>
+<section id="figures-script" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="figures-script"><span class="header-section-number">6</span> Figures script</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># analysis</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>aut_names <span class="ot">&lt;-</span> <span class="fu">filter</span>(data_combined, country <span class="sc">==</span> <span class="st">"Austria"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(prop)</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>us_names <span class="ot">&lt;-</span> <span class="fu">filter</span>(data_combined, country <span class="sc">==</span> <span class="st">"USA"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(prop)</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(prop <span class="sc">~</span> country, <span class="at">data =</span> data_combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_combined, <span class="fu">aes</span>(country, prop, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"dodgerblue"</span>)) <span class="sc">+</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Country"</span>, <span class="at">y =</span> <span class="st">"Proportion"</span>) <span class="sc">+</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">family =</span> <span class="st">"Times"</span>))<span class="sc">+</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Popularity of the name </span><span class="sc">\"</span><span class="st">Hannah</span><span class="sc">\"</span><span class="st"> by country and sex"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Lesson4_files/figure-html/pet-plot-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Figure 1. Scores by pet type and country.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>In Austria, there are no men with the name Hannah.</li>
+<li>In the US, there are very few.</li>
+</ul>
+</section>
+<section id="statistics-script" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="statistics-script"><span class="header-section-number">7</span> Statistics script</h2>
+<section id="t-test-by-country" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="t-test-by-country"><span class="header-section-number">7.1</span> T-test by country</h3>
+<p>Is your name more popular in Austria or the USA? Although this data is not normally distributed, I want to show you how to do a t-test:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t-test between countries</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(prop <span class="sc">~</span> country, <span class="at">data =</span> data_combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
 
 data:  prop by country
-t = 2158.6, df = 64, p-value &lt; 2.2e-16
+t = 1.9179, df = 87.086, p-value = 0.05841
 alternative hypothesis: true difference in means between group Austria and group USA is not equal to 0
 95 percent confidence interval:
- 0.9960238 0.9978691
+ -4.481698e-05  2.510436e-03
 sample estimates:
 mean in group Austria     mean in group USA 
-          1.000000000           0.003053536 </code></pre>
+          0.004214066           0.002981257 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>names_test <span class="ot">=</span> <span class="fu">t.test</span>(prop <span class="sc">~</span> country, <span class="at">data =</span> data_combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Table with pets dataset</p>
+<ul>
+<li>You can see that “Hannah” is more popular in Austria compared to the US.</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>summary_table <span class="ot">&lt;-</span> data_combined <span class="sc">%&gt;%</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country, sex) <span class="sc">%&gt;%</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(), </span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_proportion =</span> <span class="fu">mean</span>(prop), </span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_percent =</span> mean_proportion<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="co"># print</span></span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>summary_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t-test between men and women</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(prop <span class="sc">~</span> sex, <span class="at">data =</span> data_combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  prop by sex
+t = 13.781, df = 67.002, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means between group F and group M is not equal to 0
+95 percent confidence interval:
+ 0.004301650 0.005758776
+sample estimates:
+mean in group F mean in group M 
+   5.039797e-03    9.583939e-06 </code></pre>
+</div>
+</div>
+<ul>
+<li>You can see that “Hannah” is much more frequent in females than males.</li>
+</ul>
+</section>
+<section id="multifactorial-anova-difference-in-name-popularity-by-sex-and-country" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="multifactorial-anova-difference-in-name-popularity-by-sex-and-country"><span class="header-section-number">7.2</span> Multifactorial ANOVA: Difference in name popularity by sex and country</h3>
+<p>If you want to investigate if your name is more popular for men or women, and if this difference varies across countries, you could run an ANOVA (analysis of variance) with two factors (sex and country).</p>
+<p>I recommend using the package “ez” for this. Load it at the top of your statistics script.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install in the console</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ez"</span>)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># In your script: </span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ez)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For an ANOVA, you need your data in a wide format, that is, a separate column for Austria and the US, and for the two sexes.</p>
+<ul>
+<li>For this, you can use the function <code>pivot_wider()</code> from the tidyverse package <code>tidyr</code>.</li>
+<li>Install the package, and load the library at the start of your statistics script.</li>
+</ul>
+<p>Continue lesson preparation here.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(data_combined, <span class="at">id_cols =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"name"</span>), <span class="at">names_from =</span> <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"sex"</span>), <span class="at">values_from =</span> <span class="st">"prop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 34 × 5
+    year name     USA_F      USA_M Austria_F
+   &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
+ 1  1984 Hannah 0.00126 0.00000746  0.000131
+ 2  1985 Hannah 0.00133 0.00000416  0.000194
+ 3  1986 Hannah 0.00183 0.00000625  0.000232
+ 4  1987 Hannah 0.00245 0.0000133   0.000529
+ 5  1988 Hannah 0.00289 0.0000110   0.000606
+ 6  1989 Hannah 0.00393 0.0000220   0.000776
+ 7  1990 Hannah 0.00500 0.0000135   0.000840
+ 8  1991 Hannah 0.00530 0.0000108   0.000892
+ 9  1992 Hannah 0.00573 0.00000572  0.00140 
+10  1993 Hannah 0.00634 0.0000092   0.00135 
+# ℹ 24 more rows</code></pre>
+</div>
+</div>
+<p>After your other analyses, you can add the ANOVA in your statistics script:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # ezANOVA</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ezANOVA(data = data_combined,</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="co">#         dv = prop,</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co">#         wid = year,</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="co">#         between = .("sex", "country"),</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="co">#         type = 3)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="make-a-table-with-statistics-and-export" class="level3" data-number="7.3">
+<h3 data-number="7.3" class="anchored" data-anchor-id="make-a-table-with-statistics-and-export"><span class="header-section-number">7.3</span> Make a table with statistics and export:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>summary_table <span class="ot">&lt;-</span> data_combined <span class="sc">%&gt;%</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country, sex) <span class="sc">%&gt;%</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(), </span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_proportion =</span> <span class="fu">mean</span>(prop), </span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_percent =</span> mean_proportion<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a><span class="co"># print</span></span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>summary_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 5
 # Groups:   country [2]
   country sex       n mean_proportion mean_percent
-  &lt;fct&gt;   &lt;chr&gt; &lt;int&gt;           &lt;dbl&gt;        &lt;dbl&gt;
-1 Austria F        39      1            100       
-2 USA     F        33      0.00601        0.601   
-3 USA     M        32      0.00000965     0.000965</code></pre>
+  &lt;fct&gt;   &lt;fct&gt; &lt;int&gt;           &lt;dbl&gt;        &lt;dbl&gt;
+1 Austria F        34      0.00421        0.421   
+2 USA     F        34      0.00587        0.587   
+3 USA     M        33      0.00000958     0.000958</code></pre>
 </div>
 </div>
-<p>plot with pets dataset</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(pets, aes(pet, score, fill = country)) +</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_violin(alpha = 0.5) +</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_boxplot(width = 0.25, </span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co">#                position = position_dodge(width = 0.9),</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="co">#                show.legend = FALSE) +</span></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   scale_fill_manual(values = c("orange", "dodgerblue")) +</span></span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   labs(x = "", y = "Score") +</span></span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   theme(text = element_text(size = 20, family = "Times"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="anova-of-sex-by-country" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="anova-of-sex-by-country"><span class="header-section-number">4.2</span> Anova of sex by country</h3>
 </section>
 </section>
 

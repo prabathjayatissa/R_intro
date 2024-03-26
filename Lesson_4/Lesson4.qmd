@@ -23,35 +23,34 @@ library(ez)
 library(tidyr)
 ```
 
-
 ## Project for extension of lesson 3: Comparison of babynames in Austria and the US
 
-What about baby names in Austria? 
+What about baby names in Austria?
 
-- Below, we read in data from Austria, make it comparable to the US data set, and then run a t-test to compare the popularity of baby names in the two countries. 
+-   Below, we read in data from Austria, make it comparable to the US data set, and then run a t-test to compare the popularity of baby names in the two countries.
 
-## Reading in and looking at data 
+## Reading in and looking at data
 
 ### Data from Austria
 
-- I downloaded data about given names in Austria from 1984 to 2022 from [data.bv.at](https://www.data.gv.at/katalog/de/dataset/stat_vornamen#resources). Download the first file from there and put it into your data folder.
+-   I downloaded data about given names in Austria from 1984 to 2022 from [data.bv.at](https://www.data.gv.at/katalog/de/dataset/stat_vornamen#resources). Download the first file from there and put it into your data folder.
 
-Continue working in your cleaning script from lesson 3, in the \# READ DATA \#### section. 
+Continue working in your cleaning script from lesson 3, in the \# READ DATA \#### section.
 
-- To read the Austrian data, try the function `csv()`. 
-- Add this after the lines that read in the data from the USA. 
+-   To read the Austrian data, try the function `csv()`.
+-   Add this after the lines that read in the data from the USA.
 
 ```{r}
 data_aut <- readr::read_csv('data/OGDEXT_VORNAMEN_1.csv')
 head(data_aut)
 ```
 
-You can see that the data was not read in correctly. Why? 
+You can see that the data was not read in correctly. Why?
 
-- Cells in CSV-files are most commonly separated by a comma, with the point used for the decimal point. 
-- In some European countries (including Austria) cells are instead separated by a semicolon, and a comma used as the decimal point. 
-- Here, you can see that these data from Austria are indeed separated by a semicolon. 
-- If you check the help section for `?read_csv`, you see that you can use the function `read_csv2()` to read in CSV-files with the field separator `;`.
+-   Cells in CSV-files are most commonly separated by a comma, with the point used for the decimal point.
+-   In some European countries (including Austria) cells are instead separated by a semicolon, and a comma used as the decimal point.
+-   Here, you can see that these data from Austria are indeed separated by a semicolon.
+-   If you check the help section for `?read_csv`, you see that you can use the function `read_csv2()` to read in CSV-files with the field separator `;`.
 
 ```{r}
 data_aut <- readr::read_csv2('data/OGDEXT_VORNAMEN_1.csv')
@@ -70,25 +69,26 @@ data_usa = readr::read_tsv("data/lesson2_data_babynames.txt")
 
 To get an overview of this new data set, you could use any of the following functions:
 
-- You know `glimpse()` from lesson 3. 
+-   You know `glimpse()` from lesson 3.
 
 ```{r}
 dplyr::glimpse(data_aut)
 ```
 
-- summary() shows us that the earliest year in the data is 1984, the latest one 2022.
-  - It also shows us that the column "Geschlecht" (sex) is not yet coded as a categorical variable.
+-   summary() shows us that the earliest year in the data is 1984, the latest one 2022.
+    -   It also shows us that the column "Geschlecht" (sex) is not yet coded as a categorical variable.
 
 ```{r}
 summary(data_aut)
 ```
-- The function `View()` opens the data in an extra window.
+
+-   The function `View()` opens the data in an extra window.
 
 ```{r, eval = F}
 View(data_aut)
 ```
 
-- The function `str()` shows you the structure of the data set.
+-   The function `str()` shows you the structure of the data set.
 
 ```{r}
 str(data_aut) 
@@ -104,10 +104,10 @@ Let's use more useful column names for coding, and choose the same names as in t
 names(data_usa)
 ```
 
-We can use the `dplyr::rename()`function to change column names. 
+We can use the `dplyr::rename()`function to change column names.
 
-- You simply assign each old variable name (in quotation marks) to the new variable name. 
-- Add the following in your \# CLEAN DATA \#### section:
+-   You simply assign each old variable name (in quotation marks) to the new variable name.
+-   Add the following in your \# CLEAN DATA \#### section:
 
 ```{r}
 data_aut_clean <- data_aut %>%
@@ -128,7 +128,7 @@ summary(data_usa)
 summary(data_aut_clean)
 ```
 
-Let's keep only years we have in both datasets. First, filtering the Austrian dataset: 
+Let's keep only years we have in both datasets. First, filtering the Austrian dataset:
 
 ```{r}
 data_aut_clean <- data_aut %>%
@@ -145,7 +145,7 @@ data_aut_clean <- data_aut %>%
 summary(data_aut_clean)
 ```
 
-- Next, filter out all years before 1984 from the USA data set: 
+-   Next, filter out all years before 1984 from the USA data set:
 
 ```{r}
 data_usa_clean = data_usa %>% 
@@ -155,24 +155,23 @@ data_usa_clean = data_usa %>%
 summary(data_usa_clean)
 ```
 
-
 ### Changing the format of columns
 
 To run tests comparing both countries, we need to join both data frames into one. There are several steps to prepare our data sets for this.
 
-- First, columns in both data frames need the same format. 
-- The US data had the following formats (see second column):
+-   First, columns in both data frames need the same format.
+-   The US data had the following formats (see second column):
 
 ```{r}
 dplyr::glimpse(data_usa_clean)
 ```
 
-So, in the Austrian data, we need sex to be a character vector with levels "M" and "F" instead of "1" and "2". 
+So, in the Austrian data, we need sex to be a character vector with levels "M" and "F" instead of "1" and "2".
 
-- We will use the `ifelse()` function, within a `mutate()` call to transform the variable `sex`.
-- If you check the help for `?ifelse`, the Usage section shows you how to use it: `ifelse(test, yes, no)`. 
-- The arguments for the `ifelse()` function start with a condition (rows where the column sex is equal to "1"), then specifies what happens if the condition is met (use the label "M"), and then lists what should happen otherwise/else (use the label "F").
-- Now, add this as a last line to where you created `data_aut_clean`:
+-   We will use the `ifelse()` function, within a `mutate()` call to transform the variable `sex`.
+-   If you check the help for `?ifelse`, the Usage section shows you how to use it: `ifelse(test, yes, no)`.
+-   The arguments for the `ifelse()` function start with a condition (rows where the column sex is equal to "1"), then specifies what happens if the condition is met (use the label "M"), and then lists what should happen otherwise/else (use the label "F").
+-   Now, add this as a last line to where you created `data_aut_clean`:
 
 ```{r}
 data_aut_clean <- data_aut %>% 
@@ -193,9 +192,9 @@ glimpse(data_aut_clean)
 
 ### Create a new variable
 
-Next, we need to tell statistics from Austria and the US apart, once they are in a joint data frame. Therefore, let's add a variable that identifies the country. 
+Next, we need to tell statistics from Austria and the US apart, once they are in a joint data frame. Therefore, let's add a variable that identifies the country.
 
-- We use `rep()` to repeat "Austria" n times, and set `nrow()` to the number of rows of the Austrian data.
+-   We use `rep()` to repeat "Austria" n times, and set `nrow()` to the number of rows of the Austrian data.
 
 ```{r}
 data_aut_clean <- data_aut %>% 
@@ -213,10 +212,10 @@ data_aut_clean <- data_aut %>%
   mutate(country = rep("Austria", n=nrow(data_aut)))
 ```
 
-Now, let's repeat this step for the USA data. Just add a line to where you started to clean the US data: 
+Now, let's repeat this step for the USA data. Just add a line to where you started to clean the US data:
 
 ```{r}
-data_usa_clean = data %>%
+data_usa_clean = data_usa %>%
   #keep only years from 1984 on
   filter(year > 1983) %>% 
 
@@ -224,18 +223,17 @@ data_usa_clean = data %>%
   mutate(country = rep("USA", n=nrow(babynames)))
 ```
 
+### Grouping data and summarising statistics
 
-### Grouping data and summarising statistics 
+The US data did not separate names per living district.
 
-The US data did not separate names per living district. 
-
-- To make our Austrian data similar, let's group names across districts, so that we get the total number of names per year and sex.
-- Using `group_by()` first group the data by year, sex and name, because we want the total n for each of these combined categories. 
-  - We also add the column country, because we want to keep it, although it does not create any additional grouping.
-- We then `summarise()` the data by calculating the `sum()` of the number of names (n).
-  - `summarise()` is similar to `mutate()`, but creates one line of output per group. Here, it collapses across districts, reducing the row number for each name. 
-  - `mutate()` creates as many lines of output as input.
-- Finally, we `ungroup()` the data again. 
+-   To make our Austrian data similar, let's group names across districts, so that we get the total number of names per year and sex.
+-   Using `group_by()` first group the data by year, sex and name, because we want the total n for each of these combined categories.
+    -   We also add the column country, because we want to keep it, although it does not create any additional grouping.
+-   We then `summarise()` the data by calculating the `sum()` of the number of names (n).
+    -   `summarise()` is similar to `mutate()`, but creates one line of output per group. Here, it collapses across districts, reducing the row number for each name.
+    -   `mutate()` creates as many lines of output as input.
+-   Finally, we `ungroup()` the data again.
 
 ```{r}
 data_aut_clean <- data_aut %>% 
@@ -256,13 +254,14 @@ data_aut_clean <- data_aut %>%
   summarise(n = sum(n)) %>%
   ungroup()
 ```
+
 Finally, we also want to calculate the proportion variable that exists in the US data set (propotion of babies getting each name).
 
-- N, the total number of babies, is obviously different because the US is larger. 
-- Using the proportion allows us to meaningfully compare the popularity of names between countries.
-- We first want to calculate the sum of all babies born in each year (`n_total`), and then divide n of each name by the years' total. 
-- To calculate the sum per year, we again use `group_by()`, grouping only by year. 
-  - We again add country, also this does not create a group, to keep country variable. 
+-   N, the total number of babies, is obviously different because the US is larger.
+-   Using the proportion allows us to meaningfully compare the popularity of names between countries.
+-   We first want to calculate the sum of all babies born in each year (`n_total`), and then divide n of each name by the years' total.
+-   To calculate the sum per year, we again use `group_by()`, grouping only by year.
+    -   We again add country, also this does not create a group, to keep country variable.
 
 ```{r}
 data_aut_clean <- data_aut %>% 
@@ -290,11 +289,12 @@ data_aut_clean <- data_aut %>%
 
 head(data_aut_clean)
 ```
-# Filter out your name
 
-Once this is done, you can again filter out your own name (or the name "Hannah") by adding another filter() call to each of the data sets. After this, the cleaning and data organizing is finished~
+### Filter out your name
 
-Austrian data set complete data cleaning and organizing: 
+Once this is done, you can again filter out your own name (or the name "Hannah") by adding another filter() call to each of the data sets. After this, the cleaning and data organizing is finished\~
+
+Austrian data set complete data cleaning and organizing:
 
 ```{r}
 data_aut_clean <- data_aut %>% 
@@ -323,10 +323,10 @@ data_aut_clean <- data_aut %>%
   filter(name == "Hannah")
 ```
 
-USA data set complete data cleaning and organizing: 
+USA data set complete data cleaning and organizing:
 
 ```{r}
-data_usa_clean = data_clean %>%
+data_usa_clean = data_usa %>%
   #keep only years from 1984 on
   filter(year > 1983) %>% 
   #Create a country variable for the US
@@ -336,8 +336,7 @@ data_usa_clean = data_clean %>%
   filter(name == "Hannah")
 ```
 
-
-Have a look at both organized data sets: 
+Have a look at both organized data sets:
 
 ```{r}
 head(data_usa_clean)
@@ -346,14 +345,14 @@ head(data_aut_clean)
 
 ## Combine two data frames
 
-Now we can combine the 2 data frames. We'll learn about dplyr verbs that work on two data frames. Until now, all verbs (filter, mutate, summarise, rename, recode) manipulated only one data frame. 
+Now we can combine the 2 data frames. We'll learn about dplyr verbs that work on two data frames. Until now, all verbs (filter, mutate, summarise, rename, recode) manipulated only one data frame.
 
-- We will use the function `full_join`: it 
+-   We will use the function `full_join`: it
     -   R looks for column they have in common
     -   then looks for rows that have the same matching values
     -   combines them into a new data frame, including all the other columns from both data frames
-- `full_join()` is one of 4 Mutating joins. It keeps all observations from both data frames.
-- Check out inner_join, right_join, and left_join with the Examples provided in the help on `?full_join` when you have a moment. It takes a bit of time to understand them. 
+-   `full_join()` is one of 4 Mutating joins. It keeps all observations from both data frames.
+-   Check out inner_join, right_join, and left_join with the Examples provided in the help on `?full_join` when you have a moment. It takes a bit of time to understand them.
 
 ```{r}
 data_combined <- data_usa_clean %>% 
@@ -361,8 +360,8 @@ data_combined <- data_usa_clean %>%
 head(data_combined)
 ```
 
-- To see data points from both countries, you could sort values by year using `arrange()`. 
-- In addition, lets transform the columns sex and country into categorical variables (factors). 
+-   To see data points from both countries, you could sort values by year using `arrange()`.
+-   In addition, lets transform the columns sex and country into categorical variables (factors).
 
 ```{r}
 data_combined <- data_usa_clean %>%
@@ -378,11 +377,10 @@ head(data_combined)
 summary(data_combined)
 ```
 
-Finally, you might want to drop the column n_total, which only has values for Austria. You can do this with `select()`: 
+Finally, you might want to drop the column n_total, which only has values for Austria. You can do this with `select()`:
 
-- It selects the columns you list. 
-- if you add a minus, it deletes the columns you list
-
+-   It selects the columns you list.
+-   if you add a minus, it deletes the columns you list
 
 ```{r}
 data_combined <- data_usa_clean %>%
@@ -397,6 +395,7 @@ data_combined <- data_usa_clean %>%
   select(-n_total) # to delete multiple columns: -c("column_1", "column_2")
 data_combined
 ```
+
 ## Figures script
 
 ```{r pet-plot, fig.cap="Figure 1. Scores by pet type and country."}
@@ -408,34 +407,35 @@ ggplot(data_combined, aes(country, prop, fill = sex)) +
   theme_bw()+
   ggtitle("Popularity of the name \"Hannah\" by country and sex")
 ```
-- In Austria, there are no men with the name Hannah. 
-- In the US, there are very few. 
+
+-   In Austria, there are no men with the name Hannah.
+-   In the US, there are very few.
 
 ## Statistics script
 
 ### T-test by country
 
-Is your name more popular in Austria or the USA? Although this data is not normally distributed, I want to show you how to do a t-test: 
+Is your name more popular in Austria or the USA? Although this data is not normally distributed, I want to show you how to do a t-test:
 
 ```{r}
 # t-test between countries
 t.test(prop ~ country, data = data_combined)
 ```
 
-- You can see that "Hannah" is more popular in Austria compared to the US.  
+-   You can see that "Hannah" is more popular in Austria compared to the US.
 
 ```{r}
 # t-test between men and women
 t.test(prop ~ sex, data = data_combined)
 ```
 
-- You can see that "Hannah" is much more frequent in females than males. 
+-   You can see that "Hannah" is much more frequent in females than males.
 
 ### Multifactorial ANOVA: Difference in name popularity by sex and country
 
-If you want to investigate if your name is more popular for men or women, and if this difference varies across countries, you could run an ANOVA (analysis of variance) with two factors (sex and country). 
+If you want to investigate if your name is more popular for men or women, and if this difference varies across countries, you could run an ANOVA (analysis of variance) with two factors (sex and country).
 
-I recommend using the package "ez" for this. Load it at the top of your statistics script.  
+I recommend using the package "ez" for this. Load it at the top of your statistics script.
 
 ```{r, eval = F}
 # Install in the console
@@ -445,32 +445,30 @@ install.packages("ez")
 library(ez)
 ```
 
-For an ANOVA, you need your data in a wide format, that is, a separate column for Austria and the US. 
+For an ANOVA, you need your data in a wide format, that is, a separate column for Austria and the US, and for the two sexes.
 
+-   For this, you can use the function `pivot_wider()` from the tidyverse package `tidyr`.
+-   Install the package, and load the library at the start of your statistics script.
 
-Continue lesson preparation here. 
-
-```{r}
-tidyr::pivot_wider(data_combined, id_cols = c("year", "sex"), names_from = "country", values_from = "prop")
-```
-
-
-After your other analyses, you can add the ANOVA in your statistics script: 
+Continue lesson preparation here.
 
 ```{r}
-# ezANOVA
-ezANOVA(data = data_combined,
-        dv = prop,
-        wid = year,
-        between = .("sex", "country"),
-        type = 3)
+tidyr::pivot_wider(data_combined, id_cols = c("year", "name"), names_from = c("country", "sex"), values_from = "prop")
+```
+
+After your other analyses, you can add the ANOVA in your statistics script:
+
+```{r}
+# # ezANOVA
+# ezANOVA(data = data_combined,
+#         dv = prop,
+#         wid = year,
+#         between = .("sex", "country"),
+#         type = 3)
 
 ```
 
-
-
-
-Table with pets dataset
+### Make a table with statistics and export:
 
 ```{r}
 summary_table <- data_combined %>%
@@ -484,8 +482,3 @@ summary_table <- data_combined %>%
 # print
 summary_table
 ```
-
-
-
-
-
