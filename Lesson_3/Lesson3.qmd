@@ -284,7 +284,7 @@ This distribution is more or less normal. We can go ahead and focus on figures f
 
 Our first research question was: How did the popularity of the name, “Page” change over time?
 
-::: {.callout-caution}
+::: callout-caution
 #### Exercise
 
 -   Which 2 variables do we need to plot to look at this?
@@ -301,7 +301,7 @@ year.plot = ggplot(data_figs, aes(x = year, y = prop_log10)) +
 year.plot
 ```
 
-::: {.callout-caution}
+::: callout-caution
 #### Exercise
 
 -   Is there an effect of year on time?
@@ -394,8 +394,9 @@ sex.plot
 # ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)
 ```
 
-:::{.callout-caution}
+::: callout-caution
 #### To do
+
 The figure script is done. Save it, commit to Git, and push to GitHub!
 :::
 
@@ -413,8 +414,7 @@ The basic equation of linear regression is:
 
 ### Continuous predictor
 
-Let's see an example for a continuous predictor: How does the weight of chicks change over time? 
-As more time passes, the weight increases.
+Let's see an example for a continuous predictor: How does the weight of chicks change over time? As more time passes, the weight increases.
 
 ```{r, chickweight scatterplot, echo = F, fig.width = 4, fig.asp = 1}
 #ChickWeight dataset
@@ -427,7 +427,7 @@ ggplot(ChickWeight, aes(y = weight, x =  Time))+
   ggtitle("Chick Weight over Time")
 ```
 
-We can add a line to show the increase: 
+We can add a line to show the increase:
 
 ```{r, chickweight scatterplot line, echo = F, fig.width = 4, fig.asp = 1}
 ggplot(ChickWeight, aes(y = weight, x =  Time))+
@@ -441,11 +441,10 @@ ggplot(ChickWeight, aes(y = weight, x =  Time))+
 
 Let's pick a specific data point (red square in the Figure below).
 
-- In red, you see the x and y values for the data point (y=200g, x = 12 days). 
-- In yellow, you see the intercept a: the weight (y) when days (x) are 0. 
-- In purple, you see the slope b, telling you how much weight a chick gains on average on 1 day (here from day 5 to 6)
-- In green, you see the residual for the data point: The difference between model prediction and the actual data. 
-
+-   In red, you see the x and y values for the data point (y=200g, x = 12 days).
+-   In yellow, you see the intercept a: the weight (y) when days (x) are 0.
+-   In purple, you see the slope b, telling you how much weight a chick gains on average on 1 day (here from day 5 to 6)
+-   In green, you see the residual for the data point: The difference between model prediction and the actual data.
 
 ```{r, echo = F, fig.height=7}
 knitr::include_graphics('images/scatterplot_labels.svg')
@@ -453,53 +452,53 @@ knitr::include_graphics('images/scatterplot_labels.svg')
 
 ### Running linear regression in R
 
-- The notation for a linear regression in R is: `lm (y \~ x)`
-- In the chick weight example above, this would be: `lm(weight \~ Time)`
-- To see the output of the model, we use `summary(model)`. 
+-   The notation for a linear regression in R is: `lm (y \~ x)`
+-   In the chick weight example above, this would be: `lm(weight \~ Time)`
+-   To see the output of the model, we use `summary(model)`.
 
 ```{r}
 chicks.lm = lm(weight ~ Time, data = ChickWeight)
 summary(chicks.lm)
 ```
 
-- The intercept a is at 27 gram: where the blue line crosses the y-axis in the Figure above. 
-- The slope b for the predictor Time is 8.8 gram: chicks grow by 8.8 g on average per day (the vertical part of the purple triangle).
+-   The intercept a is at 27 gram: where the blue line crosses the y-axis in the Figure above.
+-   The slope b for the predictor Time is 8.8 gram: chicks grow by 8.8 g on average per day (the vertical part of the purple triangle).
 
 ### Categorical predictor
 
-What if x is categorical? 
+What if x is categorical?
 
 **a = bx**
 
-| -- | Continuous Predictor | Categorical Predictor | 
-| -- |---------|:-----|
-| x | a set of continuous data points| a set of binary/categorical data points   | 
-| a | the value of y when x is 0     | the value of y when x is the default level  |  
-| b | the change in y for one change in x       | the change in y when x is the non-default level    | 
+| --  | Continuous Predictor                | Categorical Predictor                           |
+|-----|-------------------------------------|:------------------------------------------------|
+| x   | a set of continuous data points     | a set of binary/categorical data points         |
+| a   | the value of y when x is 0          | the value of y when x is the default level      |
+| b   | the change in y for one change in x | the change in y when x is the non-default level |
 
-As an example, let's say chicks get 2 different diets: 
+As an example, let's say chicks get 2 different diets:
 
 ```{r, chickweight boxplot diet, echo = F, fig.width=4, fig.asp = 1}
-data = ChickWeight %>% 
+data_chicks = ChickWeight %>% 
   filter(Diet %in% c(1,2)) %>% 
   mutate(Diet = factor(Diet, levels = c(1,2), labels = c("Diet 1", "Diet 2")))
-ggplot(data, aes(y = weight, x =  Diet, fill = Diet))+
+ggplot(data_chicks, aes(y = weight, x =  Diet, fill = Diet))+
   geom_boxplot()+
   theme_bw()+
   theme(text = element_text(size = 12), legend.position = "none")+
   ggtitle("Chick Weight by Diet")
 ```
 
-- We can look at this as a collection of points. 
-- I have also added a line like before, from the mean of Diet 1, to the mean of Diet 2.
-- Finally, we need to change the labels of diets to values for our statistical analysis: 0 for the default, and 1 for the next level. 
+-   We can look at this as a collection of points.
+-   I have also added a line like before, from the mean of Diet 1, to the mean of Diet 2.
+-   Finally, we need to change the labels of diets to values for our statistical analysis: 0 for the default, and 1 for the next level.
 
 ```{r, chickweight scatterplot diet, echo = F, fig.width=4, fig.asp = 1}
 
-data = ChickWeight %>% 
+data_chicks = ChickWeight %>% 
   filter(Diet %in% c(1,2)) %>% 
   mutate(Diet = factor(Diet, levels = c(1,2), labels = c("0", "1")))
-ggplot(data, aes(y = weight, x =  Diet))+
+ggplot(data_chicks, aes(y = weight, x =  Diet))+
   geom_point()+
   stat_summary(fun.y=mean, geom="line", aes(group = 1))+
   theme_bw()+
@@ -508,17 +507,17 @@ ggplot(data, aes(y = weight, x =  Diet))+
 # ggsave('images/scatterplot_categorical.svg', width = 4, height = 4)
 ```
 
-Below, you see 
+Below, you see
 
-- x and y for a specific data point in red
-- the intercept a in yellow: the value of y (just above 100) when x is the default level (= 0, or Diet 1)
+-   x and y for a specific data point in red
+-   the intercept a in yellow: the value of y (just above 100) when x is the default level (= 0, or Diet 1)
 
 ```{r, echo = F, fig.height=7}
 knitr::include_graphics('images/scatterplot_categorical_intercept_yx.svg')
 ```
 
-- The slope b in purple: the average change in weight from Diet 1 (default level 0) to Diet 2 (level 1). 
-- The residual e of the specific data point in green. 
+-   The slope b in purple: the average change in weight from Diet 1 (default level 0) to Diet 2 (level 1).
+-   The residual e of the specific data point in green.
 
 ```{r, echo = F, fig.height=7}
 knitr::include_graphics('images/scatterplot_categorical_slope_residual.svg')
@@ -526,14 +525,13 @@ knitr::include_graphics('images/scatterplot_categorical_slope_residual.svg')
 
 #### Running this regression in R
 
-
 ```{r}
-diet.lm = lm(weight ~ Diet, data)
+diet.lm = lm(weight ~ Diet, data_chicks)
 summary(diet.lm)
 ```
 
-- The intercept a is 102 g: the mean weight of chicks eating Diet 1. 
-- The slope b is 19.97 g: the mean weight difference between the Diets, Diet 2 chicks are this much heavier. 
+-   The intercept a is 102 g: the mean weight of chicks eating Diet 1.
+-   The slope b is 19.97 g: the mean weight difference between the Diets, Diet 2 chicks are this much heavier.
 
 ## Statistics script
 
