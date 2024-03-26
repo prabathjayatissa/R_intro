@@ -447,8 +447,11 @@ library(ez)
 
 For an ANOVA, you need your data in a wide format, that is, a separate column for Austria and the US. 
 
+
+Continue lesson preparation here. 
+
 ```{r}
-tidyr::pivot_wider()
+tidyr::pivot_wider(data_combined, id_cols = c("year", "sex"), names_from = "country", values_from = "prop")
 ```
 
 
