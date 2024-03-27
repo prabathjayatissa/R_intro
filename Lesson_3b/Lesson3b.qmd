@@ -59,10 +59,11 @@ head(data_aut)
 
 ### Data from the US
 
-Here, I load again the baby names data set from lesson 3, and assign it to `data_usa`.
+Here, I load the baby names data set from lesson 3, but including all existing names, and assign it to `data_usa`.
 
 ```{r, read in US babynames data}
-data_usa = readr::read_tsv("data/lesson2_data_babynames.txt")
+data(babynames)
+data_usa = babynames
 ```
 
 ## Get an overview of the dataset
@@ -290,9 +291,11 @@ data_aut_clean <- data_aut %>%
 head(data_aut_clean)
 ```
 
-### Filter out your name
+### Filter out one name
 
-Once this is done, you can again filter out your own name (or the name "Hannah") by adding another filter() call to each of the data sets. After this, the cleaning and data organizing is finished\~
+Once this is done, you can again filter one name. I recommend taking a name that occurs in both men and women (like "Kim"), so the results of the ANOVA below make more sense.
+
+Add another filter() call to each of the data sets for this. After this, the cleaning and data organizing is finished.
 
 Austrian data set complete data cleaning and organizing:
 
@@ -320,7 +323,7 @@ data_aut_clean <- data_aut %>%
   ungroup() %>% 
   
   #filter out your name
-  filter(name == "Hannah")
+  filter(name == "Kim")
 ```
 
 USA data set complete data cleaning and organizing:
@@ -333,7 +336,7 @@ data_usa_clean = data_usa %>%
   mutate(country = rep("USA", n=nrow(data_usa))) %>% 
       
   #filter out your name
-  filter(name == "Hannah")
+  filter(name == "Kim")
 ```
 
 Have a look at both organized data sets:
@@ -355,6 +358,7 @@ Now we can combine the 2 data frames. We'll learn about dplyr verbs that work on
 -   Check out inner_join, right_join, and left_join with the Examples provided in the help on `?full_join` when you have a moment. It takes a bit of time to understand them.
 
 ```{r}
+# join the two data frames, keeping all columns and entries from both data frames
 data_combined <- data_usa_clean %>% 
   full_join(data_aut_clean) 
 head(data_combined)
@@ -377,7 +381,7 @@ head(data_combined)
 summary(data_combined)
 ```
 
-Finally, you might want to drop the column n_total, which only has values for Austria. You can do this with `select()`:
+You might want to drop the column n_total, which only has values for Austria. You can do this with `select()`:
 
 -   It selects the columns you list.
 -   if you add a minus, it deletes the columns you list
@@ -392,9 +396,13 @@ data_combined <- data_usa_clean %>%
   mutate(sex = factor(sex)) %>% 
   # transform country into a factor with 2 levels:
   mutate(country = factor(country)) %>% 
-  select(-n_total) # to delete multiple columns: -c("column_1", "column_2")
+  
+  # delete the column n_total
+  select(-n_total) #to delete multiple columns: -c("column_1", "column_2")
+
 data_combined
 ```
+
 
 ## Figures script
 
@@ -405,13 +413,16 @@ ggplot(data_combined, aes(country, prop, fill = sex)) +
   labs(x = "Country", y = "Proportion") +
   theme(text = element_text(size = 20, family = "Times"))+
   theme_bw()+
-  ggtitle("Popularity of the name \"Hannah\" by country and sex")
+  ggtitle("Popularity of the name \"Kim\" by country and sex")
 ```
 
--   In Austria, there are no men with the name Hannah.
--   In the US, there are very few.
+-   In both countries, there are more women than men with the name Kim (main effect of sex).
+-   There is also a main effect of country: in the USA, the name "Kim" is less popular than in Austria.
+-   In addition, there is an interaction: The difference in women named "Kim" between the two countries is larger than the difference for men.
 
 ## Statistics script
+
+Create a new script, and save it in your code folder for example as `03_statistics`. At the top of the script, read in the data from the cleaning script using the function `source()` as we did in lesson 3.
 
 ### T-test by country
 
@@ -422,18 +433,19 @@ Is your name more popular in Austria or the USA? Although this data is not norma
 t.test(prop ~ country, data = data_combined)
 ```
 
--   You can see that "Hannah" is more popular in Austria compared to the US.
+-   You can see that "Kim" is significantly more popular in Austria compared to the US.
 
 ```{r}
 # t-test between men and women
 t.test(prop ~ sex, data = data_combined)
 ```
 
--   You can see that "Hannah" is much more frequent in females than males.
+-   You can see that "Kim" is much more frequent in women than men.
 
-### Multifactorial ANOVA: Difference in name popularity by sex and country
+### Multi-factorial ANOVA: Difference in name popularity by sex and country
 
 If you want to investigate if your name is more popular for men or women, and if this difference varies across countries, you could run an ANOVA (analysis of variance) with two factors (sex and country).
+
 
 I recommend using the package "ez" for this. Load it at the top of your statistics script.
 
@@ -445,27 +457,68 @@ install.packages("ez")
 library(ez)
 ```
 
-For an ANOVA, you need your data in a wide format, that is, a separate column for Austria and the US, and for the two sexes.
+For an ANOVA, you need your data in a wide format, that is, a separate column for Austria and the US and this for each sex.
 
 -   For this, you can use the function `pivot_wider()` from the tidyverse package `tidyr`.
 -   Install the package, and load the library at the start of your statistics script.
-
-Continue lesson preparation here.
+-   Arguments of pivot_wider():
+    -   the data frame
+    -   id_cols: the column or columns that identify a single unique row in your data frame. This could by you participant ID. Here, it is each name per year.
+    -   names_from: the variables for which you want to create new columns (or column/variable names)
+    -   values_from: the value/variable you want to fill these columns with, here proportion (log transformed)
+-   Write the following code in your section for organizing data in the statistics script.
 
 ```{r}
-tidyr::pivot_wider(data_combined, id_cols = c("year", "name"), names_from = c("country", "sex"), values_from = "prop")
+## ORGANIZE DATA ####
+
+# create data frame in wide format
+data_combined_wide = tidyr::pivot_wider(data_combined, 
+                                        id_cols = c("year", "name"), 
+                                        names_from = c("country", "sex"), 
+                                        values_from = "prop")
+head(data_combined_wide)
 ```
 
-After your other analyses, you can add the ANOVA in your statistics script:
+-   This will create an extra column per country and gender (4 columns in total)
+-   The function that transforms data frames in the reverse direction, is called `pivot_longer()`. Try to back transform your wide data frame to a long one as an exercise!
+
+
+You can see that the wide data frame has empty values (NA = not available) for men in the USA. our pivot_wider call added a row for each year where the name Kim occurred in any country or sex, this is why cells with no data for Kim now have an NA.You could also check how many NAs are in the column with the line of code below. 
 
 ```{r}
-# # ezANOVA
-# ezANOVA(data = data_combined,
-#         dv = prop,
-#         wid = year,
-#         between = .("sex", "country"),
-#         type = 3)
+# are there any missing values? How many?
+sum(is.na(data_combined_wide$Austria_M))
+```
 
+We actually know that in this case, NA simply means there were no babies with that name. So let's replace the NAs with 0 using `ifelse()`. It's arguments: 
+
+- The condition for `if` is that Austria_M is an `NA`, you can check this with the function `is.na()` which will give TRUE for missing values (NAs).
+- if this condition is met (TRUE), then replace with a 0
+- else, keep the value of Austria_M. 
+
+```{r}
+data_combined_wide = data_combined_wide %>% 
+    # replace NAs with zero
+  mutate(Austria_M = ifelse(is.na(Austria_M), 0, Austria_M))
+data_combined_wide
+```
+
+After your other analyses (the linear regression and t-test), you can now add the ANOVA in your statistics script, using the function `ezANOVA()`. It's arguments:
+
+- the data frame
+- dv: the dependent variable
+- wid: the columns that identify unique rows in your data frame
+
+- Type 3 defines which sum of squares are calculated for the ANOVA. This is detailed statistics knowledge, and only slightly changes your result. In any case, SPSS by default gives you type 3, so we use it here.
+
+```{r}
+country_sex.aov = ezANOVA(data = data_combined,
+        dv = prop, 
+        wid = .("year", "name"),
+        # predictors
+        between = .("country", "sex"),
+        type = 3)
+country_sex.aov
 ```
 
 ### Make a table with statistics and export:

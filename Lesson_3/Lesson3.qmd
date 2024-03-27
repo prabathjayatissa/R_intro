@@ -331,7 +331,7 @@ year.plot <- ggplot(data_figs, aes(x = year, y = prop_log10)) +
 year.plot
 ```
 
-- For detailed tutorials on different figures and design features, check out Chapter X of the R course by Lisa de Bruine (2000, see resources for reference).
+- For detailed tutorials on different figures and design features, check out Chapter 3 of [this R course](https://psyteachr.github.io/reprores-v3/ggplot.html (de Bruine & Barr, 2022).
 
 
 
@@ -732,4 +732,4 @@ This lesson closely follows: Page Piccinini (2018). "R for Publication", [Lesson
 -   Use git clone to download it into a folder on your computer, or download just the file you need.
 -   For Quarto tips and tricks, check the online documentation: [https://quarto.org/](https://quarto.org/docs/visual-editor/options.html)
     -   Shortcuts and options: <https://quarto.org/docs/visual-editor/options.html>
-- For more on figures with ggplot (and many other R skills): Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research Chapter 3](https://psyteachr.github.io/reprores-v3/ggplot.html) (3.0) Zenodo. <www.doi.org/10.5281/zenodo.6527194>.
+- For more on figures with ggplot (and many other R skills): Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research: Chapter 3](https://psyteachr.github.io/reprores-v3/ggplot.html) (3.0) Zenodo. <www.doi.org/10.5281/zenodo.6527194>.
