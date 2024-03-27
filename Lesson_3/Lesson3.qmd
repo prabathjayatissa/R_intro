@@ -7,7 +7,7 @@ format:
   html:
     toc: true # generate a table of content
     number-sections: true
-    df-print: kable
+    df-print: kable #format of data frames
 editor: visual
 cache: true
 execute: 
@@ -307,7 +307,7 @@ year.plot
 -   Is there an effect of year on time?
 :::
 
-For a prettier version of the figure, we can again change a few settings: 
+For a prettier version of the figure, we can again change a few settings:
 
 ```{r}
 # Proportion of 'Page's by year (continuous predictor)
@@ -331,9 +331,7 @@ year.plot <- ggplot(data_figs, aes(x = year, y = prop_log10)) +
 year.plot
 ```
 
-- For detailed tutorials on different figures and design features, check out Chapter 3 of [this R course](https://psyteachr.github.io/reprores-v3/ggplot.html (de Bruine & Barr, 2022).
-
-
+-   For detailed tutorials on different figures and design features, check out Chapter 3 of \[this R course\](https://psyteachr.github.io/reprores-v3/ggplot.html (de Bruine & Barr, 2022).
 
 -   To save the figure to a file, you can use `ggsave()` like in Lesson 2.
 
@@ -342,7 +340,7 @@ year.plot
 ggsave('figures/scatterplot_proportion_year.pdf', dpi = 300)
 ```
 
-Below, I have changed the figure above slightly by adding a separate colour for each sex: 
+Below, I have changed the figure above slightly by adding a separate colour for each sex:
 
 ```{r}
 plot.interaction <-  ggplot(data_figs, 
@@ -352,7 +350,7 @@ plot.interaction <-  ggplot(data_figs,
 plot.interaction
 ```
 
-This shows a different trend over time for men and women: Page became more popular in women, less popular in men. This is called an interaction effect between sex and time. 
+This shows a different trend over time for men and women: Page became more popular in women, less popular in men. This is called an interaction effect between sex and time.
 
 ### Categorical predictor: Boxplot
 
@@ -511,7 +509,7 @@ What if x is categorical?
 **a = bx**
 
 | --  | Continuous Predictor                | Categorical Predictor                           |
-|--------------|-------------------------|:---------------------------------|
+|-----------------|-----------------------|:-------------------------------|
 | x   | a set of continuous data points     | a set of binary/categorical data points         |
 | a   | the value of y when x is 0          | the value of y when x is the default level      |
 | b   | the change in y for one change in x | the change in y when x is the non-default level |
@@ -668,9 +666,12 @@ load('lesson3_environment.RData')
 -   Now add sections to your report, for example: <br><br>
 
 -   Introduction
+
 -   Results
+
     -   Prevalence by Year
     -   Prevalence by Sex
+
 -   Conclusions
 
 -   Now you can write something in each section. For example:
@@ -732,4 +733,4 @@ This lesson closely follows: Page Piccinini (2018). "R for Publication", [Lesson
 -   Use git clone to download it into a folder on your computer, or download just the file you need.
 -   For Quarto tips and tricks, check the online documentation: [https://quarto.org/](https://quarto.org/docs/visual-editor/options.html)
     -   Shortcuts and options: <https://quarto.org/docs/visual-editor/options.html>
-- For more on figures with ggplot (and many other R skills): Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research: Chapter 3](https://psyteachr.github.io/reprores-v3/ggplot.html) (3.0) Zenodo. <www.doi.org/10.5281/zenodo.6527194>.
+-   For more on figures with ggplot (and many other R skills): Lisa DeBruine & Dale Barr. (2022). [Data Skills for Reproducible Research: Chapter 3](https://psyteachr.github.io/reprores-v3/ggplot.html) (3.0) Zenodo. \<www.doi.org/10.5281/zenodo.6527194\>.
