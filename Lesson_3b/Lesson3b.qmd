@@ -6,7 +6,7 @@ date: "March 27 2024"
 format: 
   html:
     toc: true # generate a table of content
-    number-sections: true    
+    number-sections: true
     df-print: kable
 editor: visual
 cache: true
@@ -559,6 +559,6 @@ data_combined_wide = data_combined_wide %>%
 data_combined_wide
 ```
 
-## Feedback welcome! 
+## Feedback welcome!
 
-If you find any errors or things that are not explained in enough detail in this lesson, please let me know: metzler[@]csh.ac.at.
+If you find any errors or things that are not explained in enough detail in this lesson, please let me know: metzler\[\@\]csh.ac.at.
