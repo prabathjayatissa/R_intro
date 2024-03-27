@@ -29,7 +29,7 @@ If you have had doubts if you'd be able to write code, but secretly have been wa
   - Basics of data analysis: Commit & push to Git, read in and manipulate data, make a figure, make a Quarto Document. 
 - [Lesson 3](https://hannahmetzler.eu/R_intro/Lesson_3/Lesson3.html) (Download [Quarto file](/Lesson_3/Lesson3.qmd))
   - Linear regression (including Git, plots, data cleaning, Quarto Document)
-- [Lesson 3 extension](https://hannahmetzler.eu/R_intro/Lesson_3b/Lesson3b.html) (Download [Quarto file](/Lesson_4/Lesson4.qmd))
+- [Lesson 3 extension](https://hannahmetzler.eu/R_intro/Lesson_3b/Lesson3b.html) (Download [Quarto file](/Lesson_3b/Lesson3b.qmd))
   - Here, I introduce more data wrangling functions, calculate a t-test, and an ANOVA. 
 
 ## License
