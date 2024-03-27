@@ -23,7 +23,7 @@ library(ez)
 library(tidyr)
 ```
 
-## Project for extension of lesson 3: Comparison of babynames in Austria and the US
+## Project for extension of lesson 3: Comparison of baby names in Austria and the US
 
 What about baby names in Austria?
 
