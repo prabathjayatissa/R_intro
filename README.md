@@ -26,6 +26,7 @@ If you have had doubts if you'd be able to write code, but secretly have been wa
 - [Preparation for Lesson 2](https://hannahmetzler.eu/R_intro/Lesson_2/Install_Git_GitHub/Git_Github.html). Please follow this to setp up Git and GitHub before our next session.
 - [Lesson 2](https://hannahmetzler.eu/R_intro/Lesson_2/Lesson2.html) (Download [Quarto file](/Lesson_2/Lesson2.qmd))
 - [Lesson 3](https://hannahmetzler.eu/R_intro/Lesson_3/Lesson3.html) (Download [Quarto file](/Lesson_3/Lesson3.qmd))
+- Not entirely finished: [Lesson 4](https://hannahmetzler.eu/R_intro/Lesson_4/Lesson4.html) (Download [Quarto file](/Lesson_4/Lesson4.qmd))
 
 ## License
 
