@@ -49,7 +49,9 @@ rnorm(20, mean = 100, sd = 10)
 
 ```{r}
 # install.packages("tidyverse")
-library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(readr)
 ```
 
 ## Goals for lesson 2
@@ -137,7 +139,7 @@ I find it useful to have all my analysis projects in a common folder directly in
 -   Your scripts should only reference three types of locations:
 
 | Where                    | Example                                                       |
-|----------------------|--------------------------------------------------|
+|--------------------------|---------------------------------------------------------------|
 | on the web               | "https://hannahmetzler.eu/R_intro/Lesson_2/data/datafile.csv" |
 | in the working directory | "datafile.csv"                                                |
 | in a subdirectory        | "data/datafile.csv"                                           |
@@ -316,7 +318,7 @@ We will finally start coding!
 
 Write and run the code below:
 
-```{r, results = FALSE}
+```{r, results = FALSE, eval = F}
 ## LOAD PACKAGES ####
 library(tidyverse)
 ```
@@ -593,6 +595,8 @@ You can write a lot of your code directly in Quarto Documents, allowing to combi
 :::
 
 ## References
+
+-   The completed code for the lesson can be found [here](https://github.com/hannahmetzler/R_intro_lesson2).
 
 This lesson is based on:
 
