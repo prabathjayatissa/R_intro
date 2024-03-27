@@ -6,7 +6,8 @@ date: "March 27 2024"
 format: 
   html:
     toc: true # generate a table of content
-    number-sections: true
+    number-sections: true    
+    df-print: kable
 editor: visual
 cache: true
 execute: 
