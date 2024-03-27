@@ -406,10 +406,12 @@ data_combined <- data_usa_clean %>%
 data_combined
 ```
 
-
 ## Figures script
 
+In the figures script, add the following figure:
+
 ```{r pet-plot, fig.cap="Figure 1. Scores by pet type and country."}
+# Boxplot of name propotion by sex and country
 ggplot(data_combined, aes(country, prop, fill = sex)) +
   geom_boxplot() +
   scale_fill_manual(values = c("orange", "dodgerblue")) +
@@ -425,7 +427,7 @@ ggplot(data_combined, aes(country, prop, fill = sex)) +
 
 ## Statistics script
 
-Create a new script, and save it in your code folder for example as `03_statistics`. At the top of the script, read in the data from the cleaning script using the function `source()` as we did in lesson 3.
+In the statistics script, rerun the line with `source()` to read in the new data from the cleaning script.
 
 ### T-test by country
 
@@ -449,7 +451,6 @@ t.test(prop ~ sex, data = data_combined)
 
 If you want to investigate if your name is more popular for men or women, and if this difference varies across countries, you could run an ANOVA (analysis of variance) with two factors (sex and country).
 
-
 I recommend using the package "ez" for this. Load it at the top of your statistics script.
 
 ```{r, eval = F}
@@ -462,11 +463,17 @@ library(ez)
 
 After your other analyses (the linear regression and t-test), you can now add the ANOVA in your statistics script, using the function `ezANOVA()`. It's arguments:
 
-- the data frame
-- dv: the dependent variable (propotion)
-- wid: the columns that identify unique rows in your data frame
+-   the data frame
 
-- Type 3 defines which sum of squares are calculated for the ANOVA. This is detailed statistics knowledge, and only slightly changes your result. In any case, SPSS by default gives you type 3, so we use it here.
+-   dv: the dependent variable (proportion)
+
+-   wid: the columns that identify unique rows in your data frame. Here these are 2 columns: each name exists for each year. The function ezANOVA requires that you enter multiple columns as a list: `.("column 1", "column 2")`.
+
+    -   A list in R is a very flexible object type that can store all kinds of objects of different dimensions. The first object could be a string, the second a data frame, the third a vector.
+
+-   between: the predictors. ezANOVA requires that you enter multiple predictors as a list: .(x, y, z)
+
+-   Type 3 defines which sum of squares are calculated for the ANOVA. This is detailed statistics knowledge, and only slightly changes your result. In any case, SPSS by default gives you type 3, so we use it here.
 
 ```{r}
 country_sex.aov = ezANOVA(data = data_combined,
@@ -478,11 +485,13 @@ country_sex.aov = ezANOVA(data = data_combined,
 country_sex.aov
 ```
 
-### Make a table with statistics and export it to a csv-file:  
+### Make a table with statistics and export it to a csv-file
 
 ```{r}
+# Create a table with number of babyes with the name Kim per country and sex, with mean and sd: 
 summary_table <- data_combined %>%
   group_by(country, sex) %>%
+  #summarise: calculate one number/statistic per group created above
   summarise(
     n = n(), 
     # calculate mean and standard deviation
@@ -500,13 +509,14 @@ summary_table
 readr::write_csv(summary_table, 'write_up/descriptives_table.csv')
 ```
 
-
 ## Transforming data from long to wide format
 
-Sometimes (although not in the analyses above) you need your data in a wide format, that is, multiple columns for the dependent variable, as here separate columns for Austria and the US and this for each sex.
+In this section, you'll learn about a few functions that you will regularly need - although we did not need them for the analyses above.
 
-- SPSS and other statistics software need data in this format by default. 
--  In R, you can change the format of the data frame using the function `pivot_wider()` from the tidyverse package `tidyr`.
+Sometimes you need your data in a wide format, that is, multiple columns for the dependent variable, as here separate columns for Austria and the US and this for each sex.
+
+-   SPSS and other statistics software need data in this format by default.
+-   In R, you can change the format of the data frame using the function `pivot_wider()` from the tidyverse package `tidyr`.
 -   Install the package, and load the library at the start of your statistics script.
 -   Arguments of pivot_wider():
     -   the data frame
@@ -529,19 +539,18 @@ head(data_combined_wide)
 -   This will create an extra column per country and gender (4 columns in total)
 -   The function that transforms data frames in the reverse direction, is called `pivot_longer()`. Try to back transform your wide data frame to a long one as an exercise!
 
-
-You can see that the wide data frame has empty values (NA = not available) for men in the USA. our pivot_wider call added a row for each year where the name Kim occurred in any country or sex, this is why cells with no data for Kim now have an NA.You could also check how many NAs are in the column with the line of code below. 
+You can see that the wide data frame has empty values (NA = not available) for men in the USA. our pivot_wider call added a row for each year where the name Kim occurred in any country or sex, this is why cells with no data for Kim now have an NA.You could also check how many NAs are in the column with the line of code below.
 
 ```{r}
 # are there any missing values? How many?
 sum(is.na(data_combined_wide$Austria_M))
 ```
 
-We actually know that in this case, NA simply means there were no babies with that name. So let's replace the NAs with 0 using `ifelse()`. It's arguments: 
+We actually know that in this case, NA simply means there were no babies with that name. So let's replace the NAs with 0 using `ifelse()`. It's arguments:
 
-- The condition for `if` is that Austria_M is an `NA`, you can check this with the function `is.na()` which will give TRUE for missing values (NAs).
-- if this condition is met (TRUE), then replace with a 0
-- else, keep the value of Austria_M. 
+-   The condition for `if` is that Austria_M is an `NA`, you can check this with the function `is.na()` which will give TRUE for missing values (NAs).
+-   if this condition is met (TRUE), then replace with a 0
+-   else, keep the value of Austria_M.
 
 ```{r}
 data_combined_wide = data_combined_wide %>% 
@@ -549,3 +558,7 @@ data_combined_wide = data_combined_wide %>%
   mutate(Austria_M = ifelse(is.na(Austria_M), 0, Austria_M))
 data_combined_wide
 ```
+
+## Feedback welcome! 
+
+If you find any errors or things that are not explained in enough detail in this lesson, please let me know: metzler[@]csh.ac.at.

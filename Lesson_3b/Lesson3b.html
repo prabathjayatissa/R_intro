@@ -103,9 +103,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#t-test-by-country" id="toc-t-test-by-country" class="nav-link" data-scroll-target="#t-test-by-country"><span class="header-section-number">7.1</span> T-test by country</a></li>
   <li><a href="#multi-factorial-anova-difference-in-name-popularity-by-sex-and-country" id="toc-multi-factorial-anova-difference-in-name-popularity-by-sex-and-country" class="nav-link" data-scroll-target="#multi-factorial-anova-difference-in-name-popularity-by-sex-and-country"><span class="header-section-number">7.2</span> Multi-factorial ANOVA: Difference in name popularity by sex and country</a></li>
-  <li><a href="#make-a-table-with-statistics-and-export-it-to-a-csv-file" id="toc-make-a-table-with-statistics-and-export-it-to-a-csv-file" class="nav-link" data-scroll-target="#make-a-table-with-statistics-and-export-it-to-a-csv-file"><span class="header-section-number">7.3</span> Make a table with statistics and export it to a csv-file:</a></li>
+  <li><a href="#make-a-table-with-statistics-and-export-it-to-a-csv-file" id="toc-make-a-table-with-statistics-and-export-it-to-a-csv-file" class="nav-link" data-scroll-target="#make-a-table-with-statistics-and-export-it-to-a-csv-file"><span class="header-section-number">7.3</span> Make a table with statistics and export it to a csv-file</a></li>
   </ul></li>
   <li><a href="#transforming-data-from-long-to-wide-format" id="toc-transforming-data-from-long-to-wide-format" class="nav-link" data-scroll-target="#transforming-data-from-long-to-wide-format"><span class="header-section-number">8</span> Transforming data from long to wide format</a></li>
+  <li><a href="#feedback-welcome" id="toc-feedback-welcome" class="nav-link" data-scroll-target="#feedback-welcome"><span class="header-section-number">9</span> Feedback welcome!</a></li>
   </ul>
 </nav>
 </div>
@@ -768,14 +769,16 @@ $ n               &lt;dbl&gt; 4, 1, 2, 2, 1, 3, 2, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1,
 </section>
 <section id="figures-script" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="figures-script"><span class="header-section-number">6</span> Figures script</h2>
-<div class="cell" data-hash="Lesson3b_cache/html/pet-plot_73a31ee4dab73b9b593474cb71dd07f0">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_combined, <span class="fu">aes</span>(country, prop, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"dodgerblue"</span>)) <span class="sc">+</span></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Country"</span>, <span class="at">y =</span> <span class="st">"Proportion"</span>) <span class="sc">+</span></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">family =</span> <span class="st">"Times"</span>))<span class="sc">+</span></span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Popularity of the name </span><span class="sc">\"</span><span class="st">Kim</span><span class="sc">\"</span><span class="st"> by country and sex"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In the figures script, add the following figure:</p>
+<div class="cell" data-hash="Lesson3b_cache/html/pet-plot_5f49f00c891b22ae47103d447be5b485">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot of name propotion by sex and country</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_combined, <span class="fu">aes</span>(country, prop, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"dodgerblue"</span>)) <span class="sc">+</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Country"</span>, <span class="at">y =</span> <span class="st">"Proportion"</span>) <span class="sc">+</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">family =</span> <span class="st">"Times"</span>))<span class="sc">+</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Popularity of the name </span><span class="sc">\"</span><span class="st">Kim</span><span class="sc">\"</span><span class="st"> by country and sex"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -793,7 +796,7 @@ $ n               &lt;dbl&gt; 4, 1, 2, 2, 1, 3, 2, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1,
 </section>
 <section id="statistics-script" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="statistics-script"><span class="header-section-number">7</span> Statistics script</h2>
-<p>Create a new script, and save it in your code folder for example as <code>03_statistics</code>. At the top of the script, read in the data from the cleaning script using the function <code>source()</code> as we did in lesson 3.</p>
+<p>In the statistics script, rerun the line with <code>source()</code> to read in the new data from the cleaning script.</p>
 <section id="t-test-by-country" class="level3" data-number="7.1">
 <h3 data-number="7.1" class="anchored" data-anchor-id="t-test-by-country"><span class="header-section-number">7.1</span> T-test by country</h3>
 <p>Is your name more popular in Austria or the USA? Although this data is not normally distributed, I want to show you how to do a t-test:</p>
@@ -852,8 +855,12 @@ mean in group F mean in group M
 <p>After your other analyses (the linear regression and t-test), you can now add the ANOVA in your statistics script, using the function <code>ezANOVA()</code>. It’s arguments:</p>
 <ul>
 <li><p>the data frame</p></li>
-<li><p>dv: the dependent variable (propotion)</p></li>
-<li><p>wid: the columns that identify unique rows in your data frame</p></li>
+<li><p>dv: the dependent variable (proportion)</p></li>
+<li><p>wid: the columns that identify unique rows in your data frame. Here these are 2 columns: each name exists for each year. The function ezANOVA requires that you enter multiple columns as a list: <code>.("column 1", "column 2")</code>.</p>
+<ul>
+<li>A list in R is a very flexible object type that can store all kinds of objects of different dimensions. The first object could be a string, the second a data frame, the third a vector.</li>
+</ul></li>
+<li><p>between: the predictors. ezANOVA requires that you enter multiple predictors as a list: .(x, y, z)</p></li>
 <li><p>Type 3 defines which sum of squares are calculated for the ANOVA. This is detailed statistics knowledge, and only slightly changes your result. In any case, SPSS by default gives you type 3, so we use it here.</p></li>
 </ul>
 <div class="cell" data-hash="Lesson3b_cache/html/unnamed-chunk-28_3b6f248bf7669c4be4097c53c9719de0">
@@ -878,39 +885,97 @@ $`Levene's Test for Homogeneity of Variance`
 </div>
 </section>
 <section id="make-a-table-with-statistics-and-export-it-to-a-csv-file" class="level3" data-number="7.3">
-<h3 data-number="7.3" class="anchored" data-anchor-id="make-a-table-with-statistics-and-export-it-to-a-csv-file"><span class="header-section-number">7.3</span> Make a table with statistics and export it to a csv-file:</h3>
-<div class="cell" data-hash="Lesson3b_cache/html/unnamed-chunk-29_d22eceba2a8bf06822539e2073b2b596">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>summary_table <span class="ot">&lt;-</span> data_combined <span class="sc">%&gt;%</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country, sex) <span class="sc">%&gt;%</span></span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(), </span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calculate mean and standard deviation</span></span>
-<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_proportion =</span> <span class="fu">mean</span>(prop), </span>
-<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_proportion =</span> <span class="fu">sd</span>(prop), </span>
-<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># transform to percent for readibility</span></span>
-<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_percent =</span> mean_proportion<span class="sc">*</span><span class="dv">100</span>, </span>
-<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_percent =</span> sd_proportion<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a><span class="co"># print</span></span>
-<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>summary_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 7
-  country sex       n mean_proportion sd_proportion mean_percent sd_percent
-  &lt;fct&gt;   &lt;fct&gt; &lt;int&gt;           &lt;dbl&gt;         &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
-1 Austria F        34       0.000189      0.0000894      0.0189     0.00894
-2 Austria M        25       0.0000259     0.0000180      0.00259    0.00180
-3 USA     F        34       0.0000724     0.0000496      0.00724    0.00496
-4 USA     M        34       0.0000166     0.0000145      0.00166    0.00145</code></pre>
+<h3 data-number="7.3" class="anchored" data-anchor-id="make-a-table-with-statistics-and-export-it-to-a-csv-file"><span class="header-section-number">7.3</span> Make a table with statistics and export it to a csv-file</h3>
+<div class="cell" data-hash="Lesson3b_cache/html/unnamed-chunk-29_aecf851d8f47257361645fec85cb2daf">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a table with number of babyes with the name Kim per country and sex, with mean and sd: </span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>summary_table <span class="ot">&lt;-</span> data_combined <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country, sex) <span class="sc">%&gt;%</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#summarise: calculate one number/statistic per group created above</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(), </span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calculate mean and standard deviation</span></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_proportion =</span> <span class="fu">mean</span>(prop), </span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_proportion =</span> <span class="fu">sd</span>(prop), </span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># transform to percent for readibility</span></span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_percent =</span> mean_proportion<span class="sc">*</span><span class="dv">100</span>, </span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_percent =</span> sd_proportion<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a><span class="co"># print</span></span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a>summary_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 23%">
+<col style="width: 20%">
+<col style="width: 18%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">country</th>
+<th style="text-align: left;">sex</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">mean_proportion</th>
+<th style="text-align: right;">sd_proportion</th>
+<th style="text-align: right;">mean_percent</th>
+<th style="text-align: right;">sd_percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Austria</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">0.0001888</td>
+<td style="text-align: right;">8.94e-05</td>
+<td style="text-align: right;">0.0188840</td>
+<td style="text-align: right;">0.0089409</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Austria</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0.0000259</td>
+<td style="text-align: right;">1.80e-05</td>
+<td style="text-align: right;">0.0025850</td>
+<td style="text-align: right;">0.0017965</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">USA</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">0.0000724</td>
+<td style="text-align: right;">4.96e-05</td>
+<td style="text-align: right;">0.0072444</td>
+<td style="text-align: right;">0.0049594</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">USA</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">0.0000166</td>
+<td style="text-align: right;">1.45e-05</td>
+<td style="text-align: right;">0.0016564</td>
+<td style="text-align: right;">0.0014458</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To write results to an excel table, in order to include tables into papers, for example: </span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(summary_table, <span class="st">'write_up/descriptives_table.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To write results to an excel table, in order to include tables into papers, for example: </span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(summary_table, <span class="st">'write_up/descriptives_table.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="transforming-data-from-long-to-wide-format" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="transforming-data-from-long-to-wide-format"><span class="header-section-number">8</span> Transforming data from long to wide format</h2>
-<p>Sometimes (although not in the analyses above) you need your data in a wide format, that is, multiple columns for the dependent variable, as here separate columns for Austria and the US and this for each sex.</p>
+<p>In this section, you’ll learn about a few functions that you will regularly need - although we did not need them for the analyses above.</p>
+<p>Sometimes you need your data in a wide format, that is, multiple columns for the dependent variable, as here separate columns for Austria and the US and this for each sex.</p>
 <ul>
 <li>SPSS and other statistics software need data in this format by default.</li>
 <li>In R, you can change the format of the data frame using the function <code>pivot_wider()</code> from the tidyverse package <code>tidyr</code>.</li>
@@ -925,14 +990,14 @@ $`Levene's Test for Homogeneity of Variance`
 <li>Write the following code in your section for organizing data in the statistics script.</li>
 </ul>
 <div class="cell" data-hash="Lesson3b_cache/html/unnamed-chunk-30_ab6d2f4ab57fa7ced40216dd3fc3d304">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ORGANIZE DATA ####</span></span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create data frame in wide format</span></span>
-<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>data_combined_wide <span class="ot">=</span> tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(data_combined, </span>
-<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">id_cols =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"name"</span>), </span>
-<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">names_from =</span> <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"sex"</span>), </span>
-<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">values_from =</span> <span class="st">"prop"</span>)</span>
-<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_combined_wide)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ORGANIZE DATA ####</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create data frame in wide format</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>data_combined_wide <span class="ot">=</span> tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(data_combined, </span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">id_cols =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"name"</span>), </span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">names_from =</span> <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"sex"</span>), </span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">values_from =</span> <span class="st">"prop"</span>)</span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_combined_wide)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
    year name     USA_F     USA_M Austria_F  Austria_M
@@ -951,8 +1016,8 @@ $`Levene's Test for Homogeneity of Variance`
 </ul>
 <p>You can see that the wide data frame has empty values (NA = not available) for men in the USA. our pivot_wider call added a row for each year where the name Kim occurred in any country or sex, this is why cells with no data for Kim now have an NA.You could also check how many NAs are in the column with the line of code below.</p>
 <div class="cell" data-hash="Lesson3b_cache/html/unnamed-chunk-31_b4f7cd6c9a25b5acfeaa66fbebe9f236">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># are there any missing values? How many?</span></span>
-<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(data_combined_wide<span class="sc">$</span>Austria_M))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># are there any missing values? How many?</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(data_combined_wide<span class="sc">$</span>Austria_M))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9</code></pre>
 </div>
@@ -964,10 +1029,10 @@ $`Levene's Test for Homogeneity of Variance`
 <li>else, keep the value of Austria_M.</li>
 </ul>
 <div class="cell" data-hash="Lesson3b_cache/html/unnamed-chunk-32_aa451c2a565a6cbb3a166c64aa32d6c4">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>data_combined_wide <span class="ot">=</span> data_combined_wide <span class="sc">%&gt;%</span> </span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># replace NAs with zero</span></span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Austria_M =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Austria_M), <span class="dv">0</span>, Austria_M))</span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>data_combined_wide</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>data_combined_wide <span class="ot">=</span> data_combined_wide <span class="sc">%&gt;%</span> </span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># replace NAs with zero</span></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Austria_M =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Austria_M), <span class="dv">0</span>, Austria_M))</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>data_combined_wide</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 34 × 6
     year name      USA_F     USA_M Austria_F Austria_M
@@ -985,6 +1050,10 @@ $`Levene's Test for Homogeneity of Variance`
 # ℹ 24 more rows</code></pre>
 </div>
 </div>
+</section>
+<section id="feedback-welcome" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="feedback-welcome"><span class="header-section-number">9</span> Feedback welcome!</h2>
+<p>If you find any errors or things that are not explained in enough detail in this lesson, please let me know: metzler[@]csh.ac.at.</p>
 </section>
 
 </main>
