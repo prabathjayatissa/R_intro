@@ -452,8 +452,8 @@ knitr::include_graphics('images/scatterplot_labels.svg')
 
 ### Running linear regression in R
 
--   The notation for a linear regression in R is: `lm (y \~ x)`
--   In the chick weight example above, this would be: `lm(weight \~ Time)`
+-   The notation for a linear regression in R is: `lm (y ~ x)`
+-   In the chick weight example above, this would be: `lm(weight ~ Time)`
 -   To see the output of the model, we use `summary(model)`.
 
 ```{r}
@@ -471,7 +471,7 @@ What if x is categorical?
 **a = bx**
 
 | --  | Continuous Predictor                | Categorical Predictor                           |
-|-----|-------------------------------------|:------------------------------------------------|
+|--------------|-------------------------|:---------------------------------|
 | x   | a set of continuous data points     | a set of binary/categorical data points         |
 | a   | the value of y when x is 0          | the value of y when x is the default level      |
 | b   | the change in y for one change in x | the change in y when x is the non-default level |
