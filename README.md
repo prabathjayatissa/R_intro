@@ -23,10 +23,14 @@ If you have had doubts if you'd be able to write code, but secretly have been wa
 - [Introduction slides](https://hannahmetzler.eu/R_intro/Course_overview/Overview.html)
 - [Preparation for Lesson 1](https://github.com/hannahmetzler/R_intro/blob/main/Lesson_1/lesson1_preparations.md): Installing R and Rstudio. 
 - [Lesson 1](https://hannahmetzler.eu/R_intro/Lesson_1/Lesson1.html) (Download [Quarto file](/Lesson_1/Lesson1.qmd))
+  - Basics of the Rstudio interface and coding
 - [Preparation for Lesson 2](https://hannahmetzler.eu/R_intro/Lesson_2/Install_Git_GitHub/Git_Github.html). Please follow this to setp up Git and GitHub before our next session.
 - [Lesson 2](https://hannahmetzler.eu/R_intro/Lesson_2/Lesson2.html) (Download [Quarto file](/Lesson_2/Lesson2.qmd))
+  - Basics of data analysis: Commit & push to Git, read in and manipulate data, make a figure, make a Quarto Document. 
 - [Lesson 3](https://hannahmetzler.eu/R_intro/Lesson_3/Lesson3.html) (Download [Quarto file](/Lesson_3/Lesson3.qmd))
-- Not entirely finished: [Lesson 3 extension](https://hannahmetzler.eu/R_intro/Lesson_3b/Lesson3b.html) (Download [Quarto file](/Lesson_4/Lesson4.qmd))
+  - Linear regression (including Git, plots, data cleaning, Quarto Document)
+- [Lesson 3 extension](https://hannahmetzler.eu/R_intro/Lesson_3b/Lesson3b.html) (Download [Quarto file](/Lesson_4/Lesson4.qmd))
+  - Here, I introduce more data wrangling functions, calculate a t-test, and an ANOVA. 
 
 ## License
 
