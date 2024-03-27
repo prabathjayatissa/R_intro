@@ -628,12 +628,9 @@ load('lesson3_environment.RData')
 -   Now add sections to your report, for example: <br><br>
 
 -   Introduction
-
 -   Results
-
     -   Prevalence by Year
     -   Prevalence by Sex
-
 -   Conclusions
 
 -   Now you can write something in each section. For example:
