@@ -27,7 +27,7 @@ library(tidyr)
 
 What about baby names in Austria?
 
--   Below, we read in data from Austria, make it comparable to the US data set, and then run a t-test to compare the popularity of baby names in the two countries.
+Below, we read in data from Austria, make it comparable to the US data set, and then run a t-test to compare the popularity of baby names in the two countries.
 
 ## Reading in and looking at data
 
@@ -59,10 +59,12 @@ head(data_aut)
 
 ### Data from the US
 
-Here, I load the baby names data set from lesson 3, but including all existing names, and assign it to `data_usa`.
+Here, I load the baby names data set, a default package included in the library "babynames". To run the code below, you first need to install the package, and then load it by adding `library(babynames)` in your section for loading packages. This dataset, as opposed to the smaller one we used in lesson 3, includes all given names in the US, not just the ones from our course participants. Assign the dataset to `data_usa`.
 
 ```{r, read in US babynames data}
+# load the dataset
 data(babynames)
+# assign it to data_usa
 data_usa = babynames
 ```
 
@@ -457,9 +459,53 @@ install.packages("ez")
 library(ez)
 ```
 
-For an ANOVA, you need your data in a wide format, that is, a separate column for Austria and the US and this for each sex.
+After your other analyses (the linear regression and t-test), you can now add the ANOVA in your statistics script, using the function `ezANOVA()`. It's arguments:
 
--   For this, you can use the function `pivot_wider()` from the tidyverse package `tidyr`.
+- the data frame
+- dv: the dependent variable (propotion)
+- wid: the columns that identify unique rows in your data frame
+
+- Type 3 defines which sum of squares are calculated for the ANOVA. This is detailed statistics knowledge, and only slightly changes your result. In any case, SPSS by default gives you type 3, so we use it here.
+
+```{r}
+country_sex.aov = ezANOVA(data = data_combined,
+        dv = prop, 
+        wid = .("year", "name"),
+        # predictors
+        between = .("country", "sex"),
+        type = 3)
+country_sex.aov
+```
+
+### Make a table with statistics and export it to a csv-file:  
+
+```{r}
+summary_table <- data_combined %>%
+  group_by(country, sex) %>%
+  summarise(
+    n = n(), 
+    # calculate mean and standard deviation
+    mean_proportion = mean(prop), 
+    sd_proportion = sd(prop), 
+    # transform to percent for readibility
+    mean_percent = mean_proportion*100, 
+    sd_percent = sd_proportion*100
+  ) %>% 
+  ungroup()
+# print
+summary_table
+
+# To write results to an excel table, in order to include tables into papers, for example: 
+readr::write_csv(summary_table, 'write_up/descriptives_table.csv')
+```
+
+
+## Transforming data from long to wide format
+
+Sometimes (although not in the analyses above) you need your data in a wide format, that is, multiple columns for the dependent variable, as here separate columns for Austria and the US and this for each sex.
+
+- SPSS and other statistics software need data in this format by default. 
+-  In R, you can change the format of the data frame using the function `pivot_wider()` from the tidyverse package `tidyr`.
 -   Install the package, and load the library at the start of your statistics script.
 -   Arguments of pivot_wider():
     -   the data frame
@@ -501,37 +547,4 @@ data_combined_wide = data_combined_wide %>%
     # replace NAs with zero
   mutate(Austria_M = ifelse(is.na(Austria_M), 0, Austria_M))
 data_combined_wide
-```
-
-After your other analyses (the linear regression and t-test), you can now add the ANOVA in your statistics script, using the function `ezANOVA()`. It's arguments:
-
-- the data frame
-- dv: the dependent variable
-- wid: the columns that identify unique rows in your data frame
-
-- Type 3 defines which sum of squares are calculated for the ANOVA. This is detailed statistics knowledge, and only slightly changes your result. In any case, SPSS by default gives you type 3, so we use it here.
-
-```{r}
-country_sex.aov = ezANOVA(data = data_combined,
-        dv = prop, 
-        wid = .("year", "name"),
-        # predictors
-        between = .("country", "sex"),
-        type = 3)
-country_sex.aov
-```
-
-### Make a table with statistics and export:
-
-```{r}
-summary_table <- data_combined %>%
-  group_by(country, sex) %>%
-  summarise(
-    n = n(), 
-    mean_proportion = mean(prop), 
-    mean_percent = mean_proportion*100
-  )
-
-# print
-summary_table
 ```
