@@ -573,12 +573,23 @@ Exercise
 </div>
 </div>
 <ul>
-<li><p>To save the figure to a file, you can use <code>ggsave()</code> like in Lesson 2.</p>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-17_e2a1c4a9fb18bcf26ada816fd929aae1">
+<li>To save the figure to a file, you can use <code>ggsave()</code> like in Lesson 2.</li>
+</ul>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-17_365f16e1a854632f245dd22979c24dd5">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">'figures/scatterplot_proportion_year.pdf'</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></li>
-</ul>
+</div>
+<p>Below, I have changed the figure above slightly by adding a separate colour for each sex:</p>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-18_09eaa35d7ec3c15ddc759d086b55a09d">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>plot.interaction <span class="ot">&lt;-</span>  <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> prop_log10, <span class="at">colour =</span> sex)) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>            <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>plot.interaction</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Lesson3_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This shows a different trend over time for men and women: Page became more popular in women, less popular in men. This is called an interaction effect between sex and time.</p>
 </section>
 <section id="categorical-predictor-boxplot" class="level3" data-number="6.3">
 <h3 data-number="6.3" class="anchored" data-anchor-id="categorical-predictor-boxplot"><span class="header-section-number">6.3</span> Categorical predictor: Boxplot</h3>
@@ -589,10 +600,10 @@ Exercise
 </ul></li>
 </ul>
 <div class="cell" data-fig.asp="1" data-hash="Lesson3_cache/html/prop per sex boxplot_a283941f92f687a3c9c0c175f930ab8e">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10)) <span class="sc">+</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10)) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Lesson3_files/figure-html/prop%20per%20sex%20boxplot-1.png" class="img-fluid" width="336"></p>
 </div>
@@ -611,14 +622,14 @@ Exercise
 <li>Notation in R: <code>c()</code></li>
 </ul></li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-18_a403fc09af7dc1567dbac4a4b7f4ab9a">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">7</span>,<span class="dv">5</span>,<span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>my_character_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"string1"</span>, <span class="st">"string2"</span>, <span class="st">"string3"</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>my_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-19_fad3fab583317309181c8029df5fd2f3">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">7</span>,<span class="dv">5</span>,<span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>my_character_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"string1"</span>, <span class="st">"string2"</span>, <span class="st">"string3"</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>my_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 7 5 3 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>my_character_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>my_character_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "string1" "string2" "string3"</code></pre>
 </div>
@@ -626,21 +637,21 @@ Exercise
 <ul>
 <li>We use vectors for levels and labels within <code>factor()</code> below.</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-19_21be73a6df73d0040ef42f077ffa8932">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ORGANIZE DATA ####</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>data_figs <span class="ot">=</span> data_clean <span class="sc">%&gt;%</span> </span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">factor</span>(sex, </span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>), </span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"female"</span>, <span class="st">"male"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-20_47ab6371550826ba80c721d156378be6">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ORGANIZE DATA ####</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>data_figs <span class="ot">=</span> data_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">factor</span>(sex, </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>), </span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"female"</span>, <span class="st">"male"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>If you run the figure code again, you will get this figure:</li>
 </ul>
 <div class="cell" data-fig.asp="1" data-hash="Lesson3_cache/html/prop per sex boxplot better labels_d97147048abd5732f4a2ad2c2d8b3659">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10)) <span class="sc">+</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10)) <span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Lesson3_files/figure-html/prop%20per%20sex%20boxplot%20better%20labels-1.png" class="img-fluid" width="336"></p>
 </div>
@@ -648,37 +659,37 @@ Exercise
 <ul>
 <li>To save the plot, uncomment (short cut: <code>Ctrl+Shift+C</code>) and run:</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-20_e36af9dd99aa4209eb8aa8d6ee06cd79">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-21_de0c818d59b29b46905e4c5d228e6f22">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>To make the figure prettier, there are various elements you can change. Have a look at this at home.</li>
 </ul>
 <div class="cell" data-fig.asp="1" data-hash="Lesson3_cache/html/prop per sex boxplot pretty_7b3928be433b60dec2fb6fae824bb519">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10, <span class="at">fill=</span>sex))<span class="sc">+</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose a design</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a title</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Popularity of the name 'Page' by sex"</span>)<span class="sc">+</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Customize the y-axis (with a line break)</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Proportion of People</span><span class="sc">\n</span><span class="st">(log base 10 transformed)"</span>)<span class="sc">+</span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Customize the x-axis</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Sex"</span>) <span class="sc">+</span></span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Custom colours for the fill variable (sex)</span></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"blue"</span>))<span class="sc">+</span></span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Additional paramaters for displaying plot</span></span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), <span class="co"># text size</span></span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), <span class="co"># text size for title</span></span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position=</span><span class="st">"none"</span>) <span class="co"># no legend</span></span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion of 'Page's by sex (categorical predictor)</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>sex.plot <span class="ot">=</span> <span class="fu">ggplot</span>(data_figs, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> prop_log10, <span class="at">fill=</span>sex))<span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose a design</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a title</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Popularity of the name 'Page' by sex"</span>)<span class="sc">+</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Customize the y-axis (with a line break)</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Proportion of People</span><span class="sc">\n</span><span class="st">(log base 10 transformed)"</span>)<span class="sc">+</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Customize the x-axis</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Sex"</span>) <span class="sc">+</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Custom colours for the fill variable (sex)</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"blue"</span>))<span class="sc">+</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Additional paramaters for displaying plot</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), <span class="co"># text size</span></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), <span class="co"># text size for title</span></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position=</span><span class="st">"none"</span>) <span class="co"># no legend</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>sex.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Lesson3_files/figure-html/prop%20per%20sex%20boxplot%20pretty-1.png" class="img-fluid" width="336"></p>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to save the plot: </span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to save the plot: </span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -727,7 +738,7 @@ To do
 <li>In purple, you see the slope b, telling you how much weight a chick gains on average on 1 day (here from day 5 to 6)</li>
 <li>In green, you see the residual for the data point: The difference between model prediction and the actual data.</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-21_3edc2be602d6a7680f256dcf42c6b54f">
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-22_a7c3aa7e71a55fa30eacece4f877b059">
 <div class="cell-output-display">
 <p><img src="images/scatterplot_labels.svg" class="img-fluid"></p>
 </div>
@@ -736,13 +747,13 @@ To do
 <section id="running-linear-regression-in-r" class="level3" data-number="7.2">
 <h3 data-number="7.2" class="anchored" data-anchor-id="running-linear-regression-in-r"><span class="header-section-number">7.2</span> Running linear regression in R</h3>
 <ul>
-<li>The notation for a linear regression in R is: <code>lm (y \~ x)</code></li>
-<li>In the chick weight example above, this would be: <code>lm(weight \~ Time)</code></li>
+<li>The notation for a linear regression in R is: <code>lm (y ~ x)</code></li>
+<li>In the chick weight example above, this would be: <code>lm(weight ~ Time)</code></li>
 <li>To see the output of the model, we use <code>summary(model)</code>.</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-22_6c65fd6cf522f136d2c40d4ca63d5652">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>chicks.lm <span class="ot">=</span> <span class="fu">lm</span>(weight <span class="sc">~</span> Time, <span class="at">data =</span> ChickWeight)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(chicks.lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-23_81c90d915b3a877dc9e85a29a32eca14">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>chicks.lm <span class="ot">=</span> <span class="fu">lm</span>(weight <span class="sc">~</span> Time, <span class="at">data =</span> ChickWeight)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(chicks.lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -775,9 +786,9 @@ F-statistic:  1349 on 1 and 576 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p><strong>a = bx</strong></p>
 <table class="table">
 <colgroup>
-<col style="width: 5%">
-<col style="width: 40%">
-<col style="width: 53%">
+<col style="width: 19%">
+<col style="width: 34%">
+<col style="width: 46%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -825,7 +836,7 @@ F-statistic:  1349 on 1 and 576 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>x and y for a specific data point in red</li>
 <li>the intercept a in yellow: the value of y (just above 100) when x is the default level (= 0, or Diet 1)</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-23_85f339c6501d5fd67dbd3359cd64f329">
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-24_50f8181cd33f086d6bfb2eae1b965a97">
 <div class="cell-output-display">
 <p><img src="images/scatterplot_categorical_intercept_yx.svg" class="img-fluid"></p>
 </div>
@@ -834,16 +845,16 @@ F-statistic:  1349 on 1 and 576 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>The slope b in purple: the average change in weight from Diet 1 (default level 0) to Diet 2 (level 1).</li>
 <li>The residual e of the specific data point in green.</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-24_b0a22034b1492b21c876e95feaa7c5df">
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-25_0abb8d3aa8dfea5576d5d0061f6d13d9">
 <div class="cell-output-display">
 <p><img src="images/scatterplot_categorical_slope_residual.svg" class="img-fluid"></p>
 </div>
 </div>
 <section id="running-this-regression-in-r" class="level4" data-number="7.3.1">
 <h4 data-number="7.3.1" class="anchored" data-anchor-id="running-this-regression-in-r"><span class="header-section-number">7.3.1</span> Running this regression in R</h4>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-25_cc3c04c0c5fec6aa1301a37165f2e450">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>diet.lm <span class="ot">=</span> <span class="fu">lm</span>(weight <span class="sc">~</span> Diet, data_chicks)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(diet.lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-26_62fc70deba257870cba5c012ccd82664">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>diet.lm <span class="ot">=</span> <span class="fu">lm</span>(weight <span class="sc">~</span> Diet, data_chicks)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(diet.lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -878,23 +889,23 @@ F-statistic: 7.971 on 1 and 338 DF,  p-value: 0.005034</code></pre>
 <ul>
 <li>We don’t need any package at the moment, but you usually want to add some later while doing the analysis.</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-26_9de91e726e0e3da7155a2c3edb07d552">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="do">## READ IN DATA ####</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"code/01_cleaning.R"</span>)</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="do">## LOAD PACKAGES #####</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># [none currently needed]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-27_c2b9e79b426cce8b34a457c32e95c502">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## READ IN DATA ####</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"code/01_cleaning.R"</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="do">## LOAD PACKAGES #####</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># [none currently needed]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As before, we make a new data frame for statistics data:</p>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-27_157c500ddb1a9ae7dec74d1ced5909d4">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ORGANIZE DATA ####</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>data_stats <span class="ot">=</span> data_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-28_61f42fe9b73d364f97dd262b8de7e7a5">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ORGANIZE DATA ####</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>data_stats <span class="ot">=</span> data_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="continuous-predictor-year" class="level3" data-number="8.1">
 <h3 data-number="8.1" class="anchored" data-anchor-id="continuous-predictor-year"><span class="header-section-number">8.1</span> Continuous predictor: Year</h3>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-28_c5764b00b9fc06ad572eb22fa8596fef">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="do">## BUILD MODEL - PROPORTION OF 'PAGE'S BY YEAR (CONTINUOUS PREDICTOR) ####</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>year.lm <span class="ot">=</span> <span class="fu">lm</span>(prop_log10 <span class="sc">~</span> year, <span class="at">data =</span> data_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-29_91fc3197f66e3a050fb34ca94fc0b4e6">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="do">## BUILD MODEL - PROPORTION OF 'PAGE'S BY YEAR (CONTINUOUS PREDICTOR) ####</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>year.lm <span class="ot">=</span> <span class="fu">lm</span>(prop_log10 <span class="sc">~</span> year, <span class="at">data =</span> data_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Store the model in an object: <code>year.lm</code></li>
@@ -902,9 +913,9 @@ F-statistic: 7.971 on 1 and 338 DF,  p-value: 0.005034</code></pre>
 <li>The model itself is lm(prop_log10 ~ year), with prop_log10 as the dependent variable and year as the predictor.</li>
 <li>To look at the output, we call <code>summary()</code>:</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-29_2c07c3c0be4d6829714445c117e5a728">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>year.lm_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(year.lm)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>year.lm_sum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-30_9be154fb3a343bd407952cf3db172661">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>year.lm_sum <span class="ot">&lt;-</span> <span class="fu">summary</span>(year.lm)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>year.lm_sum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -931,9 +942,9 @@ F-statistic: 2.188 on 1 and 172 DF,  p-value: 0.1409</code></pre>
 <li>Effect of year not significant: t =1.48, p = 0.141</li>
 <li>We can look at the residuals with the call <code>resid()</code>. Here, I store them and then look at the fist values:</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-30_99303f73c358e6af82806f95a3a376b9">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>year.lm_resid <span class="ot">&lt;-</span> <span class="fu">resid</span>(year.lm_sum)</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(year.lm_resid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-31_aefddf1759bd0712f4720f2586ecda61">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>year.lm_resid <span class="ot">&lt;-</span> <span class="fu">resid</span>(year.lm_sum)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(year.lm_resid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          1           2           3           4           5           6 
 0.458328911 0.002919516 0.306492439 0.320914578 0.155653238 0.223908801 </code></pre>
@@ -945,12 +956,12 @@ F-statistic: 2.188 on 1 and 172 DF,  p-value: 0.1409</code></pre>
 <ul>
 <li>Copy your code just above from the regression with <code>year</code>, then change the predictor <code>year</code> to <code>sex</code>.</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-31_88b1247be25aef99e320015fca697a75">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="do">## BUILD MODEL - PROPORTION OF 'PAGE'S BY SEX (CATEGORICAL PREDICTOR) ####</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>sex.lm <span class="ot">=</span> <span class="fu">lm</span>(prop_log10 <span class="sc">~</span> sex, <span class="at">data =</span> data_stats)</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>sex.lm_sum <span class="ot">=</span> <span class="fu">summary</span>(sex.lm)</span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>sex.lm_sum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-32_62fa0610f341b49ef7b9bdd6f414f7be">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="do">## BUILD MODEL - PROPORTION OF 'PAGE'S BY SEX (CATEGORICAL PREDICTOR) ####</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>sex.lm <span class="ot">=</span> <span class="fu">lm</span>(prop_log10 <span class="sc">~</span> sex, <span class="at">data =</span> data_stats)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>sex.lm_sum <span class="ot">=</span> <span class="fu">summary</span>(sex.lm)</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>sex.lm_sum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1027,27 +1038,27 @@ load('lesson3_environment.RData')
 <li><p>Conclusions</p></li>
 <li><p>Now you can write something in each section. For example:</p></li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-32_be06c7008c93ede519a7f2d84dfeb4d2">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>We analysed how common the name "Page" was in the United States in between 1900 and</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="ss">2000. </span>We used data from the USA Social Security Administration on baby names. </span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>We used linear regression to analyse the change of the name over time, and the </span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>difference of the name's popularity between men and women. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-33_728e42539e856939c6f5febcd4a6630b">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>We analysed how common the name "Page" was in the United States in between 1900 and</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="ss">2000. </span>We used data from the USA Social Security Administration on baby names. </span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>We used linear regression to analyse the change of the name over time, and the </span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>difference of the name's popularity between men and women. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>In the Results sections, you can include the figures and model results by calling the objects within a code chunk:</li>
 </ul>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-33_18cef6f893e891b844bbc68e1a8f1b3d">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Results</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prevalence by Year</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>We built a linear model to test the effect of year on the proportion of people </span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>with the name "Page". Proportion was log base 10 transformed, because it was </span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>not normally distributed. </span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>There was no significant change in the popularity of the name over time. The</span>
-<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>positive coefficients indicates a slightly increasing slope over time. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-34_f45d6f71f0d5c785b90c1a930833a208">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Results</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prevalence by Year</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>We built a linear model to test the effect of year on the proportion of people </span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>with the name "Page". Proportion was log base 10 transformed, because it was </span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>not normally distributed. </span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>There was no significant change in the popularity of the name over time. The</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>positive coefficients indicates a slightly increasing slope over time. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <pre><code class="r">
 ```{r, echo=F}
@@ -1055,10 +1066,10 @@ year.plot
 year.lm_sum
 ```
 </code></pre>
-<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-34_4ac6f36b415ec91749e14be9ef39ee7c">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prevalence by Sex</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>The name is more popular among women then men. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Lesson3_cache/html/unnamed-chunk-35_9098ec2da176cea6f36d12009d3e04b5">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prevalence by Sex</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>The name is more popular among women then men. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <pre><code class="r">
 ```{r, echo=F}

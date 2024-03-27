@@ -309,10 +309,21 @@ year.plot
 
 -   To save the figure to a file, you can use `ggsave()` like in Lesson 2.
 
-    ```{r, eval = F}
-    # save the plot
-    ggsave('figures/scatterplot_proportion_year.pdf', dpi = 300)
-    ```
+```{r, eval = F}
+# save the plot
+ggsave('figures/scatterplot_proportion_year.pdf', dpi = 300)
+```
+
+Below, I have changed the figure above slightly by adding a separate colour for each sex: 
+
+```{r}
+plot.interaction <-  ggplot(data_figs, aes(x = year, y = prop_log10, colour = sex)) +
+            geom_point() +
+            geom_smooth(method="lm")
+plot.interaction
+```
+
+This shows a different trend over time for men and women: Page became more popular in women, less popular in men. This is called an interaction effect between sex and time. 
 
 ### Categorical predictor: Boxplot
 
