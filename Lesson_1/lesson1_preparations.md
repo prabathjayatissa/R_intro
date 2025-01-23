@@ -16,7 +16,7 @@
 
 -   Choose your operating system (Windows, MacOS etc)
 
--   Install
+-   Install the most recent release. 
 
     -   for Ubuntu: make sure the file is in your Downloads folder, then execute in your Terminal: sudo apt-get install \~/Downloads/rstudio-2024.12.0-467-amd64.deb
 
@@ -27,6 +27,8 @@
 ### 3. Configure Rstudio
 
 -   Under the **Tools** menu, go to **Global Options...** and uncheck the box that says **Restore .RData into workspace at startup**, and set this to **Never**.
+
 -   This ensures you always start with a clear workspace, instead of loading data from your last coding session.
+
 -   More explanations on why this is useful in section 1.3.3 [here](https://psyteachr.github.io/reprores-v3/intro.html).
 
