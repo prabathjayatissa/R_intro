@@ -18,10 +18,13 @@ This course will introduce you to coding your data analyses and data visualizati
 
 If you have had doubts if you'd be able to write code, but secretly have been wanting to for a long time, this course is for you. In my experience, it seems more challenging and less fun initially than it later turns out to be! Coming from a social science background myself, I want to help others jump over the barrier of self-doubts and make it easy for you to start writing your own code.
 
+## To do before the first session
+
+- [Preparation for Lesson 1](https://hannahmetzler.eu/R_intro/Lesson_1/lesson1_preparations.html)
+
 ## Course materials
 
 - [Introduction slides](https://hannahmetzler.eu/R_intro/Course_overview/Overview.html)
-- [Preparation for Lesson 1](https://github.com/hannahmetzler/R_intro/blob/main/Lesson_1/lesson1_preparations.md): Installing R and Rstudio. 
 - [Lesson 1](https://hannahmetzler.eu/R_intro/Lesson_1/Lesson1.html) (Download [Quarto file](/Lesson_1/Lesson1.qmd))
   - Basics of the Rstudio interface and coding
 - [Preparation for Lesson 2](https://hannahmetzler.eu/R_intro/Lesson_2/Install_Git_GitHub/Git_Github.html). Please follow this to setp up Git and GitHub before our next session.
