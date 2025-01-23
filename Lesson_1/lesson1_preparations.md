@@ -4,25 +4,25 @@
 
 -   **R** is the data analysis program we will use: <https://cran.rstudio.com/>
 
--   Click "Download R for macOS" (or Ubuntu/Windows), then:
+-   Click on Download R for [insert your operating system]. Then choose the latest release. If anything should be unclear, here are more detailed instructions: 
 
-    -   Windows: click on **base**, then [Download R-4.3.2 for Windows](https://cran.rstudio.com/bin/windows/base/R-4.3.2-win.exe), then install
-    -   For macOS 11 & higher: click on [R-4.3.2-arm64.pkg](https://cran.rstudio.com/bin/macosx/big-sur-arm64/base/R-4.3.2-arm64.pkg), for earlier versions: [R-4.3.2-x86_64.pkg](https://cran.rstudio.com/bin/macosx/big-sur-x86_64/base/R-4.3.2-x86_64.pkg), then install
-    -   Ubuntu: follow the provided instructions (copy each code line into your Bash Terminal (=Console) & press enter, enter your Laptop log in password when prompted
+    -   Windows: click on **base**, then [Download R-4.4.2 for Windows](https://cran.rstudio.com/bin/windows/base/R-4.4.2-win.exe), then install.
+    -   For macOS 11 & higher: click on [R-4.4.2-arm64.pkg](https://cran.rstudio.com/bin/macosx/big-sur-arm64/base/R-4.4.2-arm64.pkg), for earlier versions: [R-4.4.2-x86_64.pkg](https://cran.rstudio.com/bin/macosx/big-sur-x86_64/base/R-4.4.2-x86_64.pkg), then install
+    -   Ubuntu: follow the provided instructions (copy each code line into your Bash Terminal (=Console) & press enter, enter your Laptop log in password when prompted. 
 
 ### 2. Download and install Rstudio
 
 -   Rstudio is the visual interface: <https://posit.co/download/rstudio-desktop/>
 
--   Choose version: Windows10/11, macOS12+, Ubuntu20, Ubuntu22
+-   Choose your operating system (Windows, MacOS etc)
 
 -   Install
 
-    -   for Ubuntu: make sure the file is in your Downloads folder, then execute in your Terminal: sudo apt-get install \~/Downloads/RSTUDIO-2023.12.1-402-AMD64.DEB
+    -   for Ubuntu: make sure the file is in your Downloads folder, then execute in your Terminal: sudo apt-get install \~/Downloads/rstudio-2024.12.0-467-amd64.deb
 
 -   Open Rstudio to see if it worked.
 
--   If you have trouble installing, write to me at metzler[at]csh.ac.at before 12pm on Tuesday March 5th
+-   If you have trouble installing, write to me at metzler[at]csh.ac.at latest before January 30 noon. 
 
 ### 3. Configure Rstudio
 

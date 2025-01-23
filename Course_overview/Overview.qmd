@@ -2,7 +2,7 @@
 title: "Data analysis for beginners in R"
 subtitle: "Course overview"
 author: "Hannah Metzler"
-date: "March 6 2023"
+date: "January 31, 2025"
 format: revealjs
 editor: visual
 ---
@@ -26,8 +26,8 @@ editor: visual
 
 # Course overview
 
--   Wednesdays 10am-12pm: March 6, 13, 20 & 27, 2024
--   Time schedule: Break from 11h to 11h10
+-   January 31 & February 6, 13 & 20 2025,
+-   10am-12pm, short break from 11h to 11h10
 -   All materials: <https://hannahmetzler.eu/R_intro/> (or at the [Source](https://github.com/hannahmetzler/R_intro/) on Github)
 -   Lesson 1: Getting started
 -   Later lessons: Data visualizations, data wrangling, basic statistics
