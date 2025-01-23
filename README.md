@@ -2,7 +2,7 @@
 
 Expert Skills Training the LBG Career Center
 
-March 6, 13, 20 and 27, 2024, Wednesdays 10am-12pm
+January 31 & February 6, 13 & 20 2025, 10am-12pm, online
 
 ## Who am I?
 
